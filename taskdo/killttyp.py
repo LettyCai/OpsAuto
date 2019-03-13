@@ -17,10 +17,10 @@ class AnsibleRun():
     def run(self):
         loader = DataLoader()
         inventory = InventoryManager(loader=loader,sources=['/root/OpsAuto/conf/hostslist'])
-        host = inventory.get_host(hostname='127.0.0.2')
+        host = inventory.get_host(hostname='10.0.2.15')
         variablemanager = VariableManager(loader=loader,inventory=inventory)
         variablemanager.get_vars(host=host)
-        variablemanager.set_host_variable(host=host,varname='ansible_ssh_port',value='2222')
+        variablemanager.set_host_variable(host=host, varname='ansible_ssh_password', value='123456')
 
         Options = namedtuple('options', ['connection', 'module_path', 'forks', 'timeout', 'remote_user',
                                          'ask_pass', 'private_key_file', 'ssh_common_args', 'ssh_extra_args',
@@ -40,7 +40,7 @@ class AnsibleRun():
         hosts = inventory.get_hosts()
 
         play_source = dict(name="Ansible Play",
-                           hosts=['127.0.0.9'],
+                           hosts=['10.0.2.15'],
                            gather_facts='no',
                            tasks=[dict(action=dict(module='shell', args='ls -a'))])
 
@@ -50,7 +50,15 @@ class AnsibleRun():
                    # stdout_callback="minimal",
                 )
 
-        result = tqm.run()
+        result = tqm.run(play)
+        print(result)
+        
 
 
 
+def main():
+    ans = AnsibleRun()
+    AnsibleRun.run()
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -25,7 +25,7 @@ SECRET_KEY = '(7!n1&*)3($-f3nt=7jgzn&*--g@$ix_$6yuzr_z6zk6unimb&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -85,8 +85,8 @@ DATABASES = {
         'NAME': 'opsauto',
         'USER':'root',
         'PASSWORD':'123456',
-        'HOST':'127.0.0.9',
-        'PORT':'13306',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
     }
 }
 
