@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+        <div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                                <div class="card-header bg-light">
+                                        查询条件
+                                    </div>
+                                    
+                                    <div class="col-md-12">
+
+                                                <label>主机组</label>
+                                                <input value=" ">
+                                               <label>ip地址</label>
+                                               <input  value=" ">
+                                                    <button type="button" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                                                    <button type="button" class="btn btn-success " ><i class="fa fa-align-center"></i>AddHost</button>
+
+                                        </div>
+                                       <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+
+                            <div class="card-header bg-light">
+                                主机列表
+                            </div>
+    
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>主机名</th>
+                                            <th>IP地址</th>
+                                            <th>主机组</th>
+                                            <th>操作系统</th>
+                                            <th>状态</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for host in hosts %}
+                                        <tr>
+                                            <td>{{ host.hostname }}</td>
+                                            <td class="text-nowrap">{{ host.ip }}</td>
+                                            <td>{{ host.host_type }}</td>
+                                            <td>{{ host.system_ver }}</td>
+                                            <td>{{ host.mathine_type }}</td>
+                                            <td>
+                                                    <a href="host-detail.html" >
+                                                            <i class="icon icon-eye"></i> 查看
+                                                        </a>
+                                                        <a href="host-detail.html" >
+                                                                <i class="icon icon-pencil"></i> 修改
+                                                            </a>
+                                                            <a href="host-detail.html" >
+                                                                    <i class="icon icon-magnifier-remove"></i> 删除
+                                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+
+
+            </div>
+
+{% endblock %}

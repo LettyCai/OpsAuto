@@ -18,6 +18,7 @@ class HostsInfo(models.Model):
     sn_key = models.CharField(max_length=256, verbose_name=u"唯一设备ID", default="")
     host_type = models.CharField(max_length=256, verbose_name=u"虚拟机上宿主机的类型", default="", null=True)
 
+
     class Meta:
         verbose_name = u'主机信息表'
         verbose_name_plural = verbose_name

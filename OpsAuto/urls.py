@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from hostsinfo.views import HostInfoView
+from taskdo.views import KillTtypView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index/', HostInfoView.as_view(),name="hostinfo"),
+    path('killttyp/', KillTtypView.as_view(),name="killttyp"),
 ]

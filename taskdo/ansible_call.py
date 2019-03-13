@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""
+
 __author__ = 'clj'
 __date__ = '2019/3/12 15:24'
 from ansible.parsing.dataloader import DataLoader
@@ -23,7 +25,7 @@ class AnsibleRunner(object):
         pass
 
     def __initializeData(self):
-        """ 初始化ansible """
+        # 初始化ansible
         Options = namedtuple('options',['connection','module_path', 'forks', 'timeout',  'remote_user',
                 'ask_pass', 'private_key_file', 'ssh_common_args', 'ssh_extra_args', 'sftp_extra_args',
                 'scp_extra_args', 'become', 'become_method', 'become_user', 'ask_value_pass', 'verbosity',
@@ -42,11 +44,11 @@ class AnsibleRunner(object):
         self.variable_manager = myinvent.variable_manager
         
         def run_modle(self,host_list,module_name,module_args):
-            """
+            #
                     run module from andible ad-hoc.
                     module_name: ansible module_name
                     module_args: ansible module args
-            """
+            #
             play_source = dict( name="Ansible Play",
                 hosts=host_list,
                 gather_facts='no',
@@ -78,3 +80,4 @@ class AnsibleRunner(object):
                 if tqm is not None:
                     tqm.cleanup()
 
+"""

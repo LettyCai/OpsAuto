@@ -6,8 +6,7 @@ from .models import HostsInfo
 class HostInfoView(View):
     def get(self,request):
         hosts = HostsInfo.objects.all()
-
-        return render(request,"host-list.html",{'hosts':hosts})
+        return render(request,"hosts-list.html",{'hosts':hosts})
 
 
 class AddHostView(View):
