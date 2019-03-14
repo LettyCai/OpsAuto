@@ -15,10 +15,10 @@ from ansible.inventory.host import Host,Group
 from collections import namedtuple
 
 class MyInventory():
-    def __init__(self,resource,loader,variable_manager):
-        self.resource = resource
+    def __init__(self):
+        #self.resource = resource
         self.loader = DataLoader()
-        self.inventory = InventoryManager(loader=loader,sources=['/root/OpsAuto/conf/hostslist'])
+        self.inventory = InventoryManager(loader=self.loader,sources=['/root/OpsAuto/conf/hostslist'])
         self.variable_manager = VariableManager(loader=self.loader, inventory=self.inventory)
 
 
@@ -27,16 +27,16 @@ class AnsibleRunner(object):
         This is a General object for parallel execute modules.
         """
 
-    def __init__(self, redisKey=None, logId=None,*args, **kwargs):
+    def __init__(self,logId=None,*args, **kwargs):
         self.inventory = None
-        self.variable_manager = None
+        #self.variable_manager = None
         self.loader = None
         self.options = None
         self.passwords = None
         self.callback = None
         self.__initializeData()
         self.results_raw = {}
-        self.redisKey = redisKey
+        self.redisKey = None
         self.logId = logId
 
     def __initializeData(self):
@@ -54,11 +54,11 @@ class AnsibleRunner(object):
                 listtasks=False, listtags=False, syntax=False, diff=True)
 
         self.passwords = dict(sshpass=None, becomepass=None)
-        myinvent = MyInventory(self.resource, self.loader, self.variable_manager)
+        myinvent = MyInventory()
         self.inventory = myinvent.inventory
-        self.variable_manager = myinvent.variable_manager
+        #self.variable_manager = myinvent.variable_manager
         
-    def run_modle(self,host_list,module_name,module_args):
+    def run_modle(self,host_list,variable_manager,module_name,module_args):
         """
             run module from andible ad-hoc.
             module_name: ansible module_name
@@ -70,31 +70,38 @@ class AnsibleRunner(object):
             gather_facts='no',
             tasks=[dict(action=dict(module=module_name, args=module_args))])
 
-        play = Play().load(play_source, variable_manager=self.variable_manager, loader=self.loader)
-        tqm = None
+        play = Play().load(play_source, variable_manager=variable_manager, loader=self.loader)
+        #tqm = None
         # if self.redisKey:self.callback = ModelResultsCollectorToSave(self.redisKey,self.logId)
         # else:self.callback = ModelResultsCollector()
         self.callback = ModelResultsCollector()
         import traceback
-        try:
-            tqm = TaskQueueManager(
-                inventory=self.inventory,
-                variable_manager=self.variable_manager,
-                loader=self.loader,
-                options=self.options,
-                passwords=self.passwords,
-                stdout_callback="minimal",
-            )
-            tqm._stdout_callback = self.callback
-            #constants.HOST_KEY_CHECKING = False  # 关闭第一次使用ansible连接客户端时输入命令
-            tqm.run(play)
-        except Exception as err:
-            print(traceback.print_exc())
+        #try:
+        tqm = TaskQueueManager(
+            inventory=self.inventory,
+            variable_manager=variable_manager,
+            loader=self.loader,
+            options=self.options,
+            passwords=self.passwords,
+            stdout_callback=self.callback,
+        )
+        #constants.HOST_KEY_CHECKING = False  # 关闭第一次使用ansible连接客户端时输入命令
+        result = tqm.run(play)
+        result_raw = {'success': {}, 'failed': {}, 'unreachable': {}}
+        for host, result in callback.host_ok.items():
+            result_raw['success'][host] = result._result
+        for host, result in callback.host_failed.items():
+            result_raw['failed'][host] = result._result
+
+        print(result_raw)
+
+    #  except Exception as err:
+      #      print(traceback.print_exc())
             # DsRedis.OpsAnsibleModel.lpush(self.redisKey,data=err)
             # if self.logId:AnsibleSaveResult.Model.insert(self.logId, err)
-        finally:
-            if tqm is not None:
-                tqm.cleanup()
+      #  finally:
+      #      if tqm is not None:
+      #   tqm.cleanup()
 
 
 class ModelResultsCollector(CallbackBase):
