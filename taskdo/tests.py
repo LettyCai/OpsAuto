@@ -15,10 +15,10 @@ from collections import namedtuple
 
 loader = DataLoader()
 inventory = InventoryManager(loader=loader,sources=['/root/OpsAuto/conf/hostslist'])
-host = inventory.get_host(hostname='192.168.205.10')
+host = inventory.get_host(hostname='192.168.56.102')
 variablemanager = VariableManager(loader=loader,inventory=inventory)
 #variablemanager.get_vars(host=host)
-#variablemanager.set_host_variable(host=host, varname='ansible_ssh_pass', value='123456')
+variablemanager.set_host_variable(host=host, varname='ansible_ssh_pass', value='123456')
 
 Options = namedtuple('options', ['connection', 'module_path', 'forks', 'timeout', 'remote_user',
                                  'ask_pass', 'private_key_file', 'ssh_common_args', 'ssh_extra_args',
@@ -38,7 +38,7 @@ options = Options(connection='smart', module_path=None, forks=5, timeout=10,
 #hosts = inventory.get_hosts()
 
 play_source = dict(name="Ansible Play",
-                   hosts=['192.168.205.10'],
+                   hosts=['192.168.56.102'],
                    gather_facts='no',
                    tasks=[dict(action=dict(module='shell', args='touch /root/aaaaaaaaaa.txt')),
                           ]

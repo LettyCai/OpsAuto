@@ -1,2 +1,10 @@
 [test]
 192.168.205.10 ansible_ssh_user=root ansible_ssh_pass='123456'
+[test2]
+192.168.56.102
+[chuxu]
+192.168.205.10
+[baoxian]
+192.168.205.10
+[huidui]
+192.168.205.10
