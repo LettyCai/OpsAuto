@@ -1,4 +1,7 @@
 from Crypto.Cipher import AES
+import  paramiko
+import logging
+logger = logging.getLogger("django")
 
 class prpcrypt():
     def __init__(self):
@@ -32,3 +35,83 @@ class prpcrypt():
             cryptor = AES.new(bytes(self.key, encoding="utf8"), self.mode, b'0000000000000000')
             plain_text = cryptor.decrypt(a2b_hex(text))
             return plain_text
+
+class J_do(object):
+
+    def __init__(self):
+        self.result = {"info": info}
+
+    def pass_do(self,login_info,cmd_list=""):
+        '''
+        用户密码方式登录
+        :param login_info:登录的信息，如：('192.168.6.11', 22, 'root', '123')
+        :param cmd_list:登录机器后，需要执行的命令
+        :return:
+        '''
+        try:
+            ssh = paramiko.SSHClient()
+            #允许连接不在Knowhosts文件中的主机
+            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            #连接服务器
+            ssh.connect(hostname=login_info[0],port=login_info[1],username=login_info[2],password=login_info[3],timeout=3)
+            self.result["status"] = "success"
+            for cmd in cmd_list:
+                stdin,stdout,stderr = ssh.exec_command(cmd,timeout=10)
+                std_res = stdout.read()
+                self.result[cmd] = std_res
+        except Exception as e:
+            print(logger.exception("Use passwd ssh login exception:%s,%s" % (e, login_info)))
+            self.result["status"] = "failed"
+            self.result["res"] = str(e)
+        return self.result
+
+
+class NmapDev(object):
+    '''
+    扫描类：扫描获取指定网段主机等对象信息
+    '''
+
+    def try_login(self, sship_list, password_list, syscmd_list):
+        '''
+        尝试ssh用户密码登录，获取机器基本信息
+        :param sship_list:
+        :param password_list:
+        :param syscmd_list:
+        :return:
+        '''
+        password_list = password_list
+        syscmd_list = syscmd_list
+        if isinstance(sship_list, dict):
+            ssh_tuple_list = [(ip, port) for ip, port in sship_list.items()]
+        elif isinstance(sship_list, list):
+            ssh_tuple_list = sship_list
+        for ip, port in ssh_tuple_list:
+            system_info = ""
+            for password in password_list:
+                if ip not in self.can_login_lst.keys():
+                    login_info = (ip, int(port), 'root', password)
+                    doobj = J_ssh_do(login_info)
+                    res = doobj.pass_do(login_info, syscmd_list)
+                    if res["status"] == "success":
+                        if ip in self.not_login_lst:
+                            self.not_login_lst.pop(ip)
+                        sys_hostname = res["hostname"]
+                        sys_mac = mac_trans(
+                            res["cat /sys/class/net/[^vtlsb]*/address||esxcfg-vmknic -l|awk '{print $8}'|grep ':'"])
+                        sys_sn = sn_trans(res["dmidecode -s system-serial-number"])
+                        system_info = getsysversion([res["cat /etc/issue"], res["cat /etc/redhat-release"]])
+                        machine_type = machine_type_trans(
+                            res["dmidecode -s system-manufacturer"] + res["dmidecode -s system-product-name"])
+                        print("ssh login and exec command:%s", res)
+                        logger.info("ssh login and exec command:%s", res)
+                        self.can_login_lst[ip] = (
+                        port, password, 'root', system_info, sys_hostname, sys_mac, sys_sn, machine_type)
+                    elif res["status"] == "failed" and re.search(r"reading SSH protocol banner", res["res"]):
+                        # print "res res..........................",res['res']
+                        print("IP:%s Connection closed by remote host,Sleep 60 (s).................. " % ip, res)
+                        time.sleep(60)
+                    else:
+                        if ip not in self.not_login_lst.keys() and ip not in self.can_login_lst.keys():
+                            self.not_login_lst[ip] = port
+                        # print ip,port,password,traceback.print_exc()
+        return self.can_login_lst, self.not_login_lst

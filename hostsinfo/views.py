@@ -23,3 +23,7 @@ class AddHostView(View):
     def get(self,request):
 
         return render(request,"add-host.html")
+
+class CollectHostView(View):
+    def post(self,request):
+        pass
