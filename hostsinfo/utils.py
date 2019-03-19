@@ -1,6 +1,7 @@
 from Crypto.Cipher import AES
 import  paramiko
 import logging
+import yaml
 logger = logging.getLogger("django")
 
 class prpcrypt():
@@ -115,3 +116,45 @@ class NmapDev(object):
                             self.not_login_lst[ip] = port
                         # print ip,port,password,traceback.print_exc()
         return self.can_login_lst, self.not_login_lst
+
+class NMAPCollection():
+
+    def collection(self,ip,password):
+        # 实例化paramiko类
+        jssh = paramiko.SSHClient()
+        #s_conf = yaml.load(open('hostsinfo.yaml'))
+        #s_cmds = s_conf['hostsinfo']['syscmd_list']
+        #print(s_cmds)
+        # 默认添加至knowhosts文件
+        jssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        # 配置连接
+        jssh.connect(hostname=ip, port=22, username='root', password=password)
+        result = {}
+        """
+        for cmd in s_cmds:
+            stdin, stdout, stderr = jssh.exec_command(cmd, timeout=10)
+            std_res = stdout.read()
+            print(std_res)
+            result[cmd] = std_res
+        print(result)
+        """
+
+        #获取操作系统版本号
+        stdin, stdout, stderr = jssh.exec_command('cat /etc/issue', timeout=10)
+        result['sys_version'] = stdout.read()
+        #获取主机名
+        stdin, stdout, stderr = jssh.exec_command('hostname', timeout=10)
+        result['host_name'] = stdout.read()
+        #获取mac地址
+        stdin, stdout, stderr = jssh.exec_command('cat /sys/class/net/[^vtlsb]*/address', timeout=10)
+        result['host_mac'] = stdout.read()
+        # 获取序列号
+        stdin, stdout, stderr = jssh.exec_command('dmidecode -s system-serial-number', timeout=10)
+        result['serial_number'] = stdout.read()
+        # 获取产品类型
+        stdin, stdout, stderr = jssh.exec_command('dmidecode -s system-product-name', timeout=10)
+        result['product-name'] = stdout.read()
+
+        print(result)
+
+        return result

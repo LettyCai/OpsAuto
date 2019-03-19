@@ -1,36 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-        <div class="content">
-            <div class="container-fluid">
-
-                <div class="row">
-
-                    <div class="col-md-8">
+                    <div class="col-md-10">
                         <div class="card">
-
-
                             <div class="card-header bg-light">
                                 主机信息
                             </div>
-                            <form action="/login/" method="post" autocomplete="off">
+                            <form action="/collecthost/" method="post" autocomplete="off">
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped">
-                                        <thead>
                                         <tr>
-                                            <th>IP地址</th>
-                                            <th> <input class="form-control" name="host_ip" value=" "></th>
-
+                                            <td>IP地址</td>
+                                            <td>
+                                                <input class="form-control" name="ip" value="">
+                                            </td>
                                         </tr>
-                                        </thead>
-                                        <tbody>
                                         <tr>
                                             <td>密码</td>
-                                            <td class="text-nowrap"><input type="password" class="form-control" name="pass_word" value=" "></td>
+                                            <td class="text-nowrap">
+                                                <input type="password" class="form-control" name="password" value="">
+                                            </td>
 
-                                        </tr>
-                                        <tr>
-                                           
                                         </tr>
                                         <tr>
                                             <td>所属系统</td>
@@ -39,33 +29,46 @@
                                         </tr>
                                         <tr>
                                             <td>主机类型</td>
-                                            <td class="text-nowrap">虚拟机</td>
+                                            <td class="text-nowrap"></td>
 
                                         </tr>
                                         <tr>
                                             <td>操作系统版本号</td>
-                                            <td class="text-nowrap">red-flag as4</td>
+                                            <td class="text-nowrap">
+                                                <input type="text" class="form-control" id="sys_version" value="{{res.sys_version}}"/>
+                                            </td>
 
                                         </tr>
                                         <tr>
-                                            <td>CPU型号</td>
-                                            <td class="text-nowrap">Google Nexus 6</td>
+                                            <td>主机名</td>
+                                            <td class="text-nowrap">
+                                                <input type="text" class="form-control" id="host_name" value="{{res.host_name}}"/>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td><button type="button" class="btn btn-primary"><i class="fa fa-search"></i> Collection </button> </td>
+                                            <td>mac地址</td>
+                                            <td class="text-nowrap">
+                                            <input type="text" class="form-control" id="host_mac" value="{{res.host_mac}}"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>序列号</td>
+                                            <td class="text-nowrap">
+                                            <input type="text" class="form-control" id="serial_number" value="{{res.serial_number}}"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Collection </button> </td>
                                             <td><button type="button" class="btn btn-primary"><i class="fa fa-align-center"></i>&nbsp;AddHost </button></td>
                                         </tr>
 
-                                        </tbody>
                                     </table>
                                 </div>
                             </div>
+                            {% csrf_token %}
                             </form>
                         </div>
                     </div>
                 </div>
 
-
-            </div>
-        </div>
 {% endblock %}

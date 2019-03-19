@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from .models import HostsInfo
-from .utils import prpcrypt
+from .utils import prpcrypt,NMAPCollection
 
 # Create your views here.
 class HostInfoView(View):
@@ -26,4 +26,10 @@ class AddHostView(View):
 
 class CollectHostView(View):
     def post(self,request):
-        pass
+        host_ip = request.POST.get('ip',"")
+        host_password = request.POST.get('password',"")
+        nm = NMAPCollection()
+        result = nm.collection(host_ip,host_password)
+        print(result)
+        return render(request,"add-host.html",{'res':result})
+
