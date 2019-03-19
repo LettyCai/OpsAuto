@@ -5,23 +5,32 @@
                             <div class="card-header bg-light">
                                 主机信息
                             </div>
-                            <form action="/collecthost/" method="post" autocomplete="off">
+
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped">
+                                         <form action="/collecthost/" method="post" autocomplete="off">
                                         <tr>
                                             <td>IP地址</td>
                                             <td>
-                                                <input class="form-control" name="ip" value="">
+                                                <input class="form-control" value="192.168.205.10" name="ip" value="">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>密码</td>
                                             <td class="text-nowrap">
-                                                <input type="password" class="form-control" name="password" value="">
+                                                <input type="password" class="form-control" value="123456" name="password" value="">
+                                                <br>
+                                                <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> Collection </button>
                                             </td>
 
                                         </tr>
+
+                                         {% csrf_token %}
+                                         </form>
+                                        <form action="/addhost/" method="post" autocomplete="off">
+                                            <input type="hidden" class="form-control" name="host_ip" value={{res.host_ip}}>
+                                            <input type="hidden" class="form-control" name="host_pass" value={{res.host_pass}}>
                                         <tr>
                                             <td>所属系统</td>
                                             <td class="text-nowrap">代理保险</td>
@@ -29,7 +38,10 @@
                                         </tr>
                                         <tr>
                                             <td>主机类型</td>
-                                            <td class="text-nowrap"></td>
+                                            <td class="text-nowrap">
+                                                <input type="text" class="form-control" id="product_name" value="{{res.product_name}}"/>
+
+                                            </td>
 
                                         </tr>
                                         <tr>
@@ -58,17 +70,18 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Collection </button> </td>
-                                            <td><button type="button" class="btn btn-primary"><i class="fa fa-align-center"></i>&nbsp;AddHost </button></td>
+                                            <td></td>
+                                            <td><button type="submit" class="btn btn-primary"><i class="fa fa-align-center"></i>&nbsp;AddHost </button></td>
                                         </tr>
-
+                                     {% csrf_token %}
+                                </form>
                                     </table>
                                 </div>
                             </div>
-                            {% csrf_token %}
-                            </form>
+
                         </div>
                     </div>
                 </div>
 
 {% endblock %}
+

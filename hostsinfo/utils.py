@@ -2,6 +2,8 @@ from Crypto.Cipher import AES
 import  paramiko
 import logging
 import yaml
+import re
+from binascii import b2a_hex, a2b_hex
 logger = logging.getLogger("django")
 
 class prpcrypt():
@@ -14,28 +16,28 @@ class prpcrypt():
 
         # 加密函数，如果text不足18位就用空格补足为18位，
         # 如果大于16当时不是18的倍数，那就补足为18的倍数。
-        def encrypt(self, text):
-            cryptor = AES.new(bytes(self.key, "utf8"), self.mode, b'0000000000000000')
+    def encrypt(self, text):
+        cryptor = AES.new(bytes(self.key, "utf8"), self.mode, b'0000000000000000')
 
-            length = 16
-            count = len(text)
-            if count < length:
-                add = (length - count)
-                # \0 backspace
-                text = text + ('\0' * add)
-            elif count > length:
-                add = (length - (count % length))
-                text = text + ('\0' * add)
-            self.ciphertext = cryptor.encrypt(bytes(text, "utf8"))
-            # 因为AES加密时候得到的字符串不一定是ascii字符集的，输出到终端或者保存时候可能存在问题
-            # 所以这里统一把加密后的字符串转化为16进制字符串
-            return b2a_hex(self.ciphertext)
+        length = 16
+        count = len(text)
+        if count < length:
+            add = (length - count)
+            # \0 backspace
+            text = text + ('\0' * add)
+        elif count > length:
+            add = (length - (count % length))
+            text = text + ('\0' * add)
+        self.ciphertext = cryptor.encrypt(bytes(text, "utf8"))
+        # 因为AES加密时候得到的字符串不一定是ascii字符集的，输出到终端或者保存时候可能存在问题
+        # 所以这里统一把加密后的字符串转化为16进制字符串
+        return b2a_hex(self.ciphertext)
 
         # 解密后，去掉补足的空格用strip() 去掉
-        def decrypt(self, text):
-            cryptor = AES.new(bytes(self.key, encoding="utf8"), self.mode, b'0000000000000000')
-            plain_text = cryptor.decrypt(a2b_hex(text))
-            return plain_text
+    def decrypt(self, text):
+        cryptor = AES.new(bytes(self.key, encoding="utf8"), self.mode, b'0000000000000000')
+        plain_text = cryptor.decrypt(a2b_hex(text))
+        return plain_text
 
 class J_do(object):
 
@@ -122,7 +124,7 @@ class NMAPCollection():
     def collection(self,ip,password):
         # 实例化paramiko类
         jssh = paramiko.SSHClient()
-        #s_conf = yaml.load(open('hostsinfo.yaml'))
+        #s_conf = yaml.load(open('/hostsinfo/hostsinfo.yaml'))
         #s_cmds = s_conf['hostsinfo']['syscmd_list']
         #print(s_cmds)
         # 默认添加至knowhosts文件
@@ -134,27 +136,56 @@ class NMAPCollection():
         for cmd in s_cmds:
             stdin, stdout, stderr = jssh.exec_command(cmd, timeout=10)
             std_res = stdout.read()
-            print(std_res)
             result[cmd] = std_res
-        print(result)
+
+        sys_mac = mac_trans(res["cat /sys/class/net/[^vtlsb]*/address||esxcfg-vmknic -l|awk '{print $8}'|grep ':'"])
+        print(sys_mac)
+        print('#############')
         """
 
         #获取操作系统版本号
-        stdin, stdout, stderr = jssh.exec_command('cat /etc/issue', timeout=10)
-        result['sys_version'] = stdout.read()
+        stdin, stdout, stderr = jssh.exec_command('cat /etc/redhat-release', timeout=10)
+        sys_version = str(stdout.read())
+        sys_version = sys_version.strip("b'")
+        sys_version = sys_version.strip(r'\n')
+        result['sys_version'] = sys_version
         #获取主机名
         stdin, stdout, stderr = jssh.exec_command('hostname', timeout=10)
-        result['host_name'] = stdout.read()
+        host_name = str(stdout.read())
+        result['host_name'] = self.trans(host_name)
         #获取mac地址
         stdin, stdout, stderr = jssh.exec_command('cat /sys/class/net/[^vtlsb]*/address', timeout=10)
-        result['host_mac'] = stdout.read()
+        mac = str(stdout.read())
+        mac = self.trans(mac)
+        result['host_mac'] = mac
         # 获取序列号
         stdin, stdout, stderr = jssh.exec_command('dmidecode -s system-serial-number', timeout=10)
-        result['serial_number'] = stdout.read()
+        result['serial_number'] = self.trans(str(stdout.read()))
         # 获取产品类型
         stdin, stdout, stderr = jssh.exec_command('dmidecode -s system-product-name', timeout=10)
-        result['product-name'] = stdout.read()
+        result['product_name'] = self.trans(str(stdout.read()))
 
         print(result)
 
         return result
+
+    def mac_trans(self,mac):
+        '''
+            转化mac地址，将传递到mac进行数据格式的转换
+            :param mac:
+            :return:
+            '''
+        if mac:
+            mac_lst = mac.split("\n")
+            for item in mac_lst:
+                item.replace(b":",b'').replace(b"000000000000", b'').replace(b"00000000", b'')
+                mac_res.append(item)
+            mac_string = b"_".join(mac_res)
+            return mac_string
+        else:
+            return ""
+
+    def trans(self,str):
+        str = str.strip("b'")
+        str = str.strip(r'\n')
+        return str
