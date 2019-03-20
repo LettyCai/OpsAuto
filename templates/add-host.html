@@ -9,11 +9,11 @@
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped">
-                                         <form action="/collecthost/" method="post" autocomplete="off">
+                                         <form id="collectform" action="/collecthost/" method="post" autocomplete="off">
                                         <tr>
                                             <td>IP地址</td>
                                             <td>
-                                                <input class="form-control" value="192.168.205.10" name="ip" value="">
+                                                <input class="form-control" value="192.168.56.102" name="ip" value="">
                                             </td>
                                         </tr>
                                         <tr>
@@ -25,12 +25,11 @@
                                             </td>
 
                                         </tr>
-
                                          {% csrf_token %}
                                          </form>
-                                        <form action="/addhost/" method="post" autocomplete="off">
-                                            <input type="hidden" class="form-control" name="host_ip" value={{res.host_ip}}>
-                                            <input type="hidden" class="form-control" name="host_pass" value={{res.host_pass}}>
+                                        <form id="addform" action="/addhost/" method="post" autocomplete="off">
+                                            <input type="hidden" class="form-control" name="ip" value="{{res.host_ip}}">
+                                            <input type="hidden" class="form-control" name="ssh_passwd" value="{{res.host_pass}}">
                                         <tr>
                                             <td>所属系统</td>
                                             <td class="text-nowrap">代理保险</td>
@@ -39,7 +38,7 @@
                                         <tr>
                                             <td>主机类型</td>
                                             <td class="text-nowrap">
-                                                <input type="text" class="form-control" id="product_name" value="{{res.product_name}}"/>
+                                                <input type="text" class="form-control" name="host_type" value="{{res.product_name}}">
 
                                             </td>
 
@@ -47,26 +46,26 @@
                                         <tr>
                                             <td>操作系统版本号</td>
                                             <td class="text-nowrap">
-                                                <input type="text" class="form-control" id="sys_version" value="{{res.sys_version}}"/>
+                                                <input type="text" class="form-control" name="system_ver" value="{{res.sys_version}}">
                                             </td>
 
                                         </tr>
                                         <tr>
                                             <td>主机名</td>
                                             <td class="text-nowrap">
-                                                <input type="text" class="form-control" id="host_name" value="{{res.host_name}}"/>
+                                                <input type="text" class="form-control" name="hostname" value="{{res.host_name}}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>mac地址</td>
                                             <td class="text-nowrap">
-                                            <input type="text" class="form-control" id="host_mac" value="{{res.host_mac}}"/>
+                                            <input type="text" class="form-control" name="mac_address" value="{{res.host_mac}}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>序列号</td>
                                             <td class="text-nowrap">
-                                            <input type="text" class="form-control" id="serial_number" value="{{res.serial_number}}"/>
+                                            <input type="text" class="form-control" name="sn_key" value="{{res.serial_number}}">
                                             </td>
                                         </tr>
                                         <tr>
@@ -84,4 +83,3 @@
                 </div>
 
 {% endblock %}
-

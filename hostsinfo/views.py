@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from .models import HostsInfo
 from .utils import prpcrypt,NMAPCollection
+from .forms import HostInfoForm
 
 # Create your views here.
 class HostInfoView(View):
@@ -12,27 +13,39 @@ class HostInfoView(View):
 
 class AddHostView(View):
     def post(self,request):
+        host_form = HostInfoForm(request.POST)
+
         host = HostsInfo()
 
-        password = request.POST.get('host_pass',"")
+        host.ip = request.POST.get('ip',"")
+        host.ssh_passwd =request.POST.get('ssh_passwd',"")
+        host.host_type = request.POST.get('host_type',"")
+        host.system_ver = request.POST.get('system_ver',"")
+        host.hostname = request.POST.get('hostname',"")
+        host.mac_address = request.POST.get('mac_address',"")
+        host.sn_key = request.POST.get('sn_key',"")
 
-        print("password============")
-        print(password)
-        prp = prpcrypt()
-        password = prp.decrypt(password)
-        print("password============")
-        print(password)
+        print(host)
 
+        host.save()
+
+        """
+        if host_form.is_valid():
+            host_form.save()
+        else:
+            return render(request, "500.html", {"status": "fail"}) 
+        """
         #prp = prpcrypt()
         #host.password = prp.encrypt(password)
+        return render(request,"add-host.html",{"status":"success"})
 
-        return render(request,"add-host.html")
 
     def get(self,request):
 
         return render(request,"add-host.html")
 
 class CollectHostView(View):
+
     def post(self,request):
         host_ip = request.POST.get('ip',"")
         host_password = request.POST.get('password',"")
@@ -42,5 +55,6 @@ class CollectHostView(View):
         result['host_pass'] = prp.encrypt(host_password)
         result['host_ip'] = host_ip
         print(result)
+
         return render(request,"add-host.html",{'res':result})
 

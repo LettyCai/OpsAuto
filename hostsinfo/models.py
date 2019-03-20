@@ -12,10 +12,10 @@ class HostsInfo(models.Model):
     rsa_pass = models.CharField(max_length=64, null=True, verbose_name=u"私钥的密钥", default="")
     system_ver = models.CharField(max_length=256, null=True, verbose_name=u"操作系统版本", default="")
     hostname = models.CharField(max_length=256, null=True, verbose_name=u"操作系统主机名", default="")
-    mac_address = models.CharField(max_length=512, verbose_name=u"mac地址列表", default="")
-    sn = models.CharField(max_length=256, verbose_name=u"SN－主机的唯一标示", default="")
-    mathine_type = models.CharField(max_length=256, verbose_name=u"机器的类型 1=物理服务器,2=虚拟资产,3=网络设备 0=其他类型(未知)", default="")
-    sn_key = models.CharField(max_length=256, verbose_name=u"唯一设备ID", default="")
+    mac_address = models.CharField(max_length=512, null=True,verbose_name=u"mac地址列表", default="")
+    sn = models.CharField(max_length=256,null=True, verbose_name=u"SN－主机的唯一标示", default="")
+    mathine_type = models.CharField(max_length=256, null=True,verbose_name=u"机器的类型 1=物理服务器,2=虚拟资产,3=网络设备 0=其他类型(未知)", default="")
+    sn_key = models.CharField(max_length=256, null=True,verbose_name=u"唯一设备ID", default="")
     host_type = models.CharField(max_length=256, verbose_name=u"虚拟机上宿主机的类型", default="", null=True)
 
 
