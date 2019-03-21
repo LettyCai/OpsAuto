@@ -27,7 +27,15 @@ class AddHostView(View):
 
         print(host)
 
-        host.save()
+        has_host = HostsInfo.objects.filter(ip=host.ip)
+
+        print(has_host)
+
+        if has_host:
+            return render(request,"500.html",{"status":"failed","error":"the host has added!"})
+        else:
+            host.save()
+            return render(request, "add-host.html", {"status": "success"})
 
         """
         if host_form.is_valid():
@@ -37,7 +45,7 @@ class AddHostView(View):
         """
         #prp = prpcrypt()
         #host.password = prp.encrypt(password)
-        return render(request,"add-host.html",{"status":"success"})
+
 
 
     def get(self,request):
