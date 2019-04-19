@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from django.views import View
 from taskdo.ansible_call import AnsibleRunner
+from taskdo import killttyp
 # Create your views here.
 class TaskDoView(View):
     def post(self,request):
@@ -9,6 +10,7 @@ class TaskDoView(View):
 
 class KillTtypView(View):
     def get(self,request):
+        result = {}
         return render(request,"kill-ttyp.html",{'result':result})
 
     def post(self,request):
@@ -16,9 +18,12 @@ class KillTtypView(View):
         ttyp = request.POST.get('ttyp',"")
 
 
-        inventory = MyInventory()
-        variablemanager = VariableManager(loader=loader, inventory=inventory)
+        #inventory = MyInventory()
+        #ariablemanager = VariableManager(loader=loader, inventory=inventory)
 
+        killttyp.kill_ttyp(type=type,ttyp=ttyp)
+
+        """
         if type == "chuxu" :
             hosts = inventory.get_hosts(group='chuxu')
             args = ''
@@ -32,9 +37,11 @@ class KillTtypView(View):
             hosts = inventory.get_hosts(group='huidui')
             args = ''
             passwords = ''
-        #if hosts :
-         #   ans = AnsibleRun(variablemanager=variablemanager)
-        #    result = ans.run_modle(self,hosts,'shell',args+ttyp)
+        if hosts :
+            ans = AnsibleRun(variablemanager=variablemanager)
+            result = ans.run_modle(self,hosts,'shell',args+ttyp)
+            """
+        result = {}
 
         return render(request,"kill-ttyp.html",{'result':result})
 

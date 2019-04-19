@@ -12,11 +12,17 @@
                                     <div class="col-md-8">
 
                                                 <label>业务系统</label>
-                                                <input class="form-control" name="type" value=" ">
+
+                                        <select name="type" class="form-control">
+                                          <option value="chuxu">储蓄</option>
+                                          <option value="huidui">汇兑</option>
+                                          <option value="baoxian">保险</option>
+                                        </select>
+                                        <br>
                                                <label>ttyp号</label>
-                                               <input  class="form-control" name="ttype" value=" ">
-                                  <br>
-                                                    <button type="button" class="btn btn-success " ><i class="fa fa-align-center"></i>Kill</button>
+                                               <input  class="form-control" name="ttyp" value=" "><br>
+
+                                                    <button type="submit" class="btn btn-success " ><i class="fa fa-align-center"></i>Kill</button>
 
                                         </div>
                                        {% csrf_token %}
@@ -35,7 +41,6 @@
 
                                         <div class="col-md-4">
                                             结果：{{result}}
-
 
                                             </div>
 

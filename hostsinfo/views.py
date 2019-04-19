@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from .models import HostsInfo
+from .models import HostsInfo,HostGroup
 from .utils import prpcrypt,NMAPCollection
 from .forms import HostInfoForm
 
@@ -24,6 +24,8 @@ class AddHostView(View):
         host.hostname = request.POST.get('hostname',"")
         host.mac_address = request.POST.get('mac_address',"")
         host.sn_key = request.POST.get('sn_key',"")
+
+        print("*" * 20 + host.ssh_passwd + "*" * 10)
 
         print(host)
 
@@ -60,9 +62,17 @@ class CollectHostView(View):
         nm = NMAPCollection()
         result = nm.collection(host_ip,host_password)
         prp = prpcrypt()
-        result['host_pass'] = prp.encrypt(host_password)
+        result['host_pass'] = prp.encrypt(host_password).decode(encoding='UTF-8',errors='strict')
         result['host_ip'] = host_ip
-        print(result)
+        #print(result)
 
         return render(request,"add-host.html",{'res':result})
 
+class GroupListView(View):
+    def get(self,request):
+        groups = HostGroup.objects.all()
+        return render(request,"group-list.html",{'groups':groups})
+
+class AddGroupView(View):
+    def get(self,request):
+        return render(request,"add-group.html")

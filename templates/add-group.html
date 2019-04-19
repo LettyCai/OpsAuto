@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+                    <div class="col-md-10">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                添加主机组
+                            </div>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                         <form id="collectform" action="/addgroup/" method="post" autocomplete="off">
+                                        <tr>
+                                            <td>主机组名</td>
+                                            <td>
+                                                <input class="form-control" name="group_name" value="">
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td>所属网络</td>
+                                            <td>
+                                                <input class="form-control"  name="group_network" value="">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>主机组描述</td>
+                                            <td class="text-nowrap">
+                                                <input class="form-control"  name="group_detail" value="">
+                                            </td>
+
+                                        </tr>
+                                             <tr>
+                                                 <td></td>
+                                                 <td>
+                                                 <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> Add-Grop </button>
+                                                 </td>
+                                             </tr>
+                                         {% csrf_token %}
+                                         </form>
+
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+{% endblock %}

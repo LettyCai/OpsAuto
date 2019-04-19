@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from hostsinfo.views import HostInfoView,AddHostView,CollectHostView
+from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView
 from taskdo.views import KillTtypView
 
 urlpatterns = [
@@ -24,4 +24,6 @@ urlpatterns = [
     path('killttyp/', KillTtypView.as_view(),name="killttyp"),
     path('addhost/', AddHostView.as_view(),name="addhost"),
     path('collecthost/', CollectHostView.as_view(),name="collecthost"),
+    path('addgroup/', AddGroupView.as_view(),name="addgroup"),
+    path('grouplist/', GroupListView.as_view(),name="grouplist"),
 ]

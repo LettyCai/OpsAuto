@@ -27,6 +27,8 @@ class HostsInfo(models.Model):
 class HostGroup(models.Model):
     group_name = models.CharField(max_length=20,verbose_name=u"主机组名")
     group_detail = models.CharField(max_length=200,verbose_name=u"分组描述")
+    network = models.CharField(max_length=200,verbose_name=u"网络")
+    host_num = models.CharField(max_length=200,verbose_name=u"主机数")
 
     class Meta:
         verbose_name = u'主机组'
