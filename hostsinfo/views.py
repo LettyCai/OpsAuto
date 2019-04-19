@@ -76,3 +76,20 @@ class GroupListView(View):
 class AddGroupView(View):
     def get(self,request):
         return render(request,"add-group.html")
+
+    def post(self,request):
+        group = HostGroup()
+
+        group.group_name = request.POST.get('group_name',"")
+        group.group_detail = request.POST.get('group_detail',"")
+        group.network = request.POST.get('group_network',"")
+
+        print(group.group_name)
+
+        has_group = HostGroup.objects.filter(group_name =group.group_name)
+
+        if has_group:
+            return render(request,"500.html",{"status":"failed","error":"the group has added!"})
+        else:
+            group.save()
+            return render(request, "group-list.html", {"status": "success"})

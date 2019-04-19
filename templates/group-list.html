@@ -29,10 +29,11 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        {% for group in groups %}
                                         <tr>
-                                            <td>1</td>
-                                            <td class="text-nowrap">Samsung Galaxy S8</td>
-                                            <td>31,589</td>
+                                            <td>{{group.group_name}}</td>
+                                            <td class="text-nowrap">{{group.group_detail}}</td>
+                                            <td>{{group.network}}</td>
                                             <td>$800</td>
                                              <td>
                                                  <a href="host-detail.html" >
@@ -46,6 +47,7 @@
                                                  </a>
                                             </td>
                                         </tr>
+                                        {% endfor %}
                                         <tr>
                                        <form id="collectform" action="/addgroup/" method="post" autocomplete="off">
                                        <button type="submit" class="btn btn-success " ><i class="fa fa-align-center"></i>AddGroup</button><br>

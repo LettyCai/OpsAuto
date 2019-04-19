@@ -25,10 +25,10 @@ class HostsInfo(models.Model):
         db_table = "hostinfo"
 
 class HostGroup(models.Model):
-    group_name = models.CharField(max_length=20,verbose_name=u"主机组名")
-    group_detail = models.CharField(max_length=200,verbose_name=u"分组描述")
-    network = models.CharField(max_length=200,verbose_name=u"网络")
-    host_num = models.CharField(max_length=200,verbose_name=u"主机数")
+    group_name = models.CharField(max_length=20,verbose_name=u"主机组名",null=True)
+    group_detail = models.CharField(max_length=200,verbose_name=u"分组描述",null=True)
+    network = models.CharField(max_length=200,verbose_name=u"网络",null=True)
+    host_num = models.CharField(max_length=200,verbose_name=u"主机数",null=True)
 
     class Meta:
         verbose_name = u'主机组'
