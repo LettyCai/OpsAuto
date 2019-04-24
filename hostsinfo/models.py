@@ -1,6 +1,17 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
+class HostGroup(models.Model):
+    group_name = models.CharField(max_length=20,verbose_name=u"主机组名",null=True)
+    group_detail = models.CharField(max_length=200,verbose_name=u"分组描述",null=True)
+    network = models.CharField(max_length=200,verbose_name=u"网络",null=True)
+    host_num = models.CharField(max_length=200,verbose_name=u"主机数",null=True)
+
+    class Meta:
+        verbose_name = u'主机组'
+        verbose_name_plural = verbose_name
+        db_table = 'hostgroup'
+
 # Create your models here.
 #主机信息表
 class HostsInfo(models.Model):
@@ -17,6 +28,7 @@ class HostsInfo(models.Model):
     mathine_type = models.CharField(max_length=256, null=True,verbose_name=u"机器的类型 1=物理服务器,2=虚拟资产,3=网络设备 0=其他类型(未知)", default="")
     sn_key = models.CharField(max_length=256, null=True,verbose_name=u"唯一设备ID", default="")
     host_type = models.CharField(max_length=256, verbose_name=u"虚拟机上宿主机的类型", default="", null=True)
+    host_group = models.ManyToManyField(HostGroup)
 
 
     class Meta:
@@ -24,17 +36,7 @@ class HostsInfo(models.Model):
         verbose_name_plural = verbose_name
         db_table = "hostinfo"
 
-class HostGroup(models.Model):
-    group_name = models.CharField(max_length=20,verbose_name=u"主机组名",null=True)
-    group_detail = models.CharField(max_length=200,verbose_name=u"分组描述",null=True)
-    network = models.CharField(max_length=200,verbose_name=u"网络",null=True)
-    host_num = models.CharField(max_length=200,verbose_name=u"主机数",null=True)
-
-    class Meta:
-        verbose_name = u'主机组'
-        verbose_name_plural = verbose_name
-        db_table = 'hostgroup'
-
+"""
 class HostInGroup(models.Model):
     host_id = models.ForeignKey(HostsInfo,on_delete=models.CASCADE, verbose_name=u"主机Id", null=True, blank=True)
     group_id = models.ForeignKey(HostGroup,on_delete=models.CASCADE, verbose_name=u"所属主机组", null=True, blank=True)
@@ -43,3 +45,4 @@ class HostInGroup(models.Model):
         verbose_name = u'主机分组表'
         verbose_name_plural = verbose_name
         db_table = 'hostingroup'
+"""

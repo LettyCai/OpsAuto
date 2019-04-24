@@ -68,6 +68,16 @@
                                             <input type="text" class="form-control" name="sn_key" value="{{res.serial_number}}">
                                             </td>
                                         </tr>
+                                        
+                                        <tr>
+                                            <td>所属主机组</td>
+                                            <td class="text-nowrap">
+                                             {% for group in groups %}
+                                          <input type="checkbox" name="group" value="{{group.group_name}}">{{group.group_name}}</input>
+                                             {% endfor %}
+                                        </select>
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td></td>
                                             <td><button type="submit" class="btn btn-primary"><i class="fa fa-align-center"></i>&nbsp;AddHost </button></td>

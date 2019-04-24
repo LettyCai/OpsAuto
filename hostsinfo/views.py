@@ -25,13 +25,11 @@ class AddHostView(View):
         host.mac_address = request.POST.get('mac_address',"")
         host.sn_key = request.POST.get('sn_key',"")
 
-        print("*" * 20 + host.ssh_passwd + "*" * 10)
+        groups = request.POST.getlist("group")
+        print(groups)
 
-        print(host)
 
         has_host = HostsInfo.objects.filter(ip=host.ip)
-
-        print(has_host)
 
         if has_host:
             return render(request,"500.html",{"status":"failed","error":"the host has added!"})
@@ -49,10 +47,10 @@ class AddHostView(View):
         #host.password = prp.encrypt(password)
 
 
-
     def get(self,request):
+        groups = HostGroup.objects.all()
+        return render(request,"add-host.html",{'groups':groups})
 
-        return render(request,"add-host.html")
 
 class CollectHostView(View):
 
@@ -64,9 +62,10 @@ class CollectHostView(View):
         prp = prpcrypt()
         result['host_pass'] = prp.encrypt(host_password).decode(encoding='UTF-8',errors='strict')
         result['host_ip'] = host_ip
-        #print(result)
 
-        return render(request,"add-host.html",{'res':result})
+        groups = HostGroup.objects.all()
+
+        return render(request,"add-host.html",{'res':result,'groups':groups})
 
 class GroupListView(View):
     def get(self,request):
