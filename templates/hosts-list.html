@@ -10,14 +10,22 @@
                                     </div>
                                     
                                     <div class="col-md-12">
+                                        <form id="searchform" action="/hostinfo/" method="post" autocomplete="off" >
 
                                                 <label>主机组</label>
-                                                <input value=" ">
-                                               <label>ip地址</label>
-                                               <input  value=" ">
-                                                    <button type="button" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                                                    <button type="button" class="btn btn-success " ><i class="fa fa-align-center"></i>AddHost</button>
+                                                   <select name="host_group" >
 
+                                              <option selected="selected" disabled="disabled" value=""></option>
+                                                       {% for group in groups %}
+                                              <option value="{{group.group_name}}"> {{group.group_name}} </option>
+                                                       {% endfor %}
+                                                    </select>
+                                               <label>ip地址</label>
+                                               <input name="host_ip" value=" ">
+                                                    <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> Search</button>
+                                                    <button type="button" class="btn btn-success " onclick="window.location.href='/addhost/' "><i class="fa fa-align-center"></i>AddHost</button>
+                                         {% csrf_token %}
+                                        </form>
                                         </div>
                                        <br>
                         </div>
@@ -51,7 +59,7 @@
                                         <tr>
                                             <td>{{ host.hostname }}</td>
                                             <td class="text-nowrap">{{ host.ip }}</td>
-                                            <td>{{ host.host_type }}</td>
+                                            <td>{% for group in host.host_group.all%}{{group.group_name}}&nbsp; {% endfor %}</td>
                                             <td>{{ host.system_ver }}</td>
                                             <td>{{ host.mathine_type }}</td>
                                             <td>

@@ -88,6 +88,8 @@ class AnsibleRunner(object):
 
         print(result_raw)
 
+        return result_raw
+
     #  except Exception as err:
     #      print(traceback.print_exc())
     # DsRedis.OpsAnsibleModel.lpush(self.redisKey,data=err)

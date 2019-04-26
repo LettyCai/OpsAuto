@@ -50,9 +50,10 @@
                                         {% endfor %}
                                         <tr>
                                        <form id="collectform" action="/addgroup/" method="post" autocomplete="off">
-                                       <button type="submit" class="btn btn-success " ><i class="fa fa-align-center"></i>AddGroup</button><br>
+
                                           {% csrf_token %}
                                         </form>
+                                             <button type="submit" class="btn btn-success " onclick="window.location.href='/addgroup/'"><i class="fa fa-align-center"></i>AddGroup</button><br>
                                         </tr>
 
                                         </tbody>

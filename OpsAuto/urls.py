@@ -20,7 +20,7 @@ from taskdo.views import KillTtypView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', HostInfoView.as_view(),name="hostinfo"),
+    path('hostinfo/', HostInfoView.as_view(),name="hostinfo"),
     path('killttyp/', KillTtypView.as_view(),name="killttyp"),
     path('addhost/', AddHostView.as_view(),name="addhost"),
     path('collecthost/', CollectHostView.as_view(),name="collecthost"),

@@ -23,25 +23,7 @@ class KillTtypView(View):
 
         killttyp.kill_ttyp(type=type,ttyp=ttyp)
 
-        """
-        if type == "chuxu" :
-            hosts = inventory.get_hosts(group='chuxu')
-            args = ''
-            passwords = ''
-            variablemanager.set_host_variable(host=host, varname='ansible_ssh_password', value='')
-        if type == "baoxian":
-            hosts = inventory.get_hosts(group='baoxian')
-            args = ''
-            passwords = ''
-        if type == "huidui":
-            hosts = inventory.get_hosts(group='huidui')
-            args = ''
-            passwords = ''
-        if hosts :
-            ans = AnsibleRun(variablemanager=variablemanager)
-            result = ans.run_modle(self,hosts,'shell',args+ttyp)
-            """
-        result = {}
+        result = killttyp.kill_ttyp(type=type,ttyp=ttyp)
 
         return render(request,"kill-ttyp.html",{'result':result})
 

@@ -7,8 +7,33 @@ from .forms import HostInfoForm
 # Create your views here.
 class HostInfoView(View):
     def get(self,request):
+        #获取所有主机
         hosts = HostsInfo.objects.all()
-        return render(request,"hosts-list.html",{'hosts':hosts})
+        #获取所有主机组
+        groups = HostGroup.objects.all()
+        return render(request,"hosts-list.html",{'hosts':hosts,'groups':groups})
+
+    def post(self,request):
+        group = request.POST.get('host_group',"")
+        ip = request.POST.get('host_ip',"")
+
+        #获取指定主机组里的主机
+        if group.strip() != '':
+            groups = HostGroup.objects.get(group_name=group)
+            hosts = groups.hostsinfo_set.all()
+            #筛选ip地址
+            if ip.strip() != '':
+                hosts = hosts.filter(ip=ip.strip())
+        #获取所有主机组里的主机
+        else:
+            hosts = HostsInfo.objects.all()
+            ##筛选ip地址
+            if ip.strip() != '':
+                hosts = hosts.filter(ip=ip.strip())
+        #返回所有主机组列表
+        groups = HostGroup.objects.all()
+
+        return render(request,"hosts-list.html",{'hosts':hosts,'groups':groups})
 
 
 class AddHostView(View):
@@ -26,8 +51,6 @@ class AddHostView(View):
         host.sn_key = request.POST.get('sn_key',"")
 
         groups = request.POST.getlist("group")
-        print(groups)
-
 
         has_host = HostsInfo.objects.filter(ip=host.ip)
 
@@ -35,6 +58,11 @@ class AddHostView(View):
             return render(request,"500.html",{"status":"failed","error":"the host has added!"})
         else:
             host.save()
+
+            for group in groups:
+                host = HostsInfo.objects.get(ip=host.ip)
+                group = HostGroup.objects.get(group_name=str(group))
+                host.host_group.add(group)
             return render(request, "add-host.html", {"status": "success"})
 
         """
