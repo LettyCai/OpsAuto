@@ -13,6 +13,8 @@ from ansible.vars.manager import VariableManager
 from ansible.inventory.host import Host,Group
 #from admin.settings.settings import BASE_DIR
 from collections import namedtuple
+from hostsinfo.utils import prpcrypt
+from hostsinfo.models import HostsInfo
 
 
 class AnsibleRunner(object):
@@ -99,6 +101,7 @@ class AnsibleRunner(object):
     #   tqm.cleanup()
 
 
+
 class ModelResultsCollector(CallbackBase):
     # 改写返回方法
     def __init__(self, *args, **kwargs):
@@ -115,4 +118,39 @@ class ModelResultsCollector(CallbackBase):
 
     def v2_runner_on_failed(self, result,  *args, **kwargs):
         self.host_failed[result._host.get_name()] = result
+
+class GetHostInfo(object):
+    def get_hosts(self,group_name=""):
+        loader = DataLoader()
+        inventory = InventoryManager(loader=loader, sources=['/root/OpsAuto/conf/hostslist'])
+        variablemanager = VariableManager(loader=loader, inventory=inventory)
+
+        groups = HostGroup.objects.get(group_name=group_name)
+        hosts = groups.hostsinfo_set.all()
+
+        host_list = []
+        pc = prpcrypt()
+        for host in hosts:
+            password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
+            new_host = inventory.get_host(hostname=host.ip)
+            variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
+            print(password)
+            host_list.append(host.ip)
+
+        return inventory,variablemanager,host_list,loader
+
+    def get_host(self,host_ip=""):
+        loader = DataLoader()
+        inventory = InventoryManager(loader=loader, sources=['/root/OpsAuto/conf/hostslist'])
+        variablemanager = VariableManager(loader=loader, inventory=inventory)
+        host = HostsInfo.objects.get(ip=host_ip)
+        host_list = []
+        pc = prpcrypt()
+        password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
+        new_host = inventory.get_host(hostname=host.ip)
+        variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
+        host_list.append(host.ip)
+
+        return inventory, variablemanager, host_list, loader
+
 

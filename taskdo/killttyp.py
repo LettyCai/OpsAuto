@@ -15,7 +15,6 @@ from hostsinfo.utils import prpcrypt
 def kill_ttyp(type="",ttyp=""):
     loader = DataLoader()
     inventory = InventoryManager(loader=loader,sources=['/root/OpsAuto/conf/hostslist'])
-    #inventory = InventoryManager(loader=loader, sources=[])
     variablemanager = VariableManager(loader=loader, inventory=inventory)
 
     model = 'shell'
@@ -40,12 +39,6 @@ def kill_ttyp(type="",ttyp=""):
 
 
     args = str.strip()+ttyp.strip()
-
-    print('*' * 20)
-    print(host_list)
-    print(model)
-    print(args)
-    print('*' * 20)
     args = 'touch /root/abcdefg.txt'
 
     ans = AnsibleRunner()

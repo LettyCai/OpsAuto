@@ -1,0 +1,18 @@
+post11185  18991880517
+
+物理机：10.248.4.6 10.248.4.8  
+虚拟机：10.248.4.2 10.248.4.4  
+
+网关  10.248. 4.30 
+掩码   255.255.255.224
+
+简易险 83314515
+
+
+sudo yum install python
+sudo  yum -y install epel-release
+sudo yum install python-pip
+sudo pip install --upgrade pip
+sudo pip install flask
+
+2506

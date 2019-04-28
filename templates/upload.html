@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="card">
+                                <div class="card-header bg-light">
+                                        上传文件
+                                    </div>
+                                   <form action="/upload/" method="post" autocomplete="off" enctype="multipart/form-data">
+                                    <div class="col-md-8">
+
+                                         <label>主机组</label>
+                                        <select name="hostgroup" class="form-control">
+                                           {% for group in groups %}
+                                            <option name="group" value="{{group.group_name}}">{{group.group_name}}</option>
+                                             {% endfor %}
+                                        </select>
+                                        <br>
+                                        <label>上传用户</label>
+                                         <input  class="form-control" name="username" value=" "><br>
+                                        <label>上传路径</label>
+                                         <input  class="form-control" name="uploaddir" value=" "><br>
+
+                                         <input type="file" name="filename"><br><br>
+                                         <button type="submit" class="btn btn-success " ><i class="fa fa-align-center"></i>  上传文件  </button>
+                                        </div>
+                                       {% csrf_token %}
+                                   </form>
+                                        <br>
+
+                        </div>
+                    </div>
+
+                    <div class=col-md-8>
+
+                            <div class="card">
+                                    <div class="card-header bg-light">
+                                            执行结果
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            结果：{{result}}
+
+                                            </div>
+
+                            </div>
+                    </div>
+                </div>
+
+
+
+{% endblock %}

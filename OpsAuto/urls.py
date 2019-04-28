@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView
-from taskdo.views import KillTtypView
+from taskdo.views import KillTtypView, UploadView
+from users.views import IndexView
 
 urlpatterns = [
+    path('index/',  IndexView.as_view(),name="index"),
     path('admin/', admin.site.urls),
     path('hostinfo/', HostInfoView.as_view(),name="hostinfo"),
     path('killttyp/', KillTtypView.as_view(),name="killttyp"),
@@ -26,4 +28,5 @@ urlpatterns = [
     path('collecthost/', CollectHostView.as_view(),name="collecthost"),
     path('addgroup/', AddGroupView.as_view(),name="addgroup"),
     path('grouplist/', GroupListView.as_view(),name="grouplist"),
+    path('upload/', UploadView.as_view(), name="upload"),
 ]
