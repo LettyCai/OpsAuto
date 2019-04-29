@@ -25,24 +25,12 @@
         </a>
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item d-md-down-none">
-                <a href="#">
-                    <i class="fa fa-bell"></i>
-                    <span class="badge badge-pill badge-danger">5</span>
-                </a>
-            </li>
 
-            <li class="nav-item d-md-down-none">
-                <a href="#">
-                    <i class="fa fa-envelope-open"></i>
-                    <span class="badge badge-pill badge-danger">5</span>
-                </a>
-            </li>
-
+            {% if request.user.is_authenticated %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="/static/imgs/avatar-1.png" class="avatar avatar-sm" alt="logo">
-                    <span class="small ml-1 d-md-down-none">John Smith</span>
+                    <span class="small ml-1 d-md-down-none">{{ user.username }}</span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right">
@@ -52,25 +40,20 @@
                         <i class="fa fa-user"></i> Profile
                     </a>
 
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-envelope"></i> Messages
-                    </a>
-
-                    <div class="dropdown-header">Settings</div>
-
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-bell"></i> Notifications
-                    </a>
-
-                    <a href="#" class="dropdown-item">
+                   <a href="#" class="dropdown-item">
                         <i class="fa fa-wrench"></i> Settings
                     </a>
 
                     <a href="#" class="dropdown-item">
                         <i class="fa fa-lock"></i> Logout
                     </a>
+
                 </div>
             </li>
+
+                    {% else %}
+                        <a style="color:black" class="fr loginbtn" href="/login/">用户登录</a>
+                    {% endif %}
         </ul>
     </nav>
 
@@ -114,13 +97,31 @@
                                 <i class="icon icon-energy"></i> 任务管理 <i class="fa fa-caret-left"></i>
                             </a>
 
+
                         <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/killttyp/" class="nav-link">
+                                    <i class="icon icon-energy"></i> 清理终端号
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/upload/" class="nav-link">
+                                    <i class="icon icon-energy"></i> 文件上传
+                                </a>
+                            </li>
+                        </ul>
+
+                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a href="task-do.html" class="nav-link">
                                     <i class="icon icon-energy"></i> 任务执行
                                 </a>
                             </li>
                         </ul>
+
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a href="chartjs.html" class="nav-link">

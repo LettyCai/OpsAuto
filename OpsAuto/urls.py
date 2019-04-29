@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView
 from taskdo.views import KillTtypView, UploadView
-from users.views import IndexView
+from users.views import IndexView,LoginView
 
 urlpatterns = [
     path('index/',  IndexView.as_view(),name="index"),
@@ -29,4 +29,5 @@ urlpatterns = [
     path('addgroup/', AddGroupView.as_view(),name="addgroup"),
     path('grouplist/', GroupListView.as_view(),name="grouplist"),
     path('upload/', UploadView.as_view(), name="upload"),
+    path('login/', LoginView.as_view(), name="login"),
 ]
