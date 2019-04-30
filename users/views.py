@@ -22,3 +22,9 @@ class LoginView(View):
             return render(request, "index.html")
         else:
             return render(request, "login.html", {"msg": "用户名或密码错误"})
+
+class LogoutView(View):
+    def get(self,request):
+        logout(request)
+
+        return render(request,'login.html',{})

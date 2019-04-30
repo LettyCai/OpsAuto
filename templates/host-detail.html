@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-        <div class="content">
-            <div class="container-fluid">
+
 
                 <div class="row">
     
@@ -19,34 +18,34 @@
                                         <thead>
                                         <tr>
                                             <th>IP地址</th>
-                                            <th>10.248.0.1</th>
+                                            <th>{{ host.ip }}</th>
 
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                             <td>MAc地址</td>
-                                            <td class="text-nowrap">Samsung Galaxy S8</td>
+                                            <td class="text-nowrap"> {{ host.mac_address}}</td>
 
                                         </tr>
                                         <tr>
-                                            <td>所属系统</td>
-                                            <td class="text-nowrap">代理保险</td>
+                                            <td>所属主机组</td>
+                                            <td class="text-nowrap">{% for group in host.host_group.all%}{{group.group_name}}&nbsp; {% endfor %}</td>
    
                                         </tr>
                                         <tr>
                                             <td>主机类型</td>
-                                            <td class="text-nowrap">虚拟机</td>
+                                            <td class="text-nowrap">{{ host.mathine_type }}</td>
   
                                         </tr>
                                         <tr>
                                             <td>操作系统版本号</td>
-                                            <td class="text-nowrap">red-flag as4</td>
+                                            <td class="text-nowrap">{{host.system_ver}}</td>
  
                                         </tr>
                                         <tr>
-                                            <td>CPU型号</td>
-                                            <td class="text-nowrap">Google Nexus 6</td>
+                                            <td>序列号</td>
+                                            <td class="text-nowrap">{{host.sn}}</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -55,8 +54,6 @@
                         </div>
                     </div>
                 </div>
-    
 
-            </div>
-        </div>
+
 {% endblock %}

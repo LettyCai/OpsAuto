@@ -120,3 +120,10 @@ class AddGroupView(View):
         else:
             group.save()
             return render(request, "group-list.html", {"status": "success"})
+
+class HostDetailView(View):
+    def get(self,request,host_id):
+
+        host = HostsInfo.objects.get(id=host_id)
+
+        return render(request, "host-detail.html", {"host": host})

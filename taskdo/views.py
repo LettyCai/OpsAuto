@@ -10,6 +10,7 @@ from ansible.parsing.dataloader import DataLoader
 from ansible.inventory.manager import InventoryManager
 from ansible.vars.manager import VariableManager
 from hostsinfo.utils import prpcrypt
+import json
 
 
 
@@ -34,6 +35,12 @@ class KillTtypView(View):
         killttyp.kill_ttyp(type=type,ttyp=ttyp)
 
         result = killttyp.kill_ttyp(type=type,ttyp=ttyp)
+
+        for key,value in result:
+            print('*'*10)
+            print(key)
+            print(value)
+
 
         return render(request,"kill-ttyp.html",{'result':result})
 
@@ -71,6 +78,8 @@ class UploadView(View):
 
         result = ans.run_modle(inventory=inventory, loader=loader,host_list=host_list,
                                variable_manager=variablemanager, module_name=model, module_args=args)
+
+
 
         return render(request, "upload.html",{'result':result,'groups':groups})
 
