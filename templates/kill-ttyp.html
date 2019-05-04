@@ -39,8 +39,38 @@
                                             执行结果
                                         </div>
 
-                                        <div class="col-md-4">
-                                            结果：{{result}}
+                                        <div class="col-md-12">
+                                            执行命令：{{ command }}<br>
+                                            执行成功：{{  success_num}}台<br>
+                                            执行成功主机:{{ success_list  }}<br>
+
+                                            远程主机返回结果：<br>
+                                            {% for key,value in stdout_success.items %}
+
+                                            {{key}}:<br>
+                                            {{value}}
+
+                                            {% endfor %}
+
+
+                                            <br>
+                                            执行失败：{{ failed_num }}台<br>
+                                            执行失败主机：{{ failed_list }}
+                                            远程主机返回结果：<br>
+                                            {% for key,value in stdout_failed.items %}
+
+                                            {{key}}:<br>
+                                            {{value}}
+
+                                            {% endfor %}
+
+
+                                            <br>
+                                            主机无法连接：{{ unreachable_num }}台<br>
+                                            无法连接主机：{{ unreachable_list}}
+
+
+
 
                                             </div>
 

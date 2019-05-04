@@ -39,9 +39,9 @@ def kill_ttyp(type="",ttyp=""):
 
 
     args = str.strip()+ttyp.strip()
-    args = 'touch /root/abcdefg.txt'
+    args = 'ls -ltr'
 
     ans = AnsibleRunner()
-    result = ans.run_modle(inventory=inventory,loader=loader,host_list=host_list,variable_manager=variablemanager,module_name=model,module_args=args)
+    result,sucess_list,failed_list,unreachable_list,command = ans.run_modle(inventory=inventory,loader=loader,host_list=host_list,variable_manager=variablemanager,module_name=model,module_args=args)
 
-    return result
+    return result,sucess_list,failed_list,unreachable_list,command

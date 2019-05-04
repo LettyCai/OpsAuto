@@ -14,7 +14,7 @@ from ansible.inventory.host import Host,Group
 #from admin.settings.settings import BASE_DIR
 from collections import namedtuple
 from hostsinfo.utils import prpcrypt
-from hostsinfo.models import HostsInfo
+from hostsinfo.models import HostsInfo,HostGroup
 
 
 class AnsibleRunner(object):
@@ -81,16 +81,21 @@ class AnsibleRunner(object):
         result = tqm.run(play)
 
         result_raw = {'success': {}, 'failed': {}, 'unreachable': {}}
+        result_success_list = []
+        result_failed_list = []
+        result_unreachable_list = []
+
         for host, result in callback.host_ok.items():
             result_raw['success'][host] = result._result
+            result_success_list.append(host)
         for host, result in callback.host_failed.items():
             result_raw['failed'][host] = result._result
+            result_failed_list.append(host)
         for host, result in callback.host_unreachable.items():
+            result_unreachable_list.append(host)
             result_raw['unreachable'][host] = result._result
 
-        print(result_raw)
-
-        return result_raw
+        return result_raw,result_success_list,result_failed_list,result_unreachable_list,module_args
 
     #  except Exception as err:
     #      print(traceback.print_exc())

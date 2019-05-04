@@ -32,17 +32,35 @@ class KillTtypView(View):
         #inventory = MyInventory()
         #ariablemanager = VariableManager(loader=loader, inventory=inventory)
 
-        killttyp.kill_ttyp(type=type,ttyp=ttyp)
+        result,success_list,failed_list,unreachable_list,command = killttyp.kill_ttyp(type=type,ttyp=ttyp)
+        #执行成功主机数：
+        success_num = len(success_list)
+        #主机返回结果
+        stdout_success = {}
 
-        result = killttyp.kill_ttyp(type=type,ttyp=ttyp)
+        print(result)
 
-        for key,value in result:
-            print('*'*10)
-            print(key)
-            print(value)
+        for host in success_list:
+            stdout_success[host] = result['success'][host]['stdout']
+
+        failed_num = len(failed_list)
+        stdout_failed = {}
+        for host in failed_list:
+            stdout_failed[host] = result['failed'][host]['msg']
+
+        unreachable_num = len(unreachable_list)
 
 
-        return render(request,"kill-ttyp.html",{'result':result})
+        return render(request,"kill-ttyp.html",{'result':result,
+                                                'success_list':success_list,
+                                                'success_num':success_num,
+                                                'command':command,
+                                                'stdout_success':stdout_success,
+                                                'failed_list':failed_list,
+                                                'failed_num':failed_num,
+                                                'stdout_failed':stdout_failed,
+                                                'unreachable_num':unreachable_num,
+                                                'unreachable_list':unreachable_list})
 
 class UploadView(View):
     def get(self,request):
@@ -76,12 +94,36 @@ class UploadView(View):
 
         ans = AnsibleRunner()
 
-        result = ans.run_modle(inventory=inventory, loader=loader,host_list=host_list,
+        result,success_list,failed_list,unreachable_list,command = ans.run_modle(inventory=inventory, loader=loader,host_list=host_list,
                                variable_manager=variablemanager, module_name=model, module_args=args)
 
+        # 执行成功主机数：
+        success_num = len(success_list)
+        # 主机返回结果
+        stdout_success = {}
 
+        #for host in success_list:
+        #    stdout_success[host] = result['success'][host]['stdout']
 
-        return render(request, "upload.html",{'result':result,'groups':groups})
+        print(result)
+
+        failed_num = len(failed_list)
+        stdout_failed = {}
+        for host in failed_list:
+            stdout_failed[host] = result['failed'][host]['msg']
+
+        unreachable_num = len(unreachable_list)
+
+        return render(request, "upload.html",{'result':result,
+                                              'groups':groups,
+                                              'success_list':success_list,
+                                              'success_num':success_num,
+                                              'command':command,
+                                              'stdout_success':stdout_success,
+                                              'failed_list':failed_list,
+                                              'failed_num':failed_num,
+                                              'unreachable_num':unreachable_num,
+                                              'unreachable_list':unreachable_list})
 
 
 
