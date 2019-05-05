@@ -41,7 +41,8 @@
 
                                         <div class="col-md-12">
                                             执行命令：{{ command }}<br>
-                                            执行成功：{{  success_num}}台<br>
+                                            <br><font color="green">
+                                            执行成功：</font>{{  success_num}}台<br>
                                             执行成功主机:{{ success_list  }}<br>
 
                                             远程主机返回结果：<br>
@@ -54,7 +55,9 @@
 
 
                                             <br>
-                                            执行失败：{{ failed_num }}台<br>
+                                             <br>
+                                            <font color="red">
+                                            执行失败：</font>{{ failed_num }}台<br>
                                             执行失败主机：{{ failed_list }}
                                             远程主机返回结果：<br>
                                             {% for key,value in stdout_failed.items %}
@@ -66,7 +69,8 @@
 
 
                                             <br>
-                                            主机无法连接：{{ unreachable_num }}台<br>
+                                             <br><font color="yellow">
+                                            主机无法连接：</font>{{ unreachable_num }}台<br>
                                             无法连接主机：{{ unreachable_list}}
 
 
