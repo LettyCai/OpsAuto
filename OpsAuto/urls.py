@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,re_path
 from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView,HostDetailView
 from taskdo.views import KillTtypView, UploadView
-from users.views import IndexView,LoginView,LogoutView
+from users.views import IndexView,LoginView,LogoutView,UsersListView
 
 urlpatterns = [
     path('index/',  IndexView.as_view(),name="index"),
@@ -31,5 +31,6 @@ urlpatterns = [
     path('upload/', UploadView.as_view(), name="upload"),
     path('login/', LoginView.as_view(), name="login"),
     path('logout/', LogoutView.as_view(), name="logout"),
-    re_path(r'^hostdetail(?P<host_id>.*)/$',HostDetailView.as_view(),name="hostdetail")
+    re_path(r'^hostdetail(?P<host_id>.*)/$',HostDetailView.as_view(),name="hostdetail"),
+    path('userlist/',UsersListView.as_view(), name="userlist"),
 ]

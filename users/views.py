@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from django.contrib.auth import authenticate,login,logout
+from .models import UserProfile
 
 # Create your views here.
 class IndexView(View):
@@ -28,3 +29,10 @@ class LogoutView(View):
         logout(request)
 
         return render(request,'login.html',{})
+
+class UsersListView(View):
+    def get(self,request):
+
+        users = UserProfile.objects.all()
+
+        return render(request,'users-list.html',{'users':users})
