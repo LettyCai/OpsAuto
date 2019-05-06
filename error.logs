@@ -15,3 +15,471 @@
 [I 20190506 17:13:46 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10392
 [I 20190506 17:13:48 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10392
 [I 20190506 17:19:14 basehttp:124] "GET /index/ HTTP/1.1" 200 13293
+[I 20190506 21:45:09 basehttp:124] "GET /killttyp HTTP/1.1" 301 0
+[I 20190506 21:45:09 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 10892
+[I 20190506 21:45:09 basehttp:124] "GET /static/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 304 0
+[I 20190506 21:45:09 basehttp:124] "GET /static/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 304 0
+[I 20190506 21:45:09 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 304 0
+[I 20190506 21:45:09 basehttp:124] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+[I 20190506 21:45:09 basehttp:124] "GET /static/vendor/popper.js/popper.min.js HTTP/1.1" 304 0
+[I 20190506 21:45:09 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 200 3731
+[I 20190506 21:45:09 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[I 20190506 21:45:09 basehttp:124] "GET /static/vendor/chart.js/chart.min.js HTTP/1.1" 304 0
+[I 20190506 21:45:09 basehttp:124] "GET /static/js/carbon.js HTTP/1.1" 304 0
+[I 20190506 21:45:09 basehttp:124] "GET /static/js/demo.js HTTP/1.1" 304 0
+[I 20190506 21:45:10 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+[I 20190506 21:45:10 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0 HTTP/1.1" 304 0
+[I 20190506 21:45:10 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff HTTP/1.1" 304 0
+[I 20190506 21:45:10 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.ttf?v=2.4.0 HTTP/1.1" 304 0
+[W 20190506 21:45:10 base:93] Not Found: /favicon.ico
+[W 20190506 21:45:10 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 3498
+[I 20190506 21:45:14 basehttp:124] "GET /index/ HTTP/1.1" 200 12422
+[I 20190506 21:45:22 basehttp:124] "GET /userlist/ HTTP/1.1" 200 7867
+[I 20190506 21:45:26 basehttp:124] "GET /userlist/ HTTP/1.1" 200 7867
+[I 20190506 21:45:33 basehttp:124] "GET /login/ HTTP/1.1" 200 2951
+[I 20190506 21:46:20 basehttp:124] "POST /login/ HTTP/1.1" 200 13293
+[I 20190506 21:46:20 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 21:46:20 basehttp:124] "GET /static/imgs/avatar-1.png HTTP/1.1" 304 0
+[I 20190506 21:46:23 basehttp:124] "GET /userlist/ HTTP/1.1" 200 9564
+[I 20190506 21:46:52 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11763
+[I 20190506 21:46:56 basehttp:124] "GET /admin HTTP/1.1" 301 0
+[I 20190506 21:46:56 basehttp:124] "GET /admin/ HTTP/1.1" 200 3912
+[I 20190506 21:46:56 basehttp:124] "GET /static/admin/css/base.css HTTP/1.1" 200 16106
+[I 20190506 21:46:56 basehttp:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+[I 20190506 21:46:56 basehttp:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 17894
+[I 20190506 21:46:56 basehttp:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[I 20190506 21:46:57 basehttp:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[I 20190506 21:46:57 basehttp:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[I 20190506 21:46:57 basehttp:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[I 20190506 21:46:57 basehttp:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[I 20190506 21:46:57 basehttp:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[I 20190506 21:47:00 basehttp:124] "GET /admin/users/userprofile/add/ HTTP/1.1" 200 14133
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/css/forms.css HTTP/1.1" 200 8173
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7134
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6897
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6502
+[I 20190506 21:47:00 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8729
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/calendar.js HTTP/1.1" 200 7777
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20283
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[I 20190506 21:47:00 basehttp:124] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[I 20190506 21:47:01 basehttp:124] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[I 20190506 21:47:01 basehttp:124] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[I 20190506 21:47:32 basehttp:124] "POST /admin/users/userprofile/add/ HTTP/1.1" 302 0
+[I 20190506 21:47:32 basehttp:124] "GET /admin/users/userprofile/ HTTP/1.1" 200 4837
+[I 20190506 21:47:32 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190506 21:47:32 basehttp:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+[I 20190506 21:47:32 basehttp:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[I 20190506 21:47:32 basehttp:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[I 20190506 21:47:39 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10404
+[I 20190506 21:47:39 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 21:47:49 basehttp:124] "GET /admin/users/ HTTP/1.1" 200 2423
+[I 20190506 21:47:51 basehttp:124] "GET /admin/users/userprofile/ HTTP/1.1" 200 4662
+[I 20190506 21:47:51 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190506 21:47:53 basehttp:124] "GET /admin/users/userprofile/1/change/ HTTP/1.1" 200 14510
+[I 20190506 21:47:53 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190506 21:48:00 basehttp:124] "POST /admin/users/userprofile/1/change/ HTTP/1.1" 302 0
+[I 20190506 21:48:00 basehttp:124] "GET /admin/users/userprofile/ HTTP/1.1" 200 4835
+[I 20190506 21:48:00 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190506 21:48:03 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10419
+[I 20190506 21:48:49 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11763
+[I 20190506 21:48:49 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[W 20190506 21:48:52 base:93] Not Found: /killttyp/tables.html
+[W 20190506 21:48:52 basehttp:124] "GET /killttyp/tables.html HTTP/1.1" 404 3525
+[I 20190506 21:48:55 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 11754
+[I 20190506 21:49:02 basehttp:124] "GET /addhost/ HTTP/1.1" 200 13949
+[I 20190506 21:49:17 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10419
+[I 20190506 21:52:36 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11247
+[I 20190506 21:52:36 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 21:52:58 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11233
+[I 20190506 21:53:13 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11227
+[I 20190506 21:53:40 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11255
+[I 20190506 21:54:22 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11245
+[I 20190506 21:54:22 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 21:54:43 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11241
+[I 20190506 21:55:01 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11263
+[I 20190506 21:55:09 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11267
+[I 20190506 21:55:31 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11279
+[I 20190506 21:55:48 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10441
+[I 20190506 21:56:04 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11281
+[I 20190506 21:56:17 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10287
+[I 20190506 21:56:17 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 21:56:35 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11087
+[I 20190506 21:56:44 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11927
+[I 20190506 21:56:57 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11127
+[I 20190506 21:57:49 basehttp:124] "GET /userlist/ HTTP/1.1" 200 12209
+[I 20190506 21:58:03 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11371
+[I 20190506 21:58:21 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11371
+[I 20190506 21:58:21 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 21:59:21 basehttp:124] "GET /userlist/ HTTP/1.1" 200 12375
+[I 20190506 22:00:31 basehttp:124] "GET /userlist/ HTTP/1.1" 200 13792
+[I 20190506 22:00:31 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 22:01:02 basehttp:124] "GET /userlist/ HTTP/1.1" 200 13792
+[I 20190506 22:01:06 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11139
+[I 20190506 22:01:42 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11137
+[I 20190506 22:01:47 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11137
+[I 20190506 22:02:07 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11267
+[I 20190506 22:02:31 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11139
+[I 20190506 22:04:15 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11347
+[I 20190506 22:04:15 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[W 20190506 22:04:15 base:93] Not Found: /userlist/imgs/avatar-1.png
+[W 20190506 22:04:15 basehttp:124] "GET /userlist/imgs/avatar-1.png HTTP/1.1" 404 3543
+[I 20190506 22:04:29 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11357
+[W 20190506 22:04:29 base:93] Not Found: /userlist/static/imgs/avatar-1.png
+[W 20190506 22:04:29 basehttp:124] "GET /userlist/static/imgs/avatar-1.png HTTP/1.1" 404 3564
+[I 20190506 22:04:54 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11359
+[I 20190506 22:05:12 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11353
+[I 20190506 22:05:37 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11291
+[I 20190506 22:05:59 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11293
+[I 20190506 22:06:10 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10955
+[I 20190506 22:06:29 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10963
+[I 20190506 22:06:38 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10963
+[I 20190506 22:06:44 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10963
+[I 20190506 22:06:59 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10929
+[I 20190506 22:06:59 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 22:07:07 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10953
+[I 20190506 22:16:15 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10966
+[I 20190506 22:16:15 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 22:16:18 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13901
+[I 20190506 22:16:27 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10966
+[I 20190506 22:27:18 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10967
+[I 20190506 22:27:18 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 22:27:41 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10969
+[I 20190506 22:28:53 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10971
+[I 20190506 22:28:54 basehttp:124] "GET /index/ HTTP/1.1" 200 13311
+[I 20190506 22:29:36 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10971
+[W 20190506 22:29:37 base:93] Not Found: /userlist/tables.html
+[W 20190506 22:29:37 basehttp:124] "GET /userlist/tables.html HTTP/1.1" 404 3659
+[I 20190506 22:29:49 basehttp:124] "GET /index/ HTTP/1.1" 200 13311
+[I 20190506 22:30:16 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 11772
+[I 20190506 22:30:21 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11781
+[W 20190506 22:31:17 base:93] Not Found: /killttyp/500.html
+[W 20190506 22:31:17 basehttp:124] "GET /killttyp/500.html HTTP/1.1" 404 3650
+[I 20190506 22:31:23 basehttp:124] "GET /index/ HTTP/1.1" 200 13311
+[I 20190506 22:31:43 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 11772
+[I 20190506 22:31:44 basehttp:124] "GET /addhost/ HTTP/1.1" 200 13967
+[I 20190506 22:31:56 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 10442
+[I 20190506 22:31:57 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190506 22:32:07 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 10442
+[I 20190506 22:32:08 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190506 22:32:19 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 10442
+[I 20190506 22:32:21 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190506 22:32:22 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 22:32:24 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 12802
+[I 20190506 22:32:26 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190506 22:32:46 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 10442
+[I 20190506 22:32:53 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 13979
+[I 20190506 22:32:59 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 12249
+[I 20190506 22:33:04 basehttp:124] "GET /addhost/ HTTP/1.1" 200 14477
+[I 20190506 22:33:53 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14619
+[I 20190506 22:34:16 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14619
+[I 20190506 22:34:33 basehttp:124] "POST /addhost/ HTTP/1.1" 200 13967
+[E 20190506 22:34:35 exception:118] Internal Server Error: /hostinfo/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 255, in execute
+    self.errorhandler(self, exc, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 252, in execute
+    res = self._query(query)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 378, in _query
+    db.query(q)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.ProgrammingError: (1146, "Table 'opsauto.hostinfo_host_group' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 14, in get
+    return render(request,"hosts-list.html",{'hosts':hosts,'groups':groups})
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/defaulttags.py", line 168, in render
+    len_values = len(values)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 254, in __len__
+    self._fetch_all()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1067, in execute_sql
+    cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 255, in execute
+    self.errorhandler(self, exc, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 252, in execute
+    res = self._query(query)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 378, in _query
+    db.query(q)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'opsauto.hostinfo_host_group' doesn't exist")
+[E 20190506 22:34:36 basehttp:124] "GET /hostinfo/ HTTP/1.1" 500 280944
+[E 20190506 22:34:48 exception:118] Internal Server Error: /hostinfo/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 255, in execute
+    self.errorhandler(self, exc, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 252, in execute
+    res = self._query(query)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 378, in _query
+    db.query(q)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.ProgrammingError: (1146, "Table 'opsauto.hostinfo_host_group' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 14, in get
+    return render(request,"hosts-list.html",{'hosts':hosts,'groups':groups})
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/defaulttags.py", line 168, in render
+    len_values = len(values)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 254, in __len__
+    self._fetch_all()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1067, in execute_sql
+    cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 255, in execute
+    self.errorhandler(self, exc, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 252, in execute
+    res = self._query(query)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 378, in _query
+    db.query(q)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'opsauto.hostinfo_host_group' doesn't exist")
+[E 20190506 22:34:48 basehttp:124] "GET /hostinfo/ HTTP/1.1" 500 280944
+[I 20190506 22:39:32 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 11772
+[I 20190506 22:39:32 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 22:39:34 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 10442
+[I 20190506 22:39:35 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190506 22:39:52 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 10442
+[I 20190506 22:39:53 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190506 22:40:11 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 10442
+[I 20190506 22:42:13 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190506 22:42:15 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 12817
+[I 20190506 22:42:16 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190506 22:42:32 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 13994
+[I 20190506 22:42:41 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 12249
+[I 20190506 22:42:43 basehttp:124] "GET /addhost/ HTTP/1.1" 200 14477
+[I 20190506 22:42:55 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14619
+[I 20190506 22:42:59 basehttp:124] "POST /addhost/ HTTP/1.1" 200 13967
+[I 20190506 22:43:02 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 13643
+[I 20190506 22:43:33 basehttp:124] "GET /addhost/ HTTP/1.1" 200 14477
+[I 20190506 22:44:37 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14619
+[I 20190506 22:44:39 basehttp:124] "POST /addhost/ HTTP/1.1" 200 13967
+[I 20190506 22:45:21 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14619
+[I 20190506 22:45:27 basehttp:124] "POST /addhost/ HTTP/1.1" 200 978
+[W 20190506 22:45:27 base:93] Not Found: /addhost/vendor/simple-line-icons/css/simple-line-icons.css
+[W 20190506 22:45:27 basehttp:124] "GET /addhost/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 404 3773
+[W 20190506 22:45:27 base:93] Not Found: /addhost/vendor/font-awesome/css/fontawesome-all.min.css
+[W 20190506 22:45:27 basehttp:124] "GET /addhost/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 404 3764
+[W 20190506 22:45:27 base:93] Not Found: /addhost/css/styles.css
+[W 20190506 22:45:27 basehttp:124] "GET /addhost/css/styles.css HTTP/1.1" 404 3665
+[E 20190506 22:45:44 exception:118] Internal Server Error: /collecthost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 89, in post
+    result = nm.collection(host_ip,host_password)
+  File "/root/OpsAuto/hostsinfo/utils.py", line 137, in collection
+    jssh.connect(hostname=ip, port=22, username='root', password=password)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 310, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/util.py", line 276, in retry_on_signal
+    return function()
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 310, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: [Errno 110] Connection timed out
+[E 20190506 22:45:44 basehttp:124] "POST /collecthost/ HTTP/1.1" 500 93819
+[I 20190506 22:46:07 basehttp:124] "POST /addhost/ HTTP/1.1" 200 996
+[E 20190506 22:47:06 exception:118] Internal Server Error: /collecthost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 89, in post
+    result = nm.collection(host_ip,host_password)
+  File "/root/OpsAuto/hostsinfo/utils.py", line 137, in collection
+    jssh.connect(hostname=ip, port=22, username='root', password=password)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 310, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/util.py", line 276, in retry_on_signal
+    return function()
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 310, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: [Errno 110] Connection timed out
+[E 20190506 22:47:07 basehttp:124] "POST /collecthost/ HTTP/1.1" 500 93823
+[I 20190506 22:47:40 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10971
+[I 20190506 22:47:40 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 22:47:42 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11781
+[I 20190506 22:47:50 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12708
+[I 20190506 22:49:18 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10971
+[I 20190506 22:49:58 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15018
+[I 20190506 22:50:06 basehttp:124] "POST /hostinfo/ HTTP/1.1" 200 15018
+[I 20190506 22:50:09 basehttp:124] "POST /hostinfo/ HTTP/1.1" 200 13643
+[I 20190506 22:50:26 basehttp:124] "POST /hostinfo/ HTTP/1.1" 200 15018
+[I 20190506 22:52:13 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11886
+[I 20190506 22:52:17 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12813
+[I 20190506 22:52:55 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11783
+[I 20190506 22:52:57 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12816
+[I 20190506 22:55:01 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11783
+[I 20190506 22:55:01 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190506 22:55:04 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12837
+[I 20190506 23:00:39 basehttp:124] "GET /upload/ HTTP/1.1" 200 11289
+[I 20190506 23:01:13 basehttp:124] "GET /index/ HTTP/1.1" 200 13311
+[I 20190506 23:01:15 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15018
+[I 20190506 23:01:18 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 13994
+[I 20190506 23:01:37 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15018
+[I 20190506 23:01:40 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11783
+[I 20190506 23:01:46 basehttp:124] "GET /upload/ HTTP/1.1" 200 11289
+[W 20190506 23:01:49 base:93] Not Found: /upload/chartjs.html
+[W 20190506 23:01:49 basehttp:124] "GET /upload/chartjs.html HTTP/1.1" 404 3656

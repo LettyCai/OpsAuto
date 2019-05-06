@@ -4,25 +4,42 @@
             <div class="container-fluid" >
                 <div class="row">
 
-                    {% for user in users %}
-
+  {% for user in users %}
                     <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <a href="/killttyp/">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2"> {{user.username}}</span>
-                                    <span class="font-weight-light">职位：</span>
-                                </div>
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            用户信息
+
+                            <div class="card-actions">
+                                <a href="#" class="btn">
+                                    <i class="fa fa-pencil-alt"></i>
                                 </a>
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-people"></i>
-                                </div>
+
+                                <a href="#" class="btn">
+                                    <i class="fa fa-cog"></i>
+                                </a>
                             </div>
                         </div>
-                    </div>
 
-                    {% endfor %}
+                        <div class="card-body">
+
+                            <div>
+                                    <span class="h4 d-block font-weight-normal mb-2"> <img src="/static/imgs/avatar-1.png" class="avatar avatar-sm" alt="logo">  {{user.username}} </span><br>
+
+                                    <span class="font-weight-light">职位：{{user.job}}</span>
+
+
+                                </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+   {% endfor %}
+
+
                 </div>
             </div>
 

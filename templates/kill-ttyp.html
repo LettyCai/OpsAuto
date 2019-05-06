@@ -46,12 +46,16 @@
                                             执行成功主机:{{ success_list  }}<br>
 
                                             远程主机返回结果：<br>
+
                                             {% for key,value in stdout_success.items %}
 
                                             {{key}}:<br>
+                                            <pre>
                                             {{value}}
+                                                 </pre>
 
                                             {% endfor %}
+
 
 
                                             <br>

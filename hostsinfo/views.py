@@ -119,7 +119,8 @@ class AddGroupView(View):
             return render(request,"500.html",{"status":"failed","error":"the group has added!"})
         else:
             group.save()
-            return render(request, "group-list.html", {"status": "success"})
+            groups = HostGroup.objects.all()
+            return render(request, "group-list.html", {"status": "success",'groups':groups})
 
 class HostDetailView(View):
     def get(self,request,host_id):

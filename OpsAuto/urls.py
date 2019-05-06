@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,re_path
 from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView,HostDetailView
 from taskdo.views import KillTtypView, UploadView
-from users.views import IndexView,LoginView,LogoutView,UsersListView
+from users.views import IndexView,LoginView,LogoutView,UsersListView,UserSettingsView
 
 urlpatterns = [
     path('index/',  IndexView.as_view(),name="index"),
@@ -33,4 +33,5 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name="logout"),
     re_path(r'^hostdetail(?P<host_id>.*)/$',HostDetailView.as_view(),name="hostdetail"),
     path('userlist/',UsersListView.as_view(), name="userlist"),
+    path('usersettings/',UserSettingsView.as_view(), name="usersettings"),
 ]

@@ -36,3 +36,8 @@ class UsersListView(View):
         users = UserProfile.objects.all()
 
         return render(request,'users-list.html',{'users':users})
+
+class UserSettingsView(View):
+    def get(self,request):
+
+        return render(request,"settings.html")
