@@ -2,11 +2,16 @@ from django.shortcuts import render
 from django.views import View
 from django.contrib.auth import authenticate,login,logout
 from .models import UserProfile
+from hostsinfo.models import HostsInfo,HostGroup
 
 # Create your views here.
 class IndexView(View):
     def get(self,request):
-        return render(request,'index.html',{})
+        hosts = HostsInfo.objects.all()
+        host_num = hosts.count()
+        groups = HostGroup.objects.all()
+        group_num = groups.count()
+        return render(request,'index.html',{'host_num':host_num,'group_num':group_num})
 
 class LoginView(View):
     def get(self,request):
@@ -41,3 +46,9 @@ class UserSettingsView(View):
     def get(self,request):
 
         return render(request,"settings.html")
+
+class UserProfileView(View):
+    def get(self,request,user_id):
+        user = UserProfile.objects.get(id=user_id)
+
+        return render(request,"userprofile.html",{'user':user})

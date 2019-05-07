@@ -5,7 +5,10 @@
 
                     <div class="col-md-12">
                         <div class="card">
-                           <div class="card-header bg-light">分组列表</div>
+                           <div class="card-header bg-light">分组列表 &nbsp;&nbsp;
+                               <button type="submit" class="btn btn-success " onclick="window.location.href='/addgroup/'"><i class="fa fa-align-center"></i>AddGroup</button><br>
+
+                           </div>
     
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -20,7 +23,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for group in groups %}
+                                        {% for group in groups.object_list %}
                                         <tr>
                                             <td>{{group.group_name}}</td>
                                             <td class="text-nowrap">{{group.group_detail}}</td>
@@ -39,17 +42,30 @@
                                             </td>
                                         </tr>
                                         {% endfor %}
-                                        <tr>
-                                       <form id="collectform" action="/addgroup/" method="post" autocomplete="off">
+                                              </tbody>
+                                        </table>
 
-                                          {% csrf_token %}
-                                        </form>
-                                             <button type="submit" class="btn btn-success " onclick="window.location.href='/addgroup/'"><i class="fa fa-align-center"></i>AddGroup</button><br>
-                                        </tr>
+                                            <div id="pagination" align="right">
+                                            {% if groups.has_previous %}
+                                               <a href="?{{ groups.previous_page_number.querystring }}" >&lsaquo;&lsaquo; 上一页</a>
+                                            {% endif %}
+                                            {% for page in groups.pages %}
+                                                {% if page %}
+                                                    {% ifequal page groups.number %}
+                                                      <a href="?{{ page.querystring }}"> {{ page }}</a>
+                                                    {% else %}
+                                                        <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+                                                    {% endifequal %}
+                                                {% else %}
+                                                   <a href="">...</a></div>
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% if groups.has_next %}
+                                                <a href="?{{ groups.next_page_number.querystring }}">下一页 &rsaquo;&rsaquo;</a>
+                                            {% endif %}
 
-                                        </tbody>
+                     </div>
 
-                                    </table>
 
                                 </div>
                             </div>

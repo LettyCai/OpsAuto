@@ -483,3 +483,267 @@ TimeoutError: [Errno 110] Connection timed out
 [I 20190506 23:01:46 basehttp:124] "GET /upload/ HTTP/1.1" 200 11289
 [W 20190506 23:01:49 base:93] Not Found: /upload/chartjs.html
 [W 20190506 23:01:49 basehttp:124] "GET /upload/chartjs.html HTTP/1.1" 404 3656
+[I 20190507 10:33:58 basehttp:124] "GET /index/ HTTP/1.1" 200 13311
+[W 20190507 10:33:59 base:93] Not Found: /favicon.ico
+[W 20190507 10:33:59 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 3632
+[I 20190507 10:34:03 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10949
+[I 20190507 10:35:37 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10971
+[W 20190507 10:37:43 base:93] Not Found: /userlist/task-do.html
+[W 20190507 10:37:43 basehttp:124] "GET /userlist/task-do.html HTTP/1.1" 404 3662
+[I 20190507 10:37:46 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11783
+[I 20190507 10:38:00 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12017
+[I 20190507 10:43:37 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12422
+[I 20190507 10:44:14 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15121
+[I 20190507 10:44:15 basehttp:124] "GET /addhost/ HTTP/1.1" 200 14619
+[I 20190507 10:44:17 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14725
+[I 20190507 10:44:24 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15121
+[I 20190507 10:44:28 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15121
+[I 20190507 10:47:07 basehttp:124] "GET /addhost/ HTTP/1.1" 200 14619
+[I 20190507 10:47:10 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14751
+[I 20190507 10:48:19 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15139
+[I 20190507 10:48:47 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15139
+[I 20190507 10:48:48 basehttp:124] "GET /addhost/ HTTP/1.1" 200 14619
+[I 20190507 10:48:51 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14751
+[I 20190507 10:49:28 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15139
+[I 20190507 10:49:32 basehttp:124] "GET /hostdetail2/ HTTP/1.1" 200 10992
+[W 20190507 10:49:41 base:93] Not Found: /hostinfo/host-detail.html
+[W 20190507 10:49:41 basehttp:124] "GET /hostinfo/host-detail.html HTTP/1.1" 404 3674
+[W 20190507 10:49:43 base:93] Not Found: /hostinfo/host-detail.html
+[W 20190507 10:49:43 basehttp:124] "GET /hostinfo/host-detail.html HTTP/1.1" 404 3674
+[I 20190507 11:01:53 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15127
+[I 20190507 11:01:59 basehttp:124] "GET /hostdel2/ HTTP/1.1" 200 13776
+[I 20190507 11:02:03 basehttp:124] "GET /addhost/ HTTP/1.1" 200 14619
+[I 20190507 11:02:06 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14751
+[I 20190507 11:02:15 basehttp:124] "POST /addhost/ HTTP/1.1" 200 13967
+[I 20190507 11:02:17 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 15078
+[I 20190507 11:02:21 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15102
+[I 20190507 11:02:25 basehttp:124] "GET /hostdel3/ HTTP/1.1" 200 13776
+[I 20190507 11:02:27 basehttp:124] "GET /addhost/ HTTP/1.1" 200 14619
+[I 20190507 11:02:30 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14751
+[I 20190507 11:02:38 basehttp:124] "POST /addhost/ HTTP/1.1" 200 13967
+[I 20190507 11:02:40 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15127
+[I 20190507 11:29:08 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13906
+[W 20190507 11:30:38 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190507 11:37:35 basehttp:124] "GET /index/ HTTP/1.1" 200 13311
+[W 20190507 11:37:35 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190507 11:37:41 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10997
+[E 20190507 11:37:42 exception:118] Internal Server Error: /userprofile1/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: get() got an unexpected keyword argument 'host_id'
+[E 20190507 11:37:42 basehttp:124] "GET /userprofile1/ HTTP/1.1" 500 69323
+[I 20190507 11:38:56 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10997
+[E 20190507 11:39:02 exception:118] Internal Server Error: /userprofile1/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: get() got an unexpected keyword argument 'host_id'
+[E 20190507 11:39:02 basehttp:124] "GET /userprofile1/ HTTP/1.1" 500 69323
+[E 20190507 11:40:21 exception:118] Internal Server Error: /userprofile1/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: get() got an unexpected keyword argument 'host_id'
+[E 20190507 11:40:21 basehttp:124] "GET /userprofile1/ HTTP/1.1" 500 69323
+[I 20190507 11:40:43 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10997
+[I 20190507 11:40:44 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12612
+[I 20190507 12:08:07 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12583
+[I 20190507 12:08:59 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 10474
+[I 20190507 12:09:32 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 10715
+[I 20190507 12:09:48 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 10884
+[I 20190507 12:10:05 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 10712
+[I 20190507 12:10:28 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 10712
+[I 20190507 12:10:31 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12583
+[I 20190507 12:10:46 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12153
+[I 20190507 12:11:32 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12173
+[I 20190507 12:11:36 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10997
+[I 20190507 12:11:37 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12173
+[I 20190507 12:12:09 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10997
+[I 20190507 12:12:11 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12206
+[I 20190507 12:13:05 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12349
+[I 20190507 12:17:37 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12352
+[I 20190507 12:19:10 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12367
+[I 20190507 12:20:49 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12383
+[I 20190507 12:21:32 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12408
+[I 20190507 12:22:18 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12450
+[I 20190507 12:24:44 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12423
+[I 20190507 12:25:05 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12423
+[I 20190507 12:25:29 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12425
+[I 20190507 12:26:06 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12466
+[I 20190507 12:27:15 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12456
+[I 20190507 12:27:47 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12469
+[I 20190507 12:28:03 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12470
+[I 20190507 12:28:49 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12446
+[I 20190507 12:29:12 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12445
+[I 20190507 12:29:30 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12443
+[I 20190507 13:57:03 basehttp:124] "GET /index/ HTTP/1.1" 200 13311
+[I 20190507 14:03:02 basehttp:124] "GET /index/ HTTP/1.1" 200 13309
+[I 20190507 14:03:23 basehttp:124] "GET /index/ HTTP/1.1" 200 13309
+[I 20190507 14:03:41 basehttp:124] "GET /index/ HTTP/1.1" 200 13305
+[I 20190507 14:10:22 basehttp:124] "GET /index/ HTTP/1.1" 200 13305
+[I 20190507 14:11:22 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 15078
+[I 20190507 14:11:26 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15127
+[I 20190507 14:11:49 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 15078
+[I 20190507 14:12:00 basehttp:124] "GET /index/ HTTP/1.1" 200 13488
+[I 20190507 14:12:05 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15127
+[I 20190507 14:12:54 basehttp:124] "GET /index/ HTTP/1.1" 200 13495
+[I 20190507 14:13:16 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 15127
+[E 20190507 14:32:03 exception:118] Internal Server Error: /grouplist/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 110, in get
+    p = Paginator(groups,request=request)
+TypeError: __init__() missing 1 required positional argument: 'per_page'
+[E 20190507 14:32:04 basehttp:124] "GET /grouplist/ HTTP/1.1" 500 73608
+[E 20190507 14:34:11 exception:118] Internal Server Error: /grouplist/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 113, in get
+    return render(request,"group-list.html",{'groups':groups})
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/defaulttags.py", line 167, in render
+    values = list(values)
+TypeError: 'Page' object is not iterable
+[E 20190507 14:34:11 basehttp:124] "GET /grouplist/ HTTP/1.1" 500 158911
+[I 20190507 14:39:26 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 15446
+[I 20190507 14:45:48 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 14407
+[I 20190507 14:45:55 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 12065
+[I 20190507 14:45:57 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 14407
+[I 20190507 14:46:54 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 14576
+[I 20190507 14:47:38 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 14576
+[I 20190507 14:48:37 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 14177
+[I 20190507 14:48:39 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 14177
+[I 20190507 14:49:22 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 14097
+[I 20190507 14:49:40 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 14085
+[I 20190507 14:50:07 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 14100
+[I 20190507 14:50:09 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 11758
+[I 20190507 14:50:12 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 14100
+[I 20190507 14:51:00 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 14121
+[W 20190507 14:51:11 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190507 14:52:10 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 14126
+[I 20190507 14:52:12 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190507 14:52:20 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 10481
+[I 20190507 14:52:21 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190507 14:53:05 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 10481
+[I 20190507 14:53:56 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190507 14:54:04 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 10481
+[I 20190507 14:54:05 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190507 14:54:12 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 10481
+[I 20190507 14:54:55 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190507 14:55:00 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 10481
+[I 20190507 14:55:58 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190507 14:56:09 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 14126
+[I 20190507 14:56:11 basehttp:124] "GET /addgroup/?page=2 HTTP/1.1" 200 11094
+[I 20190507 14:56:17 basehttp:124] "GET /index/ HTTP/1.1" 200 13496
+[I 20190507 14:56:18 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16105
+[I 20190507 14:56:20 basehttp:124] "GET /index/ HTTP/1.1" 200 13496
+[I 20190507 14:56:21 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 14126
+[I 20190507 14:56:23 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 14303
+[I 20190507 14:56:27 basehttp:124] "GET /grouplist/?page=3 HTTP/1.1" 200 14351
+[I 20190507 14:56:28 basehttp:124] "GET /grouplist/?page=4 HTTP/1.1" 200 11832
+[I 20190507 14:56:29 basehttp:124] "GET /grouplist/?page=3 HTTP/1.1" 200 14351
+[I 20190507 14:56:31 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 14303
+[I 20190507 14:57:30 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 14288
+[I 20190507 14:58:08 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 15696
+[I 20190507 14:58:18 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15519
+[I 20190507 14:59:55 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15479
+[I 20190507 15:09:07 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15479
+[I 20190507 15:09:11 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15503
+[I 20190507 15:09:26 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15487
+[I 20190507 15:09:39 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15471
+[I 20190507 15:09:55 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15341
+[I 20190507 15:10:13 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15341
+[I 20190507 15:10:30 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15351
+[I 20190507 15:15:50 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15265
+[I 20190507 15:16:05 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 15419
+[I 20190507 15:16:07 basehttp:124] "GET /grouplist/?page=3 HTTP/1.1" 200 15467
+[I 20190507 15:16:08 basehttp:124] "GET /grouplist/?page=4 HTTP/1.1" 200 12970
+[I 20190507 15:16:09 basehttp:124] "GET /grouplist/?page=3 HTTP/1.1" 200 15467
+[I 20190507 15:16:10 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 15419
+[I 20190507 15:17:01 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 15434
+[I 20190507 15:17:09 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15280
+[I 20190507 15:17:20 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15282
+[I 20190507 15:17:30 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15297
+[I 20190507 15:17:40 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 15296
+[I 20190507 15:18:10 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 22382
+[I 20190507 15:18:25 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190507 15:18:33 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 22866
+[I 20190507 15:18:38 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11094
+[I 20190507 15:18:42 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 22866
+[I 20190507 15:18:53 basehttp:124] "GET /index/ HTTP/1.1" 200 13496
+[I 20190507 15:18:56 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 22866
+[I 20190507 15:19:01 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16435
+[I 20190507 15:19:03 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10997
+[I 20190507 15:19:05 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12443
+[I 20190507 15:27:51 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13906
+[I 20190507 15:27:56 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16435

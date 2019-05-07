@@ -3,6 +3,8 @@ from django.views import View
 from .models import HostsInfo,HostGroup
 from .utils import prpcrypt,NMAPCollection
 from .forms import HostInfoForm
+#分页
+from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 class HostInfoView(View):
@@ -98,6 +100,16 @@ class CollectHostView(View):
 class GroupListView(View):
     def get(self,request):
         groups = HostGroup.objects.all()
+
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        # Provide Paginator with the request object for complete querystring generation
+        p = Paginator(groups,10,request=request)
+        groups = p.page(page)
+
         return render(request,"group-list.html",{'groups':groups})
 
 class AddGroupView(View):
@@ -120,6 +132,16 @@ class AddGroupView(View):
         else:
             group.save()
             groups = HostGroup.objects.all()
+
+            try:
+                page = request.GET.get('page', 1)
+            except PageNotAnInteger:
+                page = 1
+
+            # Provide Paginator with the request object for complete querystring generation
+            p = Paginator(groups, 10, request=request)
+            groups = p.page(page)
+
             return render(request, "group-list.html", {"status": "success",'groups':groups})
 
 class HostDetailView(View):
@@ -128,3 +150,16 @@ class HostDetailView(View):
         host = HostsInfo.objects.get(id=host_id)
 
         return render(request, "host-detail.html", {"host": host})
+
+class DelHostView(View):
+    def get(self,request,host_id):
+        #删除主机数据
+        HostsInfo.objects.filter(id=host_id).delete()
+
+        # 获取所有主机
+        hosts = HostsInfo.objects.all()
+        # 获取所有主机组
+        groups = HostGroup.objects.all()
+
+        return render(request, "hosts-list.html", {'hosts': hosts, 'groups': groups})
+

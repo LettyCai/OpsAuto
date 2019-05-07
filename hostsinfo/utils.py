@@ -148,7 +148,7 @@ class NMAPCollection():
         """
 
         #获取操作系统版本号
-        stdin, stdout, stderr = jssh.exec_command('cat /etc/redhat-release', timeout=10)
+        stdin, stdout, stderr = jssh.exec_command('cat /etc/issue', timeout=10)
         sys_version = str(stdout.read())
         sys_version = sys_version.strip("b'")
         sys_version = sys_version.strip(r'\n')
