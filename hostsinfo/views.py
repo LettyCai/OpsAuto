@@ -13,6 +13,17 @@ class HostInfoView(View):
         hosts = HostsInfo.objects.all()
         #获取所有主机组
         groups = HostGroup.objects.all()
+
+        # 分页
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        # Provide Paginator with the request object for complete querystring generation
+        p = Paginator(hosts, 10, request=request)
+        hosts = p.page(page)
+        
         return render(request,"hosts-list.html",{'hosts':hosts,'groups':groups})
 
     def post(self,request):
@@ -34,6 +45,20 @@ class HostInfoView(View):
                 hosts = hosts.filter(ip=ip.strip())
         #返回所有主机组列表
         groups = HostGroup.objects.all()
+
+        # 分页
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        # Provide Paginator with the request object for complete querystring generation
+        p = Paginator(hosts, 10, request=request)
+        hosts = p.page(page)
+
+        print('*'*20)
+        print(hosts)
+
 
         return render(request,"hosts-list.html",{'hosts':hosts,'groups':groups})
 
@@ -133,6 +158,7 @@ class AddGroupView(View):
             group.save()
             groups = HostGroup.objects.all()
 
+            #分页
             try:
                 page = request.GET.get('page', 1)
             except PageNotAnInteger:

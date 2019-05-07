@@ -55,7 +55,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for host in hosts %}
+                                        {% for host in hosts.object_list %}
                                         <tr>
                                             <td>{{ host.hostname }}</td>
                                             <td class="text-nowrap">{{ host.ip }}</td>
@@ -79,6 +79,27 @@
 
                                         </tbody>
                                     </table>
+
+                                     <div id="pagination" align="right">
+                                            {% if hosts.has_previous %}
+                                               <a href="?{{ hosts.previous_page_number.querystring }}" >&lsaquo;&lsaquo; 上一页</a>
+                                            {% endif %}
+                                            {% for page in hosts.pages %}
+                                                {% if page %}
+                                                    {% ifequal page hosts.number %}
+                                                      <a href="?{{ page.querystring }}"> {{ page }}</a>
+                                                    {% else %}
+                                                        <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+                                                    {% endifequal %}
+                                                {% else %}
+                                                   <a href="">...</a>
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% if hosts.has_next %}
+                                                <a href="?{{ hosts.next_page_number.querystring }}">下一页 &rsaquo;&rsaquo;</a>
+                                            {% endif %}
+
+                                            </div>
                                 </div>
                             </div>
                         </div>
