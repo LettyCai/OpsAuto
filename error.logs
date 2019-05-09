@@ -814,3 +814,329 @@ TypeError: 'Page' object is not iterable
 [W 20190507 21:33:01 basehttp:124] "GET /hostinfo/task-do.html HTTP/1.1" 404 3964
 [W 20190507 21:33:03 base:93] Not Found: /hostinfo/chartjs.html
 [W 20190507 21:33:03 basehttp:124] "GET /hostinfo/chartjs.html HTTP/1.1" 404 3964
+[I 20190509 14:08:22 basehttp:124] "GET /index/ HTTP/1.1" 200 13496
+[W 20190509 14:08:23 base:93] Not Found: /favicon.ico
+[W 20190509 14:08:23 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 3934
+[I 20190509 14:08:25 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17024
+[I 20190509 14:08:28 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 22889
+[I 20190509 14:08:31 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10997
+[I 20190509 14:08:35 basehttp:124] "GET /upload/ HTTP/1.1" 200 12719
+[I 20190509 14:08:36 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10997
+[I 20190509 14:08:40 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11783
+[I 20190509 14:11:34 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11442
+[I 20190509 14:12:10 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11363
+[I 20190509 14:14:12 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 11554
+[I 20190509 14:14:28 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12860
+[I 20190509 14:16:12 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12965
+[I 20190509 14:17:38 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12969
+[I 20190509 14:18:00 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11488
+[I 20190509 14:18:04 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 13643
+[I 20190509 14:18:31 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11492
+[I 20190509 14:18:35 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 13647
+[I 20190509 14:24:40 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11507
+[I 20190509 14:25:09 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11507
+[I 20190509 14:25:27 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12984
+[I 20190509 14:36:05 basehttp:124] "GET /index/ HTTP/1.1" 200 13496
+[I 20190509 14:36:06 basehttp:124] "GET /upload/ HTTP/1.1" 200 13487
+[E 20190509 14:36:41 exception:118] Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 106, in post
+    stdout_success[host] = result['success'][host]['stdout']
+KeyError: 'stdout'
+[E 20190509 14:36:41 basehttp:124] "POST /upload/ HTTP/1.1" 500 88258
+[E 20190509 14:37:25 exception:118] Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 106, in post
+    stdout_success[host] = result['success'][host]['stdout']
+KeyError: 'stdout'
+[E 20190509 14:37:25 basehttp:124] "POST /upload/ HTTP/1.1" 500 88434
+[I 20190509 14:39:10 basehttp:124] "POST /upload/ HTTP/1.1" 200 13642
+[I 20190509 14:50:19 basehttp:124] "GET /upload/ HTTP/1.1" 200 13487
+[E 20190509 14:50:39 exception:118] Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 108, in post
+    stdout_success[host] = result['success'][host]['backupfile'] + result['success'][host]['changed']
+KeyError: 'backupfile'
+[E 20190509 14:50:40 basehttp:124] "POST /upload/ HTTP/1.1" 500 88570
+[I 20190509 14:51:32 basehttp:124] "GET /upload/ HTTP/1.1" 200 13487
+[I 20190509 14:51:52 basehttp:124] "POST /upload/ HTTP/1.1" 200 14031
+[I 20190509 14:54:41 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17024
+[I 20190509 14:54:43 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 22889
+[I 20190509 14:54:45 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 22889
+[I 20190509 14:55:18 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17024
+[I 20190509 14:55:21 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 22889
+[I 20190509 14:56:13 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17024
+[I 20190509 14:59:25 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 22889
+[I 20190509 15:02:29 basehttp:124] "GET /index/ HTTP/1.1" 200 13496
+[I 20190509 15:02:33 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 22889
+[W 20190509 15:02:34 base:93] Not Found: /grouplist/host-detail.html
+[W 20190509 15:02:34 basehttp:124] "GET /grouplist/host-detail.html HTTP/1.1" 404 4133
+[I 20190509 15:03:02 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 22899
+[W 20190509 15:03:03 base:93] Not Found: /grouplist/group-detail.html
+[W 20190509 15:03:03 basehttp:124] "GET /grouplist/group-detail.html HTTP/1.1" 404 4136
+[I 20190509 15:03:22 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21299
+[W 20190509 15:03:28 base:93] Not Found: /group-detail/"
+[W 20190509 15:03:28 basehttp:124] "GET /group-detail/%22 HTTP/1.1" 404 4109
+[I 20190509 15:03:48 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20820
+[W 20190509 15:03:49 base:93] Not Found: /group-detail1/"
+[W 20190509 15:03:49 basehttp:124] "GET /group-detail1/%22 HTTP/1.1" 404 4112
+[I 20190509 15:04:11 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20810
+[I 20190509 15:04:12 basehttp:124] "GET /modifygroup1/%22 HTTP/1.1" 301 0
+[E 20190509 15:04:12 exception:118] Internal Server Error: /modifygroup1/"/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 194, in get
+    group = HostGroup.objects.get(id=host_id)
+NameError: name 'host_id' is not defined
+[E 20190509 15:04:13 basehttp:124] "GET /modifygroup1/%22/ HTTP/1.1" 500 73011
+[I 20190509 15:04:32 basehttp:124] "GET /modifygroup2/%22 HTTP/1.1" 301 0
+[E 20190509 15:04:32 exception:118] Internal Server Error: /modifygroup2/"/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 194, in get
+    group = HostGroup.objects.get(id=host_id)
+NameError: name 'host_id' is not defined
+[E 20190509 15:04:32 basehttp:124] "GET /modifygroup2/%22/ HTTP/1.1" 500 73011
+[E 20190509 15:04:51 exception:118] Internal Server Error: /modifygroup1/"/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 194, in get
+    group = HostGroup.objects.get(id=group_id)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1215, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1085, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/lookups.py", line 18, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/lookups.py", line 68, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/fields/__init__.py", line 947, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '1/"'
+[E 20190509 15:04:51 basehttp:124] "GET /modifygroup1/%22/ HTTP/1.1" 500 126206
+[E 20190509 15:06:36 exception:118] Internal Server Error: /modifygroup1/"/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 194, in get
+    group = HostGroup.objects.get(id=int(group_id))
+ValueError: invalid literal for int() with base 10: '1/"'
+[E 20190509 15:06:36 basehttp:124] "GET /modifygroup1/%22/ HTTP/1.1" 500 73113
+[I 20190509 15:06:43 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20810
+[E 20190509 15:06:45 exception:118] Internal Server Error: /modifygroup1/"/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 194, in get
+    group = HostGroup.objects.get(id=int(group_id))
+ValueError: invalid literal for int() with base 10: '1/"'
+[E 20190509 15:06:45 basehttp:124] "GET /modifygroup1/%22/ HTTP/1.1" 500 73113
+[I 20190509 15:08:00 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20810
+[E 20190509 15:08:01 exception:118] Internal Server Error: /modifygroup1/"/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 194, in get
+    group = HostGroup.objects.get(id=int(group_id))
+ValueError: invalid literal for int() with base 10: '1/"'
+[E 20190509 15:08:02 basehttp:124] "GET /modifygroup1/%22/ HTTP/1.1" 500 73378
+[I 20190509 15:08:25 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20800
+[E 20190509 15:08:26 exception:118] Internal Server Error: /modifygroup1/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 198, in get
+    return render(request,"group-detail.html",{'group':group})
+NameError: name 'request' is not defined
+[E 20190509 15:08:26 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 500 72598
+[E 20190509 15:08:56 exception:118] Internal Server Error: /modifygroup1/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 198, in get
+    return render(request,"group-detail.html",{'group':group})
+NameError: name 'request' is not defined
+[E 20190509 15:08:56 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 500 72598
+[I 20190509 15:09:09 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 11161
+[I 20190509 15:09:14 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20800
+[I 20190509 15:09:15 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 11161
+[I 20190509 15:10:45 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20800
+[I 20190509 15:10:46 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 11198
+[I 20190509 15:11:23 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 11169
+[I 20190509 15:11:43 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20800
+[I 20190509 15:11:47 basehttp:124] "GET /modifygroup2/ HTTP/1.1" 200 11184
+[I 20190509 15:25:43 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20751
+[I 20190509 15:25:46 basehttp:124] "GET /delgroup4/ HTTP/1.1" 302 0
+[I 20190509 15:25:46 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20804
+[I 20190509 15:25:49 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 12114
+[I 20190509 15:25:51 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 20804
+[I 20190509 15:25:54 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 11169
+[E 20190509 15:26:03 exception:118] Internal Server Error: /modifygroup/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 202, in post
+    HostGroup.objects.filter(id=int(group_id)).update(group_name=group_name,network=group_network,group_detail=group_detail)
+ValueError: invalid literal for int() with base 10: ''
+[E 20190509 15:26:03 basehttp:124] "POST /modifygroup/ HTTP/1.1" 500 75438
+[E 20190509 15:27:46 exception:118] Internal Server Error: /modifygroup/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 204, in post
+    HostGroup.objects.filter(id=int(group_id)).update(group_name=group_name,network=group_network,group_detail=group_detail)
+ValueError: invalid literal for int() with base 10: ''
+[E 20190509 15:27:46 basehttp:124] "POST /modifygroup/ HTTP/1.1" 500 75359
+[I 20190509 15:30:03 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 20804
+[I 20190509 15:30:05 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 11265
+[E 20190509 15:30:13 exception:118] Internal Server Error: /modifygroup/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'group_id'
+[E 20190509 15:30:13 basehttp:124] "POST /modifygroup/ HTTP/1.1" 500 70882
+[I 20190509 15:30:57 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20804
+[I 20190509 15:30:58 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 11265
+[I 20190509 15:31:03 basehttp:124] "POST /modifygroup/ HTTP/1.1" 302 0
+[I 20190509 15:31:03 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20831
+[I 20190509 15:45:47 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16893
+[I 20190509 15:45:49 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11030
+[W 20190509 15:45:53 base:93] Not Found: /hostinfo/host-detail.html
+[W 20190509 15:45:53 basehttp:124] "GET /hostinfo/host-detail.html HTTP/1.1" 404 4280
+[I 20190509 15:47:16 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11509
+[I 20190509 15:47:18 basehttp:124] "GET /upload/ HTTP/1.1" 200 13357
+[I 20190509 15:47:24 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10997
+[I 20190509 15:47:26 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12443

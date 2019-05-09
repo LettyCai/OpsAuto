@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views import View
 from .models import HostsInfo,HostGroup
 from .utils import prpcrypt,NMAPCollection
@@ -188,4 +188,28 @@ class DelHostView(View):
         groups = HostGroup.objects.all()
 
         return render(request, "hosts-list.html", {'hosts': hosts, 'groups': groups})
+
+class ModifyGroupView(View):
+    def get(self,request,group_id):
+        group = HostGroup.objects.get(id=int(group_id))
+        return render(request,"group-detail.html",{'group':group})
+
+    def post(self,request,group_id):
+        group_name = request.POST.get('group_name','')
+        group_network = request.POST.get('group_network','')
+        group_detail = request.POST.get('group_detail','')
+
+        group_id = request.POST.get('group_id','')
+
+        HostGroup.objects.filter(id=int(group_id)).update(group_name=group_name,network=group_network,group_detail=group_detail)
+
+        return redirect("grouplist")
+
+class DelGroupView(View):
+    def get(self,request,group_id):
+        HostGroup.objects.filter(id=int(group_id)).delete()
+
+        return redirect("grouplist")
+
+
 

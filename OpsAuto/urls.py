@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,re_path
-from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView,HostDetailView,DelHostView
+from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView,HostDetailView,DelHostView,ModifyGroupView,DelGroupView
 from taskdo.views import KillTtypView, UploadView
 from users.views import IndexView,LoginView,LogoutView,UsersListView,UserSettingsView,UserProfileView
 
@@ -36,4 +36,7 @@ urlpatterns = [
     path('usersettings/',UserSettingsView.as_view(), name="usersettings"),
     re_path(r'^hostdel(?P<host_id>.*)/$', DelHostView.as_view(), name="hostdel"),
     re_path(r'^userprofile(?P<user_id>.*)/$', UserProfileView.as_view(), name="userprofile"),
+    re_path(r'modifygroup(?P<group_id>.*)/$', ModifyGroupView.as_view(), name="modifygroup"),
+    re_path(r'delgroup(?P<group_id>.*)/$', DelGroupView.as_view(), name="delgroup"),
+
 ]

@@ -40,45 +40,35 @@
                                         </div>
 
                                         <div class="col-md-12">
-                                            执行命令：{{ command }}<br>
-                                            <br><font color="green">
-                                            执行成功：</font>{{  success_num}}台<br>
-                                            执行成功主机:{{ success_list  }}<br>
+                                            <lable>执行命令：{{ command }}</lable><br>
+                                            <br>
+                                            执行成功：{{  success_num }}台 &nbsp;执行失败：{{failed_num }} 台 &nbsp; 主机无法连接：{{ unreachable_num }}台<br>
+
+                                            执行成功主机：{{ success_list  }}<br>
+                                            执行失败主机：{{ failed_list  }}<br>
+                                            无法连接主机：{{ unreachable_list}}<br><br>
 
                                             远程主机返回结果：<br>
-
+                                            <div style="background-color: black ">
                                             {% for key,value in stdout_success.items %}
 
-                                            {{key}}:<br>
+                                                <font color="red">{{key}}:</font><br>
                                             <pre>
-                                            {{value}}
-                                                 </pre>
+                                                <font color="white">
+                                            {{value}}</font>
+                                             </pre>
 
                                             {% endfor %}
 
-
-
-                                            <br>
-                                             <br>
-                                            <font color="red">
-                                            执行失败：</font>{{ failed_num }}台<br>
-                                            执行失败主机：{{ failed_list }}
-                                            远程主机返回结果：<br>
                                             {% for key,value in stdout_failed.items %}
 
                                             {{key}}:<br>
                                             {{value}}
 
                                             {% endfor %}
-
+                                             </div>
 
                                             <br>
-                                             <br><font color="yellow">
-                                            主机无法连接：</font>{{ unreachable_num }}台<br>
-                                            无法连接主机：{{ unreachable_list}}
-
-
-
 
                                             </div>
 

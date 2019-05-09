@@ -28,26 +28,23 @@ class KillTtypView(View):
         type = request.POST.get('type',"")
         ttyp = request.POST.get('ttyp',"")
 
-
-        #inventory = MyInventory()
-        #ariablemanager = VariableManager(loader=loader, inventory=inventory)
-
         result,success_list,failed_list,unreachable_list,command = killttyp.kill_ttyp(type=type,ttyp=ttyp)
-        #执行成功主机数：
+
+        #执行成功主机数
         success_num = len(success_list)
-        #主机返回结果
+        #成功主机返回结果
         stdout_success = {}
-
-        print(result)
-
         for host in success_list:
             stdout_success[host] = result['success'][host]['stdout']
 
+        #z执行成功主机数
         failed_num = len(failed_list)
+        #失败主机返回结果
         stdout_failed = {}
         for host in failed_list:
             stdout_failed[host] = result['failed'][host]['msg']
 
+        #无法连接主机数
         unreachable_num = len(unreachable_list)
 
 
@@ -69,12 +66,14 @@ class UploadView(View):
 
     def post(self,request):
         groups = HostGroup.objects.all()
+
         host_group = request.POST.get("hostgroup","")
         myfile = request.FILES.get("filename", None)
         user = request.POST.get("username","").strip()
         updir = request.POST.get("uploaddir","").strip()
-
         DIR = os.path.join(settings.BASE_DIR+"/tmp/",myfile.name)
+
+        #将用户上传的文件保存到服务器
         if myfile :
             with open(DIR,'wb+') as destination:
                 for chunk in myfile.chunks():
@@ -82,36 +81,39 @@ class UploadView(View):
         if not myfile :
             return HttpResponse("no files for upload!")
 
+        #获取要上传的主机
         gethost = GetHostInfo()
-
         inventory, variablemanager, host_list,loader = gethost.get_hosts(group_name=host_group)
-        args = "src="+DIR+" "+"dest="+updir+"/"+myfile.name
+        #上传文件参数
+        args = "src="+DIR+" "+"dest="+updir+"/"+myfile.name +" "+"backup=yes"+" "+"force=yes"
+        #上传文件模块
         model = 'copy'
 
         #指定以user用户上传
         if user != "":
             args = args + " " + "owner="+user
 
+        #调用ansible模块执行命令
         ans = AnsibleRunner()
-
         result,success_list,failed_list,unreachable_list,command = ans.run_modle(inventory=inventory, loader=loader,host_list=host_list,
                                variable_manager=variablemanager, module_name=model, module_args=args)
 
-        # 执行成功主机数：
+        # 执行成功主机数
         success_num = len(success_list)
-        # 主机返回结果
+        # 成功主机返回结果
         stdout_success = {}
+        for host in success_list:
+            stdout_success[host] =  result['success'][host]
 
-        #for host in success_list:
-        #    stdout_success[host] = result['success'][host]['stdout']
 
-        print(result)
-
+        # z执行成功主机数
         failed_num = len(failed_list)
+        # 失败主机返回结果
         stdout_failed = {}
         for host in failed_list:
             stdout_failed[host] = result['failed'][host]['msg']
 
+        # 无法连接主机数
         unreachable_num = len(unreachable_list)
 
         return render(request, "upload.html",{'result':result,
