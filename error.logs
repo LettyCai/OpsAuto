@@ -1140,3 +1140,327 @@ TypeError: post() got an unexpected keyword argument 'group_id'
 [I 20190509 15:47:18 basehttp:124] "GET /upload/ HTTP/1.1" 200 13357
 [I 20190509 15:47:24 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10997
 [I 20190509 15:47:26 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12443
+[I 20190510 16:01:25 basehttp:124] "GET /index/ HTTP/1.1" 200 13496
+[I 20190510 16:01:25 basehttp:124] "GET /static/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/imgs/avatar-1.png HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 200 3731
+[I 20190510 16:01:25 basehttp:124] "GET /static/vendor/popper.js/popper.min.js HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/vendor/chart.js/chart.min.js HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/js/carbon.js HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/js/demo.js HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0 HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff HTTP/1.1" 304 0
+[I 20190510 16:01:25 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.ttf?v=2.4.0 HTTP/1.1" 304 0
+[W 20190510 16:01:26 base:93] Not Found: /favicon.ico
+[W 20190510 16:01:26 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4238
+[I 20190510 16:01:28 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11509
+[I 20190510 16:01:47 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 11575
+[I 20190510 16:01:50 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11509
+[W 20190510 16:01:58 base:93] Not Found: /killttyp/settings.html
+[W 20190510 16:01:58 basehttp:124] "GET /killttyp/settings.html HTTP/1.1" 404 4271
+[I 20190510 16:02:01 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13906
+[I 20190510 16:03:01 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13444
+[I 20190510 16:03:58 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13438
+[I 20190510 16:04:34 basehttp:124] "GET /index/ HTTP/1.1" 200 13496
+[I 20190510 16:04:42 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10997
+[I 20190510 16:04:43 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 12443
+[I 20190510 16:06:15 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13495
+[I 20190510 16:07:47 basehttp:124] "GET /index/ HTTP/1.1" 200 13354
+[I 20190510 16:07:52 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13353
+[I 20190510 16:34:23 basehttp:124] "GET /index/ HTTP/1.1" 200 13354
+[I 20190510 16:34:25 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10855
+[I 20190510 16:34:26 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 13354
+[I 20190510 16:34:54 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 13354
+[I 20190510 16:34:55 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10855
+[I 20190510 16:34:56 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 13353
+[I 20190510 16:35:05 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13353
+[I 20190510 16:37:41 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13509
+[I 20190510 16:37:53 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13356
+[I 20190510 16:38:48 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190510 16:38:50 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16754
+[I 20190510 16:38:54 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20692
+[I 20190510 16:38:56 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[I 20190510 16:38:57 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 13357
+[I 20190510 16:39:01 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190510 16:39:35 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13356
+[I 20190510 16:48:12 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13542
+[E 20190510 17:11:33 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 56, in get
+    if password1 == '' & password2=='' :
+TypeError: unsupported operand type(s) for &: 'str' and 'str'
+[E 20190510 17:11:33 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 74311
+[E 20190510 17:13:09 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 57, in get
+    user = UserProfile.objects.get(id=id)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1215, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1085, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/lookups.py", line 18, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/lookups.py", line 68, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/fields/__init__.py", line 947, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+[E 20190510 17:13:10 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 125541
+[E 20190510 17:13:12 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 57, in get
+    user = UserProfile.objects.get(id=id)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1215, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1085, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/lookups.py", line 18, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/lookups.py", line 68, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/fields/__init__.py", line 947, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+[E 20190510 17:13:12 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 125541
+[E 20190510 17:13:45 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 49, in get
+    id = int(request.POST.get('id',''))
+ValueError: invalid literal for int() with base 10: ''
+[E 20190510 17:13:45 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 73546
+[E 20190510 17:14:34 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 57, in get
+    user = UserProfile.objects.get(id=int(id))
+ValueError: invalid literal for int() with base 10: ''
+[E 20190510 17:14:35 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 74227
+[E 20190510 17:16:46 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 57, in get
+    user = UserProfile.objects.get(id=int(id))
+ValueError: invalid literal for int() with base 10: ''
+[E 20190510 17:16:46 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 74227
+[E 20190510 17:16:49 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 57, in get
+    user = UserProfile.objects.get(id=int(id))
+ValueError: invalid literal for int() with base 10: ''
+[E 20190510 17:16:49 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 74227
+[E 20190510 17:17:23 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 60, in get
+    user = UserProfile.objects.get(id=int(id))
+ValueError: invalid literal for int() with base 10: ''
+[E 20190510 17:17:23 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 74149
+[E 20190510 17:17:45 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 61, in get
+    user = UserProfile.objects.get(id=int(id))
+ValueError: invalid literal for int() with base 10: ''
+[E 20190510 17:17:45 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 74098
+[I 20190510 17:17:59 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[E 20190510 17:18:03 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 61, in get
+    user = UserProfile.objects.get(id=int(id))
+ValueError: invalid literal for int() with base 10: ''
+[E 20190510 17:18:03 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 74111
+[E 20190510 17:20:50 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 61, in get
+    user = UserProfile.objects.get(id=int(id))
+ValueError: invalid literal for int() with base 10: ''
+[E 20190510 17:20:50 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 74111
+[E 20190510 17:20:56 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 61, in get
+    user = UserProfile.objects.get(id=int(id))
+ValueError: invalid literal for int() with base 10: ''
+[E 20190510 17:20:56 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 74111
+[I 20190510 17:21:59 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13836
+[I 20190510 17:22:10 basehttp:124] "POST /usersettings/ HTTP/1.1" 200 977
+[I 20190510 17:22:19 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13836
+[I 20190510 17:22:40 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13836
+[I 20190510 17:22:45 basehttp:124] "POST /usersettings/ HTTP/1.1" 200 992
+[I 20190510 17:22:47 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13836
+[I 20190510 17:24:27 basehttp:124] "POST /usersettings/ HTTP/1.1" 200 13836
+[I 20190510 17:24:53 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[I 20190510 17:24:54 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 13356
+[I 20190510 17:29:17 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190510 17:29:19 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[I 20190510 17:29:20 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 13677
+[I 20190510 17:29:43 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 13677
+[I 20190510 17:30:43 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 13699
+[I 20190510 17:30:46 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 13699
+[I 20190510 17:31:06 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13836
+[I 20190510 17:31:48 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190510 17:31:49 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[I 20190510 17:31:50 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 13838
+[I 20190510 17:32:41 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 13835
+[I 20190510 17:32:54 basehttp:124] "POST /usersettings/ HTTP/1.1" 200 13836
+[I 20190510 17:33:15 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[I 20190510 17:33:39 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[I 20190510 17:33:40 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 13835
+[I 20190510 17:33:45 basehttp:124] "POST /userprofile2/ HTTP/1.1" 200 13835
+[I 20190510 17:33:49 basehttp:124] "POST /userprofile2/ HTTP/1.1" 200 992
+[I 20190510 17:34:01 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190510 17:34:07 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[I 20190510 17:34:08 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 13835
+[I 20190510 17:34:47 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190510 17:34:51 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[I 20190510 17:34:52 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 13833
+[I 20190510 17:34:57 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11370
+[I 20190510 17:34:58 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16754
+[I 20190510 17:35:02 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 13836
+[W 20190510 17:35:07 base:93] Not Found: /usersettings/tables.html
+[W 20190510 17:35:07 basehttp:124] "GET /usersettings/tables.html HTTP/1.1" 404 4277
+[I 20190510 17:35:12 basehttp:124] "GET /index/ HTTP/1.1" 200 13357

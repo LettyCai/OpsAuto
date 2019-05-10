@@ -4,42 +4,47 @@
 <div class="container-fluid">
                 <div class="row">
 
-                    <div class="col-md-8">
+
+                    <div class="col-md-10">
+                         <form id="userform" action="/userprofile{{user.id}}/" method="post" autocomplete="off">
                         <div class="card">
                             <div class="card-header bg-light">
                                 Account Settings
                             </div>
 
+
                             <div class="card-body">
                                 <div class="row mb-5">
-                                    <div class="col-md-5 mb-5">
-                                        <label class="card-header">UserName:</label>
-                                        <p class="h4 d-block font-weight-normal mb-2" align="center">{{user.username}}</p>
+                                    <div class="col-md-4 mb-4">
+                                        <div>Profile Information</div>
+                                        <div class="text-muted small">These information are visible to the public.</div>
                                     </div>
-
-                                    <div class="form-group">
-                                        <label class="form-control-label">Static</label>
-                                        <p class="form-control-plaintext">
-                                             <img src="/static/imgs/avatar-1.png" class="avatar avatar-sm" alt="logo">
-                                        </p>
-                                        </div>
 
                                     <div class="col-md-8">
                                         <div class="row">
                                             <div class="col-md-6">
+
                                                 <div class="form-group">
-                                                    <label class="card-header">Job</label>
-                                                    <p class="h4 d-block font-weight-normal mb-2" align="right">{{user.job}}</p>
+
+                                                    <label class="form-control-label">Name</label>
+                                                    <input class="form-control" name="username" value="{{user.username}}">
+                                                    <input name="user_id" value="{{user.id}}" type="hidden">
                                                 </div>
                                             </div>
 
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Job</label>
+                                                    <input class="form-control" value="{{user.job}}" readonly>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="card-header">Email Address</label>
-                                                     <p class="h4 d-block font-weight-normal mb-2" align="right">{{user.email}}</p>
+                                                    <label class="form-control-label">Email Address</label>
+                                                    <input class="form-control" name="email" value="{{user.email}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -47,8 +52,8 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="card-header">Mobile</label>
-                                                    <p class="h4 d-block font-weight-normal mb-2" align="right">{{user.mobile}}</p>
+                                                    <label class="form-control-label">Mobile</label>
+                                                    <input class="form-control" name="mobile" value="{{user.mobile}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -63,7 +68,23 @@
                                         <div class="text-muted small">Leave credentials fields empty if you don't wish to change the password.</div>
                                     </div>
 
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Password</label>
+                                                    <input type="password" name="password1" class="form-control">
+                                                </div>
+                                            </div>
 
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Password Confirmation</label>
+                                                    <input type="password" name="password2" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -71,6 +92,8 @@
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
                             </div>
                         </div>
+                                {% csrf_token %}
+                         </form>
                     </div>
                 </div>
             </div>

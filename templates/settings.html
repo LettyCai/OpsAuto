@@ -3,20 +3,15 @@
 
 <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-2">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">Profile</a>
-                            <a href="#" class="list-group-item active">Account Settings</a>
-                            <a href="#" class="list-group-item">Notifications</a>
-                            <a href="#" class="list-group-item">Subscription</a>
-                        </div>
-                    </div>
+
 
                     <div class="col-md-10">
+                         <form id="userform" action="/usersettings/" method="post" autocomplete="off">
                         <div class="card">
                             <div class="card-header bg-light">
                                 Account Settings
                             </div>
+
 
                             <div class="card-body">
                                 <div class="row mb-5">
@@ -28,16 +23,19 @@
                                     <div class="col-md-8">
                                         <div class="row">
                                             <div class="col-md-6">
+
                                                 <div class="form-group">
+
                                                     <label class="form-control-label">Name</label>
-                                                    <input class="form-control">
+                                                    <input class="form-control" name="username" value="{{request.user.username}}">
+                                                    <input name="user_id" value="{{request.user.id}}" type="hidden">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">Username</label>
-                                                    <input class="form-control">
+                                                    <label class="form-control-label">Job</label>
+                                                    <input class="form-control" value="{{request.user.job}}" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -46,7 +44,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Email Address</label>
-                                                    <input class="form-control">
+                                                    <input class="form-control" name="email" value="{{request.user.email}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -54,8 +52,8 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">Website Link</label>
-                                                    <input class="form-control">
+                                                    <label class="form-control-label">Mobile</label>
+                                                    <input class="form-control" name="mobile" value="{{request.user.mobile}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -75,14 +73,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Password</label>
-                                                    <input type="password" class="form-control">
+                                                    <input type="password" name="password1" class="form-control">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Password Confirmation</label>
-                                                    <input type="password" class="form-control">
+                                                    <input type="password" name="password2" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -94,6 +92,8 @@
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
                             </div>
                         </div>
+                                {% csrf_token %}
+                         </form>
                     </div>
                 </div>
             </div>

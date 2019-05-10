@@ -45,10 +45,75 @@ class UsersListView(View):
 class UserSettingsView(View):
     def get(self,request):
 
-        return render(request,"settings.html")
+        return render(request,'settings.html')
+
+    def post(self,request):
+        username = request.POST.get('username','')
+        email = request.POST.get('email','')
+        id = request.POST.get('user_id','')
+        mobile = request.POST.get('mobile','')
+
+        password1 = request.POST.get('password1','')
+        password2 = request.POST.get('password2','')
+
+        print('*'*20)
+        print(type(id))
+        print(id)
+
+        #未填写密码项
+        if password1 == '' and password2 == '' :
+            user = UserProfile.objects.get(id=int(id))
+            user.username = username
+            user.email = email
+            user.mobile = mobile
+            user.save()
+            return render(request,"settings.html")
+        #填写了密码项且2次密码相同：
+        elif password1 == password2:
+            user = UserProfile.objects.get(id=int(id))
+            user.password = make_password(pwd2)
+            user.username = username
+            user.email = email
+            user.mobile = mobile
+            user.save()
+            return render(request, "settings.html")
+        #2次密码不同：
+        else:
+            return render(request, "500.html", {"msg": "密码不一致"})
+
+
 
 class UserProfileView(View):
     def get(self,request,user_id):
         user = UserProfile.objects.get(id=user_id)
 
         return render(request,"userprofile.html",{'user':user})
+
+    def post(self,request,user_id):
+        username = request.POST.get('username', '')
+        email = request.POST.get('email', '')
+        mobile = request.POST.get('mobile', '')
+
+        password1 = request.POST.get('password1', '')
+        password2 = request.POST.get('password2', '')
+
+        # 未填写密码项
+        if password1 == '' and password2 == '':
+            user = UserProfile.objects.get(id=int(user_id))
+            user.username = username
+            user.email = email
+            user.mobile = mobile
+            user.save()
+            return render(request, "userprofile.html",{'user':user})
+        # 填写了密码项且2次密码相同：
+        elif password1 == password2:
+            user = UserProfile.objects.get(id=int(user_id))
+            user.password = make_password(pwd2)
+            user.username = username
+            user.email = email
+            user.mobile = mobile
+            user.save()
+            return render(request,"userprofile.html",{'user':user})
+        # 2次密码不同：
+        else:
+            return render(request, "500.html", {"msg": "密码不一致"})
