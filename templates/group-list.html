@@ -34,7 +34,7 @@
                                                  <a href=/modifygroup{{group.id}}/ >
                                                      <i class="icon icon-pencil"></i> 修改
                                                  </a>
-                                                 <a href="/delgroup{{group.id}}/" >
+                                                 <a href="/delgroup{{group.id}}/" onclick="return sumbit_sure()" >
                                                      <i class="icon icon-magnifier-remove"></i> 删除
                                                  </a>
                                             </td>
@@ -70,6 +70,23 @@
                         </div>
                     </div>
         </div>
+
+
+{% endblock %}
+
+{% block custom_js %}
+
+<script language="javascript">
+function sumbit_sure(){
+var gnl=confirm("确定删除主机组?");
+if (gnl==true){
+return true;
+}else{
+return false;
+}
+}
+
+</script>
 
 
 {% endblock %}

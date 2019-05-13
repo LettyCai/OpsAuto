@@ -69,7 +69,7 @@
                                                         <a href="host-detail.html" >
                                                                 <i class="icon icon-pencil"></i> 修改
                                                             </a>
-                                                            <a href="/hostdel{{ host.id }}/" >
+                                                            <a href="/hostdel{{ host.id }}/"  onclick="return sumbit_sure()">
                                                                     <i class="icon icon-magnifier-remove"></i> 删除
                                                                 </a>
                                             </td>
@@ -109,5 +109,22 @@
 
 
             </div>
+
+{% endblock %}
+
+{% block custom_js %}
+
+<script language="javascript">
+function sumbit_sure(){
+var gnl=confirm("确定删除主机?");
+if (gnl==true){
+return true;
+}else{
+return false;
+}
+}
+
+</script>
+
 
 {% endblock %}

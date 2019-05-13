@@ -3,6 +3,7 @@ from django.views import View
 from .models import HostsInfo,HostGroup
 from .utils import prpcrypt,NMAPCollection
 from .forms import HostInfoForm
+import re
 #分页
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
@@ -112,20 +113,32 @@ class CollectHostView(View):
     def post(self,request):
         host_ip = request.POST.get('ip',"")
         host_password = request.POST.get('password',"")
-        nm = NMAPCollection()
-        result = nm.collection(host_ip,host_password)
-        prp = prpcrypt()
-        result['host_pass'] = prp.encrypt(host_password).decode(encoding='UTF-8',errors='strict')
-        result['host_ip'] = host_ip
 
-        groups = HostGroup.objects.all()
+        #检查ip地址格式是否正确：
+        if re.match('((?:(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d))))', host_ip, flags=0) :
+            #收集主机信息
+            nm = NMAPCollection()
+            result = nm.collection(host_ip,host_password)
+            #对登陆密码进行加密，并将加密后的密码回传给前端页面
+            prp = prpcrypt()
+            result['host_pass'] = prp.encrypt(host_password).decode(encoding='UTF-8',errors='strict')
+            result['host_ip'] = host_ip
 
-        return render(request,"add-host.html",{'res':result,'groups':groups})
+            #查询所有主机组信息，并传给前端添加主机页面显示
+            groups = HostGroup.objects.all()
+            return render(request,"add-host.html",{'res':result,'groups':groups})
+        #ip地址格式不正确，回传报错信息
+        else:
+            # 查询所有主机组信息，并传给前端添加主机页面显示
+            groups = HostGroup.objects.all()
+            return render(request,"add-host.html",{'msg':"ip地址格式不正确！",'groups':groups})
 
 class GroupListView(View):
     def get(self,request):
         groups = HostGroup.objects.all()
 
+
+        #主机组分页显示
         try:
             page = request.GET.get('page', 1)
         except PageNotAnInteger:

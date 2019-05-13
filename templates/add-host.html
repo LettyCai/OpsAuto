@@ -14,6 +14,15 @@
                                             <td>IP地址</td>
                                             <td>
                                                 <input class="form-control" value="192.168.56.102" name="ip" value="">
+                                                {{msg}}
+
+                                                {% if msg %}
+                                                    <script>
+                                                            alert('{{ msg }}');
+                                                    </script>
+                                                {% endif %}
+
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -74,13 +83,15 @@
                                             <td>所属主机组</td>
                                             <td class="text-nowrap">
                                              {% for group in groups %}
-                                          <input type="checkbox" name="group" value="{{group.group_name}}">{{group.group_name}}</input>
+
+                                               <input type="checkbox" name="group" value="{{group.group_name}}">{{group.group_name}}</input>
+                                                {%  if group.id|divisibleby:"3" %}<br>{% endif %}
                                              {% endfor %}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td><button type="submit" class="btn btn-primary"><i class="fa fa-align-center"></i>&nbsp;AddHost </button></td>
+                                            <td><button type="submit" class="btn btn-primary" onclick="return add_sure()" ><i class="fa fa-align-center"></i>&nbsp;AddHost </button></td>
                                         </tr>
                                      {% csrf_token %}
                                 </form>
@@ -91,5 +102,23 @@
                         </div>
                     </div>
                 </div>
+
+{% endblock %}
+
+
+{% block custom_js %}
+
+<script language="javascript">
+function add_sure(){
+var gnl=confirm("确定添加主机?");
+if (gnl==true){
+return true;
+}else{
+return false;
+}
+}
+
+</script>
+
 
 {% endblock %}
