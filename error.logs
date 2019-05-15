@@ -1917,3 +1917,28 @@ TimeoutError: [Errno 110] Connection timed out
 [I 20190513 17:42:49 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
 [I 20190513 17:42:52 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
 [I 20190513 17:42:53 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[I 20190515 17:17:19 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190515 17:17:19 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[W 20190515 17:17:19 base:93] Not Found: /favicon.ico
+[W 20190515 17:17:19 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4238
+[E 20190515 17:17:21 exception:118] Internal Server Error: /hostinfo/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 36, in get
+    hosts = group.host_set.all()
+AttributeError: 'HostGroup' object has no attribute 'host_set'
+[E 20190515 17:17:21 basehttp:124] "GET /hostinfo/ HTTP/1.1" 500 74596
+[I 20190515 17:18:32 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 13843
+[I 20190515 17:21:29 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 13843
+[I 20190515 17:21:32 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 13843
+[I 20190515 17:22:43 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
+[I 20190515 17:27:57 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16642

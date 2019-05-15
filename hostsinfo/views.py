@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views import View
 from .models import HostsInfo,HostGroup
-from .utils import prpcrypt,NMAPCollection
+from .utils import prpcrypt,NMAPCollection,ListGenerate
 from .forms import HostInfoForm
 import re
 #分页
@@ -24,7 +24,7 @@ class HostInfoView(View):
         # Provide Paginator with the request object for complete querystring generation
         p = Paginator(hosts, 10, request=request)
         hosts = p.page(page)
-        
+
         return render(request,"hosts-list.html",{'hosts':hosts,'groups':groups})
 
     def post(self,request):
@@ -85,12 +85,19 @@ class AddHostView(View):
         if has_host:
             return render(request,"500.html",{"status":"failed","error":"the host has added!"})
         else:
+            #存储主机信息
             host.save()
 
+            #添加主机所属主机组信息
             for group in groups:
                 host = HostsInfo.objects.get(ip=host.ip)
                 group = HostGroup.objects.get(group_name=str(group))
                 host.host_group.add(group)
+
+            # 重新生成hostslist文件
+            ge = ListGenerate()
+            ge.generate_hostslist()
+
             return render(request, "add-host.html", {"status": "success"})
 
         """
@@ -101,6 +108,8 @@ class AddHostView(View):
         """
         #prp = prpcrypt()
         #host.password = prp.encrypt(password)
+
+
 
 
     def get(self,request):

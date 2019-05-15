@@ -6,6 +6,21 @@ import yaml
 import sys
 from Crypto.Cipher import AES
 from binascii import b2a_hex, a2b_hex
+#from .models import HostsInfo,HostGroup
+
+class ListGenerate():
+    def generate_hostslist(self):
+        groups = HostGroup.objects.all()
+
+        contents = {}
+
+        for group in groups:
+            pass
+
+
+
+
+
 
 class prpcrypt():
     '''
@@ -45,10 +60,17 @@ class prpcrypt():
 
 
 if __name__ == '__main__':
-    pc = prpcrypt()  # 初始化密钥
-    e = pc.encrypt("123456")
-    d = pc.decrypt(e)
-    print(e, d)
-    e = pc.encrypt("00000000000000000000000000")
-    d = pc.decrypt(e)
-    print(e, d)
+
+    group = ""
+
+    with open("/root/OpsAuto/conf/hostslist",'r') as f:
+        hostslist = f.read()
+
+        post = hostslist.find(group)
+
+        print(type(hostslist))
+        print(hostslist)
+
+        print(f.read())
+
+

@@ -194,6 +194,30 @@ class NMAPCollection():
         str = str.strip(r'\n')
         return str
 
+class ListGenerate():
+    def generate_hostslist(self):
+        """
+        生成ansible hostslist文件
+        :return:None
+        """
+        #获取所有主机组
+        groups = HostGroup.objects.all()
+
+        contents = ""
+
+        #写入主机组信息
+        for group in groups:
+            contents = contents + "[" + group.group_name + "]" + "\n"
+            hosts = group.host_set.all()
+            #写入该组所有主机信息
+            for host in hosts:
+                contents = contents + host.ip + "\n"
+
+        #将所有信息写入hostslist文件
+        with open("/root/OpsAuto/conf/hostslist_test", 'w') as f:
+            f.write(contents)
+
+
 if __name__ == '__main__':
     password = '123456'
     print("password============")
