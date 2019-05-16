@@ -123,12 +123,17 @@ class CollectHostView(View):
         host_ip = request.POST.get('ip',"")
         host_password = request.POST.get('password',"")
 
+        print('*'*20)
+        print(host_ip,host_password)
+
         #检查ip地址格式是否正确：
         if re.match('((?:(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d))))', host_ip, flags=0) :
             #收集主机信息
             nm = NMAPCollection()
             result = nm.collection(host_ip,host_password)
             #对登陆密码进行加密，并将加密后的密码回传给前端页面
+            print(result)
+
             prp = prpcrypt()
             result['host_pass'] = prp.encrypt(host_password).decode(encoding='UTF-8',errors='strict')
             result['host_ip'] = host_ip

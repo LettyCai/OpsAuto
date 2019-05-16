@@ -148,28 +148,38 @@ class NMAPCollection():
         """
 
         #获取操作系统版本号
-        stdin, stdout, stderr = jssh.exec_command('cat /etc/issue', timeout=10)
-        sys_version = str(stdout.read())
-        sys_version = sys_version.strip("b'")
-        sys_version = sys_version.strip(r'\n')
+        #centos,redhat,redflag
+        stdin, stdout, stderr = jssh.exec_command('cat /etc/redhat-release', timeout=10)
+        sys_version = str(stdout.read()).strip("b'").strip(r'\n')
+        #ubuntu
+        if sys_version == "":
+            stdin, stdout, stderr = jssh.exec_command('cat /etc/issue', timeout=10)
+            sys_version = str(stdout.read())
+            print(sys_version)
+            sys_version=sys_version.strip("b'").strip(r'\n').strip(r'\\l').strip(r'\n')
+
+        
+
         result['sys_version'] = sys_version
+
         #获取主机名
         stdin, stdout, stderr = jssh.exec_command('hostname', timeout=10)
         host_name = str(stdout.read())
         result['host_name'] = self.trans(host_name)
+
         #获取mac地址
         stdin, stdout, stderr = jssh.exec_command('cat /sys/class/net/[^vtlsb]*/address', timeout=10)
         mac = str(stdout.read())
         mac = self.trans(mac)
         result['host_mac'] = mac
+
         # 获取序列号
         stdin, stdout, stderr = jssh.exec_command('dmidecode -s system-serial-number', timeout=10)
         result['serial_number'] = self.trans(str(stdout.read()))
+
         # 获取产品类型
         stdin, stdout, stderr = jssh.exec_command('dmidecode -s system-product-name', timeout=10)
         result['product_name'] = self.trans(str(stdout.read()))
-
-        print(result)
 
         return result
 
@@ -193,6 +203,22 @@ class NMAPCollection():
         str = str.strip("b'")
         str = str.strip(r'\n')
         return str
+
+    def getsysversion(version_list):
+        '''
+        提取系统版本
+        :param version_list:
+        :return:
+        '''
+        for version_data in version_list:
+            v_data_lst = re.findall(b"vmware|centos|linux|ubuntu|redhat|\d{1,}\.\d{1,}", version_data, re.IGNORECASE)
+            if v_data_lst:
+                if len(v_data_lst) > 1:
+                    v_data = b" ".join(v_data_lst)
+                    break
+            else:
+                v_data = ""
+        return v_data
 
 class ListGenerate():
     def generate_hostslist(self):

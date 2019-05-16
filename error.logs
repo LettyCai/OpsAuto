@@ -1942,3 +1942,212 @@ AttributeError: 'HostGroup' object has no attribute 'host_set'
 [I 20190515 17:21:32 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 13843
 [I 20190515 17:22:43 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
 [I 20190515 17:27:57 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16642
+[I 20190516 15:15:50 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190516 15:15:50 basehttp:124] "GET /static/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/imgs/avatar-1.png HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/vendor/popper.js/popper.min.js HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/vendor/chart.js/chart.min.js HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/js/carbon.js HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/js/demo.js HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0 HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.ttf?v=2.4.0 HTTP/1.1" 304 0
+[I 20190516 15:15:50 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff HTTP/1.1" 304 0
+[W 20190516 15:15:50 base:93] Not Found: /favicon.ico
+[W 20190516 15:15:50 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4238
+[I 20190516 15:15:52 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
+[I 20190516 15:15:54 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16815
+[I 20190516 15:23:47 basehttp:124] "GET /addhost/ HTTP/1.1" 200 17496
+[I 20190516 15:24:09 basehttp:124] "GET /addhost/ HTTP/1.1" 200 17486
+[I 20190516 15:25:21 basehttp:124] "GET /addhost/ HTTP/1.1" 200 17439
+[I 20190516 15:26:11 basehttp:124] "GET /addhost/ HTTP/1.1" 200 18090
+[I 20190516 15:28:10 basehttp:124] "GET /addhost/ HTTP/1.1" 200 21179
+[I 20190516 15:29:20 basehttp:124] "GET /addhost/ HTTP/1.1" 200 18375
+[I 20190516 15:30:14 basehttp:124] "GET /addhost/ HTTP/1.1" 200 18330
+[I 20190516 15:30:46 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16298
+[I 20190516 15:31:24 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16387
+[I 20190516 15:31:42 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16441
+[I 20190516 15:32:07 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16454
+[I 20190516 15:33:57 basehttp:124] "POST /hostinfo/ HTTP/1.1" 200 16980
+[I 20190516 15:34:31 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
+[I 20190516 15:35:13 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16370
+[I 20190516 15:35:18 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16370
+[I 20190516 15:35:46 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16370
+[I 20190516 15:35:53 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16457
+[I 20190516 15:37:14 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16798
+[I 20190516 15:37:35 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16797
+[I 20190516 15:38:01 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16816
+[I 20190516 15:38:27 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16858
+[I 20190516 15:38:39 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21169
+[I 20190516 15:38:42 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
+[I 20190516 15:38:47 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
+[I 20190516 15:38:50 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16858
+[I 20190516 15:39:11 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16861
+[I 20190516 15:39:17 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16858
+[I 20190516 15:40:10 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
+[I 20190516 15:40:12 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16850
+[E 20190516 15:40:17 exception:118] Internal Server Error: /collecthost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 130, in post
+    result = nm.collection(host_ip,host_password)
+  File "/root/OpsAuto/hostsinfo/utils.py", line 137, in collection
+    jssh.connect(hostname=ip, port=22, username='root', password=password)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 394, in connect
+    look_for_keys, gss_auth, gss_kex, gss_deleg_creds, gss_host)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 649, in _auth
+    raise saved_exception
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 636, in _auth
+    self._transport.auth_password(username, password)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/transport.py", line 1329, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/auth_handler.py", line 217, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+[E 20190516 15:40:17 basehttp:124] "POST /collecthost/ HTTP/1.1" 500 111953
+[I 20190516 15:43:48 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16700
+[E 20190516 15:43:50 exception:118] Internal Server Error: /collecthost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 130, in post
+    result = nm.collection(host_ip,host_password)
+  File "/root/OpsAuto/hostsinfo/utils.py", line 137, in collection
+    jssh.connect(hostname=ip, port=22, username='root', password=password)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 394, in connect
+    look_for_keys, gss_auth, gss_kex, gss_deleg_creds, gss_host)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 649, in _auth
+    raise saved_exception
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 636, in _auth
+    self._transport.auth_password(username, password)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/transport.py", line 1329, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/auth_handler.py", line 217, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+[E 20190516 15:43:50 basehttp:124] "POST /collecthost/ HTTP/1.1" 500 111953
+[I 20190516 15:44:57 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16700
+[E 20190516 15:44:59 exception:118] Internal Server Error: /collecthost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 133, in post
+    result = nm.collection(host_ip,host_password)
+  File "/root/OpsAuto/hostsinfo/utils.py", line 137, in collection
+    jssh.connect(hostname=ip, port=22, username='root', password=password)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 394, in connect
+    look_for_keys, gss_auth, gss_kex, gss_deleg_creds, gss_host)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 649, in _auth
+    raise saved_exception
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 636, in _auth
+    self._transport.auth_password(username, password)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/transport.py", line 1329, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/auth_handler.py", line 217, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+[E 20190516 15:44:59 basehttp:124] "POST /collecthost/ HTTP/1.1" 500 111885
+[E 20190516 15:45:39 exception:118] Internal Server Error: /collecthost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 133, in post
+    result = nm.collection(host_ip,host_password)
+  File "/root/OpsAuto/hostsinfo/utils.py", line 137, in collection
+    jssh.connect(hostname=ip, port=22, username='root', password=password)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 394, in connect
+    look_for_keys, gss_auth, gss_kex, gss_deleg_creds, gss_host)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 649, in _auth
+    raise saved_exception
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 636, in _auth
+    self._transport.auth_password(username, password)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/transport.py", line 1329, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/auth_handler.py", line 217, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+[E 20190516 15:45:39 basehttp:124] "POST /collecthost/ HTTP/1.1" 500 111827
+[I 20190516 15:46:17 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16701
+[I 20190516 15:46:20 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16837
+[I 20190516 15:48:55 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
+[I 20190516 15:48:58 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 10891
+[I 20190516 15:49:05 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
+[I 20190516 15:49:07 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16701
+[I 20190516 15:49:12 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16837
+[I 20190516 15:49:18 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
+[I 20190516 15:49:22 basehttp:124] "GET /hostdetail4/ HTTP/1.1" 200 10853
+[I 20190516 15:52:29 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16718
+[I 20190516 15:52:35 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16781
+[I 20190516 16:02:08 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
+[I 20190516 16:02:09 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16781
+[I 20190516 16:02:10 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16931
+[I 20190516 16:04:32 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16887
+[I 20190516 16:06:50 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16931
+[I 20190516 16:06:55 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16887
+[I 20190516 16:07:54 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16887
+[I 20190516 16:10:05 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190516 16:10:06 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190516 16:10:07 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16980
+[I 20190516 16:10:09 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16781
+[I 20190516 16:10:12 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[W 20190516 16:10:58 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190516 16:10:58 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[W 20190516 16:11:00 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190516 16:11:00 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[W 20190516 16:11:03 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190516 16:11:03 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[I 20190516 16:12:59 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16931
+[I 20190516 16:13:04 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[I 20190516 16:13:27 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[I 20190516 16:14:30 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16928
+[I 20190516 16:14:57 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[I 20190516 16:15:30 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16933
+[I 20190516 16:15:48 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16931
+[I 20190516 16:16:00 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[I 20190516 16:16:13 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16917
+[I 20190516 16:17:54 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16913
+[I 20190516 16:18:52 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[I 20190516 16:19:17 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[I 20190516 16:19:53 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[I 20190516 16:20:34 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[I 20190516 16:21:16 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[I 20190516 16:22:06 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[I 20190516 16:22:55 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
