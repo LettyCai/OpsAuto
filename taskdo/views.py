@@ -131,3 +131,7 @@ class UploadView(View):
 
 
 
+class TaskDoView(View):
+    def get(self,request):
+
+        return render(request,"task-do.html")

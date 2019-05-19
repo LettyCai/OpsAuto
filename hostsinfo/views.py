@@ -100,17 +100,6 @@ class AddHostView(View):
 
             return render(request, "add-host.html", {"status": "success"})
 
-        """
-        if host_form.is_valid():
-            host_form.save()
-        else:
-            return render(request, "500.html", {"status": "fail"}) 
-        """
-        #prp = prpcrypt()
-        #host.password = prp.encrypt(password)
-
-
-
 
     def get(self,request):
         groups = HostGroup.objects.all()
@@ -133,14 +122,17 @@ class CollectHostView(View):
             result = nm.collection(host_ip,host_password)
             #对登陆密码进行加密，并将加密后的密码回传给前端页面
             print(result)
+            #登陆成功
+            if result['status']== 'success':
+                prp = prpcrypt()
+                result['host_pass'] = prp.encrypt(host_password).decode(encoding='UTF-8',errors='strict')
+                result['host_ip'] = host_ip
 
-            prp = prpcrypt()
-            result['host_pass'] = prp.encrypt(host_password).decode(encoding='UTF-8',errors='strict')
-            result['host_ip'] = host_ip
-
-            #查询所有主机组信息，并传给前端添加主机页面显示
-            groups = HostGroup.objects.all()
-            return render(request,"add-host.html",{'res':result,'groups':groups})
+                #查询所有主机组信息，并传给前端添加主机页面显示
+                groups = HostGroup.objects.all()
+                return render(request,"add-host.html",{'res':result,'groups':groups})
+            else:
+                return render(request,"500.html",{"msg":"主机信息获取失败",'':result['res']})
         #ip地址格式不正确，回传报错信息
         else:
             # 查询所有主机组信息，并传给前端添加主机页面显示
@@ -150,7 +142,6 @@ class CollectHostView(View):
 class GroupListView(View):
     def get(self,request):
         groups = HostGroup.objects.all()
-
 
         #主机组分页显示
         try:

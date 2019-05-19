@@ -2151,3 +2151,95 @@ paramiko.ssh_exception.AuthenticationException: Authentication failed.
 [I 20190516 16:21:16 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
 [I 20190516 16:22:06 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
 [I 20190516 16:22:55 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 16910
+[I 20190519 18:38:04 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190519 18:38:04 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190519 18:38:05 basehttp:124] "GET /static/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 304 0
+[I 20190519 18:38:05 basehttp:124] "GET /static/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 304 0
+[I 20190519 18:38:05 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 304 0
+[I 20190519 18:38:05 basehttp:124] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+[I 20190519 18:38:05 basehttp:124] "GET /static/vendor/popper.js/popper.min.js HTTP/1.1" 304 0
+[I 20190519 18:38:05 basehttp:124] "GET /static/imgs/avatar-1.png HTTP/1.1" 304 0
+[I 20190519 18:38:05 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[I 20190519 18:38:06 basehttp:124] "GET /static/js/carbon.js HTTP/1.1" 304 0
+[I 20190519 18:38:06 basehttp:124] "GET /static/js/demo.js HTTP/1.1" 304 0
+[I 20190519 18:38:06 basehttp:124] "GET /static/vendor/chart.js/chart.min.js HTTP/1.1" 304 0
+[I 20190519 18:38:07 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+[I 20190519 18:38:07 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0 HTTP/1.1" 304 0
+[I 20190519 18:38:07 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff HTTP/1.1" 304 0
+[I 20190519 18:38:07 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.ttf?v=2.4.0 HTTP/1.1" 304 0
+[W 20190519 18:38:10 base:93] Not Found: /favicon.ico
+[W 20190519 18:38:10 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4238
+[I 20190519 18:38:29 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[I 20190519 18:38:32 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16810
+[I 20190519 18:38:35 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 10891
+[W 20190519 18:38:38 base:93] Not Found: /hostinfo/host-detail.html
+[W 20190519 18:38:38 basehttp:124] "GET /hostinfo/host-detail.html HTTP/1.1" 404 4280
+[I 20190519 18:38:48 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20960
+[I 20190519 18:38:50 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 11168
+[I 20190519 18:38:57 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 11146
+[I 20190519 18:39:00 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16810
+[I 20190519 18:39:01 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16605
+[W 20190519 18:39:28 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[W 20190519 18:40:21 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190519 18:40:21 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[E 20190519 18:40:54 exception:118] Internal Server Error: /collecthost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 133, in post
+    result = nm.collection(host_ip,host_password)
+  File "/root/OpsAuto/hostsinfo/utils.py", line 137, in collection
+    jssh.connect(hostname=ip, port=22, username='root', password=password)
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 310, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/util.py", line 276, in retry_on_signal
+    return function()
+  File "/opt/python3.6/lib/python3.6/site-packages/paramiko/client.py", line 310, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: [Errno 110] Connection timed out
+[E 20190519 18:40:54 basehttp:124] "POST /collecthost/ HTTP/1.1" 500 94311
+[W 20190519 18:47:39 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190519 19:25:18 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[W 20190519 19:25:18 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190519 19:25:22 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[W 20190519 19:25:23 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190519 19:25:24 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11370
+[W 20190519 19:25:24 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190519 19:25:26 basehttp:124] "GET /userlist/ HTTP/1.1" 200 10858
+[W 20190519 19:25:26 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190519 22:21:11 basehttp:124] "GET /index/ HTTP/1.1" 200 13357
+[W 20190519 22:21:13 base:93] Not Found: /favicon.ico
+[W 20190519 22:21:13 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4238
+[I 20190519 22:21:15 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16810
+[I 20190519 22:21:17 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 10891
+[I 20190519 22:21:24 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16810
+[I 20190519 22:21:27 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16605
+[I 20190519 22:21:47 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20960
+[I 20190519 22:21:48 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 12135
+[I 20190519 22:21:51 basehttp:124] "GET /delgroup13/ HTTP/1.1" 302 0
+[I 20190519 22:21:51 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20476
+[I 20190519 22:21:54 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16669
+[I 20190519 22:21:57 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11370
+[W 20190519 22:22:06 base:93] Not Found: /killttyp/task-do.html
+[W 20190519 22:22:06 basehttp:124] "GET /killttyp/task-do.html HTTP/1.1" 404 4268
+[W 20190519 22:25:06 base:93] Not Found: /killttyp/task-do.html
+[W 20190519 22:25:06 basehttp:124] "GET /killttyp/task-do.html HTTP/1.1" 404 4390
+[I 20190519 22:25:13 basehttp:124] "GET /upload/ HTTP/1.1" 200 12898
+[I 20190519 22:25:36 basehttp:124] "GET /index/ HTTP/1.1" 200 13353
+[I 20190519 22:25:38 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 11636
+[I 20190519 22:25:54 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11366
+[I 20190519 22:27:03 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 11528
+[I 20190519 22:27:27 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16665
+[I 20190519 22:38:37 basehttp:124] "GET /index/ HTTP/1.1" 200 13353
+[I 20190519 22:38:40 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16665
+[I 20190519 22:38:43 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16394
+[I 20190519 22:39:48 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 1001
+[I 20190519 22:40:38 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 1001
