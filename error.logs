@@ -2243,3 +2243,232 @@ TimeoutError: [Errno 110] Connection timed out
 [I 20190519 22:38:43 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16394
 [I 20190519 22:39:48 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 1001
 [I 20190519 22:40:38 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 1001
+[I 20190521 10:32:13 basehttp:124] "GET /index/ HTTP/1.1" 200 13353
+[I 20190521 10:32:13 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[W 20190521 10:32:14 base:93] Not Found: /favicon.ico
+[W 20190521 10:32:14 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4360
+[I 20190521 10:32:16 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21165
+[I 20190521 10:32:25 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16976
+[I 20190521 10:32:38 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16976
+[I 20190521 10:32:42 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 16976
+[I 20190521 10:32:44 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21165
+[I 20190521 10:33:07 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11366
+[I 20190521 10:33:52 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11366
+[I 20190521 10:34:09 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12106
+[I 20190521 10:39:28 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11366
+[I 20190521 10:39:43 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12106
+[I 20190521 10:40:37 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11366
+[I 20190521 10:40:54 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12106
+[I 20190521 10:47:51 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11366
+[I 20190521 10:48:06 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12106
+[I 20190521 10:53:19 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11600
+[I 20190521 10:57:19 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11604
+[I 20190521 10:57:33 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17214
+[I 20190521 11:02:14 basehttp:124] "GET /index/ HTTP/1.1" 200 13591
+[W 20190521 11:02:16 base:93] Not Found: /index/tables.html
+[W 20190521 11:02:16 basehttp:124] "GET /index/tables.html HTTP/1.1" 404 4502
+[I 20190521 11:02:37 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190521 11:02:38 basehttp:124] "GET /findlog/ HTTP/1.1" 200 12109
+[E 20190521 11:07:54 exception:118] Internal Server Error: /findlog/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 164, in get
+    logs = OpsLogModel.object.all()
+AttributeError: type object 'OpsLogModel' has no attribute 'object'
+[E 20190521 11:07:54 basehttp:124] "GET /findlog/ HTTP/1.1" 500 72925
+[E 20190521 11:08:26 exception:118] Internal Server Error: /findlog/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 164, in get
+    logs = OpsLogModel.object.all()
+AttributeError: type object 'OpsLogModel' has no attribute 'object'
+[E 20190521 11:08:26 basehttp:124] "GET /findlog/ HTTP/1.1" 500 72925
+[E 20190521 11:08:28 exception:118] Internal Server Error: /findlog/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 164, in get
+    logs = OpsLogModel.object.all()
+AttributeError: type object 'OpsLogModel' has no attribute 'object'
+[E 20190521 11:08:29 basehttp:124] "GET /findlog/ HTTP/1.1" 500 72925
+[I 20190521 11:09:34 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[E 20190521 11:09:35 exception:118] Internal Server Error: /findlog/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 164, in get
+    logs = OpsLogModel.object.all()
+AttributeError: type object 'OpsLogModel' has no attribute 'object'
+[E 20190521 11:09:36 basehttp:124] "GET /findlog/ HTTP/1.1" 500 72938
+[E 20190521 11:21:29 exception:118] Internal Server Error: /findlog/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 164, in get
+    logs = OpsLogModel.objects.all()
+NameError: name 'OpsLogModel' is not defined
+[E 20190521 11:21:30 basehttp:124] "GET /findlog/ HTTP/1.1" 500 72793
+[E 20190521 11:22:07 exception:118] Internal Server Error: /findlog/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 173, in get
+    p = Paginator(logs, 10, request=request)
+NameError: name 'Paginator' is not defined
+[E 20190521 11:22:07 basehttp:124] "GET /findlog/ HTTP/1.1" 500 72922
+[E 20190521 11:22:38 exception:118] Internal Server Error: /findlog/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 255, in execute
+    self.errorhandler(self, exc, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 252, in execute
+    res = self._query(query)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 378, in _query
+    db.query(q)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'opslogs.cmd' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 177, in get
+    return render(request,"logs.html",{'logs':logs})
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/defaulttags.py", line 168, in render
+    len_values = len(values)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 254, in __len__
+    self._fetch_all()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1067, in execute_sql
+    cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 255, in execute
+    self.errorhandler(self, exc, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 252, in execute
+    res = self._query(query)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 378, in _query
+    db.query(q)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'opslogs.cmd' in 'field list'")
+[E 20190521 11:22:38 basehttp:124] "GET /findlog/ HTTP/1.1" 500 263600
+[I 20190521 11:23:27 basehttp:124] "GET /findlog/ HTTP/1.1" 200 14358
+[I 20190521 11:23:46 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11602
+[I 20190521 11:23:59 basehttp:124] "POST /killttyp/ HTTP/1.1" 200 12342
+[I 20190521 11:24:25 basehttp:124] "GET /findlog/ HTTP/1.1" 200 16285
+[I 20190521 11:27:49 basehttp:124] "GET /findlog/ HTTP/1.1" 200 13835
+[I 20190521 11:28:13 basehttp:124] "GET /findlog/ HTTP/1.1" 200 13835
+[I 20190521 11:32:26 basehttp:124] "GET /findlog/ HTTP/1.1" 200 13693
+[I 20190521 11:40:34 basehttp:124] "GET /findlog/ HTTP/1.1" 200 17748
+[I 20190521 11:41:16 basehttp:124] "GET /findlog/ HTTP/1.1" 200 17742

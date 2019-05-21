@@ -11,7 +11,8 @@ from ansible.inventory.manager import InventoryManager
 from ansible.vars.manager import VariableManager
 from hostsinfo.utils import prpcrypt
 import json
-
+from .models import OpsLog
+from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your views here.
@@ -27,6 +28,7 @@ class KillTtypView(View):
     def post(self,request):
         type = request.POST.get('type',"")
         ttyp = request.POST.get('ttyp',"")
+        user = request.user.username
 
         result,success_list,failed_list,unreachable_list,command = killttyp.kill_ttyp(type=type,ttyp=ttyp)
 
@@ -35,6 +37,15 @@ class KillTtypView(View):
         #成功主机返回结果
         stdout_success = {}
         for host in success_list:
+            #保存操作日志
+            opslog = OpsLog()
+            opslog.user = user
+            opslog.cmd = command
+            opslog.host = host
+            opslog.result = 'success'
+            opslog.details = result['success'][host]
+            opslog.save()
+
             stdout_success[host] = result['success'][host]['stdout']
 
         #z执行成功主机数
@@ -42,10 +53,22 @@ class KillTtypView(View):
         #失败主机返回结果
         stdout_failed = {}
         for host in failed_list:
+            # 保存操作日志
+            opslog = OpsLog()
+            opslog.user = user
+            opslog.cmd = command
+            opslog.host = host
+            opslog.result = 'failed'
+            opslog.details = result['failed'][host]
+            opslog.save()
+
             stdout_failed[host] = result['failed'][host]['msg']
 
         #无法连接主机数
         unreachable_num = len(unreachable_list)
+
+        print('*'*50)
+        print(result)
 
 
         return render(request,"kill-ttyp.html",{'result':result,
@@ -106,7 +129,7 @@ class UploadView(View):
             stdout_success[host] =  result['success'][host]
 
 
-        # z执行成功主机数
+        # 执行成功主机数
         failed_num = len(failed_list)
         # 失败主机返回结果
         stdout_failed = {}
@@ -135,3 +158,20 @@ class TaskDoView(View):
     def get(self,request):
 
         return render(request,"task-do.html")
+
+class FindLogView(View):
+    def get(self,request):
+
+        logs = OpsLog.objects.all()
+
+        # 分页
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        # Provide Paginator with the request object for complete querystring generation
+        p = Paginator(logs, 10, request=request)
+        logs = p.page(page)
+
+        return render(request,"logs.html",{'logs':logs})

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,re_path
 from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView,HostDetailView,DelHostView,ModifyGroupView,DelGroupView
-from taskdo.views import KillTtypView, UploadView,TaskDoView
+from taskdo.views import KillTtypView, UploadView,TaskDoView,FindLogView
 from users.views import IndexView,LoginView,LogoutView,UsersListView,UserSettingsView,UserProfileView
 
 urlpatterns = [
@@ -39,4 +39,5 @@ urlpatterns = [
     re_path(r'modifygroup(?P<group_id>.*)/$', ModifyGroupView.as_view(), name="modifygroup"),
     re_path(r'delgroup(?P<group_id>.*)/$', DelGroupView.as_view(), name="delgroup"),
     path('taskdo/', TaskDoView.as_view(), name="taskdo"),
+    path('findlog/', FindLogView.as_view(), name="findlog"),
 ]

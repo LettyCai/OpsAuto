@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block content %}
+        <div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                                <div class="card-header bg-light">
+                                        查询条件
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <form id="searchform" action="/hostinfo/" method="post" autocomplete="off" >
+
+                                                <label>日期</label>
+                                                   <select name="host_group" >
+
+                                              <option selected="selected" disabled="disabled" value=""></option>
+                                                       {% for group in groups %}
+                                              <option value="{{group.group_name}}"> {{group.group_name}} </option>
+                                                       {% endfor %}
+                                                    </select>
+                                               <label>ip地址</label>
+                                               <input name="host_ip" value=" ">
+                                                    <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> Search</button>
+
+                                         {% csrf_token %}
+                                        </form>
+                                        </div>
+                                       <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+
+                            <div class="card-header bg-light">
+                                主机列表
+                            </div>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>操作时间</th>
+                                            <th>操作主机</th>
+                                            <th>操作用户</th>
+                                            <th>执行命令</th>
+                                            <th>执行结果</th>
+                                            <th>详细信息</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for log in logs.object_list %}
+                                        <tr>
+                                            <td>{{ log.date }}</td>
+                                            <td class="text-nowrap">{{ log.host }}</td>
+                                            <td>{{log.user}}&nbsp;</td>
+                                            <td>{{ log.cmd }}</td>
+                                            <td>{{ log.result }}</td>
+                                            <td><a href="//"  id="btn">
+                                                            <i class="icon icon-eye"></i> 查看
+                                                        </a>
+                                                <span id="content">
+                                                    {{log.details}}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+
+
+                                        </tbody>
+                                    </table>
+
+                                     <div id="pagination" align="right">
+                                            {% if logs.has_previous %}
+                                               <a href="?{{ logs.previous_page_number.querystring }}" >&lsaquo;&lsaquo; 上一页</a>
+                                            {% endif %}
+                                            {% for page in logs.pages %}
+                                                {% if page %}
+                                                    {% ifequal page logs.number %}
+                                                      <a href="?{{ page.querystring }}"> {{ page }}</a>
+                                                    {% else %}
+                                                        <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+                                                    {% endifequal %}
+                                                {% else %}
+                                                   <a href="">...</a>
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% if logs.has_next %}
+                                                <a href="?{{ logs.next_page_number.querystring }}">下一页 &rsaquo;&rsaquo;</a>
+                                            {% endif %}
+
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+{% endblock %}
+
+{% block custom_js %}
+
+ <script type="text/javascript">
+       //获取button按钮
+       var btn=document.getElementById('btn');
+       //获取p
+       var content=document.getElementById('content');
+       //获取p中的内容
+       var str=content.innerHTML;
+       //定义一个变量，表示当前的状态（收缩、展开）
+       var onOff=true;// true表示展开
+       btn.onclick=function(){
+           if(onOff) {
+               content.innerHTML = str.substr(0,50)+"......";
+               btn.innerHTML='查看'
+           } else {
+               //说明当前状态是收缩的，需要展开
+               content.innerHTML = str
+               btn.innerHTML = '关闭';
+           }
+           onOff=!onOff; //每点击一次，改变一次展开、收缩状态
+           return false;  //阻止a标签的默认事件
+       }
+   </script>
+
+
+
+{% endblock %}
