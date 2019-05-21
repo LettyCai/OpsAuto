@@ -13,13 +13,7 @@
                                         <form id="searchform" action="/hostinfo/" method="post" autocomplete="off" >
 
                                                 <label>日期</label>
-                                                   <select name="host_group" >
-
-                                              <option selected="selected" disabled="disabled" value=""></option>
-                                                       {% for group in groups %}
-                                              <option value="{{group.group_name}}"> {{group.group_name}} </option>
-                                                       {% endfor %}
-                                                    </select>
+                                            <input type="date" value="2015-09-24" min="2019-05-01" max="2099-09-26">
                                                <label>ip地址</label>
                                                <input name="host_ip" value=" ">
                                                     <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> Search</button>
@@ -62,12 +56,15 @@
                                             <td>{{log.user}}&nbsp;</td>
                                             <td>{{ log.cmd }}</td>
                                             <td>{{ log.result }}</td>
-                                            <td><a href="//"  id="btn">
-                                                            <i class="icon icon-eye"></i> 查看
-                                                        </a>
-                                                <span id="content">
-                                                    {{log.details}}
-                                                </span>
+                                            <td>
+                                                <!-- <script>
+                                                    var details = {{log.details}};
+
+                                                </script> -->
+
+
+                                                <a href="" onclick="alert('details')"><i class="icon icon-eye"></i>查看</a>
+
                                             </td>
                                         </tr>
                                         {% endfor %}
@@ -109,30 +106,12 @@
 {% endblock %}
 
 {% block custom_js %}
+<script language="javascript">
+     function openwin() {
 
- <script type="text/javascript">
-       //获取button按钮
-       var btn=document.getElementById('btn');
-       //获取p
-       var content=document.getElementById('content');
-       //获取p中的内容
-       var str=content.innerHTML;
-       //定义一个变量，表示当前的状态（收缩、展开）
-       var onOff=true;// true表示展开
-       btn.onclick=function(){
-           if(onOff) {
-               content.innerHTML = str.substr(0,50)+"......";
-               btn.innerHTML='查看'
-           } else {
-               //说明当前状态是收缩的，需要展开
-               content.innerHTML = str
-               btn.innerHTML = '关闭';
-           }
-           onOff=!onOff; //每点击一次，改变一次展开、收缩状态
-           return false;  //阻止a标签的默认事件
-       }
-   </script>
+         window.open("www.baidu.com", "", "height=400, width=400, top=200,left=200,toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
+     }
 
-
+</script>
 
 {% endblock %}
