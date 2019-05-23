@@ -2591,3 +2591,118 @@ django.db.utils.OperationalError: (1054, "Unknown column 'opslogs.cmd' in 'field
 [I 20190521 20:02:06 basehttp:124] "GET /findlog/ HTTP/1.1" 200 16860
 [I 20190521 20:03:37 basehttp:124] "GET /findlog/ HTTP/1.1" 200 16864
 [I 20190521 20:03:40 basehttp:124] "GET /findlog/ HTTP/1.1" 200 16864
+[I 20190523 17:22:12 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190523 17:22:13 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/imgs/avatar-1.png HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/vendor/popper.js/popper.min.js HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/vendor/chart.js/chart.min.js HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/js/demo.js HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/js/carbon.js HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0 HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff HTTP/1.1" 304 0
+[I 20190523 17:22:13 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.ttf?v=2.4.0 HTTP/1.1" 304 0
+[W 20190523 17:22:13 base:93] Not Found: /favicon.ico
+[W 20190523 17:22:13 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4635
+[I 20190523 17:22:14 basehttp:124] "GET /findlog/ HTTP/1.1" 200 16870
+[I 20190523 17:22:16 basehttp:124] "GET /logdetails/1 HTTP/1.1" 301 0
+[E 20190523 17:22:16 exception:118] Internal Server Error: /logdetails/1/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 181, in get
+    log = OpsLog.objects.get(id=log_id)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1215, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1085, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/lookups.py", line 18, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/lookups.py", line 68, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/fields/__init__.py", line 947, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '/1'
+[E 20190523 17:22:16 basehttp:124] "GET /logdetails/1/ HTTP/1.1" 500 124151
+[E 20190523 17:23:17 exception:118] Internal Server Error: /logdetails/1/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 181, in get
+    log = OpsLog.objects.get(id=int(log_id))
+ValueError: invalid literal for int() with base 10: '/1'
+[E 20190523 17:23:17 basehttp:124] "GET /logdetails/1/ HTTP/1.1" 500 72854
+[E 20190523 17:24:03 exception:118] Internal Server Error: /logdetails/1/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 183, in get
+    log = OpsLog.objects.get(id=int(log_id))
+ValueError: invalid literal for int() with base 10: '/1'
+[E 20190523 17:24:03 basehttp:124] "GET /logdetails/1/ HTTP/1.1" 500 72827
+[W 20190523 17:24:44 base:93] Not Found: /
+[W 20190523 17:24:44 basehttp:124] "GET / HTTP/1.1" 404 4584
+[I 20190523 17:24:47 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190523 17:24:49 basehttp:124] "GET /findlog/ HTTP/1.1" 200 16868
+[I 20190523 17:24:50 basehttp:124] "GET /logdetails1 HTTP/1.1" 301 0
+[E 20190523 17:24:51 exception:118] Internal Server Error: /logdetails1/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 185, in get
+    return render(reques,"logdetails.html",{'log':log})
+NameError: name 'reques' is not defined
+[E 20190523 17:24:51 basehttp:124] "GET /logdetails1/ HTTP/1.1" 500 72518
+[I 20190523 17:25:05 basehttp:124] "GET /logdetails1/ HTTP/1.1" 200 17
+[I 20190523 17:25:45 basehttp:124] "GET /logdetails1/ HTTP/1.1" 200 1397
+[I 20190523 17:28:38 basehttp:124] "GET /logdetails2 HTTP/1.1" 301 0
+[I 20190523 17:28:38 basehttp:124] "GET /logdetails2/ HTTP/1.1" 200 1397

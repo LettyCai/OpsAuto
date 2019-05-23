@@ -175,3 +175,11 @@ class FindLogView(View):
         logs = p.page(page)
 
         return render(request,"logs.html",{'logs':logs})
+
+class LogDetailsView(View):
+    def get(self,request,log_id):
+        print(log_id)
+        print(type(log_id))
+        log = OpsLog.objects.get(id=int(log_id)).details
+
+        return render(request,"logdetails.html",{'log':log})
