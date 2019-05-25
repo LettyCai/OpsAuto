@@ -5,6 +5,8 @@ import logging
 import yaml
 import re
 from binascii import b2a_hex, a2b_hex
+from .models import HostGroup
+
 logger = logging.getLogger("django")
 
 class prpcrypt():
@@ -178,7 +180,7 @@ class ListGenerate():
         #写入主机组信息
         for group in groups:
             contents = contents + "[" + group.group_name + "]" + "\n"
-            hosts = group.host_set.all()
+            hosts = group.hostsinfo_set.all()
             #写入该组所有主机信息
             for host in hosts:
                 contents = contents + host.ip + "\n"

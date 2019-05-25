@@ -63,7 +63,9 @@
                                                 </script> -->
 
 
-                                                <a href="/logdetails{{log.id}}" target="_blank" ><i class="icon icon-eye"></i>查看</a>
+                                               <!-- <a href="/logdetails{{log.id}}" onclick="openwin()"><i class="icon icon-eye"></i>查看</a>-->
+
+                                                <a href="" onclick="openwin('{{log.id}}')"><i class="icon icon-eye"></i>查看</a>
 
                                             </td>
                                         </tr>
@@ -107,9 +109,8 @@
 
 {% block custom_js %}
 <script language="javascript">
-     function openwin() {
-
-         window.open("www.baidu.com", "", "height=400, width=400, top=200,left=200,toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
+     function openwin(log_id) {
+         window.open("/logdetails"+log_id, "", "height=400, width=400, top=200,left=200,toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
      }
 
 </script>
