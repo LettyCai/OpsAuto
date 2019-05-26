@@ -116,14 +116,13 @@ class CollectHostView(View):
         print(host_ip,host_password)
 
         #检查ip地址格式是否正确：
-        if re.match('((?:(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d))))', host_ip, flags=0) :
+        if re.match('((?:(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d))))', host_ip, flags=0):
             #收集主机信息
             nm = NMAPCollection()
             result = nm.collection(host_ip,host_password)
-            #对登陆密码进行加密，并将加密后的密码回传给前端页面
-            print(result)
-            #登陆成功
+
             if result['status']== 'success':
+                # 对登陆密码进行加密，并将加密后的密码回传给前端页面
                 prp = prpcrypt()
                 result['host_pass'] = prp.encrypt(host_password).decode(encoding='UTF-8',errors='strict')
                 result['host_ip'] = host_ip
@@ -132,8 +131,9 @@ class CollectHostView(View):
                 groups = HostGroup.objects.all()
                 return render(request,"add-host.html",{'res':result,'groups':groups})
             else:
-                return render(request,"500.html",{"msg":"主机信息获取失败",'':result['res']})
-        #ip地址格式不正确，回传报错信息
+                groups = HostGroup.objects.all()
+                return render(request,"add-host.html",{"msg":"主机信息获取失败",'res':result['res'],'groups':groups})
+        #ip地址格式不正确
         else:
             # 查询所有主机组信息，并传给前端添加主机页面显示
             groups = HostGroup.objects.all()
@@ -229,5 +229,9 @@ class DelGroupView(View):
 
         return redirect("grouplist")
 
+class ModifyHostView(View):
+    def get(self,request,host_id):
+
+        return redirect("hostinfo")
 
 

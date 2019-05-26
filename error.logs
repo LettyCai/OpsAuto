@@ -3018,3 +3018,153 @@ ValueError: invalid literal for int() with base 10: 'id'
 [W 20190525 23:17:03 basehttp:124] "GET /userlist/tables.html HTTP/1.1" 404 4662
 [I 20190525 23:17:05 basehttp:124] "GET /findlog/ HTTP/1.1" 200 17279
 [I 20190525 23:17:09 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190526 21:12:22 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190526 21:12:23 basehttp:124] "GET /static/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 304 0
+[I 20190526 21:12:23 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 304 0
+[I 20190526 21:12:23 basehttp:124] "GET /static/imgs/avatar-1.png HTTP/1.1" 304 0
+[I 20190526 21:12:23 basehttp:124] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+[I 20190526 21:12:23 basehttp:124] "GET /static/vendor/popper.js/popper.min.js HTTP/1.1" 304 0
+[I 20190526 21:12:23 basehttp:124] "GET /static/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 304 0
+[I 20190526 21:12:24 basehttp:124] "GET /static/vendor/chart.js/chart.min.js HTTP/1.1" 304 0
+[I 20190526 21:12:24 basehttp:124] "GET /static/js/carbon.js HTTP/1.1" 304 0
+[I 20190526 21:12:24 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[I 20190526 21:12:24 basehttp:124] "GET /static/js/demo.js HTTP/1.1" 304 0
+[I 20190526 21:12:25 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+[I 20190526 21:12:25 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0 HTTP/1.1" 304 0
+[I 20190526 21:12:27 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.ttf?v=2.4.0 HTTP/1.1" 304 0
+[I 20190526 21:12:27 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff HTTP/1.1" 304 0
+[W 20190526 21:12:30 base:93] Not Found: /favicon.ico
+[W 20190526 21:12:30 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4635
+[I 20190526 21:12:43 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14514
+[I 20190526 21:12:52 basehttp:124] "GET /addhost/ HTTP/1.1" 200 15169
+[I 20190526 21:13:45 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 1001
+[I 20190526 21:19:46 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 1064
+[I 20190526 21:20:13 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 1064
+[I 20190526 21:20:53 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 1073
+[I 20190526 21:22:06 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 1086
+[I 20190526 21:26:03 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 1133
+[E 20190526 21:34:28 exception:118] Internal Server Error: /collecthost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 135, in post
+    return redirect("addhost",{"msg":"主机信息获取失败",'res':result['res']})
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 58, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 149, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'addhost' with arguments '({'msg': '主机信息获取失败', 'res': 'timed out'},)' not found. 1 pattern(s) tried: ['addhost\\/$']
+[E 20190526 21:34:28 basehttp:124] "POST /collecthost/ HTTP/1.1" 500 96490
+[I 20190526 21:35:57 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 15266
+[I 20190526 21:36:07 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 15266
+[I 20190526 21:36:31 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 15203
+[I 20190526 21:37:29 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 15269
+[I 20190526 21:37:33 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 15260
+[W 20190526 21:37:48 base:93] Not Found: /favicon.ico
+[W 20190526 21:37:48 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4635
+[W 20190526 21:37:52 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190526 21:37:52 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[W 20190526 21:37:57 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190526 21:37:57 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[W 20190526 21:37:58 base:93] Not Found: /favicon.ico
+[W 20190526 21:37:58 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4635
+[W 20190526 21:38:03 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190526 21:38:03 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[W 20190526 21:38:03 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190526 21:38:03 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[W 20190526 21:38:04 base:93] Not Found: /favicon.ico
+[W 20190526 21:38:04 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4635
+[I 20190526 21:38:16 basehttp:124] "GET /index HTTP/1.1" 301 0
+[I 20190526 21:38:16 basehttp:124] "GET /index/ HTTP/1.1" 200 12843
+[I 20190526 21:38:16 basehttp:124] "GET /static/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 200 12958
+[I 20190526 21:38:16 basehttp:124] "GET /static/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 200 33813
+[I 20190526 21:38:16 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190526 21:38:16 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 200 156939
+[I 20190526 21:38:17 basehttp:124] "GET /static/vendor/popper.js/popper.min.js HTTP/1.1" 200 19197
+[I 20190526 21:38:17 basehttp:124] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 200 86659
+[I 20190526 21:38:17 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 50564
+[I 20190526 21:38:17 basehttp:124] "GET /static/vendor/chart.js/chart.min.js HTTP/1.1" 200 157843
+[I 20190526 21:38:17 basehttp:124] "GET /static/js/carbon.js HTTP/1.1" 200 681
+[I 20190526 21:38:17 basehttp:124] "GET /static/js/demo.js HTTP/1.1" 200 5858
+[I 20190526 21:38:17 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-regular-400.eot? HTTP/1.1" 304 0
+[I 20190526 21:38:17 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.eot? HTTP/1.1" 304 0
+[I 20190526 21:38:17 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.eot?v=2.4.0 HTTP/1.1" 304 0
+[W 20190526 21:38:19 base:93] Not Found: /favicon.ico
+[W 20190526 21:38:19 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4635
+[I 20190526 21:38:30 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 13769
+[W 20190526 21:38:30 base:93] Not Found: /favicon.ico
+[W 20190526 21:38:30 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4635
+[I 20190526 21:38:32 basehttp:124] "GET /addhost/ HTTP/1.1" 200 14458
+[W 20190526 21:38:32 base:93] Not Found: /favicon.ico
+[W 20190526 21:38:32 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4635
+[I 20190526 21:38:42 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14524
+[W 20190526 21:38:48 base:93] Not Found: /favicon.ico
+[W 20190526 21:38:48 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4635
+[I 20190526 21:39:19 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 15250
+[I 20190526 21:39:29 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14505
+[W 20190526 21:40:25 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190526 21:40:25 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[W 20190526 21:40:27 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190526 21:40:27 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[W 20190526 21:40:27 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190526 21:40:27 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[W 20190526 21:40:28 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190526 21:40:28 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[I 20190526 21:40:44 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14505
+[I 20190526 21:40:49 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 14498
+[W 20190526 21:41:54 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190526 21:41:54 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[W 20190526 21:41:56 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190526 21:41:56 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[W 20190526 21:42:00 base:94] Method Not Allowed (GET): /collecthost/
+[W 20190526 21:42:00 basehttp:124] "GET /collecthost/ HTTP/1.1" 405 0
+[I 20190526 21:42:13 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14514
+[I 20190526 21:42:17 basehttp:124] "POST /hostinfo/ HTTP/1.1" 200 14514
+[I 20190526 21:42:19 basehttp:124] "POST /hostinfo/ HTTP/1.1" 200 13095
+[I 20190526 21:42:23 basehttp:124] "POST /hostinfo/ HTTP/1.1" 200 14514
+[I 20190526 21:42:26 basehttp:124] "GET /hostdetail3/ HTTP/1.1" 200 11123
+[W 20190526 21:42:28 base:93] Not Found: /hostinfo/host-detail.html
+[W 20190526 21:42:28 basehttp:124] "GET /hostinfo/host-detail.html HTTP/1.1" 404 4677
+[W 20190526 21:42:47 base:93] Not Found: /hostinfo/host-detail.html
+[W 20190526 21:42:47 basehttp:124] "GET /hostinfo/host-detail.html HTTP/1.1" 404 4677
+[I 20190526 21:42:50 basehttp:124] "GET /addhost/ HTTP/1.1" 200 15184
+[I 20190526 21:43:02 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 13895
+[I 20190526 21:43:06 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 11391
+[I 20190526 22:08:53 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14514
+[I 20190526 22:08:54 basehttp:124] "GET /addhost/ HTTP/1.1" 200 15184
+[E 20190526 22:09:00 exception:118] Internal Server Error: /collecthost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 135, in post
+    return redirect("hostinfo",kwargs={"msg":"主机信息获取失败",'res':result['res']})
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 58, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 149, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'hostinfo' with keyword arguments '{'kwargs': {'msg': '主机信息获取失败', 'res': 'timed out'}}' not found. 1 pattern(s) tried: ['hostinfo\\/$']
+[E 20190526 22:09:00 basehttp:124] "POST /collecthost/ HTTP/1.1" 500 96671

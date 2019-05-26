@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,re_path
-from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView,HostDetailView,DelHostView,ModifyGroupView,DelGroupView
+from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView,HostDetailView,DelHostView,ModifyGroupView,DelGroupView,ModifyHostView
 from taskdo.views import KillTtypView, UploadView,TaskDoView,FindLogView,LogDetailsView
 from users.views import IndexView,LoginView,LogoutView,UsersListView,UserSettingsView,UserProfileView
 
@@ -41,4 +41,5 @@ urlpatterns = [
     path('taskdo/', TaskDoView.as_view(), name="taskdo"),
     path('findlog/', FindLogView.as_view(), name="findlog"),
     re_path(r'logdetails(?P<log_id>.*)/$', LogDetailsView.as_view(), name="logdetails"),
+    re_path(r'modifyhost(?P<host_id>.*)/$', ModifyHostView.as_view(), name="modifyhost"),
 ]
