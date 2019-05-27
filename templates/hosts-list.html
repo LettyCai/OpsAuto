@@ -66,7 +66,7 @@
                                                     <a href="/hostdetail{{ host.id }}/" >
                                                             <i class="icon icon-eye"></i> 查看
                                                         </a>
-                                                        <a href="host-detail.html" >
+                                                        <a href="/modifyhost{{ host.id }}/" >
                                                                 <i class="icon icon-pencil"></i> 修改
                                                             </a>
                                                             <a href="/hostdel{{ host.id }}/"  onclick="return sumbit_sure()">
@@ -107,7 +107,7 @@
                 </div>
     
 
-
+            {% if msg %}<script>alert("{{ msg }} "+"{{ res }}");</script>{% endif %}
             </div>
 
 {% endblock %}

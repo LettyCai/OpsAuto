@@ -189,6 +189,9 @@ class AddGroupView(View):
             return render(request, "group-list.html", {"status": "success",'groups':groups})
 
 class HostDetailView(View):
+    """
+    主机详细信息展示View
+    """
     def get(self,request,host_id):
 
         host = HostsInfo.objects.get(id=host_id)
@@ -196,6 +199,9 @@ class HostDetailView(View):
         return render(request, "host-detail.html", {"host": host})
 
 class DelHostView(View):
+    """
+    删除主机View
+    """
     def get(self,request,host_id):
         #删除主机数据
         HostsInfo.objects.filter(id=host_id).delete()
@@ -208,6 +214,9 @@ class DelHostView(View):
         return render(request, "hosts-list.html", {'hosts': hosts, 'groups': groups})
 
 class ModifyGroupView(View):
+    """
+    修改主机组信息View
+    """
     def get(self,request,group_id):
         group = HostGroup.objects.get(id=int(group_id))
         return render(request,"group-detail.html",{'group':group})
@@ -224,14 +233,64 @@ class ModifyGroupView(View):
         return redirect("grouplist")
 
 class DelGroupView(View):
+    """
+    删除主机组View
+    """
     def get(self,request,group_id):
         HostGroup.objects.filter(id=int(group_id)).delete()
 
         return redirect("grouplist")
 
 class ModifyHostView(View):
+    """
+    修改主机登陆密码View
+    """
     def get(self,request,host_id):
+        host = HostsInfo.objects.get(id=int(host_id))
+        return render(request,"modifyhost.html",{"host":host})
 
-        return redirect("hostinfo")
+    def post(self,request,host_id):
+        host_ip = request.POST.get('ip', "")
+        host_password = request.POST.get('password', "")
+
+        print("*"*50)
+        print(host_ip)
+        print(host_password)
+
+        nm = NMAPCollection()
+        result = nm.collection(host_ip, host_password)
+
+        if result['status'] == 'success':
+            # 对登陆密码进行加密
+            prp = prpcrypt()
+            host_pass = prp.encrypt(host_password).decode(encoding='UTF-8', errors='strict')
+
+            #更新主机密码
+            host= HostsInfo.objects.get(ip=host_ip)
+            host.ssh_passwd = host_pass
+            host.save()
+
+            # 返回主机列表页面
+            hosts = HostsInfo.objects.all()
+            groups = HostGroup.objects.all()
+
+            # 分页
+            try:
+                page = request.GET.get('page', 1)
+            except PageNotAnInteger:
+                page = 1
+
+            # Provide Paginator with the request object for complete querystring generation
+            p = Paginator(hosts, 10, request=request)
+            hosts = p.page(page)
+
+            return render(request, "hosts-list.html", {'msg': "修改成功!",'hosts': hosts, 'groups': groups})
+
+        else:
+            groups = HostGroup.objects.all()
+            return render(request, "add-host.html", {"msg": "主机信息获取失败", 'res': result['res'], 'groups': groups})
+
+
+
 
 

@@ -3168,3 +3168,318 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'hostinfo' with keyword arguments '{'kwargs': {'msg': '主机信息获取失败', 'res': 'timed out'}}' not found. 1 pattern(s) tried: ['hostinfo\\/$']
 [E 20190526 22:09:00 basehttp:124] "POST /collecthost/ HTTP/1.1" 500 96671
+[I 20190527 10:01:41 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190527 10:01:41 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[W 20190527 10:01:42 base:93] Not Found: /favicon.ico
+[W 20190527 10:01:42 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4787
+[I 20190527 10:02:06 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17212
+[I 20190527 10:02:09 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11123
+[I 20190527 10:38:34 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17212
+[I 20190527 10:38:36 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11134
+[I 20190527 10:39:01 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17212
+[I 20190527 10:39:02 basehttp:124] "GET /addhost/ HTTP/1.1" 200 17028
+[I 20190527 10:46:02 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17212
+[I 20190527 10:46:03 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11123
+[I 20190527 10:46:36 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17212
+[I 20190527 10:46:37 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11393
+[I 20190527 10:46:40 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17212
+[I 20190527 10:47:13 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17212
+[I 20190527 10:47:14 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11413
+[I 20190527 10:47:44 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17212
+[W 20190527 10:47:46 base:93] Not Found: /hostinfo/host-detail.html
+[W 20190527 10:47:46 basehttp:124] "GET /hostinfo/host-detail.html HTTP/1.1" 404 4829
+[I 20190527 10:48:41 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:48:43 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 302 0
+[I 20190527 10:48:43 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:48:45 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 302 0
+[I 20190527 10:48:45 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:48:47 basehttp:124] "GET /modifyhost4/ HTTP/1.1" 302 0
+[I 20190527 10:48:47 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:48:58 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:49:00 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 302 0
+[I 20190527 10:49:00 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:50:44 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21401
+[I 20190527 10:50:46 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[E 20190527 10:50:47 exception:118] Internal Server Error: /modifyhost1/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 237, in get
+    return render(request,"modifyhost.html",{"host":host})
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 290, in do_extends
+    nodelist = parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 233, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 450, in parse
+    raise self.error(token, 'Empty variable tag on line %d' % token.lineno)
+django.template.exceptions.TemplateSyntaxError: Empty variable tag on line 18
+[E 20190527 10:50:48 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 500 158553
+[I 20190527 10:51:22 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11487
+[I 20190527 10:52:47 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:52:48 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11503
+[I 20190527 10:53:17 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11510
+[I 20190527 10:53:25 basehttp:124] "GET /modifyhost4/ HTTP/1.1" 200 11510
+[I 20190527 10:55:26 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11782
+[W 20190527 10:55:27 base:94] Method Not Allowed (POST): /modifyhost/
+[W 20190527 10:55:27 basehttp:124] "POST /modifyhost/ HTTP/1.1" 405 0
+[I 20190527 10:55:32 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11782
+[W 20190527 10:55:33 base:94] Method Not Allowed (POST): /modifyhost/
+[W 20190527 10:55:33 basehttp:124] "POST /modifyhost/ HTTP/1.1" 405 0
+[I 20190527 10:55:35 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190527 10:55:36 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:55:40 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21401
+[I 20190527 10:55:41 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:55:42 basehttp:124] "GET /modifyhost4/ HTTP/1.1" 200 11782
+[W 20190527 10:55:44 base:94] Method Not Allowed (POST): /modifyhost/
+[W 20190527 10:55:44 basehttp:124] "POST /modifyhost/ HTTP/1.1" 405 0
+[I 20190527 10:56:42 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11782
+[I 20190527 10:57:16 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:57:17 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11764
+[W 20190527 10:57:18 base:94] Method Not Allowed (POST): /modifyhost/
+[W 20190527 10:57:18 basehttp:124] "POST /modifyhost/ HTTP/1.1" 405 0
+[I 20190527 10:57:25 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11764
+[W 20190527 10:57:26 base:94] Method Not Allowed (POST): /modifyhost/
+[W 20190527 10:57:26 basehttp:124] "POST /modifyhost/ HTTP/1.1" 405 0
+[I 20190527 10:58:03 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:58:04 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11766
+[W 20190527 10:58:05 base:94] Method Not Allowed (POST): /modifyhost/
+[W 20190527 10:58:05 basehttp:124] "POST /modifyhost/ HTTP/1.1" 405 0
+[I 20190527 10:58:12 basehttp:124] "GET /modifyhost4/ HTTP/1.1" 200 11766
+[W 20190527 10:58:14 base:94] Method Not Allowed (POST): /modifyhost/
+[W 20190527 10:58:14 basehttp:124] "POST /modifyhost/ HTTP/1.1" 405 0
+[I 20190527 10:58:27 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 10:58:28 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11662
+[W 20190527 10:58:29 base:94] Method Not Allowed (POST): /modifyhost/
+[W 20190527 10:58:29 basehttp:124] "POST /modifyhost/ HTTP/1.1" 405 0
+[I 20190527 10:59:26 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:00:03 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:00:05 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11686
+[W 20190527 11:00:06 base:94] Method Not Allowed (POST): /modifyhost/
+[W 20190527 11:00:06 basehttp:124] "POST /modifyhost/ HTTP/1.1" 405 0
+[W 20190527 11:00:12 base:94] Method Not Allowed (POST): /modifyhost/
+[W 20190527 11:00:12 basehttp:124] "POST /modifyhost/ HTTP/1.1" 405 0
+[I 20190527 11:00:38 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11695
+[W 20190527 11:00:39 base:94] Method Not Allowed (POST): /modifyhost/
+[W 20190527 11:00:39 basehttp:124] "POST /modifyhost/ HTTP/1.1" 405 0
+[I 20190527 11:01:03 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11709
+[I 20190527 11:01:04 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:24:36 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:24:37 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11618
+[E 20190527 11:24:42 exception:118] Internal Server Error: /modifyhost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'host_id'
+[E 20190527 11:24:42 basehttp:124] "POST /modifyhost/ HTTP/1.1" 500 70760
+[E 20190527 11:25:14 exception:118] Internal Server Error: /modifyhost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'host_id'
+[E 20190527 11:25:14 basehttp:124] "POST /modifyhost/ HTTP/1.1" 500 70754
+[I 20190527 11:25:45 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:25:46 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11618
+[I 20190527 11:25:51 basehttp:124] "POST /modifyhost/ HTTP/1.1" 200 17119
+[I 20190527 11:26:01 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:26:07 basehttp:124] "GET /modifyhost4/ HTTP/1.1" 200 11618
+[I 20190527 11:26:11 basehttp:124] "POST /modifyhost/ HTTP/1.1" 200 17119
+[I 20190527 11:26:49 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:26:51 basehttp:124] "GET /addhost/ HTTP/1.1" 200 17028
+[I 20190527 11:26:53 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 17178
+[I 20190527 11:26:57 basehttp:124] "POST /addhost/ HTTP/1.1" 200 1059
+[I 20190527 11:27:26 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:27:28 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11618
+[I 20190527 11:27:33 basehttp:124] "POST /modifyhost/ HTTP/1.1" 200 17119
+[I 20190527 11:28:33 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:28:34 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11618
+[I 20190527 11:28:37 basehttp:124] "POST /modifyhost/ HTTP/1.1" 200 17119
+[I 20190527 11:29:37 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:29:38 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11597
+[I 20190527 11:29:41 basehttp:124] "POST /modifyhost/ HTTP/1.1" 200 17105
+[I 20190527 11:29:47 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:29:48 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11597
+[I 20190527 11:29:52 basehttp:124] "POST /modifyhost/ HTTP/1.1" 200 17105
+[I 20190527 11:30:17 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21401
+[I 20190527 11:30:20 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21401
+[I 20190527 11:30:22 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:30:23 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11592
+[E 20190527 11:30:26 exception:118] Internal Server Error: /modifyhost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 269, in post
+    HostsInfo.objects.get(ip=host_ip).update(ssh_passwd=host_pass)
+AttributeError: 'HostsInfo' object has no attribute 'update'
+[E 20190527 11:30:26 basehttp:124] "POST /modifyhost/ HTTP/1.1" 500 76444
+[I 20190527 11:31:38 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:31:39 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11592
+[E 20190527 11:31:42 exception:118] Internal Server Error: /modifyhost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 274, in post
+    return render(request, "Host.html", {'msg': "修改成功!", 'hosts': hosts})
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: Host.html
+[E 20190527 11:31:43 basehttp:124] "POST /modifyhost/ HTTP/1.1" 500 91816
+[E 20190527 11:32:08 exception:118] Internal Server Error: /modifyhost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 274, in post
+    return render(request, "Hostslist.html", {'msg': "修改成功!", 'hosts': hosts})
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: Hostslist.html
+[E 20190527 11:32:08 basehttp:124] "POST /modifyhost/ HTTP/1.1" 500 91906
+[I 20190527 11:32:22 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:32:23 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11592
+[E 20190527 11:32:26 exception:118] Internal Server Error: /modifyhost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 274, in post
+    return render(request, "Hosts-list.html", {'msg': "修改成功!", 'hosts': hosts})
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: Hosts-list.html
+[E 20190527 11:32:26 basehttp:124] "POST /modifyhost/ HTTP/1.1" 500 91924
+[I 20190527 11:33:38 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21401
+[I 20190527 11:33:40 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17206
+[I 20190527 11:33:41 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11592
+[I 20190527 11:33:44 basehttp:124] "POST /modifyhost/ HTTP/1.1" 200 17206
+[E 20190527 11:34:19 exception:118] Internal Server Error: /modifyhost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 249, in get
+    host = HostsInfo.objects.get(id=int(host_id))
+ValueError: invalid literal for int() with base 10: ''
+[E 20190527 11:34:19 basehttp:124] "GET /modifyhost/ HTTP/1.1" 500 73428
+[I 20190527 11:34:23 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17209
+[I 20190527 11:34:25 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11592
+[I 20190527 11:34:28 basehttp:124] "POST /modifyhost/ HTTP/1.1" 200 17253
+[I 20190527 11:34:32 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11413
+[I 20190527 11:35:28 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21401
+[I 20190527 11:35:30 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17209
+[I 20190527 11:35:31 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11610
+[I 20190527 11:35:34 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17209
+[I 20190527 11:35:49 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21401
+[I 20190527 11:36:30 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17209
+[I 20190527 11:36:31 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11875
+[I 20190527 11:36:32 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17209
+[I 20190527 11:36:33 basehttp:124] "GET /hostdetail4/ HTTP/1.1" 200 11830
+[I 20190527 11:36:33 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17209
+[I 20190527 11:37:38 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11592
+[I 20190527 11:37:40 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17209
+[I 20190527 11:37:42 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11875
+[I 20190527 11:37:43 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17209
+[I 20190527 11:37:45 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11592
+[I 20190527 11:39:55 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17209
+[I 20190527 11:39:56 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11875
+[I 20190527 11:40:02 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17209
+[I 20190527 11:40:03 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11592
+[I 20190527 11:41:14 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11594

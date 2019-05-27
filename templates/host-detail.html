@@ -23,6 +23,11 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                                                                <tr>
+                                            <td>主机名</td>
+                                            <td class="text-nowrap"> {{ host.hostname}}</td>
+
+                                        </tr>
                                         <tr>
                                             <td>MAc地址</td>
                                             <td class="text-nowrap"> {{ host.mac_address}}</td>
@@ -47,8 +52,15 @@
                                             <td>序列号</td>
                                             <td class="text-nowrap">{{host.sn}}</td>
                                         </tr>
+                                         <tr>
+                                                 <td></td>
+                                                 <td>
+                                                 <button type="button"  class="btn btn-success" onclick="window.location.href='/hostinfo/' "><i class="fa fa-search"></i> 返回上一页 </button>
+                                                 </td>
+                                             </tr>
                                         </tbody>
                                     </table>
+
                                 </div>
                             </div>
                         </div>

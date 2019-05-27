@@ -15,28 +15,28 @@
                                         <tr>
                                             <td>IP地址</td>
                                             <td>
-                                                <input class="form-control" name="group_name" value="{{}}">
+                                                <input class="form-control" name="ip" value="{{host.ip }}" readonly>
                                             </td>
                                         </tr>
                                          <tr>
                                             <td>密码</td>
                                             <td>
-                                                <input type="password" class="form-control"  name="group_network" value="{{  }}">
+                                                <input type="password" class="form-control"  name="password" >
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>主机描述</td>
                                             <td class="text-nowrap">
-                                                <input class="form-control"  name="group_detail" value="{{}}">
-                                                <input type="hidden" name="group_id" value="{{}}">
+                                                <input class="form-control"  name="host_detail" >
                                             </td>
 
                                         </tr>
                                              <tr>
                                                  <td></td>
                                                  <td>
-                                                   <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> Test-Connect </button>
-                                                 <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> Save-Host </button>
+                                                   <button type="button" class="btn btn-primary" ><i class="fa fa-search"></i> Test-Connect </button>
+                                                 <button type="submit" class="btn btn-success" ><i class="fa fa-download"></i> Save-Host </button>
+                                                 <button type="button"  class="btn btn-primary" onclick="window.location.href='/hostinfo/' "><i class="fa fa-search"></i> 返回上一页 </button>
                                                  </td>
                                              </tr>
                                          {% csrf_token %}
@@ -51,8 +51,12 @@
 
 
 
-
+        {% if msg %}<script>alert("{{ msg }} "+"{{ res }}");</script>{% endif %}
             </div>
+
+
+{% endblock %}
+{% block custom_js %}
 
 
 {% endblock %}
