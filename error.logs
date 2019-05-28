@@ -3483,3 +3483,206 @@ ValueError: invalid literal for int() with base 10: ''
 [I 20190527 11:40:02 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17209
 [I 20190527 11:40:03 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11592
 [I 20190527 11:41:14 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11594
+[I 20190527 22:41:30 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190527 22:41:30 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[W 20190527 22:41:33 base:93] Not Found: /favicon.ico
+[W 20190527 22:41:33 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4787
+[I 20190527 22:42:00 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14523
+[I 20190527 22:42:08 basehttp:124] "GET /hostdetail3/ HTTP/1.1" 200 11867
+[I 20190527 22:42:09 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14523
+[I 20190527 22:42:11 basehttp:124] "GET /modifyhost3/ HTTP/1.1" 200 11594
+[I 20190527 22:42:20 basehttp:124] "POST /modifyhost/ HTTP/1.1" 200 15248
+[I 20190527 22:42:32 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190527 22:42:35 basehttp:124] "GET /admin/ HTTP/1.1" 200 4536
+[I 20190527 22:42:35 basehttp:124] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[I 20190527 22:42:35 basehttp:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[I 20190527 22:42:35 basehttp:124] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[I 20190527 22:42:35 basehttp:124] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[I 20190527 22:42:35 basehttp:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+[I 20190527 22:42:35 basehttp:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+[I 20190527 22:42:35 basehttp:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[I 20190527 22:42:35 basehttp:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[I 20190527 22:42:35 basehttp:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[I 20190527 22:42:39 basehttp:124] "GET /admin/auth/group/add/ HTTP/1.1" 200 7174
+[I 20190527 22:42:39 basehttp:124] "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[I 20190527 22:42:39 basehttp:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[I 20190527 22:42:39 basehttp:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[I 20190527 22:42:39 basehttp:124] "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[I 20190527 22:42:39 basehttp:124] "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[I 20190527 22:42:39 basehttp:124] "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[I 20190527 22:42:40 basehttp:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[I 20190527 22:42:40 basehttp:124] "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[I 20190527 22:42:40 basehttp:124] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[I 20190527 22:42:40 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:42:40 basehttp:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[I 20190527 22:42:40 basehttp:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[I 20190527 22:42:40 basehttp:124] "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[I 20190527 22:42:40 basehttp:124] "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 5755
+[I 20190527 22:42:40 basehttp:124] "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 12680
+[I 20190527 22:42:41 basehttp:124] "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[I 20190527 22:42:41 basehttp:124] "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[I 20190527 22:42:41 basehttp:124] "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+[I 20190527 22:42:41 basehttp:124] "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+[I 20190527 22:43:04 basehttp:124] "GET /admin/auth/ HTTP/1.1" 200 2433
+[I 20190527 22:43:05 basehttp:124] "GET /admin/ HTTP/1.1" 200 4536
+[I 20190527 22:43:09 basehttp:124] "GET /admin/users/userprofile/ HTTP/1.1" 200 4662
+[I 20190527 22:43:09 basehttp:124] "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[I 20190527 22:43:09 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:43:09 basehttp:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[I 20190527 22:43:10 basehttp:124] "GET /admin/users/userprofile/2/change/ HTTP/1.1" 200 14674
+[I 20190527 22:43:10 basehttp:124] "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+[I 20190527 22:43:10 basehttp:124] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+[I 20190527 22:43:10 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:43:10 basehttp:124] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+[I 20190527 22:43:10 basehttp:124] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+[I 20190527 22:43:29 basehttp:124] "GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6230
+[I 20190527 22:43:29 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:44:10 basehttp:124] "GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6230
+[I 20190527 22:44:10 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:44:43 basehttp:124] "POST /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 393
+[I 20190527 22:44:43 basehttp:124] "GET /static/admin/js/popup_response.js HTTP/1.1" 200 569
+[I 20190527 22:44:55 basehttp:124] "GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6230
+[I 20190527 22:44:56 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:45:28 basehttp:124] "POST /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 387
+[I 20190527 22:45:32 basehttp:124] "GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6230
+[I 20190527 22:45:32 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:45:37 basehttp:124] "POST /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 387
+[I 20190527 22:45:50 basehttp:124] "POST /admin/users/userprofile/2/change/ HTTP/1.1" 302 0
+[I 20190527 22:45:50 basehttp:124] "GET /admin/users/userprofile/ HTTP/1.1" 200 4837
+[I 20190527 22:45:50 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:45:50 basehttp:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[I 20190527 22:45:52 basehttp:124] "GET /admin/users/userprofile/2/change/ HTTP/1.1" 200 14815
+[I 20190527 22:45:52 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:45:58 basehttp:124] "GET /admin/users/userprofile/ HTTP/1.1" 200 4662
+[I 20190527 22:45:58 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:45:59 basehttp:124] "GET /admin/users/userprofile/1/change/ HTTP/1.1" 200 14900
+[I 20190527 22:45:59 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:46:04 basehttp:124] "POST /admin/users/userprofile/1/change/ HTTP/1.1" 302 0
+[I 20190527 22:46:04 basehttp:124] "GET /admin/users/userprofile/ HTTP/1.1" 200 4835
+[I 20190527 22:46:04 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190527 22:47:07 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11602
+[I 20190527 22:47:10 basehttp:124] "GET /upload/ HTTP/1.1" 200 12150
+[I 20190527 22:47:12 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11602
+[I 20190527 22:47:13 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14523
+[I 20190527 22:47:17 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 13895
+[I 20190527 22:47:18 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 11391
+[I 20190527 22:47:21 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14523
+[I 20190527 22:47:23 basehttp:124] "GET /modifyhost3/ HTTP/1.1" 200 11594
+[I 20190527 22:47:32 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190527 22:47:36 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11602
+[I 20190527 22:47:38 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14523
+[I 20190527 22:56:34 basehttp:124] "GET /admin/users/userprofile/2/change/ HTTP/1.1" 200 14815
+[I 20190527 22:56:34 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[E 20190528 22:27:03 exception:118] Internal Server Error: /index/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+AttributeError: 'IndexView' object has no attribute 'user'
+[E 20190528 22:27:03 basehttp:124] "GET /index/ HTTP/1.1" 500 74269
+[W 20190528 22:27:04 base:93] Not Found: /favicon.ico
+[W 20190528 22:27:04 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4787
+[I 20190528 22:27:36 basehttp:124] "GET /admin/ HTTP/1.1" 200 5986
+[E 20190528 22:29:13 exception:118] Internal Server Error: /index/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 13, in get
+    if not request.user.is_authenticated():
+TypeError: 'bool' object is not callable
+[E 20190528 22:29:13 basehttp:124] "GET /index/ HTTP/1.1" 500 72960
+[I 20190528 22:29:21 basehttp:124] "GET /login/ HTTP/1.1" 200 2951
+[I 20190528 22:29:26 basehttp:124] "POST /login/ HTTP/1.1" 200 13586
+[E 20190528 22:29:31 exception:118] Internal Server Error: /index/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 13, in get
+    if not request.user.is_authenticated():
+TypeError: 'bool' object is not callable
+[E 20190528 22:29:32 basehttp:124] "GET /index/ HTTP/1.1" 500 72973
+[I 20190528 22:30:49 basehttp:124] "GET /login/ HTTP/1.1" 200 2951
+[I 20190528 22:30:55 basehttp:124] "POST /login/ HTTP/1.1" 200 13586
+[E 20190528 22:30:56 exception:118] Internal Server Error: /index/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 13, in get
+    if request.user.is_authenticated():
+TypeError: 'bool' object is not callable
+[E 20190528 22:30:56 basehttp:124] "GET /index/ HTTP/1.1" 500 73015
+[I 20190528 22:31:31 basehttp:124] "GET /login/ HTTP/1.1" 200 2951
+[I 20190528 22:31:34 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190528 22:31:36 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190528 22:31:40 basehttp:124] "GET /logout/ HTTP/1.1" 200 2951
+[E 20190528 22:31:47 exception:118] Internal Server Error: /index/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 20, in get
+    return HttpResponseRedirect(LOGIN_URL)
+NameError: name 'HttpResponseRedirect' is not defined
+[E 20190528 22:31:47 basehttp:124] "GET /index/ HTTP/1.1" 500 72682
+[I 20190528 22:32:04 basehttp:124] "GET /index/ HTTP/1.1" 302 0
+[I 20190528 22:32:04 basehttp:124] "GET /login/ HTTP/1.1" 200 2951
+[E 20190528 22:36:02 exception:118] Internal Server Error: /index/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+AttributeError: 'IndexView' object has no attribute 'user'
+[E 20190528 22:36:02 basehttp:124] "GET /index/ HTTP/1.1" 500 74062
+[I 20190528 22:42:14 basehttp:124] "GET /index/ HTTP/1.1" 302 0
+[I 20190528 22:42:14 basehttp:124] "GET /login/?next=/index/ HTTP/1.1" 200 2951
+[I 20190528 22:42:24 basehttp:124] "GET /index/ HTTP/1.1" 302 0
+[I 20190528 22:42:24 basehttp:124] "GET /login/?next=/index/ HTTP/1.1" 200 2951

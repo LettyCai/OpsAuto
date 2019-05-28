@@ -1,17 +1,35 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect
 from django.views import View
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import UserProfile
 from hostsinfo.models import HostsInfo,HostGroup
+from django.contrib.auth.decorators import login_required
+from OpsAuto.settings import LOGIN_URL
+from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
-class IndexView(View):
-    def get(self,request):
+class IndexView(LoginRequiredMixin,View):
+    #@login_required
+    # def get(self,request):
+    #     if request.user.is_authenticated:
+    #         hosts = HostsInfo.objects.all()
+    #         host_num = hosts.count()
+    #         groups = HostGroup.objects.all()
+    #         group_num = groups.count()
+    #         return render(request, 'index.html', {'host_num': host_num, 'group_num': group_num})
+    #     else:
+    #         return HttpResponseRedirect(LOGIN_URL)
+
+    @login_required
+    def get(self, request):
         hosts = HostsInfo.objects.all()
         host_num = hosts.count()
         groups = HostGroup.objects.all()
         group_num = groups.count()
-        return render(request,'index.html',{'host_num':host_num,'group_num':group_num})
+        return render(request, 'index.html', {'host_num': host_num, 'group_num': group_num})
+
+
 
 class LoginView(View):
     def get(self,request):
@@ -117,3 +135,13 @@ class UserProfileView(View):
         # 2次密码不同：
         else:
             return render(request, "500.html", {"msg": "密码不一致"})
+
+#装饰器验证用户职位
+def user_job_check(user):
+    """
+    使用方法：@user_passes_test(user_job_check)
+    :param user:
+    :return:
+    """
+    return user.job == ""
+
