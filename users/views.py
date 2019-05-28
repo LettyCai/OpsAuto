@@ -1,12 +1,41 @@
 from django.shortcuts import render,HttpResponseRedirect
 from django.views import View
 from django.contrib.auth import authenticate,login,logout
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from .models import UserProfile
 from hostsinfo.models import HostsInfo,HostGroup
 from django.contrib.auth.decorators import login_required
 from OpsAuto.settings import LOGIN_URL
 from django.contrib.auth.decorators import user_passes_test
+
+#验证用户职位的装饰器
+def role_is_sys(user):
+    """
+    使用方法：
+    View继承UserPassesTestMixin
+    @user_passes_test(role_is_sys)
+    :param user:
+    :return:
+    """
+    print("******************")
+    return True
+    #return user.role == 0
+
+def role_is_op(user):
+    """
+    使用方法：@user_passes_test(role_is_op)
+    :param user:
+    :return:
+    """
+    return user.role == 1
+
+def role_is_duty(user):
+    """
+    使用方法：@user_passes_test(role_is_duty)
+    :param user:
+    :return:
+    """
+    return user.role == 2
 
 # Create your views here.
 class IndexView(LoginRequiredMixin,View):
@@ -21,7 +50,7 @@ class IndexView(LoginRequiredMixin,View):
     #     else:
     #         return HttpResponseRedirect(LOGIN_URL)
 
-    @login_required
+    #@login_required
     def get(self, request):
         hosts = HostsInfo.objects.all()
         host_num = hosts.count()
@@ -53,7 +82,15 @@ class LogoutView(View):
 
         return render(request,'login.html',{})
 
-class UsersListView(View):
+class UsersListView(UserPassesTestMixin,View):
+    def test_func(self,login_url='/login/'):
+        """
+        重载父类方法，验证用户是否有权限管理用户
+        :return:
+        """
+        return self.request.user.role == 0
+
+    #@user_passes_test(role_is_sys)
     def get(self,request):
 
         users = UserProfile.objects.all()
@@ -136,12 +173,4 @@ class UserProfileView(View):
         else:
             return render(request, "500.html", {"msg": "密码不一致"})
 
-#装饰器验证用户职位
-def user_job_check(user):
-    """
-    使用方法：@user_passes_test(user_job_check)
-    :param user:
-    :return:
-    """
-    return user.job == ""
 

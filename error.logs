@@ -3686,3 +3686,144 @@ AttributeError: 'IndexView' object has no attribute 'user'
 [I 20190528 22:42:14 basehttp:124] "GET /login/?next=/index/ HTTP/1.1" 200 2951
 [I 20190528 22:42:24 basehttp:124] "GET /index/ HTTP/1.1" 302 0
 [I 20190528 22:42:24 basehttp:124] "GET /login/?next=/index/ HTTP/1.1" 200 2951
+[I 20190528 23:15:13 basehttp:124] "GET /login/ HTTP/1.1" 200 2951
+[I 20190528 23:15:17 basehttp:124] "POST /login/ HTTP/1.1" 200 13586
+[I 20190528 23:15:30 basehttp:124] "GET /admin/ HTTP/1.1" 200 5986
+[I 20190528 23:15:33 basehttp:124] "GET /admin/users/userprofile/add/ HTTP/1.1" 200 15068
+[I 20190528 23:15:33 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[I 20190528 23:16:17 basehttp:124] "POST /admin/users/userprofile/add/ HTTP/1.1" 302 0
+[I 20190528 23:16:17 basehttp:124] "GET /admin/users/userprofile/ HTTP/1.1" 200 5061
+[I 20190528 23:16:17 basehttp:124] "GET /admin/jsi18n/ HTTP/1.1" 200 7684
+[E 20190528 23:20:38 exception:118] Internal Server Error: /userlist/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+AttributeError: 'UsersListView' object has no attribute 'user'
+[E 20190528 23:20:38 basehttp:124] "GET /userlist/ HTTP/1.1" 500 74495
+[E 20190528 23:22:00 exception:118] Internal Server Error: /index/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+AttributeError: 'IndexView' object has no attribute 'user'
+[E 20190528 23:22:00 basehttp:124] "GET /index/ HTTP/1.1" 500 78826
+[E 20190528 23:22:04 exception:118] Internal Server Error: /index/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+AttributeError: 'IndexView' object has no attribute 'user'
+[E 20190528 23:22:04 basehttp:124] "GET /index/ HTTP/1.1" 500 78826
+[I 20190528 23:22:28 basehttp:124] "GET /login/ HTTP/1.1" 200 2951
+[I 20190528 23:22:32 basehttp:124] "POST /login/ HTTP/1.1" 200 13586
+[E 20190528 23:22:34 exception:118] Internal Server Error: /index/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+AttributeError: 'IndexView' object has no attribute 'user'
+[E 20190528 23:22:34 basehttp:124] "GET /index/ HTTP/1.1" 500 78839
+[I 20190528 23:23:10 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[E 20190528 23:23:12 exception:118] Internal Server Error: /userlist/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 106, in dispatch
+    user_test_result = self.get_test_func()()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 96, in test_func
+    '{0} is missing the implementation of the test_func() method.'.format(self.__class__.__name__)
+NotImplementedError: UsersListView is missing the implementation of the test_func() method.
+[E 20190528 23:23:12 basehttp:124] "GET /userlist/ HTTP/1.1" 500 72557
+[E 20190528 23:31:07 exception:118] Internal Server Error: /userlist/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 106, in dispatch
+    user_test_result = self.get_test_func()()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 96, in test_func
+    '{0} is missing the implementation of the test_func() method.'.format(self.__class__.__name__)
+NotImplementedError: UsersListView is missing the implementation of the test_func() method.
+[E 20190528 23:31:07 basehttp:124] "GET /userlist/ HTTP/1.1" 500 72544
+[E 20190528 23:31:26 exception:118] Internal Server Error: /userlist/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 106, in dispatch
+    user_test_result = self.get_test_func()()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 96, in test_func
+    '{0} is missing the implementation of the test_func() method.'.format(self.__class__.__name__)
+NotImplementedError: UsersListView is missing the implementation of the test_func() method.
+[E 20190528 23:31:26 basehttp:124] "GET /userlist/ HTTP/1.1" 500 72557
+[I 20190528 23:36:08 basehttp:124] "GET /userlist/ HTTP/1.1" 302 0
+[I 20190528 23:36:08 basehttp:124] "GET /login/?next=/userlist/ HTTP/1.1" 200 2951
+[I 20190528 23:36:13 basehttp:124] "POST /login/ HTTP/1.1" 200 13586
+[I 20190528 23:36:14 basehttp:124] "GET /userlist/ HTTP/1.1" 302 0
+[I 20190528 23:36:14 basehttp:124] "GET /login/?next=/userlist/ HTTP/1.1" 200 2951
+[I 20190528 23:37:27 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190528 23:37:31 basehttp:124] "GET /userlist/ HTTP/1.1" 200 12218
+[I 20190528 23:40:05 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190528 23:40:07 basehttp:124] "GET /userlist/ HTTP/1.1" 200 12218
+[I 20190528 23:40:16 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190528 23:40:17 basehttp:124] "GET /userlist/ HTTP/1.1" 302 0
+[I 20190528 23:40:17 basehttp:124] "GET /login/?next=/userlist/ HTTP/1.1" 200 2951
