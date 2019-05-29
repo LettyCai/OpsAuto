@@ -3827,3 +3827,210 @@ NotImplementedError: UsersListView is missing the implementation of the test_fun
 [I 20190528 23:40:16 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
 [I 20190528 23:40:17 basehttp:124] "GET /userlist/ HTTP/1.1" 302 0
 [I 20190528 23:40:17 basehttp:124] "GET /login/?next=/userlist/ HTTP/1.1" 200 2951
+[E 20190529 16:19:04 exception:118] Internal Server Error: /index/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 255, in execute
+    self.errorhandler(self, exc, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 252, in execute
+    res = self._query(query)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 378, in _query
+    db.query(q)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'users_userprofile.role' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 50, in dispatch
+    if not request.user.is_authenticated:
+  File "/opt/python3.6/lib/python3.6/site-packages/django/utils/functional.py", line 215, in inner
+    self._setup()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/utils/functional.py", line 349, in _setup
+    self._wrapped = self._setupfunc()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/__init__.py", line 218, in get_user
+    user = backend.get_user(user_id)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/backends.py", line 101, in get_user
+    user = UserModel._default_manager.get(pk=user_id)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 397, in get
+    num = len(clone)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 254, in __len__
+    self._fetch_all()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1067, in execute_sql
+    cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 255, in execute
+    self.errorhandler(self, exc, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 252, in execute
+    res = self._query(query)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/cursors.py", line 378, in _query
+    db.query(q)
+  File "/opt/python3.6/lib/python3.6/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'users_userprofile.role' in 'field list'")
+[E 20190529 16:19:05 basehttp:124] "GET /index/ HTTP/1.1" 500 212196
+[I 20190529 16:37:24 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190529 16:37:34 basehttp:124] "GET /userlist/ HTTP/1.1" 302 0
+[I 20190529 16:37:34 basehttp:124] "GET /login/?next=/userlist/ HTTP/1.1" 200 2951
+[I 20190529 16:37:52 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190529 16:37:54 basehttp:124] "GET /userlist/ HTTP/1.1" 302 0
+[I 20190529 16:37:54 basehttp:124] "GET /login/?next=/userlist/ HTTP/1.1" 200 2951
+[I 20190529 16:48:12 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17218
+[I 20190529 16:48:14 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 11875
+[I 20190529 16:48:16 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17218
+[I 20190529 16:48:18 basehttp:124] "GET /hostdetail4/ HTTP/1.1" 200 11830
+[I 20190529 16:48:19 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17218
+[I 20190529 16:48:23 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 11594
+[I 20190529 16:48:26 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17218
+[I 20190529 16:48:28 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21401
+[I 20190529 16:48:33 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17218
+[I 20190529 16:48:34 basehttp:124] "GET /userlist/ HTTP/1.1" 302 0
+[I 20190529 16:48:34 basehttp:124] "GET /login/?next=/userlist/ HTTP/1.1" 200 2951
+[I 20190529 16:48:40 basehttp:124] "GET /findlog/ HTTP/1.1" 200 12291
+[I 20190529 16:49:56 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17218
+[I 20190529 16:49:59 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11602
+[I 20190529 16:54:59 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14068
+[I 20190529 16:55:30 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14054
+[I 20190529 16:55:55 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190529 16:55:57 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17218
+[E 20190529 16:59:28 exception:118] Internal Server Error: /index/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+AttributeError: 'IndexView' object has no attribute 'user'
+[E 20190529 16:59:28 basehttp:124] "GET /index/ HTTP/1.1" 500 78979
+[I 20190529 17:09:43 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190529 17:09:47 basehttp:124] "GET /logout/ HTTP/1.1" 200 2951
+[I 20190529 17:09:51 basehttp:124] "GET /index/ HTTP/1.1" 302 0
+[I 20190529 17:09:51 basehttp:124] "GET /login/?next=/index/ HTTP/1.1" 200 2951
+[I 20190529 17:14:09 basehttp:124] "POST /login/ HTTP/1.1" 200 2975
+[I 20190529 17:14:13 basehttp:124] "POST /login/ HTTP/1.1" 200 13586
+[I 20190529 17:14:16 basehttp:124] "GET /userlist/ HTTP/1.1" 302 0
+[I 20190529 17:14:16 basehttp:124] "GET /login/?next=/userlist/ HTTP/1.1" 200 2951
+[I 20190529 17:14:24 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190529 17:14:26 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14054
+[I 20190529 17:22:14 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 17218
+[I 20190529 17:22:16 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21401
+[I 20190529 17:22:19 basehttp:124] "GET /userlist/ HTTP/1.1" 302 0
+[I 20190529 17:22:19 basehttp:124] "GET /login/?next=/userlist/ HTTP/1.1" 200 2951
+[I 20190529 17:22:26 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14054
+[I 20190529 17:27:42 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14053
+[I 20190529 17:28:14 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14055
+[I 20190529 17:28:26 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14055
+[I 20190529 17:28:28 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14055
+[I 20190529 17:28:31 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14055
+[I 20190529 17:28:37 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14053
+[I 20190529 17:37:45 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14053
+[I 20190529 17:37:50 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14053
+[I 20190529 17:38:14 basehttp:124] "GET /userlist/ HTTP/1.1" 302 0
+[I 20190529 17:38:14 basehttp:124] "GET /login/?next=/userlist/ HTTP/1.1" 200 2951
+[E 20190529 17:38:54 exception:118] Internal Server Error: /usersettings/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 75, in get
+    return render(request,'settings.html')
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 290, in do_extends
+    nodelist = parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 233, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 454, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 452, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 568, in compile_filter
+    return FilterExpression(token, self)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 662, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 574, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'displayName'
+[E 20190529 17:38:54 basehttp:124] "GET /usersettings/ HTTP/1.1" 500 186431
+[I 20190529 17:40:39 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14065
