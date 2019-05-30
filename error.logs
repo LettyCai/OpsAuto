@@ -4084,3 +4084,8 @@ django.template.exceptions.TemplateSyntaxError: Invalid filter: 'displayName'
 [I 20190530 16:49:13 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11090
 [I 20190530 16:58:35 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
 [I 20190530 16:58:37 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 14064
+[I 20190530 22:31:41 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190530 22:31:41 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[W 20190530 22:31:42 base:93] Not Found: /favicon.ico
+[W 20190530 22:31:42 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4787
+[I 20190530 22:31:45 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 12700

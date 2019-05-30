@@ -14,6 +14,7 @@ import json
 from .models import OpsLog
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin  #用户登录验证，用户权限验证
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -200,3 +201,11 @@ class LogDetailsView(View):
         log = OpsLog.objects.get(id=int(log_id)).details
 
         return render(request,"logdetails.html",{'log':log})
+
+
+def gethost(request):
+    if request.method == "GET":
+        sendgroupname = request.GET.get("sendgroupname")
+        if sendgroupname:
+            data = list(HostsInfo.objects.filter(group = sendgroupname))
+            return JsonResponse(data, safe=False)
