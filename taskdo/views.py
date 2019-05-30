@@ -13,14 +13,16 @@ from hostsinfo.utils import prpcrypt
 import json
 from .models import OpsLog
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin  #用户登录验证，用户权限验证
 
 
 # Create your views here.
-class TaskDoView(View):
-    def post(self,request):
-        pass
+
 
 class KillTtypView(View):
+    """
+    清理终端号
+    """
     def get(self,request):
         result = {}
         return render(request,"kill-ttyp.html",{'result':result})
@@ -83,6 +85,9 @@ class KillTtypView(View):
                                                 'unreachable_list':unreachable_list})
 
 class UploadView(View):
+    """
+    上传文件
+    """
     def get(self,request):
         groups = HostGroup.objects.all()
         return render(request,"upload.html",{'groups':groups})
@@ -154,10 +159,22 @@ class UploadView(View):
 
 
 
-class TaskDoView(View):
-    def get(self,request):
+class TaskDoView(UserPassesTestMixin,View):
+    """
+    执行ad-hoc命令
+    """
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
 
-        return render(request,"task-do.html")
+
+    def get(self,request):
+        groups = HostGroup.objects.all()
+
+        return render(request,"task-do.html",{'groups':groups})
 
 class FindLogView(View):
     def get(self,request):

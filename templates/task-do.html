@@ -13,19 +13,29 @@
                                     <div class="col-md-12">
                                             <div class="form-group">
                                                     <label for="single-select">主机分组</label>
-                                                    <select id="single-select" class="form-control">
-                                                        <option>1</option>
+                                                     <select id="single-select" name="type" class="form-control">
+                                                        {% for group in groups %}
+                                                    <option value="{{group.group_name}}">{{group.group_name}}</option>
+                                                          {% endfor %}
+                                                   </select>
+                                                </div>
+
+                                            <div class="form-group">
+                                                <label for="normal-input" class="form-control-label">IP地址</label>
+                                                <input id="normal-input" class="form-control" value="Input value">
+                                            </div>
+
+                                              <div class="form-group">
+                                                    <label for="normal-input" class="form-control-label">模块</label>
+
+                                                  <select id="model-select" class="form-control">
+                                                        <option>shell</option>
                                                         <option>2</option>
                                                         <option>3</option>
                                                         <option>4</option>
                                                         <option>5</option>
                                                     </select>
                                                 </div>
-
-                                            <div class="form-group">
-                                                <label for="normal-input" class="form-control-label">IP地址</label>
-                                                <input id="normal-input" class="form-control" value="Input value">
-                                            </div>                                           
                                    
                                             <div class="form-group">
                                                     <label for="normal-input" class="form-control-label">命令</label>
