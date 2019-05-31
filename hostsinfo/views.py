@@ -66,7 +66,7 @@ class HostInfoView(View):
 
 class AddHostView(View):
     def post(self,request):
-        host_form = HostInfoForm(request.POST)
+        #host_form = HostInfoForm(request.POST)
 
         host = HostsInfo()
 

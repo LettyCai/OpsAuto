@@ -9,44 +9,49 @@
                                 <div class="card-header bg-light">
                                         目标主机
                                     </div>
-                                    
+                                    <form id="searchform" action="" method="post" autocomplete="off" >
                                     <div class="col-md-12">
                                             <div class="form-group">
                                                     <label for="group">主机分组</label>
-                                                     <select id="group" name="type" class="form-control">
+                                                     <select id="group" name="sendgroupname" class="form-control">
+                                                          <option value="">请选择</option>
                                                         {% for group in groups %}
                                                     <option value="{{group.group_name}}">{{group.group_name}}</option>
                                                           {% endfor %}
                                                    </select>
-                                                </div>
+                                             </div>
 
                                             <div class="form-group">
-                                                <label for="host" class="form-control-label">IP地址</label>
-                                                <input id="host" class="form-control" value="Input value">
+                                                <label for="hostip" class="form-control-label">IP地址</label>
+                                               <input type="checkbox" name="hostip" checked="checked" onclick="check_all(this,'hostip');"/><a onclick="check.click()">全选</a>
+                                                <div id="hostip"></div>
                                             </div>
 
                                               <div class="form-group">
-                                                    <label for="model" class="form-control-label">模块</label>
+                                                 <label for="model" class="form-control-label">模块</label>
 
-                                                  <select id="model" class="form-control">
+                                                  <select id="model" name="model" class="form-control">
                                                         <option>shell</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
+                                                        <option>service</option>
+                                                        <option>file</option>
+                                                        <option>ping</option>
+                                                        <option>synchronize</option>
                                                     </select>
                                                 </div>
                                    
                                             <div class="form-group">
                                                     <label for="task" class="form-control-label">命令</label>
-                                                    <input id="task" class="form-control" value="Input value">
+                                                    <input id="task" class="form-control" name="task">
                                                 </div>
                                
 
                                             <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-primary"><i class="fa fa-search"></i> 执行</button>
-                                                </span>
-                                        </div>
+                                                <button type="submit" class="btn btn-primary" id="submit-task-btn"><i class="fa fa-search"></i> 执行</button>
+                                            </span>
+
+                                    </div>
+                                    {% csrf_token %}
+                                   </form>
                                         <br>
                                          
                         </div>
@@ -59,12 +64,42 @@
                                             执行结果
                                         </div>
                                         
-                                        <div class="col-md-4">
-                                               
+                                      <div class="col-md-12">
+                                            <lable>执行命令：{{ command }}</lable><br>
+                                            <br>
+                                            执行成功：{{  success_num }}台 &nbsp;执行失败：{{failed_num }} 台 &nbsp; 主机无法连接：{{ unreachable_num }}台<br>
+
+                                            执行成功主机：{{ success_list  }}<br>
+                                            执行失败主机：{{ failed_list  }}<br>
+                                            无法连接主机：{{ unreachable_list}}<br><br>
+
+                                            远程主机返回结果：<br>
+                                            <div style="background-color: black ">
+                                            {% for key,value in stdout_success.items %}
+
+                                                <font color="red">{{key}}:</font><br>
+                                            <pre>
+                                                <font color="white">
+                                            {{value}}</font>
+                                             </pre>
+
+                                            {% endfor %}
+
+                                            {% for key,value in stdout_failed.items %}
+
+                                            {{key}}:<br>
+                                            {{value}}
+
+                                            {% endfor %}
+                                             </div>
+
+                                            <br>
+                                       
                                             </div>
                                              
                             </div>
                     </div>
+
                 </div>
     
 
@@ -76,19 +111,25 @@
       var groupname = $(this).val();
       $.ajax({
         url: '/gethost/',
-        data:{"seldnsname":$(this).val()},
+        data:{"sendgroupname":$(this).val()},
         type: 'GET',
         dataType: 'json',
-        success: function (data) {
+        success: function (data, textStatus) {
             var content='';
             $.each(data, function(i, item){
-                  content+='<option value='+item.hostipaddr+'>'+item.hostipaddr+'</option>'
-                });
-            $('#hosts').html(content)
+                  content+='<input type="checkbox" class="custom-checkbox" name="ip" checked="checked" value='+item.ip+'>'+item.ip+'<br>'});
+            $('#hostip').html(content)
         },
-
       });
     });
 
 
+function check_all(obj, cName) {
+    var checkboxs = document.getElementsByName(cName);
+    for (var i = 0; i < checkboxs.length; i += 1) {
+        checkboxs[i].checked = obj.checked;
+    }
+}
+
 </script>
+{% endblock %}

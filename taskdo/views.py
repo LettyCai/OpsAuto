@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from django.views import View
 from taskdo.ansible_call import AnsibleRunner,GetHostInfo
 from taskdo import killttyp
@@ -14,7 +13,7 @@ import json
 from .models import OpsLog
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin  #用户登录验证，用户权限验证
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 
 
 # Create your views here.
@@ -70,10 +69,6 @@ class KillTtypView(View):
         #无法连接主机数
         unreachable_num = len(unreachable_list)
 
-        print('*'*50)
-        print(result)
-
-
         return render(request,"kill-ttyp.html",{'result':result,
                                                 'success_list':success_list,
                                                 'success_num':success_num,
@@ -101,6 +96,8 @@ class UploadView(View):
         user = request.POST.get("username","").strip()
         updir = request.POST.get("uploaddir","").strip()
         DIR = os.path.join(settings.BASE_DIR+"/tmp/",myfile.name)
+
+
 
         #将用户上传的文件保存到服务器
         if myfile :
@@ -171,13 +168,95 @@ class TaskDoView(UserPassesTestMixin,View):
         """
         return self.request.user.role != 2
 
-
     def get(self,request):
         groups = HostGroup.objects.all()
-
         return render(request,"task-do.html",{'groups':groups})
 
+    def post(self,request):
+        group = request.POST.get("sendgroupname","")
+        hosts = request.POST.getlist("ip","")
+        model = request.POST.get("model","")
+        task = request.POST.get("task","")
+
+        user = request.user.username
+
+        gethost = GetHostInfo()
+        inventory, variablemanager, host_list, loader = gethost.get_hosts(group_name=group)
+
+        host_list=[]
+        for host in hosts:
+            host_list.append(host)
+
+        print('**'*20)
+        print(host_list)
+
+        # 调用ansible模块执行命令
+        ans = AnsibleRunner()
+        result, success_list, failed_list, unreachable_list, command = ans.run_modle(inventory=inventory, loader=loader,
+                                                                                     host_list=host_list,
+                                                                                     variable_manager=variablemanager,
+                                                                                     module_name=model,
+                                                                                     module_args=task)
+
+        # 执行成功主机数
+        success_num = len(success_list)
+        # 成功主机返回结果
+        stdout_success = {}
+        for host in success_list:
+            # 保存操作日志
+            opslog = OpsLog()
+            opslog.user = request.user
+            opslog.cmd = command
+            opslog.host = host
+            opslog.result = 'success'
+            opslog.details = result['success'][host]
+            opslog.save()
+
+            stdout_success[host] = result['success'][host]['stdout']
+
+        # 执行成功主机数
+        failed_num = len(failed_list)
+        # 失败主机返回结果
+        stdout_failed = {}
+        for host in failed_list:
+            # 保存操作日志
+            opslog = OpsLog()
+            opslog.user = user
+            opslog.cmd = command
+            opslog.host = host
+            opslog.result = 'failed'
+            opslog.details = result['failed'][host]
+            opslog.save()
+
+            stdout_failed[host] = result['failed'][host]['msg']
+
+        # 无法连接主机数
+        unreachable_num = len(unreachable_list)
+
+        #返回
+        groups = HostGroup.objects.all()
+
+        return render(request, "task-do.html", {'groups': groups,
+                                                'result':result,
+                                                'success_list':success_list,
+                                                'success_num':success_num,
+                                                'command':command,
+                                                'stdout_success':stdout_success,
+                                                'failed_list':failed_list,
+                                                'failed_num':failed_num,
+                                                'stdout_failed':stdout_failed,
+                                                'unreachable_num':unreachable_num,
+                                                'unreachable_list':unreachable_list})
+
+
+
+
+
+
 class FindLogView(View):
+    """
+    查看日志列表
+    """
     def get(self,request):
 
         logs = OpsLog.objects.all()
@@ -195,6 +274,9 @@ class FindLogView(View):
         return render(request,"logs.html",{'logs':logs})
 
 class LogDetailsView(View):
+    """
+    查看日志详细信息
+    """
     def get(self,request,log_id):
         print(log_id)
         print(type(log_id))
@@ -202,10 +284,103 @@ class LogDetailsView(View):
 
         return render(request,"logdetails.html",{'log':log})
 
-
 def gethost(request):
+    """
+    执行ad-hoc命令页面，获取主机组所有主机
+    :param request:
+    :return:
+    """
     if request.method == "GET":
         sendgroupname = request.GET.get("sendgroupname")
         if sendgroupname:
-            data = list(HostsInfo.objects.filter(group = sendgroupname))
+            groups = HostGroup.objects.get(group_name=str(sendgroupname))
+            hosts = groups.hostsinfo_set.all().values("ip")
+            data=list(hosts)
             return JsonResponse(data, safe=False)
+
+def getajaxtask(request):
+    """
+    AJAX执行ad-hoc命令页面，获取主机组所有主机
+    :param request:
+    :return:
+    """
+    if request.method == "POST":
+        group = request.POST.get("sendgroupname", "")
+        hosts = request.POST.getlist("ip", "")
+        model = request.POST.get("model", "")
+        task = request.POST.get("task", "")
+
+        print(task)
+
+        user = request.user.username
+
+        gethost = GetHostInfo()
+        inventory, variablemanager, host_list, loader = gethost.get_hosts(group_name=group)
+
+        host_list = []
+        for host in hosts:
+            host_list.append(host)
+
+        print('**' * 20)
+        print(host_list)
+
+        # 调用ansible模块执行命令
+        ans = AnsibleRunner()
+        result, success_list, failed_list, unreachable_list, command = ans.run_modle(inventory=inventory, loader=loader,
+                                                                                     host_list=host_list,
+                                                                                     variable_manager=variablemanager,
+                                                                                     module_name=model,
+                                                                                     module_args=task)
+
+        print("*" * 30)
+        print(result)
+        # 执行成功主机数
+        success_num = len(success_list)
+        # 成功主机返回结果
+        stdout_success = {}
+        for host in success_list:
+            # 保存操作日志
+            opslog = OpsLog()
+            opslog.user = request.user
+            opslog.cmd = command
+            opslog.host = host
+            opslog.result = 'success'
+            opslog.details = result['success'][host]
+            opslog.save()
+
+            stdout_success[host] = result['success'][host]['stdout']
+
+        # 执行成功主机数
+        failed_num = len(failed_list)
+        # 失败主机返回结果
+        stdout_failed = {}
+        for host in failed_list:
+            # 保存操作日志
+            opslog = OpsLog()
+            opslog.user = user
+            opslog.cmd = command
+            opslog.host = host
+            opslog.result = 'failed'
+            opslog.details = result['failed'][host]
+            opslog.save()
+
+            stdout_failed[host] = result['failed'][host]['msg']
+
+        # 无法连接主机数
+        unreachable_num = len(unreachable_list)
+
+        # 返回
+        groups = HostGroup.objects.all()
+
+        data = {'groups': groups,
+                'result': result,
+                'success_list': success_list,
+                'success_num': success_num,
+                'command': command,
+                'stdout_success': stdout_success,
+                'failed_list': failed_list,
+                'failed_num': failed_num,
+                'stdout_failed': stdout_failed,
+                'unreachable_num': unreachable_num,
+                'unreachable_list': unreachable_list}
+        return JsonResponse(data, safe=False)
