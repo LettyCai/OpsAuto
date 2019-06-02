@@ -14,6 +14,7 @@ from .models import OpsLog
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin  #用户登录验证，用户权限验证
 from django.http import JsonResponse,HttpResponse
+#from django.core import serializers
 
 
 # Create your views here.
@@ -170,7 +171,8 @@ class TaskDoView(UserPassesTestMixin,View):
 
     def get(self,request):
         groups = HostGroup.objects.all()
-        return render(request,"task-do.html",{'groups':groups})
+        #return render(request,"task-do.html",{'groups':groups})
+        return render(request, "task-do-ajax.html", {'groups': groups})
 
     def post(self,request):
         group = request.POST.get("sendgroupname","")
@@ -310,8 +312,6 @@ def getajaxtask(request):
         model = request.POST.get("model", "")
         task = request.POST.get("task", "")
 
-        print(task)
-
         user = request.user.username
 
         gethost = GetHostInfo()
@@ -320,9 +320,6 @@ def getajaxtask(request):
         host_list = []
         for host in hosts:
             host_list.append(host)
-
-        print('**' * 20)
-        print(host_list)
 
         # 调用ansible模块执行命令
         ans = AnsibleRunner()
@@ -372,8 +369,8 @@ def getajaxtask(request):
         # 返回
         groups = HostGroup.objects.all()
 
-        data = {'groups': groups,
-                'result': result,
+        data = {#'groups': groups,
+                #'result': result,
                 'success_list': success_list,
                 'success_num': success_num,
                 'command': command,
@@ -383,4 +380,5 @@ def getajaxtask(request):
                 'stdout_failed': stdout_failed,
                 'unreachable_num': unreachable_num,
                 'unreachable_list': unreachable_list}
-        return JsonResponse(data, safe=False)
+
+        return JsonResponse(data,safe=False)

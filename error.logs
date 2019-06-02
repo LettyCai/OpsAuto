@@ -4775,3 +4775,562 @@ hostsinfo.models.DoesNotExist: HostGroup matching query does not exist.
 [I 20190531 16:54:28 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16178
 [I 20190531 16:54:37 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
 [I 20190531 16:54:51 basehttp:124] "POST /taskdo/ HTTP/1.1" 200 17710
+[I 20190602 20:37:36 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190602 20:37:36 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[W 20190602 20:37:38 base:93] Not Found: /favicon.ico
+[W 20190602 20:37:38 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 4911
+[W 20190602 20:37:43 base:93] Not Found: /index/tables.html
+[W 20190602 20:37:43 basehttp:124] "GET /index/tables.html HTTP/1.1" 404 4929
+[I 20190602 20:37:46 basehttp:124] "GET /findlog/ HTTP/1.1" 200 17279
+[I 20190602 20:37:50 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 14814
+[I 20190602 20:37:56 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 20:37:59 basehttp:124] "GET /gethost/?sendgroupname=%E4%BB%A3%E7%90%86%E4%BF%9D%E9%99%A9 HTTP/1.1" 200 26
+[I 20190602 20:38:01 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 20:38:40 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11602
+[I 20190602 20:49:12 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[I 20190602 20:49:15 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15759
+[I 20190602 20:49:16 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 20:49:23 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taskdo.views.getajaxtask didn't return an HttpResponse object. It returned None instead.
+[E 20190602 20:49:23 basehttp:124] "GET /ajaxtask/?csrfmiddlewaretoken=hBrZ5XVjhk41dC5DwSZlbgD7NDRqKsF1iNEtJkgOsBId22WAtHvXzHAW16pnDKOy&sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD&ip=&model=shell&task=ip%20addr HTTP/1.1" 500 14762
+[W 20190602 20:50:21 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[E 20190602 20:50:34 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taskdo.views.getajaxtask didn't return an HttpResponse object. It returned None instead.
+[E 20190602 20:50:34 basehttp:124] "GET /ajaxtask/?csrfmiddlewaretoken=hBrZ5XVjhk41dC5DwSZlbgD7NDRqKsF1iNEtJkgOsBId22WAtHvXzHAW16pnDKOy&sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD&ip=&model=shell&task=ip%20addr HTTP/1.1" 500 14762
+[I 20190602 20:50:36 basehttp:124] "GET /index/ HTTP/1.1" 200 13588
+[W 20190602 20:50:36 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 20:51:23 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14523
+[W 20190602 20:51:23 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 20:51:31 basehttp:124] "GET /hostdetail3/ HTTP/1.1" 200 11867
+[W 20190602 20:51:31 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 20:51:39 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14523
+[W 20190602 20:51:39 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 20:51:44 basehttp:124] "GET /userlist/ HTTP/1.1" 302 0
+[I 20190602 20:51:44 basehttp:124] "GET /login/?next=/userlist/ HTTP/1.1" 200 2951
+[W 20190602 20:51:44 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[W 20190602 20:51:46 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 20:51:49 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15759
+[W 20190602 20:51:49 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 20:51:55 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 20:52:03 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taskdo.views.getajaxtask didn't return an HttpResponse object. It returned None instead.
+[E 20190602 20:52:03 basehttp:124] "GET /ajaxtask/?csrfmiddlewaretoken=vQPm6EeI7WPzbpDjA0tkvD4w39ZnfeBYw22QK1zdidtL0PugxPZWT41lhCxk8wKv&sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD&ip=&model=shell&task=ip%20addr HTTP/1.1" 500 14762
+[I 20190602 20:54:54 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15760
+[W 20190602 20:54:54 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 20:54:57 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 20:55:05 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 334, in getajaxtask
+    module_args=task)
+  File "/root/OpsAuto/taskdo/ansible_call.py", line 81, in run_modle
+    result = tqm.run(play)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/executor/task_queue_manager.py", line 235, in run
+    new_play.post_validate(templar)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/playbook/base.py", line 419, in post_validate
+    raise AnsibleParserError("the field '%s' is required, and cannot have empty values" % (name,), obj=self.get_ds())
+ansible.errors.AnsibleParserError: the field 'hosts' is required, and cannot have empty values
+[E 20190602 20:55:05 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15261
+[E 20190602 20:55:57 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 337, in getajaxtask
+    module_args=task)
+  File "/root/OpsAuto/taskdo/ansible_call.py", line 81, in run_modle
+    result = tqm.run(play)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/executor/task_queue_manager.py", line 235, in run
+    new_play.post_validate(templar)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/playbook/base.py", line 419, in post_validate
+    raise AnsibleParserError("the field '%s' is required, and cannot have empty values" % (name,), obj=self.get_ds())
+ansible.errors.AnsibleParserError: the field 'hosts' is required, and cannot have empty values
+[E 20190602 20:55:57 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15261
+[I 20190602 21:02:44 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16029
+[W 20190602 21:02:44 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:02:45 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:03:20 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16025
+[W 20190602 21:03:20 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:03:21 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:04:06 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 337, in getajaxtask
+    module_args=task)
+  File "/root/OpsAuto/taskdo/ansible_call.py", line 81, in run_modle
+    result = tqm.run(play)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/executor/task_queue_manager.py", line 235, in run
+    new_play.post_validate(templar)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/playbook/base.py", line 419, in post_validate
+    raise AnsibleParserError("the field '%s' is required, and cannot have empty values" % (name,), obj=self.get_ds())
+ansible.errors.AnsibleParserError: the field 'hosts' is required, and cannot have empty values
+[E 20190602 21:04:06 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15261
+[I 20190602 21:04:07 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16059
+[W 20190602 21:04:08 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:04:09 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:04:12 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 337, in getajaxtask
+    module_args=task)
+  File "/root/OpsAuto/taskdo/ansible_call.py", line 81, in run_modle
+    result = tqm.run(play)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/executor/task_queue_manager.py", line 235, in run
+    new_play.post_validate(templar)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/playbook/base.py", line 419, in post_validate
+    raise AnsibleParserError("the field '%s' is required, and cannot have empty values" % (name,), obj=self.get_ds())
+ansible.errors.AnsibleParserError: the field 'hosts' is required, and cannot have empty values
+[E 20190602 21:04:12 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15257
+[I 20190602 21:05:14 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16035
+[W 20190602 21:05:14 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:05:16 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:05:20 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 337, in getajaxtask
+    module_args=task)
+  File "/root/OpsAuto/taskdo/ansible_call.py", line 81, in run_modle
+    result = tqm.run(play)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/executor/task_queue_manager.py", line 235, in run
+    new_play.post_validate(templar)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/playbook/base.py", line 419, in post_validate
+    raise AnsibleParserError("the field '%s' is required, and cannot have empty values" % (name,), obj=self.get_ds())
+ansible.errors.AnsibleParserError: the field 'hosts' is required, and cannot have empty values
+[E 20190602 21:05:20 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15261
+[I 20190602 21:05:52 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16024
+[W 20190602 21:05:52 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:05:53 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:05:56 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 337, in getajaxtask
+    module_args=task)
+  File "/root/OpsAuto/taskdo/ansible_call.py", line 81, in run_modle
+    result = tqm.run(play)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/executor/task_queue_manager.py", line 235, in run
+    new_play.post_validate(templar)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/playbook/base.py", line 419, in post_validate
+    raise AnsibleParserError("the field '%s' is required, and cannot have empty values" % (name,), obj=self.get_ds())
+ansible.errors.AnsibleParserError: the field 'hosts' is required, and cannot have empty values
+[E 20190602 21:05:56 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15256
+[I 20190602 21:06:17 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16015
+[W 20190602 21:06:17 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:06:19 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:07:04 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16000
+[W 20190602 21:07:04 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:07:05 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:07:26 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16000
+[W 20190602 21:07:26 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:07:32 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:08:01 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15997
+[W 20190602 21:08:02 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:08:03 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:08:47 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15991
+[W 20190602 21:08:47 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:08:49 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:09:13 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15988
+[W 20190602 21:09:13 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:09:14 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:09:26 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 390, in getajaxtask
+    return JsonResponse(data, safe=False)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/http/response.py", line 509, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/opt/python3.6/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'QuerySet' is not JSON serializable
+[E 20190602 21:09:26 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15426
+[I 20190602 21:11:58 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16044
+[W 20190602 21:11:58 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:12:00 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:12:22 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 382, in getajaxtask
+    return JsonResponse(data, safe=False)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/http/response.py", line 509, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/opt/python3.6/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'QuerySet' is not JSON serializable
+[E 20190602 21:12:22 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15427
+[I 20190602 21:14:16 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16037
+[W 20190602 21:14:16 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:14:18 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:14:30 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 382, in getajaxtask
+    return JsonResponse(data, safe=False)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/http/response.py", line 509, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/opt/python3.6/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'QuerySet' is not JSON serializable
+[E 20190602 21:14:30 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15426
+[I 20190602 21:15:39 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16037
+[W 20190602 21:15:39 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:15:41 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:15:53 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 165
+[I 20190602 21:18:06 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16044
+[W 20190602 21:18:06 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:18:08 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:18:20 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 165
+[I 20190602 21:20:26 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16044
+[W 20190602 21:20:27 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:20:28 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:20:42 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 165
+[E 20190602 21:22:03 exception:118] Internal Server Error: /gethost/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taskdo.views.gethost didn't return an HttpResponse object. It returned None instead.
+[E 20190602 21:22:03 basehttp:124] "GET /gethost/?csrfmiddlewaretoken=PuenbUlxF9rGzIMQvsAPdMBppUy3Y0k2QGrRPhG2Qq5So8DNsh6rBdyeDn60Ritz&sendgroupname= HTTP/1.1" 500 14521
+[I 20190602 21:22:04 basehttp:124] "GET /gethost/?csrfmiddlewaretoken=PuenbUlxF9rGzIMQvsAPdMBppUy3Y0k2QGrRPhG2Qq5So8DNsh6rBdyeDn60Ritz&sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:22:17 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 388, in getajaxtask
+    return HttpResponse(data, safe=False)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/http/response.py", line 283, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'safe'
+[E 20190602 21:22:17 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 14825
+[I 20190602 21:24:46 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15719
+[W 20190602 21:24:46 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:24:48 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:25:00 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 121
+[I 20190602 21:26:34 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15719
+[W 20190602 21:26:34 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:26:35 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:26:48 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 398, in getajaxtask
+    'unreachable_list': unreachable_list})
+  File "/opt/python3.6/lib/python3.6/site-packages/django/http/response.py", line 509, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/opt/python3.6/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'QuerySet' is not JSON serializable
+[E 20190602 21:26:48 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15435
+[E 20190602 21:27:02 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taskdo.views.getajaxtask didn't return an HttpResponse object. It returned None instead.
+[E 20190602 21:27:02 basehttp:124] "GET /ajaxtask/ HTTP/1.1" 500 54811
+[I 20190602 21:27:46 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15719
+[I 20190602 21:27:48 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[W 20190602 21:27:58 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[E 20190602 21:28:00 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 398, in getajaxtask
+    'unreachable_list': unreachable_list},safe=False)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/http/response.py", line 509, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/opt/python3.6/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'QuerySet' is not JSON serializable
+[E 20190602 21:28:00 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15446
+[E 20190602 21:28:19 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 398, in getajaxtask
+    'unreachable_list': unreachable_list},safe=False)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/http/response.py", line 509, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/opt/python3.6/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/opt/python3.6/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'QuerySet' is not JSON serializable
+[E 20190602 21:28:19 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15446
+[I 20190602 21:29:50 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15719
+[W 20190602 21:29:50 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:29:51 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:30:04 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 387, in getajaxtask
+    data =  serializers.serialize("json",data)
+NameError: name 'serializers' is not defined
+[E 20190602 21:30:04 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 14656
+[I 20190602 21:30:26 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15719
+[W 20190602 21:30:26 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:30:28 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:30:41 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 388, in getajaxtask
+    data =  serializers.serialize("json",data)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/__init__.py", line 128, in serialize
+    s.serialize(queryset, **options)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/base.py", line 84, in serialize
+    concrete_model = obj._meta.concrete_model
+AttributeError: 'str' object has no attribute '_meta'
+[E 20190602 21:30:41 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 14974
+[E 20190602 21:31:03 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 388, in getajaxtask
+    data =  serializers.serialize("json",data)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/__init__.py", line 128, in serialize
+    s.serialize(queryset, **options)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/base.py", line 84, in serialize
+    concrete_model = obj._meta.concrete_model
+AttributeError: 'str' object has no attribute '_meta'
+[E 20190602 21:31:03 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 14974
+[I 20190602 21:37:05 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15719
+[W 20190602 21:37:05 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:37:07 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:37:20 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 388, in getajaxtask
+    data =  serializers.serialize("json",data)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/__init__.py", line 128, in serialize
+    s.serialize(queryset, **options)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/base.py", line 84, in serialize
+    concrete_model = obj._meta.concrete_model
+AttributeError: 'str' object has no attribute '_meta'
+[E 20190602 21:37:20 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 14973
+[I 20190602 21:38:51 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15719
+[W 20190602 21:38:51 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:38:52 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[E 20190602 21:39:05 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 388, in getajaxtask
+    data =  serializers.serialize("json",data)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/__init__.py", line 128, in serialize
+    s.serialize(queryset, **options)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/serializers/base.py", line 84, in serialize
+    concrete_model = obj._meta.concrete_model
+AttributeError: 'str' object has no attribute '_meta'
+[E 20190602 21:39:05 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 14973
+[I 20190602 21:39:45 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15719
+[W 20190602 21:39:46 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:39:50 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:40:02 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 197
+[I 20190602 21:42:36 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 15937
+[W 20190602 21:42:36 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:42:38 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:42:50 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 197
+[I 20190602 21:46:04 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14523
+[W 20190602 21:46:04 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:52:56 basehttp:124] "GET /addhost/ HTTP/1.1" 200 15184
+[W 20190602 21:52:57 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:53:00 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 15299
+[W 20190602 21:53:00 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:54:40 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16596
+[W 20190602 21:54:40 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:54:42 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:54:47 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1305
+[I 20190602 21:55:17 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1305
+[I 20190602 21:57:35 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16958
+[W 20190602 21:57:35 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:57:36 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:57:41 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1305
+[I 20190602 21:58:20 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1305
+[I 20190602 21:58:41 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 17003
+[W 20190602 21:58:41 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:58:44 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:58:51 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 238
+[I 20190602 21:59:05 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1305
+[I 20190602 21:59:45 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 17003
+[W 20190602 21:59:45 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 21:59:46 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 21:59:49 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1305
+[I 20190602 22:01:29 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 17143
+[W 20190602 22:01:29 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 22:01:31 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 22:01:33 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 237
+[I 20190602 22:01:50 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1305
+[I 20190602 22:02:57 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 17181
+[W 20190602 22:02:57 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 22:02:58 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 22:03:01 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 238
+[I 20190602 22:03:08 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1305
+[I 20190602 22:04:07 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 17183
+[W 20190602 22:04:07 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 22:04:09 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 22:04:14 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 567
+[I 20190602 22:09:31 basehttp:124] "GET /findlog/ HTTP/1.1" 200 46136
+[W 20190602 22:09:31 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 22:09:36 basehttp:124] "GET /logdetails7 HTTP/1.1" 301 0
+[I 20190602 22:09:36 basehttp:124] "GET /findlog/ HTTP/1.1" 200 46136
+[I 20190602 22:09:36 basehttp:124] "GET /logdetails7/ HTTP/1.1" 200 837
+[W 20190602 22:09:36 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 22:10:07 basehttp:124] "GET /logdetails10 HTTP/1.1" 301 0
+[I 20190602 22:10:07 basehttp:124] "GET /findlog/ HTTP/1.1" 200 46136
+[I 20190602 22:10:07 basehttp:124] "GET /logdetails10/ HTTP/1.1" 200 833
+[W 20190602 22:10:07 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 22:10:17 basehttp:124] "GET /findlog/?page=2 HTTP/1.1" 200 25349
+[W 20190602 22:10:17 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 22:10:20 basehttp:124] "GET /findlog/?page=1 HTTP/1.1" 200 46136
+[W 20190602 22:10:20 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 22:10:29 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 16685
+[W 20190602 22:10:29 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 22:10:31 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 26
+[I 20190602 22:10:34 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 237
+[I 20190602 22:10:44 basehttp:124] "GET /findlog/ HTTP/1.1" 200 46136
+[W 20190602 22:10:44 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190602 22:10:49 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14523
+[W 20190602 22:10:49 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744

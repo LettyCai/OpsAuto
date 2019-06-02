@@ -65,43 +65,25 @@
                                         </div>
 
                                       <div class="col-md-12">
-                                            <lable>执行命令：{{ command }}</lable><br>
+                                            <lable>执行命令：{{ command }}</lable>
+                                           <label id="command"></label><br>
                                             <br>
                                           <label>执行成功：</label>
-                                          <label id="success_num">{{success_num}}</label>
+                                          <label id="success_num"></label>
+                                          <label id="success_list"></label><br>
 
                                           <label>执行失败：</label>
-                                          <label id="failed_num">{{failed_num}}</label>
+                                          <label id="failed_num"></label>
+                                          <label id="failed_list"></label><br>
 
-<!--
-                                            执行成功：{{  success_num }}台 &nbsp;执行失败：{{failed_num }} 台 &nbsp; 主机无法连接：{{ unreachable_num }}台<br>
+                                          <label>主机无法连接：</label>
+                                          <label id="unreachable_num"></label>
+                                          <label id="unreachable_list"></label><br>
 
-                                            执行成功主机：{{ success_list  }}<br>
-                                            执行失败主机：{{ failed_list  }}<br>
-                                            无法连接主机：{{ unreachable_list}}<br><br>
-
-                                            远程主机返回结果：<br>
-                                            <div style="background-color: black ">
-                                            {% for key,value in stdout_success.items %}
-
-                                                <font color="red">{{key}}:</font><br>
-                                            <pre>
-                                                <font color="white">
-                                            {{value}}</font>
-                                             </pre>
-
-                                            {% endfor %}
-
-                                            {% for key,value in stdout_failed.items %}
-
-                                            {{key}}:<br>
-                                            {{value}}
-
-                                            {% endfor %}
-                                             </div>
-
-                                            <br>
-                                            -->
+                                          <label>远程主机返回结果：</label> <div style="background-color: black ">
+                                          <div id = "stdout_success"></div>
+                                          <div id = "stdout_failed"></div>
+                                          </div>
 
                                             </div>
 
@@ -132,20 +114,40 @@
     });
 
     $("#submit-task-btn").click(function () {
+        var host_list = new Array();
+        $('input[name="ip"]:checked').each(function(){
+         host_list.push($(this).val());//向数组中添加元素
+        });
+        var hostip=host_list.join(',');//将数组元素连接起来以构建一个字符串
         $.ajaxSetup({
-            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },});
-        alert("aaaa");
+            data: {csrfmiddlewaretoken:'{{ csrf_token }}'},});
         $.ajax({
-            url:'/taskdo/',
-            data:{"sendgroupname":$(this).val(),"ip":$(this).val(),"model":$(this).val(),"task":$(this).val()},
-            type: 'GET',
+            url:'/ajaxtask/',
+            data:{"sendgroupname":$("#group").val(),"ip":hostip,"model":$("#model").val(),"task":$("#task").val()},
+            type: 'POST',
             dataType: 'json',
-             success: function (data, textStatus) {
-            var content='';
-             $('success_num').html(data[success_num])
-            $.each(data, function(i, item){
-                  content+='<input type="checkbox" class="custom-checkbox" name="ip" checked="checked" value='+item.ip+'>'+item.ip+'<br>'});
-            $('#hostip').html(content)
+            success: function (data, textStatus) {
+
+            $("#success_num").text(data.success_num+'台');
+            $("#success_list").text('主机：'+data.success_list);
+            $("#failed_num").text(data.failed_num+'台');
+            $("#failed_list").text('主机：'+data.failed_list);
+            $("#unreachable_num").text(data.unreachable_num+'台');
+            $("#unreachable_list").text('主机：'+data.unreachable_list);
+
+            var content="";
+            $.each(data.stdout_success,function (i,item) {
+                var content="";
+                content+= '<font color="red">'+ i +':</font><br><pre><font color="white">'+ item +'</font></pre>';
+                $('#stdout_success').html(content);
+            })
+
+            $.each(data.stdout_failed,function (i,item) {
+                var content="";
+                content+= '<font color="red">'+ i +':</font><br><pre><font color="white">'+ item +'</font></pre>';
+                $('#stdout_failed').html(content);
+            })
+
         },
         });
     });
