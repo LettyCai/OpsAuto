@@ -5334,3 +5334,20 @@ AttributeError: 'str' object has no attribute '_meta'
 [W 20190602 22:10:44 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
 [I 20190602 22:10:49 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 14523
 [W 20190602 22:10:49 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[I 20190603 14:30:21 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190603 14:30:21 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[W 20190603 14:30:23 base:93] Not Found: /favicon.ico
+[W 20190603 14:30:23 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5037
+[I 20190603 14:30:26 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 18049
+[I 20190603 14:30:29 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190603 14:37:04 basehttp:124] "GET /findlog/ HTTP/1.1" 200 47189
+[I 20190603 14:39:58 basehttp:124] "GET /logdetails3/ HTTP/1.1" 200 3419
+[I 20190603 14:39:58 basehttp:124] "GET /findlog/ HTTP/1.1" 200 47189
+[I 20190603 14:50:33 basehttp:124] "GET /index/ HTTP/1.1" 200 13589
+[I 20190603 17:29:07 basehttp:124] "GET /usersettings/ HTTP/1.1" 200 14068
+[I 20190603 17:29:11 basehttp:124] "GET /userlist/ HTTP/1.1" 200 11090
+[I 20190603 17:29:14 basehttp:124] "GET /findlog/ HTTP/1.1" 200 47189
+[I 20190603 17:29:16 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 11602
+[I 20190603 17:29:17 basehttp:124] "GET /upload/ HTTP/1.1" 200 13450
+[I 20190603 17:29:21 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 18049
+[I 20190603 17:29:25 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
