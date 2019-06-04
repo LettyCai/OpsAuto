@@ -22,7 +22,6 @@ class IndexView(LoginRequiredMixin,View):
         return render(request, 'index.html', {'host_num': host_num, 'group_num': group_num})
 
 
-
 class LoginView(View):
     """
     用户登录
@@ -33,9 +32,6 @@ class LoginView(View):
     def post(self,request):
         username = request.POST.get('username',"")
         password = request.POST.get('password',"")
-
-        print(username)
-        print(password)
 
         user = authenticate(username=username, password=password)
 
@@ -76,7 +72,6 @@ class UserSettingsView(LoginRequiredMixin,View):
     用户修改个人信息
     """
     def get(self,request):
-
         return render(request,'settings.html')
 
     def post(self,request):
@@ -154,4 +149,6 @@ class UserProfileView(UserPassesTestMixin,View):
         else:
             return render(request, "500.html", {"msg": "密码不一致"})
 
-
+class RegisterView(View):
+    def get(self,request):
+        return render(request,"register.html")

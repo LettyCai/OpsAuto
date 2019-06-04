@@ -130,13 +130,34 @@
 
                     </li>
 
+                 
                     {% ifnotequal request.user.role 2%}
-                    <li class="nav-item">
-                        <a href="/userlist/" class="nav-link">
-                            <i class="icon icon-puzzle"></i> 用户管理
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link nav-dropdown-toggle">
+                            <i class="icon icon-target"></i> 用户管理 <i class="fa fa-caret-left"></i>
                         </a>
+
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/userlist/" class="nav-link">
+                                    <i class="icon icon-target"></i> 用户列表
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/register/" class="nav-link">
+                                    <i class="icon icon-target"></i> 新增用户
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                {% endifnotequal %}
+            {% endifnotequal %}
+
+
+
+
+
                     <li class="nav-item">
                         <a href="tables.html" class="nav-link">
                             <i class="icon icon-grid"></i> 监控管理

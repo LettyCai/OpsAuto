@@ -5800,3 +5800,235 @@ NameError: name 'pwd2' is not defined
 [I 20190604 23:16:49 basehttp:124] "GET /index/ HTTP/1.1" 200 12315
 [I 20190604 23:16:50 basehttp:124] "GET /upload/ HTTP/1.1" 200 12176
 [I 20190604 23:16:54 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 10328
+[I 20190604 23:59:14 basehttp:124] "GET /index/ HTTP/1.1" 200 12315
+[W 20190604 23:59:16 base:93] Not Found: /favicon.ico
+[W 20190604 23:59:16 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5037
+[W 20190605 00:00:49 base:93] Not Found: /index/register.html
+[W 20190605 00:00:49 basehttp:124] "GET /index/register.html HTTP/1.1" 404 5061
+[I 20190605 00:07:57 basehttp:124] "GET /register HTTP/1.1" 301 0
+[E 20190605 00:07:57 exception:118] Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: get() takes 1 positional argument but 2 were given
+[E 20190605 00:07:57 basehttp:124] "GET /register/ HTTP/1.1" 500 69266
+[I 20190605 00:08:43 basehttp:124] "GET /register/ HTTP/1.1" 200 2529
+[I 20190605 00:26:34 basehttp:124] "GET /index/ HTTP/1.1" 200 12315
+[I 20190605 00:26:38 basehttp:124] "GET /logout/ HTTP/1.1" 200 2951
+[I 20190605 00:26:42 basehttp:124] "POST /login/ HTTP/1.1" 200 14034
+[I 20190605 00:26:44 basehttp:124] "GET /userlist/ HTTP/1.1" 200 12665
+[I 20190605 00:28:45 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
+[I 20190605 00:28:47 basehttp:124] "GET /userlist/ HTTP/1.1" 200 13098
+[I 20190605 00:28:49 basehttp:124] "GET /register/ HTTP/1.1" 200 2529
+[I 20190605 00:29:48 basehttp:124] "GET /register/ HTTP/1.1" 200 11203
+[I 20190605 00:30:27 basehttp:124] "GET /register/ HTTP/1.1" 200 10964
+[I 20190605 00:32:29 basehttp:124] "GET /register/ HTTP/1.1" 200 10962
+[I 20190605 00:32:47 basehttp:124] "GET /userlist/ HTTP/1.1" 200 13098
+[I 20190605 00:32:48 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 14949
+[E 20190605 00:34:30 exception:118] Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 154, in get
+    return render(request,"register.html")
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 290, in do_extends
+    nodelist = parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 233, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 450, in parse
+    raise self.error(token, 'Empty variable tag on line %d' % token.lineno)
+django.template.exceptions.TemplateSyntaxError: Empty variable tag on line 31
+[E 20190605 00:34:30 basehttp:124] "GET /register/ HTTP/1.1" 500 160603
+[E 20190605 00:34:45 exception:118] Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 154, in get
+    return render(request,"register.html")
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 290, in do_extends
+    nodelist = parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 233, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 450, in parse
+    raise self.error(token, 'Empty variable tag on line %d' % token.lineno)
+django.template.exceptions.TemplateSyntaxError: Empty variable tag on line 31
+[E 20190605 00:34:46 basehttp:124] "GET /register/ HTTP/1.1" 500 160565
+[E 20190605 00:34:52 exception:118] Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 154, in get
+    return render(request,"register.html")
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 290, in do_extends
+    nodelist = parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 233, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 450, in parse
+    raise self.error(token, 'Empty variable tag on line %d' % token.lineno)
+django.template.exceptions.TemplateSyntaxError: Empty variable tag on line 31
+[E 20190605 00:34:52 basehttp:124] "GET /register/ HTTP/1.1" 500 160565
+[E 20190605 00:35:56 exception:118] Internal Server Error: /register/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/users/views.py", line 154, in get
+    return render(request,"register.html")
+  File "/opt/python3.6/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 290, in do_extends
+    nodelist = parser.parse()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 483, in parse
+    raise self.error(token, e)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/loader_tags.py", line 233, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/template/base.py", line 450, in parse
+    raise self.error(token, 'Empty variable tag on line %d' % token.lineno)
+django.template.exceptions.TemplateSyntaxError: Empty variable tag on line 29
+[E 20190605 00:35:56 basehttp:124] "GET /register/ HTTP/1.1" 500 159023
+[I 20190605 00:36:29 basehttp:124] "GET /register/ HTTP/1.1" 200 12889
+[I 20190605 00:37:28 basehttp:124] "GET /register/ HTTP/1.1" 200 13120
+[I 20190605 00:38:06 basehttp:124] "GET /register/ HTTP/1.1" 200 13115
+[I 20190605 00:38:31 basehttp:124] "GET /register/ HTTP/1.1" 200 13129
+[I 20190605 00:38:44 basehttp:124] "GET /register/ HTTP/1.1" 200 12983
+[I 20190605 00:39:12 basehttp:124] "GET /register/ HTTP/1.1" 200 12981
+[I 20190605 00:39:24 basehttp:124] "GET /register/ HTTP/1.1" 200 12981
