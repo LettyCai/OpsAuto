@@ -6,8 +6,9 @@
                     <div class="col-md-12">
                         <div class="card">
                            <div class="card-header bg-light">分组列表 &nbsp;&nbsp;
+                             {% ifnotequal request.user.role 2%}
                                <button type="submit" class="btn btn-success " onclick="window.location.href='/addgroup/'"><i class="fa fa-align-center"></i>AddGroup</button><br>
-
+                             {% endifnotequal %}
                            </div>
     
                             <div class="card-body">
@@ -30,6 +31,7 @@
                                             <td>{{group.network}}</td>
                                             <td>$800</td>
                                              <td>
+                                                  {% ifnotequal request.user.role 2%}
 
                                                  <a href=/modifygroup{{group.id}}/ >
                                                      <i class="icon icon-pencil"></i> 修改
@@ -37,6 +39,7 @@
                                                  <a href="/delgroup{{group.id}}/" onclick="return sumbit_sure()" >
                                                      <i class="icon icon-magnifier-remove"></i> 删除
                                                  </a>
+                                                  {% endifnotequal %}
                                             </td>
                                         </tr>
                                         {% endfor %}

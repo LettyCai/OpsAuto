@@ -1,6 +1,8 @@
 from django.shortcuts import render,HttpResponseRedirect
 from django.views import View
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.hashers import make_password, check_password
+
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin  #用户登录验证，用户权限验证
 from .models import UserProfile
 from hostsinfo.models import HostsInfo,HostGroup
@@ -31,6 +33,9 @@ class LoginView(View):
     def post(self,request):
         username = request.POST.get('username',"")
         password = request.POST.get('password',"")
+
+        print(username)
+        print(password)
 
         user = authenticate(username=username, password=password)
 
@@ -128,9 +133,6 @@ class UserProfileView(UserPassesTestMixin,View):
         email = request.POST.get('email', '')
         mobile = request.POST.get('mobile', '')
 
-        password1 = request.POST.get('password1', '')
-        password2 = request.POST.get('password2', '')
-
         # 未填写密码项，修改其他信息
         if password1 == '' and password2 == '':
             user = UserProfile.objects.get(id=int(user_id))
@@ -142,7 +144,7 @@ class UserProfileView(UserPassesTestMixin,View):
         # 填写了密码项且2次密码相同：
         elif password1 == password2:
             user = UserProfile.objects.get(id=int(user_id))
-            user.password = make_password(pwd2)
+            user.password = make_password(password1)
             user.username = username
             user.email = email
             user.mobile = mobile

@@ -23,7 +23,9 @@
                                                <label>ip地址</label>
                                                <input name="host_ip" value=" ">
                                                     <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> Search</button>
+                                            {% ifnotequal request.user.role 2%}
                                                     <button type="button" class="btn btn-success " onclick="window.location.href='/addhost/' "><i class="fa fa-align-center"></i>AddHost</button>
+                                             {% endifnotequal %}
                                          {% csrf_token %}
                                         </form>
                                         </div>
@@ -66,12 +68,14 @@
                                                     <a href="/hostdetail{{ host.id }}/" >
                                                             <i class="icon icon-eye"></i> 查看
                                                         </a>
+                                                {% ifnotequal request.user.role 2%}
                                                         <a href="/modifyhost{{ host.id }}/" >
                                                                 <i class="icon icon-pencil"></i> 修改
-                                                            </a>
-                                                            <a href="/hostdel{{ host.id }}/"  onclick="return sumbit_sure()">
+                                                        </a>
+                                                         <a href="/hostdel{{ host.id }}/"  onclick="return sumbit_sure()">
                                                                     <i class="icon icon-magnifier-remove"></i> 删除
-                                                                </a>
+                                                         </a>
+                                               {% endifnotequal %}
                                             </td>
                                         </tr>
                                         {% endfor %}

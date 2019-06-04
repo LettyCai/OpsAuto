@@ -4,8 +4,8 @@ from .models import HostsInfo,HostGroup
 from .utils import prpcrypt,NMAPCollection,ListGenerate
 from .forms import HostInfoForm
 import re
-#分页
-from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
+from pure_pagination import Paginator, EmptyPage, PageNotAnInteger #分页
+from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin  #用户登录验证，用户权限验证
 
 # Create your views here.
 class HostInfoView(View):
@@ -64,7 +64,14 @@ class HostInfoView(View):
         return render(request,"hosts-list.html",{'hosts':hosts,'groups':groups})
 
 
-class AddHostView(View):
+class AddHostView(UserPassesTestMixin,View):
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
     def post(self,request):
         #host_form = HostInfoForm(request.POST)
 
@@ -100,7 +107,6 @@ class AddHostView(View):
 
             return render(request, "add-host.html", {"status": "success"})
 
-
     def get(self,request):
         groups = HostGroup.objects.all()
         return render(request,"add-host.html",{'groups':groups})
@@ -111,9 +117,6 @@ class CollectHostView(View):
     def post(self,request):
         host_ip = request.POST.get('ip',"")
         host_password = request.POST.get('password',"")
-
-        print('*'*20)
-        print(host_ip,host_password)
 
         #检查ip地址格式是否正确：
         if re.match('((?:(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d))))', host_ip, flags=0):
@@ -155,7 +158,14 @@ class GroupListView(View):
 
         return render(request,"group-list.html",{'groups':groups})
 
-class AddGroupView(View):
+class AddGroupView(UserPassesTestMixin,View):
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
     def get(self,request):
         return render(request,"add-group.html")
 
@@ -198,10 +208,17 @@ class HostDetailView(View):
 
         return render(request, "host-detail.html", {"host": host})
 
-class DelHostView(View):
+class DelHostView(UserPassesTestMixin,View):
     """
-    删除主机View
+    删除主机
     """
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
     def get(self,request,host_id):
         #删除主机数据
         HostsInfo.objects.filter(id=host_id).delete()
@@ -213,10 +230,17 @@ class DelHostView(View):
 
         return render(request, "hosts-list.html", {'hosts': hosts, 'groups': groups})
 
-class ModifyGroupView(View):
+class ModifyGroupView(UserPassesTestMixin,View):
     """
-    修改主机组信息View
+    修改主机组信息
     """
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
     def get(self,request,group_id):
         group = HostGroup.objects.get(id=int(group_id))
         return render(request,"group-detail.html",{'group':group})
@@ -232,19 +256,34 @@ class ModifyGroupView(View):
 
         return redirect("grouplist")
 
-class DelGroupView(View):
+class DelGroupView(UserPassesTestMixin,View):
     """
-    删除主机组View
+    删除主机组
     """
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
     def get(self,request,group_id):
         HostGroup.objects.filter(id=int(group_id)).delete()
 
         return redirect("grouplist")
 
-class ModifyHostView(View):
+class ModifyHostView(UserPassesTestMixin,View):
     """
-    修改主机登陆密码View
+    修改主机登陆密码
     """
+
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
     def get(self,request,host_id):
         host = HostsInfo.objects.get(id=int(host_id))
         return render(request,"modifyhost.html",{"host":host})

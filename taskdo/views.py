@@ -20,7 +20,7 @@ from django.http import JsonResponse,HttpResponse
 # Create your views here.
 
 
-class KillTtypView(View):
+class KillTtypView(LoginRequiredMixin,View):
     """
     清理终端号
     """
@@ -81,10 +81,18 @@ class KillTtypView(View):
                                                 'unreachable_num':unreachable_num,
                                                 'unreachable_list':unreachable_list})
 
-class UploadView(View):
+
+class UploadView(UserPassesTestMixin,View):
     """
     上传文件
     """
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
     def get(self,request):
         groups = HostGroup.objects.all()
         return render(request,"upload.html",{'groups':groups})
@@ -153,9 +161,6 @@ class UploadView(View):
                                               'failed_num':failed_num,
                                               'unreachable_num':unreachable_num,
                                               'unreachable_list':unreachable_list})
-
-
-
 
 
 class TaskDoView(UserPassesTestMixin,View):
@@ -251,11 +256,7 @@ class TaskDoView(UserPassesTestMixin,View):
                                                 'unreachable_list':unreachable_list})
 
 
-
-
-
-
-class FindLogView(View):
+class FindLogView(LoginRequiredMixin,View):
     """
     查看日志列表
     """
@@ -275,7 +276,7 @@ class FindLogView(View):
 
         return render(request,"logs.html",{'logs':logs})
 
-class LogDetailsView(View):
+class LogDetailsView(LoginRequiredMixin,View):
     """
     查看日志详细信息
     """
@@ -329,8 +330,6 @@ def getajaxtask(request):
                                                                                      module_name=model,
                                                                                      module_args=task)
 
-        print("*" * 30)
-        print(result)
         # 执行成功主机数
         success_num = len(success_list)
         # 成功主机返回结果
