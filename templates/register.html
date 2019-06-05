@@ -10,12 +10,11 @@
                          <form id="userform" action="/register/" method="post" autocomplete="off">
                         <div class="card">
                             <div class="card-header bg-light">
-                                Account Settings
+                                用户信息
                             </div>
 
                             <div class="card-body">
                                 <div class="row mb-5">
-
 
                                     <div class="col-md-8">
                                         <div class="row">
@@ -35,7 +34,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label">密码</label>
-                                                    <input class="form-control" name="email" value="">
+                                                    <input type="password" class="form-control" name="password" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -44,7 +43,12 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label">角色</label>
-                                                    <input class="form-control" name="mobile" value="">
+
+                                                     <select class="form-control" name="role" >
+                                                           <option value="0"> 系统管理员 </option>
+                                                           <option value="1"> 运维人员 </option>
+                                                           <option value="2"> 值班人员 </option>
+                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -59,7 +63,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div>  <button type="submit" class="btn btn-primary">Save Changes</button></div>
+                                <div>  <button type="submit" class="btn btn-primary">Save User </button></div>
 
 
 

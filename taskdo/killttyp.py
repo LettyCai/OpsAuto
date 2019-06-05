@@ -33,9 +33,23 @@ def kill_ttyp(type="",ttyp=""):
             host_list.append(host.ip)
     if type == 'huidui':
         str = 'fuser -uk /dev/ptyp'
+        groups = HostGroup.objects.get(group_name='电子汇兑')
+        hosts = groups.hostsinfo_set.all()
+        for host in hosts:
+            password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
+            new_host = inventory.get_host(hostname=host.ip)
+            variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
+            host_list.append(host.ip)
 
     if type == 'baoxian':
         str = 'fuser -uk /dev/ttyp'
+        groups = HostGroup.objects.get(group_name='代理保险')
+        hosts = groups.hostsinfo_set.all()
+        for host in hosts:
+            password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
+            new_host = inventory.get_host(hostname=host.ip)
+            variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
+            host_list.append(host.ip)
 
 
     args = str.strip()+ttyp.strip()

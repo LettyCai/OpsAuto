@@ -149,6 +149,30 @@ class UserProfileView(UserPassesTestMixin,View):
         else:
             return render(request, "500.html", {"msg": "密码不一致"})
 
-class RegisterView(View):
+class RegisterView(UserPassesTestMixin,View):
+    def test_func(self):
+        """
+        重载父类方法，系统管理员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role == 0
+
     def get(self,request):
         return render(request,"register.html")
+
+    def post(self,request):
+        username = request.POST.get("username","")
+        password = request.POST.get("password","")
+        role = request.POST.get("role","")
+
+
+        user = UserProfile()
+        user.username = username
+        user.password = make_password(password)
+        user.role = role
+
+        user.save()
+
+        users = UserProfile.objects.all()
+
+        return render(request,"users-list.html",{"msg": "添加成功！",'users':users})
