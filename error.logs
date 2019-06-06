@@ -6117,3 +6117,22 @@ django.template.exceptions.TemplateSyntaxError: Empty variable tag on line 29
 [I 20190605 22:56:56 basehttp:124] "GET /userlist/ HTTP/1.1" 200 15356
 [I 20190605 22:57:03 basehttp:124] "GET /userlist/ HTTP/1.1" 200 15356
 [I 20190605 22:57:05 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[I 20190606 16:15:36 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
+[I 20190606 16:15:36 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[W 20190606 16:15:37 base:93] Not Found: /favicon.ico
+[W 20190606 16:15:37 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5163
+[I 20190606 16:15:41 basehttp:124] "GET /userlist/ HTTP/1.1" 200 13098
+[I 20190606 16:15:43 basehttp:124] "GET /register/ HTTP/1.1" 200 13355
+[I 20190606 16:15:45 basehttp:124] "GET /findlog/ HTTP/1.1" 200 48070
+[I 20190606 16:15:49 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 23361
+[I 20190606 16:15:51 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190606 16:15:52 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 12756
+[I 20190606 16:15:57 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190606 16:16:01 basehttp:124] "GET /userlist/ HTTP/1.1" 200 13098
+[I 20190606 16:19:18 basehttp:124] "GET /register/ HTTP/1.1" 200 13355
+[I 20190606 16:19:27 basehttp:124] "POST /register/ HTTP/1.1" 200 14290
+[I 20190606 16:24:28 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 23361
+[I 20190606 16:24:31 basehttp:124] "GET /modifygroup8/ HTTP/1.1" 200 12269
+[I 20190606 16:24:49 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 12266
+[I 20190606 16:26:27 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
+[I 20190606 16:56:24 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
