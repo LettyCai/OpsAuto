@@ -151,6 +151,8 @@ class UploadView(UserPassesTestMixin,View):
         # 无法连接主机数
         unreachable_num = len(unreachable_list)
 
+        print(stdout_failed)
+
         return render(request, "upload.html",{'result':result,
                                               'groups':groups,
                                               'success_list':success_list,
@@ -160,7 +162,8 @@ class UploadView(UserPassesTestMixin,View):
                                               'failed_list':failed_list,
                                               'failed_num':failed_num,
                                               'unreachable_num':unreachable_num,
-                                              'unreachable_list':unreachable_list})
+                                              'unreachable_list':unreachable_list,
+                                              'stdout_failed':stdout_failed})
 
 
 class TaskDoView(UserPassesTestMixin,View):
@@ -303,7 +306,7 @@ def gethost(request):
 
 def getajaxtask(request):
     """
-    AJAX执行ad-hoc命令页面，获取主机组所有主机
+    AJAX执行ad-hoc命令
     :param request:
     :return:
     """
@@ -379,5 +382,6 @@ def getajaxtask(request):
                 'stdout_failed': stdout_failed,
                 'unreachable_num': unreachable_num,
                 'unreachable_list': unreachable_list}
+
 
         return JsonResponse(data,safe=False)

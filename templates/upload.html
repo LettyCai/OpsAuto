@@ -63,9 +63,12 @@
 
                                             {% for key,value in stdout_failed.items %}
 
-                                            {{key}}:<br>
-                                            {{value}}
 
+                                                <font color="red">{{key}}:</font><br>
+                                            <pre>
+                                                <font color="white">
+                                            {{value}}</font>
+                                             </pre>
                                             {% endfor %}
                                              </div>
 

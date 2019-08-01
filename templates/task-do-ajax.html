@@ -36,6 +36,14 @@
                                                         <option>file</option>
                                                         <option>ping</option>
                                                         <option>synchronize</option>
+                                                      <option>blockinfile</option>
+                                                      <option>lineinfile</option>
+                                                      <option>find</option>
+                                                      <option>replace</option>
+                                                      <option>command</option>
+                                                      <option>cron</option>
+                                                      <option>user</option>
+                                                      <option>group</option>
                                                     </select>
                                                 </div>
 
@@ -135,19 +143,20 @@
             $("#unreachable_num").text(data.unreachable_num+'台');
             $("#unreachable_list").text('主机：'+data.unreachable_list);
 
+            var history_success = $('#stdout_success').prop("outerHTML");
+            var history_failed = $('#stdout_failed').prop("outerHTML");
+
             var content="";
             $.each(data.stdout_success,function (i,item) {
-                var content="";
                 content+= '<font color="red">'+ i +':</font><br><pre><font color="white">'+ item +'</font></pre>';
-                $('#stdout_success').html(content);
             })
+            $('#stdout_success').html(content);
 
+            var content="";
             $.each(data.stdout_failed,function (i,item) {
-                var content="";
                 content+= '<font color="red">'+ i +':</font><br><pre><font color="white">'+ item +'</font></pre>';
-                $('#stdout_failed').html(content);
             })
-
+            $('#stdout_failed').html(content);
         },
         });
     });

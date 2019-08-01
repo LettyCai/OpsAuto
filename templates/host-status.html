@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+                <div class="row">
+
+                    <div class="col-md-8">
+                        <div class="card">
+
+
+                            <div class="card-header bg-light">
+                                主机详细信息
+                            </div>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>IP地址</th>
+                                            <th>{{ host.ip }}</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                                                <tr>
+                                            <td>主机名</td>
+                                            <td class="text-nowrap"> {{ host.hostname}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>MAc地址</td>
+                                            <td class="text-nowrap"> {{ host.mac_address}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>所属主机组</td>
+                                            <td class="text-nowrap">{% for group in host.host_group.all%}{{group.group_name}}&nbsp; {% endfor %}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>主机类型</td>
+                                            <td class="text-nowrap">{{ host.mathine_type }}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>操作系统版本号</td>
+                                            <td class="text-nowrap">{{host.system_ver}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>序列号</td>
+                                            <td class="text-nowrap">{{host.sn}}</td>
+                                        </tr>
+
+                                                                                
+                                         <tr>
+                                                 <td></td>
+                                                 <td>
+                                                 <button type="button"  class="btn btn-success" onclick="window.location.href='/hostinfo/' "><i class="fa fa-search"></i> 返回上一页 </button>
+                                                 </td>
+                                             </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+{% endblock %}

@@ -18,38 +18,27 @@ def kill_ttyp(type="",ttyp=""):
     variablemanager = VariableManager(loader=loader, inventory=inventory)
 
     model = 'shell'
-    str = ''
     pc = prpcrypt()
     host_list = []
 
+    #获取主机组及清理进程命令
     if type == 'chuxu':
         str = 'fuser -uk /dev/ptyp'
         groups = HostGroup.objects.get(group_name='储蓄逻辑集中')
-        hosts = groups.hostsinfo_set.all()
-        for host in hosts:
-            password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8',errors='strict')
-            new_host = inventory.get_host(hostname=host.ip)
-            variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
-            host_list.append(host.ip)
-    if type == 'huidui':
+    elif type == 'huidui':
         str = 'fuser -uk /dev/ptyp'
         groups = HostGroup.objects.get(group_name='电子汇兑')
-        hosts = groups.hostsinfo_set.all()
-        for host in hosts:
-            password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
-            new_host = inventory.get_host(hostname=host.ip)
-            variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
-            host_list.append(host.ip)
-
-    if type == 'baoxian':
+    else:
         str = 'fuser -uk /dev/ttyp'
         groups = HostGroup.objects.get(group_name='代理保险')
-        hosts = groups.hostsinfo_set.all()
-        for host in hosts:
-            password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
-            new_host = inventory.get_host(hostname=host.ip)
-            variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
-            host_list.append(host.ip)
+
+    hosts = groups.hostsinfo_set.all()
+    #读取密码
+    for host in hosts:
+        password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
+        new_host = inventory.get_host(hostname=host.ip)
+        variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
+        host_list.append(host.ip)
 
 
     args = str.strip()+ttyp.strip()

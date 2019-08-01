@@ -6136,3 +6136,448 @@ django.template.exceptions.TemplateSyntaxError: Empty variable tag on line 29
 [I 20190606 16:24:49 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 12266
 [I 20190606 16:26:27 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
 [I 20190606 16:56:24 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190611 13:01:31 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
+[I 20190611 13:01:31 basehttp:124] "GET /static/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/imgs/avatar-1.png HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 200 214360
+[I 20190611 13:01:31 basehttp:124] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/vendor/popper.js/popper.min.js HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/vendor/chart.js/chart.min.js HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/js/carbon.js HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/js/demo.js HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0 HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff HTTP/1.1" 304 0
+[I 20190611 13:01:31 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.ttf?v=2.4.0 HTTP/1.1" 304 0
+[W 20190611 13:01:31 base:93] Not Found: /favicon.ico
+[W 20190611 13:01:31 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5163
+[I 20190611 13:01:38 basehttp:124] "GET /login/ HTTP/1.1" 200 2951
+[I 20190611 13:01:45 basehttp:124] "GET /register/ HTTP/1.1" 200 13355
+[I 20190611 13:01:49 basehttp:124] "GET /userlist/ HTTP/1.1" 200 14244
+[I 20190611 13:01:55 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[I 20190611 13:02:00 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 18930
+[I 20190611 13:02:02 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190611 13:21:26 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 23361
+[I 20190611 13:21:31 basehttp:124] "GET /modifygroup1/ HTTP/1.1" 200 12266
+[I 20190611 13:21:35 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190611 13:21:38 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 12756
+[I 20190611 13:24:18 basehttp:124] "GET /hostdetail1/tables.html HTTP/1.1" 301 0
+[E 20190611 13:24:18 exception:118] Internal Server Error: /hostdetail1/tables.html/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/root/OpsAuto/hostsinfo/views.py", line 207, in get
+    host = HostsInfo.objects.get(id=host_id)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1215, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1085, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/lookups.py", line 18, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/lookups.py", line 68, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/db/models/fields/__init__.py", line 947, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '1/tables.html'
+[E 20190611 13:24:18 basehttp:124] "GET /hostdetail1/tables.html/ HTTP/1.1" 500 125278
+[I 20190611 13:24:23 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190611 13:24:24 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 23361
+[I 20190611 13:24:29 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 13439
+[I 20190611 13:24:31 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
+[I 20190611 13:25:21 basehttp:124] "GET /findlog/ HTTP/1.1" 200 48070
+[I 20190611 13:25:30 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[I 20190611 13:25:33 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 18930
+[I 20190611 13:25:45 basehttp:124] "GET /gethost/?sendgroupname=%E4%BB%A3%E7%90%86%E4%BF%9D%E9%99%A9 HTTP/1.1" 200 26
+[I 20190611 13:25:47 basehttp:124] "GET /gethost/?sendgroupname=%E6%B5%8B%E8%AF%95%E4%B8%BB%E6%9C%BA%E7%BB%841 HTTP/1.1" 200 2
+[I 20190611 13:25:48 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190611 13:25:53 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190611 13:26:17 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 18930
+[I 20190611 13:26:20 basehttp:124] "GET /userlist/ HTTP/1.1" 200 14244
+[W 20190611 13:26:22 base:93] Not Found: /userlist/chartjs.html
+[W 20190611 13:26:22 basehttp:124] "GET /userlist/chartjs.html HTTP/1.1" 404 5193
+[I 20190718 14:44:19 basehttp:124] "GET /index/ HTTP/1.1" 302 0
+[I 20190718 14:44:19 basehttp:124] "GET /login/?next=/index/ HTTP/1.1" 200 2951
+[I 20190718 14:44:19 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 304 0
+[I 20190718 14:44:19 basehttp:124] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+[I 20190718 14:44:19 basehttp:124] "GET /static/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 304 0
+[I 20190718 14:44:19 basehttp:124] "GET /static/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 304 0
+[I 20190718 14:44:19 basehttp:124] "GET /static/vendor/popper.js/popper.min.js HTTP/1.1" 304 0
+[I 20190718 14:44:19 basehttp:124] "GET /static/vendor/chart.js/chart.min.js HTTP/1.1" 304 0
+[I 20190718 14:44:19 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[I 20190718 14:44:19 basehttp:124] "GET /static/js/carbon.js HTTP/1.1" 304 0
+[I 20190718 14:44:19 basehttp:124] "GET /static/js/demo.js HTTP/1.1" 304 0
+[W 20190718 14:44:20 base:93] Not Found: /favicon.ico
+[W 20190718 14:44:20 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5163
+[I 20190718 14:44:25 basehttp:124] "POST /login/ HTTP/1.1" 200 14467
+[I 20190718 14:44:25 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190718 14:44:25 basehttp:124] "GET /static/imgs/avatar-1.png HTTP/1.1" 304 0
+[I 20190718 14:44:25 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+[I 20190718 14:44:25 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0 HTTP/1.1" 304 0
+[I 20190718 14:44:25 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff HTTP/1.1" 304 0
+[I 20190718 14:44:25 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.ttf?v=2.4.0 HTTP/1.1" 304 0
+[I 20190718 14:44:30 basehttp:124] "GET /userlist/ HTTP/1.1" 200 14244
+[I 20190718 14:44:32 basehttp:124] "GET /register/ HTTP/1.1" 200 13355
+[I 20190718 14:44:35 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190718 14:44:42 basehttp:124] "GET /hostdetail1/ HTTP/1.1" 200 12756
+[I 20190718 14:44:44 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190718 14:44:45 basehttp:124] "GET /modifyhost1/ HTTP/1.1" 200 12475
+[I 20190718 14:45:08 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190718 14:45:12 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190718 14:45:13 basehttp:124] "GET /addhost/ HTTP/1.1" 200 17909
+[I 20190718 14:45:15 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 18059
+[I 20190718 14:45:35 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 18930
+[I 20190718 14:45:37 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190718 14:45:39 basehttp:124] "GET /gethost/?sendgroupname=%E4%BB%A3%E7%90%86%E4%BF%9D%E9%99%A9 HTTP/1.1" 200 26
+[I 20190718 14:46:09 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1493
+[I 20190718 14:46:37 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[I 20190718 14:46:42 basehttp:124] "GET /upload/ HTTP/1.1" 200 14331
+[I 20190718 14:47:10 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 18930
+[I 20190718 14:47:12 basehttp:124] "GET /gethost/?sendgroupname=%E4%BB%A3%E7%90%86%E4%BF%9D%E9%99%A9 HTTP/1.1" 200 26
+[I 20190718 14:47:14 basehttp:124] "GET /gethost/?sendgroupname=%E7%94%B5%E5%AD%90%E6%B1%87%E5%85%91 HTTP/1.1" 200 2
+[I 20190718 14:47:15 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[E 20190718 14:47:36 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 347, in getajaxtask
+    stdout_success[host] = result['success'][host]['stdout']
+KeyError: 'stdout'
+[E 20190718 14:47:37 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 14665
+[I 20190718 14:49:08 basehttp:124] "GET /findlog/ HTTP/1.1" 200 53759
+[I 20190718 14:49:13 basehttp:124] "GET /logdetails3/ HTTP/1.1" 200 3419
+[I 20190718 14:49:13 basehttp:124] "GET /findlog/ HTTP/1.1" 200 53759
+[I 20190718 14:49:50 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 23361
+[I 20190718 14:49:53 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 12259
+[I 20190718 14:49:55 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
+[I 20190724 10:11:48 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
+[I 20190724 10:11:48 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 304 0
+[W 20190724 10:11:49 base:93] Not Found: /favicon.ico
+[W 20190724 10:11:49 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5163
+[I 20190724 10:11:57 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190724 10:12:02 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 23361
+[I 20190724 10:12:05 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 13439
+[I 20190724 10:12:07 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 23361
+[I 20190724 10:12:11 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 12259
+[I 20190724 10:12:13 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190724 10:12:14 basehttp:124] "GET /addhost/ HTTP/1.1" 200 17909
+[I 20190724 10:12:35 basehttp:124] "GET /userlist/ HTTP/1.1" 200 14244
+[I 20190724 10:12:37 basehttp:124] "GET /register/ HTTP/1.1" 200 13355
+[I 20190724 10:12:41 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[I 20190724 10:12:43 basehttp:124] "GET /upload/ HTTP/1.1" 200 14331
+[I 20190724 10:12:46 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 18930
+[I 20190724 10:43:44 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
+[W 20190724 10:43:46 base:93] Not Found: /favicon.ico
+[W 20190724 10:43:46 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5163
+[I 20190724 10:43:50 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 18930
+[I 20190724 10:46:11 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19558
+[I 20190724 10:46:24 basehttp:124] "GET /gethost/?sendgroupname=%E6%B5%8B%E8%AF%95%E4%B8%BB%E6%9C%BA%E7%BB%841 HTTP/1.1" 200 2
+[I 20190724 10:46:26 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190724 10:47:08 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[W 20190724 10:47:11 base:93] Not Found: /hostinfo/tables.html
+[W 20190724 10:47:11 basehttp:124] "GET /hostinfo/tables.html HTTP/1.1" 404 5190
+[I 20190724 18:25:24 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
+[W 20190724 18:25:25 base:93] Not Found: /favicon.ico
+[W 20190724 18:25:25 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5163
+[I 20190724 18:25:29 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18356
+[I 20190724 18:25:37 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 23361
+[I 20190724 18:25:38 basehttp:124] "GET /addgroup/ HTTP/1.1" 200 12259
+[I 20190724 18:25:56 basehttp:124] "POST /addgroup/ HTTP/1.1" 200 23361
+[I 20190724 18:26:03 basehttp:124] "GET /addgroup/?page=2 HTTP/1.1" 200 12259
+[I 20190724 18:26:08 basehttp:124] "GET /addgroup/?page=2 HTTP/1.1" 200 12259
+[I 20190724 18:26:13 basehttp:124] "GET /addgroup/?page=2 HTTP/1.1" 200 12259
+[I 20190724 18:26:14 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
+[I 20190724 18:26:16 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 23361
+[I 20190724 18:26:22 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 18535
+[I 20190724 18:26:24 basehttp:124] "GET /addhost/ HTTP/1.1" 200 18154
+[I 20190724 18:26:39 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 18305
+[I 20190724 18:27:10 basehttp:124] "POST /addhost/ HTTP/1.1" 200 15386
+[I 20190724 18:27:23 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 18305
+[I 20190724 18:27:30 basehttp:124] "POST /addhost/ HTTP/1.1" 200 15386
+[I 20190724 18:27:43 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 18305
+[I 20190724 18:27:52 basehttp:124] "POST /addhost/ HTTP/1.1" 200 15386
+[I 20190724 18:27:55 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 23053
+[I 20190724 18:27:58 basehttp:124] "POST /hostinfo/ HTTP/1.1" 200 20084
+[I 20190724 18:28:03 basehttp:124] "GET /hostdetail5/ HTTP/1.1" 200 12755
+[I 20190724 18:28:05 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 23053
+[I 20190724 18:28:11 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19744
+[I 20190724 18:28:13 basehttp:124] "GET /gethost/?sendgroupname=%E9%99%95%E8%A5%BF%E4%BB%A3%E7%90%86%E4%BF%9D%E9%99%A9%E5%89%8D%E7%BD%AE HTTP/1.1" 200 72
+[E 20190724 18:28:23 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 319, in getajaxtask
+    inventory, variablemanager, host_list, loader = gethost.get_hosts(group_name=group)
+  File "/root/OpsAuto/taskdo/ansible_call.py", line 141, in get_hosts
+    variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/vars/manager.py", line 637, in set_host_variable
+    host_name = host.get_name()
+AttributeError: 'NoneType' object has no attribute 'get_name'
+[E 20190724 18:28:23 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15116
+[I 20190724 18:29:52 basehttp:124] "GET /findlog/ HTTP/1.1" 200 53759
+[I 20190724 18:30:04 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19744
+[I 20190724 18:30:08 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[I 20190724 18:30:14 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[I 20190724 18:30:15 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19744
+[I 20190724 18:30:19 basehttp:124] "GET /gethost/?sendgroupname=%E9%99%95%E8%A5%BF%E4%BB%A3%E7%90%86%E4%BF%9D%E9%99%A9%E5%89%8D%E7%BD%AE HTTP/1.1" 200 72
+[E 20190724 18:30:25 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/OpsAuto/taskdo/views.py", line 319, in getajaxtask
+    inventory, variablemanager, host_list, loader = gethost.get_hosts(group_name=group)
+  File "/root/OpsAuto/taskdo/ansible_call.py", line 141, in get_hosts
+    variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
+  File "/opt/python3.6/lib/python3.6/site-packages/ansible/vars/manager.py", line 637, in set_host_variable
+    host_name = host.get_name()
+AttributeError: 'NoneType' object has no attribute 'get_name'
+[E 20190724 18:30:25 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 500 15074
+[W 20190724 18:30:32 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 404 1744
+[E 20190724 18:30:47 exception:118] Internal Server Error: /ajaxtask/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taskdo.views.getajaxtask didn't return an HttpResponse object. It returned None instead.
+[E 20190724 18:30:47 basehttp:124] "GET /ajaxtask/ HTTP/1.1" 500 54977
+[I 20190724 18:31:43 basehttp:124] "GET /findlog/ HTTP/1.1" 200 53759
+[I 20190724 18:31:50 basehttp:124] "GET /findlog/ HTTP/1.1" 200 53759
+[I 20190724 18:31:58 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19744
+[I 20190724 18:32:00 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190724 18:32:25 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 23053
+[I 20190724 18:32:38 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1493
+[I 20190724 18:32:43 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 23053
+[I 20190724 18:32:45 basehttp:124] "GET /addhost/ HTTP/1.1" 200 18154
+[I 20190724 18:33:01 basehttp:124] "POST /collecthost/ HTTP/1.1" 200 18464
+[I 20190724 18:34:00 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19744
+[I 20190724 18:34:02 basehttp:124] "GET /gethost/?sendgroupname=%E9%99%95%E8%A5%BF%E4%BB%A3%E7%90%86%E4%BF%9D%E9%99%A9%E5%89%8D%E7%BD%AE HTTP/1.1" 200 72
+[I 20190724 18:34:09 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 424
+[I 20190724 18:35:13 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 242
+[I 20190724 18:35:25 basehttp:124] "GET /findlog/ HTTP/1.1" 200 54243
+[I 20190724 18:35:31 basehttp:124] "GET /findlog/ HTTP/1.1" 200 54243
+[I 20190724 18:35:32 basehttp:124] "GET /logdetails3/ HTTP/1.1" 200 3419
+[I 20190724 18:35:40 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19744
+[I 20190724 18:35:42 basehttp:124] "GET /gethost/?sendgroupname=%E9%99%95%E8%A5%BF%E4%BB%A3%E7%90%86%E4%BF%9D%E9%99%A9%E5%89%8D%E7%BD%AE HTTP/1.1" 200 72
+[I 20190724 18:35:46 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 712
+[I 20190801 10:32:29 basehttp:124] "GET /index/ HTTP/1.1" 200 14470
+[I 20190801 10:32:29 basehttp:124] "GET /static/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 304 0
+[I 20190801 10:32:29 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 304 0
+[I 20190801 10:32:29 basehttp:124] "GET /static/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 304 0
+[I 20190801 10:32:29 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 304 0
+[I 20190801 10:32:29 basehttp:124] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+[I 20190801 10:32:29 basehttp:124] "GET /static/imgs/avatar-1.png HTTP/1.1" 304 0
+[I 20190801 10:32:29 basehttp:124] "GET /static/vendor/popper.js/popper.min.js HTTP/1.1" 304 0
+[I 20190801 10:32:29 basehttp:124] "GET /static/vendor/chart.js/chart.min.js HTTP/1.1" 304 0
+[I 20190801 10:32:29 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[I 20190801 10:32:29 basehttp:124] "GET /static/js/carbon.js HTTP/1.1" 304 0
+[I 20190801 10:32:29 basehttp:124] "GET /static/js/demo.js HTTP/1.1" 304 0
+[I 20190801 10:32:30 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0 HTTP/1.1" 304 0
+[I 20190801 10:32:30 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+[I 20190801 10:32:30 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.ttf?v=2.4.0 HTTP/1.1" 304 0
+[I 20190801 10:32:30 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff HTTP/1.1" 304 0
+[W 20190801 10:32:30 base:93] Not Found: /favicon.ico
+[W 20190801 10:32:30 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5163
+[I 20190801 10:32:36 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19744
+[I 20190801 10:32:38 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190801 10:32:56 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1341
+[I 20190801 10:33:20 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1509
+[I 20190801 10:42:44 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19889
+[I 20190801 10:42:46 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190801 10:42:52 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 246
+[I 20190801 10:44:35 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19902
+[I 20190801 10:44:37 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190801 10:44:42 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 246
+[I 20190801 10:44:49 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1327
+[I 20190801 10:45:03 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 1602
+[I 20190801 10:48:08 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19902
+[I 20190801 10:48:10 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190801 10:48:27 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 262
+[I 20190801 10:48:46 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 314
+[I 20190801 10:48:53 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 314
+[I 20190801 10:48:57 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 314
+[I 20190801 10:50:00 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19902
+[I 20190801 10:50:01 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190801 10:50:06 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 314
+[I 20190801 10:50:53 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19903
+[I 20190801 10:50:55 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190801 10:50:59 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 314
+[I 20190801 10:52:33 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19897
+[I 20190801 10:52:35 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190801 10:52:39 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 314
+[I 20190801 10:52:43 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 314
+[I 20190801 10:55:36 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19875
+[I 20190801 10:55:39 basehttp:124] "GET /gethost/?sendgroupname=%E5%82%A8%E8%93%84%E9%80%BB%E8%BE%91%E9%9B%86%E4%B8%AD HTTP/1.1" 200 52
+[I 20190801 10:55:44 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 2417
+[I 20190801 10:55:51 basehttp:124] "POST /ajaxtask/ HTTP/1.1" 200 3029
+[I 20190801 10:55:58 basehttp:124] "GET /findlog/ HTTP/1.1" 200 55269
+[I 20190801 10:56:13 basehttp:124] "GET /findlog/ HTTP/1.1" 200 55269
+[I 20190801 10:56:18 basehttp:124] "GET /findlog/?page=5 HTTP/1.1" 200 19516
+[I 20190801 10:56:21 basehttp:124] "GET /logdetails43 HTTP/1.1" 301 0
+[I 20190801 10:56:21 basehttp:124] "GET /findlog/?page=5 HTTP/1.1" 200 19516
+[I 20190801 10:56:21 basehttp:124] "GET /logdetails43/ HTTP/1.1" 200 3821
+[I 20190801 10:56:30 basehttp:124] "GET /findlog/?page=4 HTTP/1.1" 200 40328
+[I 20190801 10:56:32 basehttp:124] "GET /logdetails42 HTTP/1.1" 301 0
+[I 20190801 10:56:32 basehttp:124] "GET /findlog/?page=4 HTTP/1.1" 200 40328
+[I 20190801 10:56:32 basehttp:124] "GET /logdetails42/ HTTP/1.1" 200 3751
+[I 20190801 10:56:40 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 19875
+[I 20190801 10:57:48 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[I 20190801 10:57:50 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 23053
+[I 20190801 10:57:53 basehttp:124] "GET /hostdetail5/ HTTP/1.1" 200 12755
+[I 20190801 10:57:56 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 23053
+[I 20190801 10:57:59 basehttp:124] "GET /hostdetail5/ HTTP/1.1" 200 12755
+[I 20190801 10:58:01 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 23053
+[I 20190801 10:58:03 basehttp:124] "GET /hostdetail7/ HTTP/1.1" 200 12755
+[I 20190801 10:58:13 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 23053
+[I 20190801 10:58:47 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[W 20190801 10:58:52 base:93] Not Found: /killttyp/tables.html
+[W 20190801 10:58:52 basehttp:124] "GET /killttyp/tables.html HTTP/1.1" 404 5190
+[I 20190801 10:58:57 basehttp:124] "GET /findlog/ HTTP/1.1" 200 55269
+[I 20190801 10:59:00 basehttp:124] "GET /findlog/?page=5 HTTP/1.1" 200 19516
+[W 20190801 10:59:04 base:93] Not Found: /findlog/tables.html
+[W 20190801 10:59:04 basehttp:124] "GET /findlog/tables.html HTTP/1.1" 404 5187
+[I 20190801 10:59:08 basehttp:124] "GET /upload/ HTTP/1.1" 200 14509
+[I 20190801 11:05:07 basehttp:124] "GET /userlist/ HTTP/1.1" 200 14244
+[I 20190801 11:05:10 basehttp:124] "GET /userprofile2/ HTTP/1.1" 200 14946
+[I 20190801 11:05:21 basehttp:124] "GET /userlist/ HTTP/1.1" 200 14244
+[I 20190801 11:05:24 basehttp:124] "GET /userprofile1/ HTTP/1.1" 200 14949
+[I 20190801 11:05:30 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 23361
+[I 20190801 11:05:33 basehttp:124] "GET /grouplist/?page=2 HTTP/1.1" 200 14549
+[I 20190801 11:05:35 basehttp:124] "GET /grouplist/?page=1 HTTP/1.1" 200 23361
+[I 20190801 11:05:38 basehttp:124] "GET /delgroup5/ HTTP/1.1" 302 0
+[I 20190801 11:05:38 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 23358
+[I 20190801 11:05:40 basehttp:124] "GET /delgroup6/ HTTP/1.1" 302 0
+[I 20190801 11:05:40 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 22879
+[I 20190801 11:05:42 basehttp:124] "GET /delgroup7/ HTTP/1.1" 302 0
+[I 20190801 11:05:42 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 21774
+[I 20190801 11:05:44 basehttp:124] "GET /delgroup8/ HTTP/1.1" 302 0
+[I 20190801 11:05:44 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 20669
+[I 20190801 11:05:46 basehttp:124] "GET /delgroup9/ HTTP/1.1" 302 0
+[I 20190801 11:05:46 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 19564
+[I 20190801 11:05:47 basehttp:124] "GET /delgroup10/ HTTP/1.1" 302 0
+[I 20190801 11:05:47 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 18457
+[I 20190801 11:05:49 basehttp:124] "GET /delgroup11/ HTTP/1.1" 302 0
+[I 20190801 11:05:49 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 17347
+[I 20190801 11:05:51 basehttp:124] "GET /delgroup13/ HTTP/1.1" 302 0
+[I 20190801 11:05:51 basehttp:124] "GET /grouplist/ HTTP/1.1" 200 16245
+[I 20190801 11:05:53 basehttp:124] "GET /index/ HTTP/1.1" 200 14469
+[I 20190801 11:05:54 basehttp:124] "GET /hostinfo/ HTTP/1.1" 200 21745
+[I 20190801 11:06:19 basehttp:124] "GET /addhost/ HTTP/1.1" 200 16310
+[I 20190801 11:06:33 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[I 20190801 11:06:39 basehttp:124] "GET /upload/ HTTP/1.1" 200 13209
+[I 20190801 14:39:33 basehttp:124] "POST /upload/ HTTP/1.1" 200 16360
+[I 20190801 14:41:41 basehttp:124] "GET /findlog/ HTTP/1.1" 200 55269
+[I 20190801 14:41:45 basehttp:124] "GET /findlog/?page=5 HTTP/1.1" 200 19516
+[I 20190801 14:41:49 basehttp:124] "GET /findlog/?page=4 HTTP/1.1" 200 40328
+[I 20190801 14:41:51 basehttp:124] "GET /findlog/?page=5 HTTP/1.1" 200 19516
+[I 20190801 14:41:54 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[I 20190801 14:44:07 basehttp:124] "GET /upload/ HTTP/1.1" 200 13209
+[I 20190801 14:44:21 basehttp:124] "POST /upload/ HTTP/1.1" 200 15247
+[E 20190801 14:47:45 exception:118] Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 106, in dispatch
+    user_test_result = self.get_test_func()()
+  File "/root/OpsAuto/taskdo/views.py", line 94, in test_func
+    return self.request.user.role != 2
+  File "/opt/python3.6/lib/python3.6/site-packages/django/utils/functional.py", line 216, in inner
+    return func(self._wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute 'role'
+[E 20190801 14:47:45 basehttp:124] "GET /upload/ HTTP/1.1" 500 75948
+[E 20190801 14:47:49 exception:118] Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 106, in dispatch
+    user_test_result = self.get_test_func()()
+  File "/root/OpsAuto/taskdo/views.py", line 94, in test_func
+    return self.request.user.role != 2
+  File "/opt/python3.6/lib/python3.6/site-packages/django/utils/functional.py", line 216, in inner
+    return func(self._wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute 'role'
+[E 20190801 14:47:49 basehttp:124] "GET /upload/ HTTP/1.1" 500 76083
+[E 20190801 14:47:52 exception:118] Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/python3.6/lib/python3.6/site-packages/django/contrib/auth/mixins.py", line 106, in dispatch
+    user_test_result = self.get_test_func()()
+  File "/root/OpsAuto/taskdo/views.py", line 94, in test_func
+    return self.request.user.role != 2
+  File "/opt/python3.6/lib/python3.6/site-packages/django/utils/functional.py", line 216, in inner
+    return func(self._wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute 'role'
+[E 20190801 14:47:52 basehttp:124] "GET /upload/ HTTP/1.1" 500 76083
+[I 20190801 14:47:54 basehttp:124] "GET /killttyp/ HTTP/1.1" 302 0
+[I 20190801 14:47:54 basehttp:124] "GET /login/?next=/killttyp/ HTTP/1.1" 200 2951
+[I 20190801 14:48:00 basehttp:124] "POST /login/ HTTP/1.1" 200 14467
+[I 20190801 14:48:03 basehttp:124] "GET /upload/ HTTP/1.1" 200 13209
+[I 20190801 14:48:19 basehttp:124] "POST /upload/ HTTP/1.1" 200 15247
+[I 20190801 14:49:33 basehttp:124] "GET /upload/ HTTP/1.1" 200 13209
+[I 20190801 14:49:49 basehttp:124] "POST /upload/ HTTP/1.1" 200 15247
+[I 20190801 14:50:36 basehttp:124] "GET /upload/ HTTP/1.1" 200 13209
+[I 20190801 14:50:49 basehttp:124] "POST /upload/ HTTP/1.1" 200 15651
+[I 20190801 14:51:50 basehttp:124] "GET /upload/ HTTP/1.1" 200 13209
+[I 20190801 14:52:05 basehttp:124] "POST /upload/ HTTP/1.1" 200 15671
+[I 20190801 14:53:03 basehttp:124] "GET /taskdo/ HTTP/1.1" 200 18482
+[I 20190801 14:53:12 basehttp:124] "GET /gethost/?sendgroupname=%E9%99%95%E8%A5%BF%E4%BB%A3%E7%90%86%E4%BF%9D%E9%99%A9%E5%89%8D%E7%BD%AE HTTP/1.1" 200 72
+[I 20190801 14:53:16 basehttp:124] "GET /index/ HTTP/1.1" 200 14469
+[I 20190801 15:39:02 basehttp:124] "GET /index/ HTTP/1.1" 200 14469
+[I 20190801 15:39:03 basehttp:124] "GET /index/ HTTP/1.1" 200 14469
+[I 20190801 15:39:05 basehttp:124] "GET /index/ HTTP/1.1" 200 14469
+[W 20190801 15:39:08 base:93] Not Found: /favicon.ico
+[W 20190801 15:39:08 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5163
+[I 20190801 15:42:42 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
