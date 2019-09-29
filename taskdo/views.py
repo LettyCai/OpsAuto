@@ -265,7 +265,7 @@ class FindLogView(LoginRequiredMixin,View):
     """
     def get(self,request):
 
-        logs = OpsLog.objects.all()
+        logs = OpsLog.objects.all().order_by('-date')
 
         # 分页
         try:

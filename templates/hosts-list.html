@@ -61,8 +61,8 @@
                                         <tr>
                                             <td>{{ host.hostname }}</td>
                                             <td class="text-nowrap">{{ host.ip }}</td>
-                                            <td>{% for group in host.host_group.all%}{{group.group_name}}&nbsp; {% endfor %}</td>
-                                            <td>{{ host.system_ver }}</td>
+                                            <td width="150">{% for group in host.host_group.all%}{{group.group_name}}&nbsp; {% endfor %}</td>
+                                            <td width="250">{{ host.system_ver }}</td>
                                             <td>{{ host.mathine_type }}</td>
                                             <td>
                                                     <a href="/hostdetail{{ host.id }}/" >

@@ -73,7 +73,6 @@ class AddHostView(UserPassesTestMixin,View):
         return self.request.user.role != 2
 
     def post(self,request):
-        #host_form = HostInfoForm(request.POST)
 
         host = HostsInfo()
 
@@ -100,6 +99,7 @@ class AddHostView(UserPassesTestMixin,View):
                 host = HostsInfo.objects.get(ip=host.ip)
                 group = HostGroup.objects.get(group_name=str(group))
                 host.host_group.add(group)
+                #group.host_num += 1
 
             # 重新生成hostslist文件
             ge = ListGenerate()
@@ -222,6 +222,7 @@ class DelHostView(UserPassesTestMixin,View):
     def get(self,request,host_id):
         #删除主机数据
         HostsInfo.objects.filter(id=host_id).delete()
+
 
         # 获取所有主机
         hosts = HostsInfo.objects.all()
