@@ -7040,3 +7040,44 @@ NameError: name 'date' is not defined
 [I 20190929 17:07:59 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.ttf?v=2.4.0 HTTP/1.1" 200 54056
 [W 20190929 17:07:59 base:93] Not Found: /favicon.ico
 [W 20190929 17:07:59 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5163
+[I 20191001 20:51:22 basehttp:124] "GET /index/ HTTP/1.1" 302 0
+[I 20191001 20:51:22 basehttp:124] "GET /login/?next=/index/ HTTP/1.1" 200 2951
+[I 20191001 20:51:22 basehttp:124] "GET /static/vendor/simple-line-icons/css/simple-line-icons.css HTTP/1.1" 304 0
+[I 20191001 20:51:22 basehttp:124] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+[I 20191001 20:51:22 basehttp:124] "GET /static/css/styles.css HTTP/1.1" 304 0
+[I 20191001 20:51:22 basehttp:124] "GET /static/vendor/popper.js/popper.min.js HTTP/1.1" 304 0
+[I 20191001 20:51:22 basehttp:124] "GET /static/js/carbon.js HTTP/1.1" 304 0
+[I 20191001 20:51:22 basehttp:124] "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[I 20191001 20:51:22 basehttp:124] "GET /static/vendor/chart.js/chart.min.js HTTP/1.1" 304 0
+[I 20191001 20:51:22 basehttp:124] "GET /static/js/demo.js HTTP/1.1" 304 0
+[I 20191001 20:51:22 basehttp:124] "GET /static/vendor/font-awesome/css/fontawesome-all.min.css HTTP/1.1" 304 0
+[W 20191001 20:51:23 base:93] Not Found: /favicon.ico
+[W 20191001 20:51:23 basehttp:124] "GET /favicon.ico HTTP/1.1" 404 5163
+[I 20191001 20:51:29 basehttp:124] "POST /login/ HTTP/1.1" 200 14467
+[I 20191001 20:51:29 basehttp:124] "GET /static/imgs/logo.png HTTP/1.1" 200 3743
+[I 20191001 20:51:29 basehttp:124] "GET /static/imgs/avatar-1.png HTTP/1.1" 304 0
+[I 20191001 20:51:29 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+[I 20191001 20:51:29 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0 HTTP/1.1" 304 0
+[I 20191001 20:51:29 basehttp:124] "GET /static/vendor/simple-line-icons/fonts/Simple-Line-Icons.ttf?v=2.4.0 HTTP/1.1" 304 0
+[I 20191001 20:51:29 basehttp:124] "GET /static/vendor/font-awesome/webfonts/fa-solid-900.woff HTTP/1.1" 304 0
+[I 20191001 20:51:39 basehttp:124] "GET /killttyp/ HTTP/1.1" 200 12483
+[I 20191001 20:51:40 basehttp:124] "GET /findlog/ HTTP/1.1" 200 47991
+[W 20191001 20:51:43 base:93] Not Found: /findlog/tables.html
+[W 20191001 20:51:43 basehttp:124] "GET /findlog/tables.html HTTP/1.1" 404 5187
+[W 20191021 22:24:11 base:93] Not Found: /
+[W 20191021 22:26:41 base:93] Not Found: /
+[W 20191021 22:27:46 base:93] Not Found: /static/vendor/simple-line-icons/css/simple-line-icons.css
+[W 20191021 22:27:46 base:93] Not Found: /static/vendor/bootstrap/js/bootstrap.min.js
+[W 20191021 22:27:46 base:93] Not Found: /static/js/carbon.js
+[W 20191021 22:27:46 base:93] Not Found: /static/js/demo.js
+[W 20191021 22:27:48 base:93] Not Found: /static/vendor/jquery/jquery.min.js
+[W 20191021 22:27:48 base:93] Not Found: /static/css/styles.css
+[W 20191021 22:27:49 base:93] Not Found: /static/vendor/chart.js/chart.min.js
+[W 20191021 22:27:49 base:93] Not Found: /static/vendor/popper.js/popper.min.js
+[W 20191021 22:27:49 base:93] Not Found: /static/vendor/font-awesome/css/fontawesome-all.min.css
+[W 20191021 22:27:49 base:93] Not Found: /static/vendor/popper.js/popper.min.js
+[W 20191021 22:27:49 base:93] Not Found: /static/vendor/bootstrap/js/bootstrap.min.js
+[W 20191021 22:27:49 base:93] Not Found: /static/vendor/chart.js/chart.min.js
+[W 20191021 22:27:49 base:93] Not Found: /static/js/carbon.js
+[W 20191021 22:27:49 base:93] Not Found: /static/js/demo.js
+[W 20191021 22:27:49 base:93] Not Found: /favicon.ico
