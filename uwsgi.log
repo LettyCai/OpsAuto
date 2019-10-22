@@ -190,3 +190,215 @@ worker 2 buried after 1 seconds
 worker 3 buried after 1 seconds
 worker 4 buried after 1 seconds
 goodbye to uWSGI.
+*** Starting uWSGI 2.0.14 (64bit) on [Tue Oct 22 03:11:29 2019] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 08 January 2019 07:10:22
+os: Linux-2.6.32-696.18.7.el6.x86_64 #1 SMP Thu Jan 4 17:31:22 UTC 2018
+nodename: localhost.localdomain
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /root/OpsAuto
+writing pidfile to uwsgi.pid
+detected binary path: /opt/python3.6/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/OpsAuto
+your processes number limit is 1863
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:800:43117 (port auto-assigned) fd 3
+Python version: 3.6.2 (default, Jan  8 2019, 06:33:43)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-23)]
+Python main interpreter initialized at 0x2826970
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x2826970 pid: 2022 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2022)
+spawned uWSGI worker 1 (pid: 2024, cores: 2)
+spawned uWSGI worker 2 (pid: 2025, cores: 2)
+spawned uWSGI worker 3 (pid: 2026, cores: 2)
+spawned uWSGI worker 4 (pid: 2027, cores: 2)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.14 (64bit) on [Tue Oct 22 03:12:55 2019] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 08 January 2019 07:10:22
+os: Linux-2.6.32-696.18.7.el6.x86_64 #1 SMP Thu Jan 4 17:31:22 UTC 2018
+nodename: localhost.localdomain
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /root/OpsAuto
+writing pidfile to uwsgi.pid
+detected binary path: /opt/python3.6/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/OpsAuto
+your processes number limit is 1863
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:33215 (port auto-assigned) fd 3
+Python version: 3.6.2 (default, Jan  8 2019, 06:33:43)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-23)]
+Python main interpreter initialized at 0x177ca10
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x177ca10 pid: 2042 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2042)
+spawned uWSGI worker 1 (pid: 2044, cores: 2)
+spawned uWSGI worker 2 (pid: 2045, cores: 2)
+spawned uWSGI worker 3 (pid: 2046, cores: 2)
+spawned uWSGI worker 4 (pid: 2047, cores: 2)
+spawned uWSGI http 1 (pid: 2048)
+[pid: 2047|app: 0|req: 1/1] 10.0.2.2 () {40 vars in 840 bytes} [Tue Oct 22 11:12:58 2019] GET /index/ => generated 14469 bytes in 1590 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
+[pid: 2047|app: 0|req: 3/2] 10.0.2.2 () {40 vars in 869 bytes} [Tue Oct 22 11:12:59 2019] GET /static/vendor/font-awesome/css/fontawesome-all.min.css => generated 5292 bytes in 54 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 2047|app: 0|req: 3/3] 10.0.2.2 () {40 vars in 875 bytes} [Tue Oct 22 11:12:59 2019] GET /static/vendor/simple-line-icons/css/simple-line-icons.css => generated 5301 bytes in 84 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 2046|app: 0|req: 2/4] 10.0.2.2 () {40 vars in 814 bytes} [Tue Oct 22 11:12:59 2019] GET /static/vendor/jquery/jquery.min.js => generated 5232 bytes in 3862 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 2046|app: 0|req: 2/5] 10.0.2.2 () {40 vars in 803 bytes} [Tue Oct 22 11:12:59 2019] GET /static/css/styles.css => generated 5193 bytes in 3901 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 2044|app: 0|req: 2/6] 10.0.2.2 () {40 vars in 830 bytes} [Tue Oct 22 11:12:59 2019] GET /static/imgs/avatar-1.png => generated 5202 bytes in 3921 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 2044|app: 0|req: 2/7] 10.0.2.2 () {40 vars in 820 bytes} [Tue Oct 22 11:12:59 2019] GET /static/vendor/popper.js/popper.min.js => generated 5241 bytes in 3864 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 2046|app: 0|req: 3/8] 10.0.2.2 () {40 vars in 780 bytes} [Tue Oct 22 11:13:03 2019] GET /static/js/demo.js => generated 5181 bytes in 8 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 2047|app: 0|req: 5/9] 10.0.2.2 () {40 vars in 784 bytes} [Tue Oct 22 11:13:03 2019] GET /static/js/carbon.js => generated 5187 bytes in 34 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 2047|app: 0|req: 5/10] 10.0.2.2 () {40 vars in 816 bytes} [Tue Oct 22 11:13:03 2019] GET /static/vendor/chart.js/chart.min.js => generated 5235 bytes in 45 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 2045|app: 0|req: 2/11] 10.0.2.2 () {40 vars in 822 bytes} [Tue Oct 22 11:12:59 2019] GET /static/imgs/logo.png => generated 5190 bytes in 3985 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 2045|app: 0|req: 2/12] 10.0.2.2 () {40 vars in 832 bytes} [Tue Oct 22 11:12:59 2019] GET /static/vendor/bootstrap/js/bootstrap.min.js => generated 5259 bytes in 3933 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 2047|app: 0|req: 6/13] 10.0.2.2 () {38 vars in 761 bytes} [Tue Oct 22 11:13:03 2019] GET /static/vendor/chart.js/chart.min.js => generated 5235 bytes in 12 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 2046|app: 0|req: 4/14] 10.0.2.2 () {38 vars in 729 bytes} [Tue Oct 22 11:13:03 2019] GET /static/js/carbon.js => generated 5187 bytes in 9 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 2044|app: 0|req: 3/15] 10.0.2.2 () {38 vars in 725 bytes} [Tue Oct 22 11:13:03 2019] GET /static/js/demo.js => generated 5181 bytes in 7 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 2047|app: 0|req: 7/16] 10.0.2.2 () {38 vars in 749 bytes} [Tue Oct 22 11:13:03 2019] GET /favicon.ico => generated 5163 bytes in 10 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 2048)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.14 (64bit) on [Tue Oct 22 07:21:31 2019] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 08 January 2019 07:10:22
+os: Linux-2.6.32-696.18.7.el6.x86_64 #1 SMP Thu Jan 4 17:31:22 UTC 2018
+nodename: localhost.localdomain
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /root/OpsAuto
+writing pidfile to uwsgi.pid
+detected binary path: /opt/python3.6/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/OpsAuto
+your processes number limit is 1863
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:800:33930 (port auto-assigned) fd 3
+Python version: 3.6.2 (default, Jan  8 2019, 06:33:43)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-23)]
+Python main interpreter initialized at 0x1784970
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1784970 pid: 1943 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1943)
+spawned uWSGI worker 1 (pid: 1945, cores: 2)
+spawned uWSGI worker 2 (pid: 1946, cores: 2)
+spawned uWSGI worker 3 (pid: 1947, cores: 2)
+spawned uWSGI worker 4 (pid: 1948, cores: 2)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.14 (64bit) on [Tue Oct 22 07:24:11 2019] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 08 January 2019 07:10:22
+os: Linux-2.6.32-696.18.7.el6.x86_64 #1 SMP Thu Jan 4 17:31:22 UTC 2018
+nodename: localhost.localdomain
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /root/OpsAuto
+writing pidfile to uwsgi.pid
+detected binary path: /opt/python3.6/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/OpsAuto
+your processes number limit is 1863
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:8000 fd 3
+Python version: 3.6.2 (default, Jan  8 2019, 06:33:43)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-23)]
+Python main interpreter initialized at 0x29ac920
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x29ac920 pid: 1961 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1961)
+spawned uWSGI worker 1 (pid: 1963, cores: 2)
+spawned uWSGI worker 2 (pid: 1964, cores: 2)
+spawned uWSGI worker 3 (pid: 1965, cores: 2)
+spawned uWSGI worker 4 (pid: 1966, cores: 2)
+[pid: 1966|app: 0|req: 1/1] 10.0.2.2 () {42 vars in 833 bytes} [Tue Oct 22 15:24:17 2019] GET / => generated 5112 bytes in 1561 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 2/2] 10.0.2.2 () {42 vars in 779 bytes} [Tue Oct 22 15:24:19 2019] GET /favicon.ico => generated 5163 bytes in 14 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+[pid: 1966|app: 0|req: 3/3] 10.0.2.2 () {42 vars in 843 bytes} [Tue Oct 22 15:24:29 2019] GET /index => generated 0 bytes in 1 msecs (HTTP/1.1 301) 3 headers in 112 bytes (1 switches on core 0)
+[pid: 1964|app: 0|req: 1/4] 10.0.2.2 () {42 vars in 845 bytes} [Tue Oct 22 15:24:29 2019] GET /index/ => generated 14469 bytes in 1304 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 4/5] 10.0.2.2 () {42 vars in 795 bytes} [Tue Oct 22 15:24:30 2019] GET /static/vendor/jquery/jquery.min.js => generated 5232 bytes in 6 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 5/6] 10.0.2.2 () {42 vars in 801 bytes} [Tue Oct 22 15:24:30 2019] GET /static/vendor/popper.js/popper.min.js => generated 5241 bytes in 8 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1964|app: 0|req: 2/7] 10.0.2.2 () {42 vars in 856 bytes} [Tue Oct 22 15:24:30 2019] GET /static/vendor/simple-line-icons/css/simple-line-icons.css => generated 5301 bytes in 81 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 1964|app: 0|req: 3/8] 10.0.2.2 () {42 vars in 813 bytes} [Tue Oct 22 15:24:30 2019] GET /static/vendor/bootstrap/js/bootstrap.min.js => generated 5259 bytes in 17 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 6/9] 10.0.2.2 () {42 vars in 797 bytes} [Tue Oct 22 15:24:30 2019] GET /static/vendor/chart.js/chart.min.js => generated 5235 bytes in 9 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 7/10] 10.0.2.2 () {42 vars in 765 bytes} [Tue Oct 22 15:24:30 2019] GET /static/js/carbon.js => generated 5187 bytes in 17 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 8/11] 10.0.2.2 () {42 vars in 761 bytes} [Tue Oct 22 15:24:30 2019] GET /static/js/demo.js => generated 5181 bytes in 13 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 1963|app: 0|req: 2/12] 10.0.2.2 () {42 vars in 850 bytes} [Tue Oct 22 15:24:30 2019] GET /static/vendor/font-awesome/css/fontawesome-all.min.css => generated 5292 bytes in 2752 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1963|app: 0|req: 2/13] 10.0.2.2 () {42 vars in 784 bytes} [Tue Oct 22 15:24:30 2019] GET /static/css/styles.css => generated 5193 bytes in 2747 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 1966|app: 0|req: 9/14] 10.0.2.2 () {42 vars in 801 bytes} [Tue Oct 22 15:24:33 2019] GET /static/vendor/popper.js/popper.min.js => generated 5241 bytes in 11 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1965|app: 0|req: 2/15] 10.0.2.2 () {42 vars in 811 bytes} [Tue Oct 22 15:24:30 2019] GET /static/imgs/avatar-1.png => generated 5202 bytes in 2768 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 1965|app: 0|req: 2/16] 10.0.2.2 () {42 vars in 803 bytes} [Tue Oct 22 15:24:30 2019] GET /static/imgs/logo.png => generated 5190 bytes in 2802 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 10/17] 10.0.2.2 () {42 vars in 813 bytes} [Tue Oct 22 15:24:33 2019] GET /static/vendor/bootstrap/js/bootstrap.min.js => generated 5259 bytes in 12 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 11/18] 10.0.2.2 () {42 vars in 797 bytes} [Tue Oct 22 15:24:33 2019] GET /static/vendor/chart.js/chart.min.js => generated 5235 bytes in 11 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 1965|app: 0|req: 3/19] 10.0.2.2 () {42 vars in 765 bytes} [Tue Oct 22 15:24:33 2019] GET /static/js/carbon.js => generated 5187 bytes in 7 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 1964|app: 0|req: 4/20] 10.0.2.2 () {42 vars in 761 bytes} [Tue Oct 22 15:24:33 2019] GET /static/js/demo.js => generated 5181 bytes in 11 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1965|app: 0|req: 4/21] 10.0.2.2 () {44 vars in 876 bytes} [Tue Oct 22 15:42:09 2019] GET /index/ => generated 14469 bytes in 70 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 1)
+[pid: 1966|app: 0|req: 12/22] 10.0.2.2 () {44 vars in 876 bytes} [Tue Oct 22 15:42:12 2019] GET /index/ => generated 14469 bytes in 32 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 13/23] 10.0.2.2 () {42 vars in 845 bytes} [Tue Oct 22 15:42:16 2019] GET /index/ => generated 14469 bytes in 21 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 1)
+[pid: 1966|app: 0|req: 14/24] 10.0.2.2 () {44 vars in 876 bytes} [Tue Oct 22 15:42:24 2019] GET /index/ => generated 14469 bytes in 7 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 1)
+[pid: 1966|app: 0|req: 15/25] 10.0.2.2 () {44 vars in 876 bytes} [Tue Oct 22 15:43:09 2019] GET /index/ => generated 14469 bytes in 12 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 16/26] 10.0.2.2 () {44 vars in 891 bytes} [Tue Oct 22 15:43:20 2019] GET /logout/ => generated 2951 bytes in 17 msecs (HTTP/1.1 200) 6 headers in 363 bytes (1 switches on core 1)
+[pid: 1966|app: 0|req: 17/27] 10.0.2.2 () {44 vars in 834 bytes} [Tue Oct 22 15:43:24 2019] GET /logout/ => generated 2951 bytes in 2 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 18/28] 10.0.2.2 () {42 vars in 821 bytes} [Tue Oct 22 15:49:21 2019] GET /index/ => generated 0 bytes in 13 msecs (HTTP/1.1 302) 5 headers in 156 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 19/29] 10.0.2.2 () {42 vars in 846 bytes} [Tue Oct 22 15:49:21 2019] GET /login/?next=/index/ => generated 2951 bytes in 1 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 1)
+[pid: 1966|app: 0|req: 20/30] 10.0.2.2 () {52 vars in 1062 bytes} [Tue Oct 22 15:49:33 2019] POST /login/ => generated 14467 bytes in 147 msecs (HTTP/1.1 200) 6 headers in 410 bytes (1 switches on core 1)
+[pid: 1966|app: 0|req: 21/31] 10.0.2.2 () {42 vars in 865 bytes} [Tue Oct 22 15:56:19 2019] GET /login/ => generated 2951 bytes in 2 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 22/32] 10.0.2.2 () {44 vars in 896 bytes} [Tue Oct 22 15:58:47 2019] GET /login/ => generated 2951 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 23/33] 10.0.2.2 () {38 vars in 740 bytes} [Tue Oct 22 15:58:47 2019] GET /static/vendor/bootstrap/js/bootstrap.min.js.map => generated 5154 bytes in 7 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 1966|app: 0|req: 24/34] 10.0.2.2 () {52 vars in 1073 bytes} [Tue Oct 22 16:00:25 2019] POST /login/ => generated 14467 bytes in 161 msecs (HTTP/1.1 200) 6 headers in 410 bytes (1 switches on core 1)
+[pid: 1966|app: 0|req: 25/35] 10.0.2.2 () {44 vars in 895 bytes} [Tue Oct 22 16:00:30 2019] GET /hostinfo/ => generated 21865 bytes in 37 msecs (HTTP/1.1 200) 5 headers in 279 bytes (1 switches on core 0)
