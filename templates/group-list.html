@@ -5,9 +5,9 @@
 
                     <div class="col-md-12">
                         <div class="card">
-                           <div class="card-header bg-light">分组列表 &nbsp;&nbsp;
+                           <div class="card-header bg-light">分组列表&nbsp; &nbsp;&nbsp;
                              {% ifnotequal request.user.role 2%}
-                               <button type="submit" class="btn btn-success " onclick="window.location.href='/addgroup/'"><i class="fa fa-align-center"></i>AddGroup</button><br>
+                               <button type="submit" class="btn btn-success " onclick="window.location.href='/addgroup/'"><i class="fa fa-align-center"></i> &nbsp;添加主机组</button><br>
                              {% endifnotequal %}
                            </div>
     
@@ -73,7 +73,7 @@
                         </div>
                     </div>
         </div>
-
+<script>alert("{{ msg }}");console.log("{{ msg }}");</script>
 
 {% endblock %}
 
@@ -93,3 +93,5 @@ return false;
 
 
 {% endblock %}
+
+ {% block grouplist %}active{% endblock %}

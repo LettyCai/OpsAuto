@@ -156,7 +156,7 @@ class GroupListView(View):
         p = Paginator(groups,10,request=request)
         groups = p.page(page)
 
-        return render(request,"group-list.html",{'groups':groups})
+        return render(request,"group-list.html",{'groups':groups,'msg':"主机信息获取失败"})
 
 class AddGroupView(UserPassesTestMixin,View):
     def test_func(self):
@@ -196,7 +196,7 @@ class AddGroupView(UserPassesTestMixin,View):
             p = Paginator(groups, 10, request=request)
             groups = p.page(page)
 
-            return render(request, "group-list.html", {"status": "success",'groups':groups})
+            return render(request, "group-list.html", {"status": "success",'groups':groups,"msg":"添加成功！"})
 
 class HostDetailView(View):
     """
@@ -255,7 +255,7 @@ class ModifyGroupView(UserPassesTestMixin,View):
 
         HostGroup.objects.filter(id=int(group_id)).update(group_name=group_name,network=group_network,group_detail=group_detail)
 
-        return redirect("grouplist")
+        return redirect("grouplist",{"status": "success","msg":"修改成功！"})
 
 class DelGroupView(UserPassesTestMixin,View):
     """

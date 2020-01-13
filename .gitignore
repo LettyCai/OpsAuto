@@ -1,3 +1,6 @@
 .idea
 .git
 error.logs
+uwsgi.ini
+uwsgi.log
+uwsgi.pid

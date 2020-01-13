@@ -402,3 +402,45 @@ invalid request block size: 21573 (max 4096)...skip
 [pid: 1966|app: 0|req: 23/33] 10.0.2.2 () {38 vars in 740 bytes} [Tue Oct 22 15:58:47 2019] GET /static/vendor/bootstrap/js/bootstrap.min.js.map => generated 5154 bytes in 7 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
 [pid: 1966|app: 0|req: 24/34] 10.0.2.2 () {52 vars in 1073 bytes} [Tue Oct 22 16:00:25 2019] POST /login/ => generated 14467 bytes in 161 msecs (HTTP/1.1 200) 6 headers in 410 bytes (1 switches on core 1)
 [pid: 1966|app: 0|req: 25/35] 10.0.2.2 () {44 vars in 895 bytes} [Tue Oct 22 16:00:30 2019] GET /hostinfo/ => generated 21865 bytes in 37 msecs (HTTP/1.1 200) 5 headers in 279 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Jan 13 01:24:09 2020] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 08 January 2019 07:10:22
+os: Linux-2.6.32-696.18.7.el6.x86_64 #1 SMP Thu Jan 4 17:31:22 UTC 2018
+nodename: localhost.localdomain
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /root/OpsAuto
+writing pidfile to uwsgi.pid
+detected binary path: /opt/python3.6/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/OpsAuto
+your processes number limit is 1863
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (0.0.0.0:8000).
+bind(): Address already in use [core/socket.c line 769]
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Jan 13 07:58:24 2020] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 08 January 2019 07:10:22
+os: Linux-2.6.32-696.18.7.el6.x86_64 #1 SMP Thu Jan 4 17:31:22 UTC 2018
+nodename: localhost.localdomain
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /root/OpsAuto
+writing pidfile to uwsgi.pid
+detected binary path: /opt/python3.6/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/OpsAuto
+your processes number limit is 1863
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (0.0.0.0:8000).
+bind(): Address already in use [core/socket.c line 769]

@@ -182,6 +182,7 @@ class TaskDoView(UserPassesTestMixin,View):
         #return render(request,"task-do.html",{'groups':groups})
         return render(request, "task-do-ajax.html", {'groups': groups})
 
+"""
     def post(self,request):
         group = request.POST.get("sendgroupname","")
         hosts = request.POST.getlist("ip","")
@@ -257,7 +258,7 @@ class TaskDoView(UserPassesTestMixin,View):
                                                 'stdout_failed':stdout_failed,
                                                 'unreachable_num':unreachable_num,
                                                 'unreachable_list':unreachable_list})
-
+"""
 
 class FindLogView(LoginRequiredMixin,View):
     """

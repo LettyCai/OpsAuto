@@ -22,9 +22,9 @@
                                                     </select>
                                                <label>ip地址</label>
                                                <input name="host_ip" value=" ">
-                                                    <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> Search</button>
+                                                    <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> 查询</button>
                                             {% ifnotequal request.user.role 2%}
-                                                    <button type="button" class="btn btn-success " onclick="window.location.href='/addhost/' "><i class="fa fa-align-center"></i>AddHost</button>
+                                                    <button type="button" class="btn btn-success " onclick="window.location.href='/addhost/' "><i class="fa fa-align-center"></i> 添加</button>
                                              {% endifnotequal %}
                                          {% csrf_token %}
                                         </form>
@@ -131,4 +131,8 @@ return false;
 </script>
 
 
+{% endblock %}
+
+{% block hostinfo %}
+active
 {% endblock %}
