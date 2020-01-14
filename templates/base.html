@@ -68,20 +68,20 @@
 
                     <li class="nav-item nav-dropdown">
                         <a href="#" class="nav-link nav-dropdown-toggle">
-                            <i class="icon icon-target"></i> 资产信息管理 <i class="fa fa-caret-left"></i>
+                            <i class="icon icon-layers"></i> 资产信息管理 <i class="fa fa-caret-left"></i>
                         </a>
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a href="/hostinfo/" class="nav-link {% block hostinfo %}{% endblock %}" >
-                                     <i class="icon icon-target"></i> 主机信息
+                                     <i class="icon icon-arrow-right"></i> 主机信息
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a href="/grouplist/" class="nav-link {% block grouplist %}{% endblock %}" >
-                                    <i class="icon icon-target"></i> 分组信息
+                                    <i class="icon icon-arrow-right"></i> 分组信息
                                 </a>
                             </li>
                         </ul>
@@ -90,14 +90,14 @@
 
                     <li class="nav-item nav-dropdown">
                             <a href="#" class="nav-link nav-dropdown-toggle">
-                                <i class="icon icon-energy"></i> 任务管理 <i class="fa fa-caret-left"></i>
+                                <i class="icon icon-tag"></i> 任务管理 <i class="fa fa-caret-left"></i>
                             </a>
 
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a href="/killttyp/" class="nav-link {% block killttyp %}{% endblock %}">
-                                    <i class="icon icon-energy"></i> 清理终端号
+                                    <i class="icon  icon-arrow-right"></i> 清理终端号
                                 </a>
                             </li>
                         </ul>
@@ -105,7 +105,7 @@
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a href="/upload/" class="nav-link {% block upload %}{% endblock %}">
-                                    <i class="icon icon-energy"></i> 文件上传
+                                    <i class="icon  icon-arrow-right"></i> 文件上传
                                 </a>
                             </li>
                         </ul>
@@ -114,7 +114,7 @@
                          <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a href="/taskdo/" class="nav-link {% block taskdo %}{% endblock %}" >
-                                    <i class="icon icon-energy"></i> 任务执行
+                                    <i class="icon  icon-arrow-right"></i> 任务执行
                                 </a>
                             </li>
                         </ul>
@@ -122,7 +122,7 @@
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a href="chartjs.html" class="nav-link">
-                                    <i class="icon icon-energy"></i> 脚本执行
+                                    <i class="icon  icon-arrow-right"></i> 脚本执行
                                 </a>
                             </li>
                         </ul>
@@ -134,20 +134,20 @@
                     {% ifnotequal request.user.role 2%}
                     <li class="nav-item nav-dropdown">
                         <a href="#" class="nav-link nav-dropdown-toggle">
-                            <i class="icon icon-target"></i> 用户管理 <i class="fa fa-caret-left"></i>
+                            <i class="icon icon-user"></i> 用户管理 <i class="fa fa-caret-left"></i>
                         </a>
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a href="/userlist/" class="nav-link {% block userlist %}{% endblock %}" >
-                                    <i class="icon icon-target"></i> 用户列表
+                                    <i class="icon icon-arrow-right"></i> 用户列表
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a href="/register/" class="nav-link {% block register %}{% endblock %}">
-                                    <i class="icon icon-target"></i> 新增用户
+                                    <i class="icon icon-arrow-right"></i> 新增用户
                                 </a>
                             </li>
                         </ul>
@@ -160,13 +160,13 @@
 
                     <li class="nav-item">
                         <a href="tables.html" class="nav-link">
-                            <i class="icon icon-grid"></i> 监控管理
+                            <i class="icon icon-camera"></i> 监控管理
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="/findlog/" class="nav-link">
-                            <i class="icon icon-notebook"></i> 日志管理
+                            <i class="icon icon-docs"></i> 日志管理
                         </a>
                     </li>
 

@@ -20,9 +20,8 @@
                                         </select>
                                         <br>
                                                <label>ttyp号</label>
-                                               <input  class="form-control" name="ttyp" value=" "><br>
-
-                                                    <button type="submit" class="btn btn-success " ><i class="fa fa-align-center"></i>Kill</button>
+                                               <input  class="form-control" name="ttyp" id="ttyp" value=" "><br>
+                                               <button type="submit" class="btn btn-success" onclick="return add_sure()"><i class="fa fa-align-center"></i>&nbsp;&nbsp;确定&nbsp;</button>
 
                                         </div>
                                        {% csrf_token %}
@@ -81,3 +80,21 @@
 {% endblock %}
 
 {% block killttyp %}active{% endblock %}
+
+{% block custom_js %}
+
+<script language="javascript">
+function add_sure(){
+var ttyp = document.getElementById("ttyp").value;
+var gnl=confirm("确定清理终端号"+ttyp+"?");
+if (gnl==true){
+return true;
+}else{
+return false;
+}
+}
+
+</script>
+
+
+{% endblock %}

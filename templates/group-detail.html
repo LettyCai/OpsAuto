@@ -11,7 +11,7 @@
 
                                     <div class="col-md-12">
                                          <table class="table table-striped">
-                                         <form id="collectform" action="/modifygroup/" method="post" autocomplete="off">
+                                         <form id="collectform" action="/modifygroup{{group.id}}/" method="post" autocomplete="off">
                                         <tr>
                                             <td>主机组名</td>
                                             <td>
@@ -35,7 +35,7 @@
                                              <tr>
                                                  <td></td>
                                                  <td>
-                                                 <button type="button" class="btn btn-primary" ><i class="icon icon-arrow-left-circle"></i>&nbsp;&nbsp;返回&nbsp;&nbsp;</button>
+                                                 <button type="button" class="btn btn-primary" onclick="javascript :history.back(-1);"><i class="icon icon-arrow-left-circle"></i>&nbsp;&nbsp;返回&nbsp;&nbsp;</button>
                                                  <button type="submit" class="btn btn-success" ><i class="icon icon-notebook"></i>&nbsp;&nbsp;保存&nbsp;&nbsp;</button>
                                                  </td>
                                              </tr>

@@ -89,7 +89,7 @@ class AddHostView(UserPassesTestMixin,View):
         has_host = HostsInfo.objects.filter(ip=host.ip)
 
         if has_host:
-            return render(request,"500.html",{"status":"failed","error":"the host has added!"})
+            return render(request,"500.html",{"status":"failed","error":"主机已存在!"})
         else:
             #存储主机信息
             host.save()
@@ -142,21 +142,6 @@ class CollectHostView(View):
             groups = HostGroup.objects.all()
             return render(request,"add-host.html",{'msg':"ip地址格式不正确！",'groups':groups})
 
-class GroupListView(View):
-    def get(self,request):
-        groups = HostGroup.objects.all()
-
-        #主机组分页显示
-        try:
-            page = request.GET.get('page', 1)
-        except PageNotAnInteger:
-            page = 1
-
-        # Provide Paginator with the request object for complete querystring generation
-        p = Paginator(groups,10,request=request)
-        groups = p.page(page)
-
-        return render(request,"group-list.html",{'groups':groups,'msg':"主机信息获取失败"})
 
 class AddGroupView(UserPassesTestMixin,View):
     def test_func(self):
@@ -176,12 +161,12 @@ class AddGroupView(UserPassesTestMixin,View):
         group.group_detail = request.POST.get('group_detail',"")
         group.network = request.POST.get('group_network',"")
 
-        print(group.group_name)
-
         has_group = HostGroup.objects.filter(group_name =group.group_name)
 
         if has_group:
-            return render(request,"500.html",{"status":"failed","error":"the group has added!"})
+            return render(request,"add-group.html",{"status":"failed","msg":"添加失败：主机组已存在！"})
+        elif group.group_name == "":
+            return render(request,"add-group.html",{"status":"failed","msg":"添加失败：主机组名不能为空！"})
         else:
             group.save()
             groups = HostGroup.objects.all()
@@ -198,6 +183,7 @@ class AddGroupView(UserPassesTestMixin,View):
 
             return render(request, "group-list.html", {"status": "success",'groups':groups,"msg":"添加成功！"})
 
+
 class HostDetailView(View):
     """
     主机详细信息展示View
@@ -207,6 +193,7 @@ class HostDetailView(View):
         host = HostsInfo.objects.get(id=host_id)
 
         return render(request, "host-detail.html", {"host": host})
+
 
 class DelHostView(UserPassesTestMixin,View):
     """
@@ -231,47 +218,6 @@ class DelHostView(UserPassesTestMixin,View):
 
         return render(request, "hosts-list.html", {'hosts': hosts, 'groups': groups})
 
-class ModifyGroupView(UserPassesTestMixin,View):
-    """
-    修改主机组信息
-    """
-    def test_func(self):
-        """
-        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
-        :return:
-        """
-        return self.request.user.role != 2
-
-    def get(self,request,group_id):
-        group = HostGroup.objects.get(id=int(group_id))
-        return render(request,"group-detail.html",{'group':group})
-
-    def post(self,request,group_id):
-        group_name = request.POST.get('group_name','')
-        group_network = request.POST.get('group_network','')
-        group_detail = request.POST.get('group_detail','')
-
-        group_id = request.POST.get('group_id','')
-
-        HostGroup.objects.filter(id=int(group_id)).update(group_name=group_name,network=group_network,group_detail=group_detail)
-
-        return redirect("grouplist",{"status": "success","msg":"修改成功！"})
-
-class DelGroupView(UserPassesTestMixin,View):
-    """
-    删除主机组
-    """
-    def test_func(self):
-        """
-        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
-        :return:
-        """
-        return self.request.user.role != 2
-
-    def get(self,request,group_id):
-        HostGroup.objects.filter(id=int(group_id)).delete()
-
-        return redirect("grouplist")
 
 class ModifyHostView(UserPassesTestMixin,View):
     """
@@ -329,6 +275,96 @@ class ModifyHostView(UserPassesTestMixin,View):
         else:
             groups = HostGroup.objects.all()
             return render(request, "add-host.html", {"msg": "主机信息获取失败", 'res': result['res'], 'groups': groups})
+
+
+class GroupListView(View):
+    def get(self,request):
+        groups = HostGroup.objects.all()
+
+        #主机组分页显示
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        # Provide Paginator with the request object for complete querystring generation
+        p = Paginator(groups,10,request=request)
+        groups = p.page(page)
+
+        return render(request,"group-list.html",{'groups':groups})
+
+
+class ModifyGroupView(UserPassesTestMixin,View):
+    """
+    修改主机组信息
+    """
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+    def get(self,request,group_id):
+        group = HostGroup.objects.get(id=int(group_id))
+        return render(request,"group-detail.html",{'group':group})
+
+    def post(self,request,group_id):
+        group_name = request.POST.get('group_name','')
+        group_network = request.POST.get('group_network','')
+        group_detail = request.POST.get('group_detail','')
+
+        if group_name =="":
+            group = HostGroup.objects.get(id=int(group_id))
+            return render(request, "group-detail.html", {'group': group, 'msg':"修改失败：主机组名不能为空！"})
+        else:
+            HostGroup.objects.filter(id=int(group_id)).update(group_name=group_name,network=group_network,group_detail=group_detail)
+
+        groups = HostGroup.objects.all()
+
+        # 主机组分页显示
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        # Provide Paginator with the request object for complete querystring generation
+        p = Paginator(groups, 10, request=request)
+        groups = p.page(page)
+
+        return render(request, "group-list.html", {'groups': groups, 'msg':"修改成功!"})
+
+
+class DelGroupView(UserPassesTestMixin,View):
+    """
+    删除主机组
+    """
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+    def get(self,request,group_id):
+        HostGroup.objects.filter(id=int(group_id)).delete()
+
+        groups = HostGroup.objects.all()
+
+        # 主机组分页显示
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        # Provide Paginator with the request object for complete querystring generation
+        p = Paginator(groups, 10, request=request)
+        groups = p.page(page)
+
+        return render(request, "group-list.html", {'groups': groups, 'msg': "删除成功!"})
+
+
+
 
 
 

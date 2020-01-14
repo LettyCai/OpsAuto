@@ -11,7 +11,7 @@
                                         <input name="ip" value="192.168.56.102">
                                         <label>密码</label>
                                         <input type="password" name="password" value="123456">
-                                        <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> Collection </button>
+                                        <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> &nbsp;&nbsp;连接&nbsp;&nbsp; </button>
                                      {% csrf_token %}
                                     </form>
 
@@ -87,7 +87,9 @@
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td><button type="submit" class="btn btn-primary" onclick="return add_sure()" ><i class="fa fa-align-center"></i>&nbsp;AddHost </button></td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary" onclick="javascript :history.back(-1);"><i class="icon icon-arrow-left-circle"></i>&nbsp;&nbsp;返回&nbsp;&nbsp;</button>
+                                                <button type="submit" class="btn btn-success" onclick="return add_sure()" ><i class="fa fa-align-center"></i>&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp; </button></td>
                                         </tr>
                                      {% csrf_token %}
                                 </form>
