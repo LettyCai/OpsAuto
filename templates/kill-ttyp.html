@@ -13,10 +13,10 @@
 
                                                 <label>业务系统</label>
 
-                                        <select name="type" class="form-control">
-                                          <option value="chuxu">储蓄</option>
-                                          <option value="huidui">汇兑</option>
-                                          <option value="baoxian">保险</option>
+                                        <select name="type" class="form-control" id="type">
+                                          <option value="储蓄">储蓄</option>
+                                          <option value="汇兑">汇兑</option>
+                                          <option value="保险">保险</option>
                                         </select>
                                         <br>
                                                <label>ttyp号</label>
@@ -86,7 +86,8 @@
 <script language="javascript">
 function add_sure(){
 var ttyp = document.getElementById("ttyp").value;
-var gnl=confirm("确定清理终端号"+ttyp+"?");
+var type = document.getElementById("type").value;
+var gnl=confirm("确定清理"+type+"系统终端号"+ttyp+"?");
 if (gnl==true){
 return true;
 }else{

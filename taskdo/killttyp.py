@@ -22,10 +22,10 @@ def kill_ttyp(type="",ttyp=""):
     host_list = []
 
     #获取主机组及清理进程命令
-    if type == 'chuxu':
+    if type == '储蓄':
         str = 'fuser -uk /dev/ptyp'
         groups = HostGroup.objects.get(group_name='储蓄逻辑集中')
-    elif type == 'huidui':
+    elif type == '汇兑':
         str = 'fuser -uk /dev/ptyp'
         groups = HostGroup.objects.get(group_name='电子汇兑')
     else:
@@ -42,6 +42,7 @@ def kill_ttyp(type="",ttyp=""):
 
 
     args = str.strip()+ttyp.strip()
+    print(args)
     args = 'ls -ltr'
 
     ans = AnsibleRunner()
