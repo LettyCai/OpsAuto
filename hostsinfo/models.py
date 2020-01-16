@@ -30,8 +30,19 @@ class HostsInfo(models.Model):
     host_type = models.CharField(max_length=256, verbose_name=u"虚拟机上宿主机的类型", default="", null=True)
     host_group = models.ManyToManyField(HostGroup)
 
-
     class Meta:
         verbose_name = u'主机信息表'
         verbose_name_plural = verbose_name
         db_table = "hostinfo"
+
+
+class HostUsers(models.Model):
+    username = models.CharField(max_length=32, null=True, verbose_name=u"用户")
+    passwd = models.CharField(max_length=64, null=True, verbose_name=u"密码")
+    usergroup = models.CharField(max_length=32, null=True, verbose_name=u"用户组")
+    host = models.ForeignKey(HostsInfo,on_delete=models.SET_NULL,null=True)
+
+    class Meta:
+        verbose_name = u'主机登陆用户表'
+        verbose_name_plural = verbose_name
+        db_table = "hostusers"

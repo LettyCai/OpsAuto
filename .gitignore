@@ -4,3 +4,4 @@ error.logs
 uwsgi.ini
 uwsgi.log
 uwsgi.pid
+/tmp/

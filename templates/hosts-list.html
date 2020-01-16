@@ -52,7 +52,7 @@
                                             <th>IP地址</th>
                                             <th>主机组</th>
                                             <th>操作系统</th>
-                                            <th>状态</th>
+
                                             <th>操作</th>
                                         </tr>
                                         </thead>
@@ -63,12 +63,15 @@
                                             <td class="text-nowrap">{{ host.ip }}</td>
                                             <td width="150">{% for group in host.host_group.all%}{{group.group_name}}&nbsp; {% endfor %}</td>
                                             <td width="250">{{ host.system_ver }}</td>
-                                            <td>{{ host.mathine_type }}</td>
+
                                             <td>
                                                     <a href="/hostdetail{{ host.id }}/" >
                                                             <i class="icon icon-eye"></i> 查看
                                                         </a>
                                                 {% ifnotequal request.user.role 2%}
+                                                 <a href="/hostusers{{ host.id }}/" >
+                                                                <i class="icon icon-layers"></i> 用户
+                                                        </a>
                                                         <a href="/modifyhost{{ host.id }}/" >
                                                                 <i class="icon icon-pencil"></i> 修改
                                                         </a>

@@ -158,4 +158,3 @@ class GetHostInfo(object):
 
         return inventory, variablemanager, host_list, loader
 
-

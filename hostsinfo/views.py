@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views import View
-from .models import HostsInfo,HostGroup
+from .models import HostsInfo,HostGroup,HostUsers
 from .utils import prpcrypt,NMAPCollection,ListGenerate
 from .forms import HostInfoForm
 import re
@@ -365,7 +365,22 @@ class DelGroupView(UserPassesTestMixin,View):
 
 
 
+class HostUsersView(UserPassesTestMixin,View):
+    """
+        主机可使用的用户组
+        """
 
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+    def get(self, request, host_id):
+        users = HostUsers.objects.filter(host__id=host_id)
+
+        return render(request, "host-users.html", {'users':users})
 
 
 

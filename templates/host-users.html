@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container-fluid">
+                <div class="row">
+
+
+                    <div class="col-md-12">
+                         <form id="userform" action="/hostusers/" method="post" autocomplete="off">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                用户列表
+                            </div>
+
+                            <div class="card-body">
+                                 <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>用户名</th>
+                                            <th>用户组</th>
+                                            <th>密码</th>
+
+                                            <th>操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for user in users %}
+                                        <tr>
+                                            <td>{{user.username}}</td>
+                                            <td class="text-nowrap">{{user.usergroup}}</td>
+                                            <td>{{user.passwd}}</td>
+
+                                             <td>
+                                                  {% ifnotequal request.user.role 2%}
+
+                                                 <a href=/modifygroup{{user.id}}/ >
+                                                     <i class="icon icon-pencil"></i> 修改
+                                                 </a>
+                                                 <a href="/delgroup{{user.id}}/" onclick="return sumbit_sure()" >
+                                                     <i class="icon icon-magnifier-remove"></i> 删除
+                                                 </a>
+                                                  {% endifnotequal %}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                        <tr>
+                                            <td> <input class="form-control" name="username" value=""></td>
+                                            <td class="text-nowrap"><input class="form-control" name="usergroup" value=""></td>
+                                            <td><input class="form-control" type="password" name="password" value=""></td>
+
+                                             <td>
+                                                <button type="submit" class="btn btn-primary"> 新增 </button>
+                                            </td>
+                                        </tr>
+                                              </tbody>
+                                        </table>
+
+
+                                </div>
+
+
+
+                        </div>
+                                {% csrf_token %}
+                        </div></form>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+

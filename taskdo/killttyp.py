@@ -38,12 +38,16 @@ def kill_ttyp(type="",ttyp=""):
         password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
         new_host = inventory.get_host(hostname=host.ip)
         variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
+
+        #variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_user',value='cpai')
+        #variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value='1245')
+
         host_list.append(host.ip)
 
 
     args = str.strip()+ttyp.strip()
     print(args)
-    args = 'ls -ltr'
+    args = 'whoami'
 
     ans = AnsibleRunner()
     result,sucess_list,failed_list,unreachable_list,command = ans.run_modle(inventory=inventory,loader=loader,host_list=host_list,variable_manager=variablemanager,module_name=model,module_args=args)
