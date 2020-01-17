@@ -38,7 +38,7 @@
                                                  <a href=/modifygroup{{user.id}}/ >
                                                      <i class="icon icon-pencil"></i> 修改
                                                  </a>
-                                                 <a href="/delgroup{{user.id}}/" onclick="return sumbit_sure()" >
+                                                 <a href="/hostsinfo/delhostusers{{user.id}}/" onclick="return sumbit_sure()" >
                                                      <i class="icon icon-magnifier-remove"></i> 删除
                                                  </a>
                                                   {% endifnotequal %}
@@ -70,3 +70,19 @@
             </div>
 {% endblock %}
 
+{% block custom_js %}
+
+<script language="javascript">
+function sumbit_sure(){
+var gnl=confirm("确定删除用户?");
+if (gnl==true){
+return true;
+}else{
+return false;
+}
+}
+
+</script>
+
+
+{% endblock %}

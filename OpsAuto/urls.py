@@ -14,10 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,re_path
+from django.urls import path,re_path,include
 from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView,HostDetailView,DelHostView,ModifyGroupView,DelGroupView,ModifyHostView,HostUsersView
 from taskdo.views import KillTtypView, UploadView,TaskDoView,FindLogView,LogDetailsView,gethost,getajaxtask
 from users.views import IndexView,LoginView,LogoutView,UsersListView,UserSettingsView,UserProfileView,RegisterView
+from hostsinfo import urls as hostsinfo_url
 
 urlpatterns = [
     path('index/',  IndexView.as_view(),name="index"),
@@ -45,5 +46,6 @@ urlpatterns = [
     re_path(r'modifyhost(?P<host_id>.*)/$', ModifyHostView.as_view(), name="modifyhost"),
     re_path(r'hostusers(?P<host_id>.*)/$', HostUsersView.as_view(), name="hostusers"),
     path(r'gethost/',gethost,name='gethost'),
-    path(r'ajaxtask/',getajaxtask,name='ajaxtask')
+    path(r'ajaxtask/',getajaxtask,name='ajaxtask'),
+    re_path(r'^hostsinfo/',include(hostsinfo_url,'hostsinfo')),
 ]

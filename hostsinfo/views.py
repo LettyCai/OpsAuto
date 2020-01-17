@@ -384,4 +384,28 @@ class HostUsersView(UserPassesTestMixin,View):
 
 
 
+class DelhostusersView(UserPassesTestMixin,View):
+    """
+        删除用户
+        """
 
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+    def get(self, request, user_id):
+
+        user = HostUsers.objects.filter(id=user_id).delete()
+        print(user_id)
+        print('~~~')
+
+        host = user.host
+        print(host)
+
+        users = HostUsers.objects.filter(host__id=host.id)
+        print(host.id)
+
+        return render(request, "500.html", {'users': users})
