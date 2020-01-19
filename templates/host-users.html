@@ -7,10 +7,10 @@
 
 
                     <div class="col-md-12">
-                         <form id="userform" action="/hostusers/" method="post" autocomplete="off">
+                         <form id="userform" action="/hostsinfo/addhostusers/" method="post" autocomplete="off">
                         <div class="card">
                             <div class="card-header bg-light">
-                                用户列表
+                                {{host.ip}}主机用户列表
                             </div>
 
                             <div class="card-body">
@@ -35,7 +35,7 @@
                                              <td>
                                                   {% ifnotequal request.user.role 2%}
 
-                                                 <a href=/modifygroup{{user.id}}/ >
+                                                 <a href="/hostsinfo/addhostusers/" >
                                                      <i class="icon icon-pencil"></i> 修改
                                                  </a>
                                                  <a href="/hostsinfo/delhostusers{{user.id}}/" onclick="return sumbit_sure()" >
@@ -51,6 +51,7 @@
                                             <td><input class="form-control" type="password" name="password" value=""></td>
 
                                              <td>
+                                                 <input name="hostid" type="hidden" value="{{host.id}}">
                                                 <button type="submit" class="btn btn-primary"> 新增 </button>
                                             </td>
                                         </tr>

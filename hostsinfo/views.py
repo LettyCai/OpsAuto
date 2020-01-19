@@ -57,10 +57,6 @@ class HostInfoView(View):
         p = Paginator(hosts, 10, request=request)
         hosts = p.page(page)
 
-        print('*'*20)
-        print(hosts)
-
-
         return render(request,"hosts-list.html",{'hosts':hosts,'groups':groups})
 
 
@@ -105,7 +101,23 @@ class AddHostView(UserPassesTestMixin,View):
             ge = ListGenerate()
             ge.generate_hostslist()
 
-            return render(request, "add-host.html", {"status": "success"})
+            # 返回所有主机组列表
+            groups = HostGroup.objects.all()
+
+            # 分页
+            try:
+                page = request.GET.get('page', 1)
+            except PageNotAnInteger:
+                page = 1
+
+            # Provide Paginator with the request object for complete querystring generation
+            p = Paginator(hosts, 10, request=request)
+            hosts = p.page(page)
+
+            print('*' * 20)
+            print(hosts)
+
+            return render(request, "hosts-list.html", {'hosts': hosts, 'groups': groups,"status": "success"})
 
     def get(self,request):
         groups = HostGroup.objects.all()
@@ -379,8 +391,9 @@ class HostUsersView(UserPassesTestMixin,View):
 
     def get(self, request, host_id):
         users = HostUsers.objects.filter(host__id=host_id)
+        host = HostsInfo.objects.get(id=host_id)
 
-        return render(request, "host-users.html", {'users':users})
+        return render(request, "host-users.html", {'users':users,'host':host})
 
 
 
@@ -409,3 +422,47 @@ class DelhostusersView(UserPassesTestMixin,View):
         print(host.id)
 
         return render(request, "500.html", {'users': users})
+
+
+class AddhostusersView(UserPassesTestMixin,View):
+    """
+        主机可使用的用户组
+        """
+
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+    def get(self,request):
+        hosts = HostsInfo.objects.all()
+        host_num = hosts.count()
+        groups = HostGroup.objects.all()
+        group_num = groups.count()
+        return render(request, 'index.html', {'host_num': host_num, 'group_num': group_num})
+
+    def post(self, request):
+        """
+        username = request.POST.get('username',"")
+        usergroup = request.POST.get('usergroup', "")
+        password = request.POST.get('password',"")
+        host_id = request.POST.get('hostid',"")
+
+        user = HostUsers()
+        user.username = username
+        user.passwd = password
+        user.usergroup = usergroup
+        #user.host = host_id
+        user.save()
+
+        print(user.username)
+
+        users = HostUsers.objects.filter(host__id=host_id)
+        host = HostsInfo.objects.get(id=host_id)
+
+        return render(request, "host-users.html", {'users': users, 'host': host})
+
+    """
+        return render(request, "index.html")
