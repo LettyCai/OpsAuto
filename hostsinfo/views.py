@@ -251,10 +251,6 @@ class ModifyHostView(UserPassesTestMixin,View):
         host_ip = request.POST.get('ip', "")
         host_password = request.POST.get('password', "")
 
-        print("*"*50)
-        print(host_ip)
-        print(host_password)
-
         nm = NMAPCollection()
         result = nm.collection(host_ip, host_password)
 
@@ -409,19 +405,14 @@ class DelhostusersView(UserPassesTestMixin,View):
         """
         return self.request.user.role != 2
 
-    def get(self, request, user_id):
-
-        user = HostUsers.objects.filter(id=user_id).delete()
-        print(user_id)
-        print('~~~')
-
+    def get(self,request,user_id):
+        user = HostUsers.objects.get(id=user_id)
         host = user.host
-        print(host)
+        user.delete()
 
         users = HostUsers.objects.filter(host__id=host.id)
-        print(host.id)
+        return render(request, "host-users.html", {'users': users,'host':host,'msg':"删除成功！"})
 
-        return render(request, "500.html", {'users': users})
 
 
 class AddhostusersView(UserPassesTestMixin,View):
@@ -437,32 +428,29 @@ class AddhostusersView(UserPassesTestMixin,View):
         return self.request.user.role != 2
 
     def get(self,request):
-        hosts = HostsInfo.objects.all()
-        host_num = hosts.count()
-        groups = HostGroup.objects.all()
-        group_num = groups.count()
-        return render(request, 'index.html', {'host_num': host_num, 'group_num': group_num})
+
+        return render(request, '500.html')
 
     def post(self, request):
-        """
+
         username = request.POST.get('username',"")
         usergroup = request.POST.get('usergroup', "")
         password = request.POST.get('password',"")
         host_id = request.POST.get('hostid',"")
 
+        #密码加密
+        prp = prpcrypt()
+        password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
+
         user = HostUsers()
         user.username = username
         user.passwd = password
         user.usergroup = usergroup
-        #user.host = host_id
+        user.host = HostsInfo.objects.get(id=host_id)
         user.save()
-
-        print(user.username)
 
         users = HostUsers.objects.filter(host__id=host_id)
         host = HostsInfo.objects.get(id=host_id)
 
         return render(request, "host-users.html", {'users': users, 'host': host})
 
-    """
-        return render(request, "index.html")

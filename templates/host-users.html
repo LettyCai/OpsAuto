@@ -7,7 +7,7 @@
 
 
                     <div class="col-md-12">
-                         <form id="userform" action="/hostsinfo/addhostusers/" method="post" autocomplete="off">
+                         <form id="userform" action="/hostsinfo/addhost_users/" method="post" autocomplete="off">
                         <div class="card">
                             <div class="card-header bg-light">
                                 {{host.ip}}主机用户列表
@@ -35,10 +35,10 @@
                                              <td>
                                                   {% ifnotequal request.user.role 2%}
 
-                                                 <a href="/hostsinfo/addhostusers/" >
+                                                 <a href="/hostsinfo/addhost_users/" >
                                                      <i class="icon icon-pencil"></i> 修改
                                                  </a>
-                                                 <a href="/hostsinfo/delhostusers{{user.id}}/" onclick="return sumbit_sure()" >
+                                                 <a href="/hostsinfo/delhost_users{{user.id}}/" >
                                                      <i class="icon icon-magnifier-remove"></i> 删除
                                                  </a>
                                                   {% endifnotequal %}
