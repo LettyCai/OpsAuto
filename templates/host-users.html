@@ -28,17 +28,17 @@
                                         <tbody>
                                         {% for user in users %}
                                         <tr>
-                                            <td>{{user.username}}</td>
+                                            <td id="username">{{user.username}}</td>
                                             <td class="text-nowrap">{{user.usergroup}}</td>
-                                            <td>{{user.passwd}}</td>
+                                            <td></td>
 
                                              <td>
                                                   {% ifnotequal request.user.role 2%}
 
-                                                 <a href="/hostsinfo/addhost_users/" >
+                                                 <a href="/hostsinfo/addhost_users/" onclick=change_text("{{user.id}}") >
                                                      <i class="icon icon-pencil"></i> 修改
                                                  </a>
-                                                 <a href="/hostsinfo/delhost_users{{user.id}}/" >
+                                                 <a href="/hostsinfo/delhost_users{{user.id}}/" onclick="return sumbit_sure()">
                                                      <i class="icon icon-magnifier-remove"></i> 删除
                                                  </a>
                                                   {% endifnotequal %}
@@ -74,14 +74,24 @@
 {% block custom_js %}
 
 <script language="javascript">
+
 function sumbit_sure(){
-var gnl=confirm("确定删除用户?");
+var user= document.getElementById("username").value;
+var gnl=confirm("确定删除用户"+user +"?");
 if (gnl==true){
 return true;
 }else{
 return false;
 }
 }
+
+function change_text(user_id){
+    var user_id = user_id;
+    alert(user_id);
+    return false;
+}
+
+
 
 </script>
 

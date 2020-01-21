@@ -4,7 +4,7 @@ from taskdo.ansible_call import AnsibleRunner,GetHostInfo
 from taskdo import killttyp
 import os
 from django.conf import settings
-from hostsinfo.models import HostsInfo,HostGroup
+from hostsinfo.models import HostsInfo,HostGroup,HostUsers
 from ansible.parsing.dataloader import DataLoader
 from ansible.inventory.manager import InventoryManager
 from ansible.vars.manager import VariableManager
@@ -304,6 +304,25 @@ def gethost(request):
             hosts = groups.hostsinfo_set.all().values("ip")
             data=list(hosts)
             return JsonResponse(data, safe=False)
+
+def getusers(request):
+    """
+        上传文件页面，获取主机的所有用户
+        :param request:
+        :return:
+        """
+    if request.method == "GET":
+        sendgroupname = request.GET.get("sendgroupname")
+        if sendgroupname:
+            groups = HostGroup.objects.get(group_name=str(sendgroupname))
+            hosts = groups.hostsinfo_set.all()
+
+            for host in hosts:
+                users = HostUsers.objects.filter(host__id=host.id).values("username")
+
+            data = list(users)
+            return JsonResponse(data, safe=False)
+
 
 def getajaxtask(request):
     """
