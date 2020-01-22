@@ -531,7 +531,6 @@ class AddgroupusersView(UserPassesTestMixin,View):
         prp = prpcrypt()
         password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
 
-        users = []
 
         for host in hosts:
             user = HostUsers()
@@ -541,7 +540,6 @@ class AddgroupusersView(UserPassesTestMixin,View):
             user.host = HostsInfo.objects.get(id=host.id)
             user.save()
 
-            print(HostUsers.objects.filter(host__id=host.id).username)
-            users.extend(HostUsers.objects.filter(host__id=host.id))
+        users = HostUsers.objects.filter(host__id=hosts.first().id)
 
         return render(request, "group-users.html", {'users': users, 'group': group})
