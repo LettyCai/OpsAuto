@@ -110,6 +110,7 @@ class AddHostView(UserPassesTestMixin,View):
             except PageNotAnInteger:
                 page = 1
 
+            hosts = HostsInfo.objects.all()
             # Provide Paginator with the request object for complete querystring generation
             p = Paginator(hosts, 10, request=request)
             hosts = p.page(page)
@@ -392,7 +393,6 @@ class HostUsersView(UserPassesTestMixin,View):
         return render(request, "host-users.html", {'users':users,'host':host})
 
 
-
 class DelhostusersView(UserPassesTestMixin,View):
     """
         删除用户
@@ -412,8 +412,6 @@ class DelhostusersView(UserPassesTestMixin,View):
 
         users = HostUsers.objects.filter(host__id=host.id)
         return render(request, "host-users.html", {'users': users,'host':host,'msg':"删除成功！"})
-
-
 
 class AddhostusersView(UserPassesTestMixin,View):
     """
@@ -454,3 +452,96 @@ class AddhostusersView(UserPassesTestMixin,View):
 
         return render(request, "host-users.html", {'users': users, 'host': host})
 
+class GroupUsersView(UserPassesTestMixin,View):
+    """
+            主机可使用的用户组
+            """
+
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+    def get(self, request, group_id):
+        group = HostGroup.objects.get(id=group_id)
+        hosts = group.hostsinfo_set.all()
+
+        users = HostUsers.objects.none()
+
+        for host in hosts:
+            users = users | HostUsers.objects.filter(host__id=host.id)
+
+        users.distinct()
+
+        return render(request, "group-users.html", {'users': users, 'group': group})
+
+class DelgroupusersView(UserPassesTestMixin,View):
+    """
+        删除用户
+        """
+
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+    def get(self,request,user_name,group_id):
+
+        #需要传递两个参数，主机组名称及要删除的用户名称
+        group = HostGroup.objects.get(id=group_id)
+
+        hosts = group.hostsinfo_set.all()
+        for host in hosts:
+            user = HostUsers.objects.filter(host__id=host.id).filter(username=str(user_name))
+            user.delete()
+            users = HostUsers.objects.filter(host__id=host.id)
+
+        return render(request, "group-users.html", {'users': users, 'group': group,'msg':"删除成功！"})
+
+class AddgroupusersView(UserPassesTestMixin,View):
+    """
+            主机可使用的用户组
+            """
+
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+    def get(self, request):
+        return render(request, '500.html')
+
+    def post(self, request):
+        #获取主机组中的全部主机，为每个主机添加登陆用户
+        username = request.POST.get('username', "")
+        usergroup = request.POST.get('usergroup', "")
+        password = request.POST.get('password', "")
+        group_id = request.POST.get('groupid', "")
+
+        group = HostGroup.objects.get(id=group_id)
+        hosts = group.hostsinfo_set.all()
+
+        # 密码加密
+        prp = prpcrypt()
+        password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
+
+        users = []
+
+        for host in hosts:
+            user = HostUsers()
+            user.username = username
+            user.passwd = password
+            user.usergroup = usergroup
+            user.host = HostsInfo.objects.get(id=host.id)
+            user.save()
+
+            print(HostUsers.objects.filter(host__id=host.id).username)
+            users.extend(HostUsers.objects.filter(host__id=host.id))
+
+        return render(request, "group-users.html", {'users': users, 'group': group})
