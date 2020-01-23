@@ -100,13 +100,13 @@ class UploadView(UserPassesTestMixin,View):
     def post(self,request):
         groups = HostGroup.objects.all()
 
-        host_group = request.POST.get("hostgroup","")
+        host_group = request.POST.get("group","")
         myfile = request.FILES.get("filename", None)
-        user = request.POST.get("username","").strip()
+        username = request.POST.get("users","").strip()
         updir = request.POST.get("uploaddir","").strip()
         DIR = os.path.join(settings.BASE_DIR+"/tmp/",myfile.name)
 
-
+        user = HostUsers.objects.filter(username=username).first()
 
         #将用户上传的文件保存到服务器
         if myfile :
@@ -118,15 +118,16 @@ class UploadView(UserPassesTestMixin,View):
 
         #获取要上传的主机
         gethost = GetHostInfo()
+
         inventory, variablemanager, host_list,loader = gethost.get_hosts(group_name=host_group)
         #上传文件参数
         args = "src="+DIR+" "+"dest="+updir+"/"+myfile.name +" "+"backup=yes"+" "+"force=yes"
         #上传文件模块
         model = 'copy'
 
-        #指定以user用户上传
+        #指定文件所属用户及用户组
         if user != "":
-            args = args + " " + "owner="+user
+            args = args + " " + "owner=" + user.username + " " + "group=" + user.usergroup
 
         #调用ansible模块执行命令
         ans = AnsibleRunner()

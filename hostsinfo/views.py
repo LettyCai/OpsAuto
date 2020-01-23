@@ -428,7 +428,7 @@ class AddhostusersView(UserPassesTestMixin,View):
     def get(self,request):
 
         return render(request, '500.html')
-
+"""
     def post(self, request):
 
         username = request.POST.get('username',"")
@@ -451,6 +451,7 @@ class AddhostusersView(UserPassesTestMixin,View):
         host = HostsInfo.objects.get(id=host_id)
 
         return render(request, "host-users.html", {'users': users, 'host': host})
+"""
 
 class GroupUsersView(UserPassesTestMixin,View):
     """
@@ -467,20 +468,14 @@ class GroupUsersView(UserPassesTestMixin,View):
     def get(self, request, group_id):
         group = HostGroup.objects.get(id=group_id)
         hosts = group.hostsinfo_set.all()
-
-        users = HostUsers.objects.none()
-
-        for host in hosts:
-            users = users | HostUsers.objects.filter(host__id=host.id)
-
-        users.distinct()
+        users = HostUsers.objects.filter(host__id=hosts.first().id)
 
         return render(request, "group-users.html", {'users': users, 'group': group})
 
 class DelgroupusersView(UserPassesTestMixin,View):
     """
-        删除用户
-        """
+    删除主机组中所有主机的登陆用户
+    """
 
     def test_func(self):
         """
@@ -504,8 +499,8 @@ class DelgroupusersView(UserPassesTestMixin,View):
 
 class AddgroupusersView(UserPassesTestMixin,View):
     """
-            主机可使用的用户组
-            """
+    给主机组的所有主机中 添加登陆用户
+    """
 
     def test_func(self):
         """
@@ -530,7 +525,6 @@ class AddgroupusersView(UserPassesTestMixin,View):
         # 密码加密
         prp = prpcrypt()
         password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
-
 
         for host in hosts:
             user = HostUsers()

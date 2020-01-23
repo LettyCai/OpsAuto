@@ -186,7 +186,7 @@ class ListGenerate():
                 contents = contents + host.ip + "\n"
 
         #将所有信息写入hostslist文件
-        with open("/root/OpsAuto/conf/hostslist_test", 'w') as f:
+        with open("/root/OpsAuto/conf/hostslist", 'w') as f:
             f.write(contents)
 
 

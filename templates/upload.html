@@ -80,6 +80,29 @@
 
                                             </div>
 
+                                 <div class="col-md-12">
+                                            <lable>执行命令：{{ command }}</lable>
+                                           <label id="command"></label><br>
+                                            <br>
+                                          <label>执行成功：</label>
+                                          <label id="success_num"></label>
+                                          <label id="success_list"></label><br>
+
+                                          <label>执行失败：</label>
+                                          <label id="failed_num"></label>
+                                          <label id="failed_list"></label><br>
+
+                                          <label>主机无法连接：</label>
+                                          <label id="unreachable_num"></label>
+                                          <label id="unreachable_list"></label><br>
+
+                                          <label>远程主机返回结果：</label> <div style="background-color: black ">
+                                          <div id = "stdout_success"></div>
+                                          <div id = "stdout_failed"></div>
+                                          </div>
+
+                                            </div>
+
                             </div>
                     </div>
                 </div>
@@ -104,7 +127,7 @@
         success: function (data, textStatus) {
             var content='<select id="users" name="users" class="form-control">';
             $.each(data, function(i, item){
-                  content+='<option value=">'+ item.username +'<">'+item.username+'</option>';
+                  content+='<option name="users" value="'+ item.username +'">'+item.username+'</option>';
              });
             content+='</select>';
             $('#show_user').html(content);
