@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,re_path,include
 from hostsinfo.views import HostInfoView,AddHostView,CollectHostView,AddGroupView,GroupListView,HostDetailView,DelHostView,ModifyGroupView,DelGroupView,ModifyHostView,HostUsersView,DelhostusersView
-from taskdo.views import KillTtypView, UploadView,TaskDoView,FindLogView,LogDetailsView,gethost,getajaxtask,getusers
+from taskdo.views import KillTtypView, UploadView,TaskDoView,FindLogView,LogDetailsView,gethost,getajaxtask,getusers,getajaxupload
 from users.views import IndexView,LoginView,LogoutView,UsersListView,UserSettingsView,UserProfileView,RegisterView
 from hostsinfo import urls as hostsinfo_url
 
@@ -49,6 +49,7 @@ urlpatterns = [
     path(r'gethost/',gethost,name='gethost'),
     path(r'getusers/',getusers,name='getusers'),
     path(r'ajaxtask/',getajaxtask,name='ajaxtask'),
+    path(r'getajaxupload/',getajaxupload,name='getajaxupload'),
     re_path(r'^hostsinfo/',include(hostsinfo_url,'hostsinfo')),
 
 ]

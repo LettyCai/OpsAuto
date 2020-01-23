@@ -28,7 +28,7 @@
                                          <input  class="form-control" name="uploaddir" value=" "><br>
 
                                          <input type="file" name="filename"><br><br>
-                                         <button type="submit" class="btn btn-success " ><i class="fa fa-align-center"></i>  上传文件  </button>
+                                         <button type="button" id="submit-upload-btn" class="btn btn-success " ><i class="fa fa-align-center"></i>  上传文件  </button>
                                         </div>
                                        {% csrf_token %}
                                    </form>
@@ -135,17 +135,12 @@
       });
     });
 
-    $("#submit-task-btn").click(function () {
-        var host_list = new Array();
-        $('input[name="ip"]:checked').each(function(){
-         host_list.push($(this).val());//向数组中添加元素
-        });
-        var hostip=host_list.join(',');//将数组元素连接起来以构建一个字符串
+    $("#submit-upload-btn").click(function () {
         $.ajaxSetup({
             data: {csrfmiddlewaretoken:'{{ csrf_token }}'},});
         $.ajax({
-            url:'/ajaxtask/',
-            data:{"sendgroupname":$("#group").val(),"ip":hostip,"model":$("#model").val(),"task":$("#task").val()},
+            url:'/getajaxupload/',
+            data:{"group":$("#group").val(),"users":$("#users").val(),"uploaddir":$("uploaddir").val(),"filename":$("#filename").val()},
             type: 'POST',
             dataType: 'json',
             success: function (data, textStatus) {
