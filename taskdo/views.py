@@ -15,6 +15,7 @@ from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin  #用户登录验证，用户权限验证
 from django.http import JsonResponse,HttpResponse
 #from django.core import serializers
+from .utils import savelog
 
 
 # Create your views here.
@@ -336,8 +337,9 @@ def getajaxtask(request):
         hosts = request.POST.getlist("ip", "")
         model = request.POST.get("model", "")
         task = request.POST.get("task", "")
+        remoteuser = request.POST.get("user","")
 
-        user = request.user.username
+        savelog(remoteuser, "command", "host", 'success', "details")
 
         gethost = GetHostInfo()
         inventory, variablemanager, host_list, loader = gethost.get_hosts(group_name=group)
@@ -359,15 +361,7 @@ def getajaxtask(request):
         # 成功主机返回结果
         stdout_success = {}
         for host in success_list:
-            # 保存操作日志
-            opslog = OpsLog()
-            opslog.user = request.user
-            opslog.cmd = command
-            opslog.host = host
-            opslog.result = 'success'
-            opslog.details = result['success'][host]
-            opslog.save()
-
+            savelog(request.user, command, host, 'success', result['success'][host])
             stdout_success[host] = result['success'][host]['stdout']
 
         # 执行成功主机数
@@ -376,25 +370,13 @@ def getajaxtask(request):
         stdout_failed = {}
         for host in failed_list:
             # 保存操作日志
-            opslog = OpsLog()
-            opslog.user = user
-            opslog.cmd = command
-            opslog.host = host
-            opslog.result = 'failed'
-            opslog.details = result['failed'][host]
-            opslog.save()
-
+            savelog(request.user, command, host, 'failed', result['failed'][host])
             stdout_failed[host] = result['failed'][host]['msg']
 
         # 无法连接主机数
         unreachable_num = len(unreachable_list)
 
-        # 返回
-        groups = HostGroup.objects.all()
-
-        data = {#'groups': groups,
-                #'result': result,
-                'success_list': success_list,
+        data = {'success_list': success_list,
                 'success_num': success_num,
                 'command': command,
                 'stdout_success': stdout_success,
@@ -458,6 +440,7 @@ def getajaxupload(request):
         # 成功主机返回结果
         stdout_success = {}
         for host in success_list:
+            savelog(request.user,command,host,'success',result['success'][host])
             stdout_success[host] = result['success'][host]
 
         # 执行失败主机数
@@ -465,14 +448,13 @@ def getajaxupload(request):
         # 失败主机返回结果
         stdout_failed = {}
         for host in failed_list:
+            savelog(request.user, command, host,'failed', result['failed'][host])
             stdout_failed[host] = result['failed'][host]['msg']
 
         # 无法连接主机数
         unreachable_num = len(unreachable_list)
 
-        data = {'result': result,
-                   'groups': groups,
-                   'success_list': success_list,
+        data = {'success_list': success_list,
                    'success_num': success_num,
                    'command': command,
                    'stdout_success': stdout_success,

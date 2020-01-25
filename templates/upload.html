@@ -25,9 +25,9 @@
                                             </div>
                                         <br>
                                         <label>上传路径</label>
-                                         <input  class="form-control" name="uploaddir" value=" "><br>
+                                         <input  class="form-control" name="uploaddir" id="uploaddir" value=" "><br>
 
-                                         <input type="file" name="filename"><br><br>
+                                         <input type="file" name="filename" id="filename" multiple><br><br>
                                          <button type="button" id="submit-upload-btn" class="btn btn-success " ><i class="fa fa-align-center"></i>  上传文件  </button>
                                         </div>
                                        {% csrf_token %}
@@ -43,7 +43,7 @@
                                     <div class="card-header bg-light">
                                             执行结果
                                         </div>
-
+<!--
                                         <div class="col-md-12">
                                             <lable>执行命令：{{ command }}</lable><br>
                                             <br>
@@ -79,7 +79,7 @@
                                             <br>
 
                                             </div>
-
+-->
                                  <div class="col-md-12">
                                             <lable>执行命令：{{ command }}</lable>
                                            <label id="command"></label><br>
@@ -136,15 +136,23 @@
     });
 
     $("#submit-upload-btn").click(function () {
+        var token = $('input[name=csrfmiddlewaretoken]').val();
+        var fd = new FormData();
+        fd.append("group",$("#group").val());
+        fd.append("users",$("#users").val());
+        fd.append("uploaddir",$("#uploaddir").val());
+        fd.append("filename",$("#filename")[0].files[0]);
+        fd.append("csrfmiddlewaretoken",token);
         $.ajaxSetup({
             data: {csrfmiddlewaretoken:'{{ csrf_token }}'},});
         $.ajax({
             url:'/getajaxupload/',
-            data:{"group":$("#group").val(),"users":$("#users").val(),"uploaddir":$("uploaddir").val(),"filename":$("#filename").val()},
+            data:fd,
             type: 'POST',
             dataType: 'json',
+            processData: false,
+            contentType: false,
             success: function (data, textStatus) {
-
             $("#success_num").text(data.success_num+'台');
             $("#success_list").text('主机：'+data.success_list);
             $("#failed_num").text(data.failed_num+'台');

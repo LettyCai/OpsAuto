@@ -13,7 +13,7 @@
                                         <form id="searchform" action="/hostinfo/" method="post" autocomplete="off" >
 
                                                 <label>日期</label>
-                                            <input type="date" value="2015-09-24" min="2019-05-01" max="2099-09-26">
+                                            <input type="date" id="date_info" value="" min="2019-05-01" max="2099-09-26">
                                                <label>ip地址</label>
                                                <input name="host_ip" value=" ">
                                                     <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> &nbsp;查询 &nbsp;</button>
@@ -54,7 +54,7 @@
                                             <td>{{ log.date }}</td>
                                             <td class="text-nowrap">{{ log.host }}</td>
                                             <td>{{log.user}}&nbsp;</td>
-                                            <td>{{ log.cmd }}</td>
+                                            <td width="40%">{{ log.cmd }}</td>
                                             <td>{{ log.result }}</td>
                                             <td>
                                                 <!-- <script>
@@ -112,6 +112,15 @@
      function openwin(log_id) {
          window.open("/logdetails"+log_id, "", "height=400, width=400, top=200,left=200,toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
      }
+
+     $(document).ready(function () {
+        var time = new Date();
+        var day = ("0" + time.getDate()).slice(-2);
+        var month = ("0" + (time.getMonth() + 1)).slice(-2);
+        var today = time.getFullYear() + "-" + (month) + "-" + (day);
+        $('#date_info').val(today);
+    })
+
 
 </script>
 

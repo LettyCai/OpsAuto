@@ -27,6 +27,13 @@
                                                 <div id="hostip"></div>
                                             </div>
 
+                                          <div class="form-group">
+                                                  <label>用户</label>
+                                            <div id="show_user">
+                                                <select id="users" name="users" class="form-control"></select>
+                                            </div>
+                                            </div>
+
                                               <div class="form-group">
                                                  <label for="model" class="form-control-label">模块</label>
 
@@ -107,6 +114,24 @@
     $("#group").change(function() {
       var groupname = $(this).val();
       $.ajax({
+        url: '/getusers/',
+        data:{"sendgroupname":groupname},
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus) {
+            var content='<select id="users" name="users" class="form-control">';
+            $.each(data, function(i, item){
+                  content+='<option name="users" value="'+ item.username +'">'+item.username+'</option>';
+             });
+            content+='</select>';
+            $('#show_user').html(content);
+        },
+      });
+    });
+
+    $("#group").change(function() {
+      var groupname = $(this).val();
+      $.ajax({
         url: '/gethost/',
         data:{"sendgroupname":$(this).val()},
         type: 'GET',
@@ -120,6 +145,7 @@
       });
     });
 
+
     $("#submit-task-btn").click(function () {
         var host_list = new Array();
         $('input[name="ip"]:checked').each(function(){
@@ -130,7 +156,7 @@
             data: {csrfmiddlewaretoken:'{{ csrf_token }}'},});
         $.ajax({
             url:'/ajaxtask/',
-            data:{"sendgroupname":$("#group").val(),"ip":hostip,"model":$("#model").val(),"task":$("#task").val()},
+            data:{"sendgroupname":$("#group").val(),"ip":hostip,"model":$("#model").val(),"task":$("#task").val(),"user":$("#users").val()},
             type: 'POST',
             dataType: 'json',
             success: function (data, textStatus) {
