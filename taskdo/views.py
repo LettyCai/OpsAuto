@@ -339,10 +339,8 @@ def getajaxtask(request):
         task = request.POST.get("task", "")
         remoteuser = request.POST.get("user","")
 
-        savelog(remoteuser, "command", "host", 'success', "details")
-
         gethost = GetHostInfo()
-        inventory, variablemanager, host_list, loader = gethost.get_hosts(group_name=group)
+        inventory, variablemanager, host_list,loader = gethost.get_hosts(group_name=group,remoteuser=remoteuser)
 
         host_list = []
         for host in hosts:

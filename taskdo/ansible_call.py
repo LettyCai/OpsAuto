@@ -14,7 +14,8 @@ from ansible.inventory.host import Host,Group
 #from admin.settings.settings import BASE_DIR
 from collections import namedtuple
 from hostsinfo.utils import prpcrypt
-from hostsinfo.models import HostsInfo,HostGroup
+from hostsinfo.models import HostsInfo,HostGroup,HostUsers
+from .utils import savelog
 
 
 class AnsibleRunner(object):
@@ -125,7 +126,7 @@ class ModelResultsCollector(CallbackBase):
         self.host_failed[result._host.get_name()] = result
 
 class GetHostInfo(object):
-    def get_hosts(self,group_name=""):
+    def get_hosts(self,group_name="",remoteuser="root"):
         loader = DataLoader()
         inventory = InventoryManager(loader=loader, sources=['/root/OpsAuto/conf/hostslist'])
         variablemanager = VariableManager(loader=loader, inventory=inventory)
@@ -136,10 +137,17 @@ class GetHostInfo(object):
         host_list = []
         pc = prpcrypt()
         for host in hosts:
-            password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
+            if remoteuser == "root":
+                password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
+                variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
+            else:
+                user = HostUsers.objects.filter(host__id=host.id).get(username=remoteuser)
+                password = pc.decrypt(user.passwd).decode(encoding='UTF-8', errors='strict')
+
             new_host = inventory.get_host(hostname=host.ip)
+            variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_user', value=remoteuser)
             variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
-            print(password)
+
             host_list.append(host.ip)
 
         return inventory,variablemanager,host_list,loader
