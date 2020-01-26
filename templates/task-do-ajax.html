@@ -168,9 +168,6 @@
             $("#unreachable_num").text(data.unreachable_num+'台');
             $("#unreachable_list").text('主机：'+data.unreachable_list);
 
-            var history_success = $('#stdout_success').prop("outerHTML");
-            var history_failed = $('#stdout_failed').prop("outerHTML");
-
             var content="";
             $.each(data.stdout_success,function (i,item) {
                 content+= '<font color="red">'+ i +':</font><br><pre><font color="white">'+ item +'</font></pre>';

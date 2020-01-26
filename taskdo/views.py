@@ -41,15 +41,7 @@ class KillTtypView(LoginRequiredMixin,View):
         #成功主机返回结果
         stdout_success = {}
         for host in success_list:
-            #保存操作日志
-            opslog = OpsLog()
-            opslog.user = user
-            opslog.cmd = command
-            opslog.host = host
-            opslog.result = 'success'
-            opslog.details = result['success'][host]
-            opslog.save()
-
+            savelog(user, command, host, 'success', result['success'][host])
             stdout_success[host] = result['success'][host]['stdout']
 
         #z执行成功主机数
@@ -58,14 +50,7 @@ class KillTtypView(LoginRequiredMixin,View):
         stdout_failed = {}
         for host in failed_list:
             # 保存操作日志
-            opslog = OpsLog()
-            opslog.user = user
-            opslog.cmd = command
-            opslog.host = host
-            opslog.result = 'failed'
-            opslog.details = result['failed'][host]
-            opslog.save()
-
+            savelog(user, command, host, 'failed', result['failed'][host])
             stdout_failed[host] = result['failed'][host]['msg']
 
         #无法连接主机数
@@ -309,7 +294,7 @@ def gethost(request):
 
 def getusers(request):
     """
-        上传文件页面，获取主机的所有用户
+        获取主机的所有用户
         :param request:
         :return:
         """
@@ -394,7 +379,6 @@ def getajaxupload(request):
         :return:
         """
     if request.method == "POST":
-        groups = HostGroup.objects.all()
 
         host_group = request.POST.get("group", "")
         myfile = request.FILES.get("filename", None)

@@ -29,7 +29,7 @@
                                         <tr>
                                             <td>
                                                 <span class="username" id="username">{{user.username}}</span>
-                                                <input class="form-control" name="username" type="text" value="{{user.username}}">
+                                                <input class="form-control" name="username" type="text" value="{{user.username}}" disabled>
                                             </td>
                                             <td class="text-nowrap">
                                                 <span class="group">{{user.usergroup}}</span>
@@ -37,6 +37,7 @@
                                             </td>
                                             <td>
                                                 <input class="form-control" type="password" name="password" value="">
+                                                <input name="groupid" type="hidden" value="{{group.id}}">
                                             </td>
 
                                              <td>
@@ -48,10 +49,10 @@
                                                  </a>
                                                  </span>
                                                   <span name="edit" class="edit">
-                                                 <a rel="update" href="javascript:void(0)">
+                                                 <a rel="update" href="javascript:void(0)" >
                                                      <i class="icon icon-lock"></i> 保存
                                                  </a>
-                                                       <a rel="cancel" href="javascript:void(0)" >
+                                                  <a rel="cancel" href="javascript:void(0)" >
                                                      <i class="icon icon-logout"></i> 取消
                                                  </a>
 
@@ -135,27 +136,26 @@ $(function(){
         });
 
 //保存修改
-        $(function () {
-            $("a[rel='update']").click(function () {
-                var username = $(this).parent().parent().parent().find("input[name='username']").val();
-                var group = $(this).parent().parent().parent().find("input[name='group']").val();
-                var password = $(this).parent().parent().parent().find("input[name='password']").val();
-                var id = $(this).parent().parent().parent().find("input[name='id']").val();
-//                var $this = $(this);
-                $.ajax({
-                    type: "post",
-                    url: "/hostsinfo/update_hostuser/",
-                    data: { id: id,password:password},
-                }).done(function (data) {
-                    if (data == "1") {
-                        alert("保存成功！");
-                        window.location.reload();
-                    }
-                    else
-                        alert("保存失败！");
-                });
-            })
+$(function () {
+    $("a[rel='update']").click(function () {
+        var username = $(this).parent().parent().parent().find("input[name='username']").val();
+        var group = $(this).parent().parent().parent().find("input[name='group']").val();
+        var password = $(this).parent().parent().parent().find("input[name='password']").val();
+        var id = $(this).parent().parent().parent().find("input[name='groupid']").val();
+        $.ajaxSetup({
+            data: {csrfmiddlewaretoken:'{{ csrf_token }}'},});
+        $.ajax({
+            type: "post",
+            url: "/hostsinfo/updategroupusers/",
+            data: {id:id,password:password,username:username,group:group},
+        }).done(function (data) {
+
+            alert(data.status);
+            window.location.reload();
+
         });
+    })
+});
 
 </script>
 

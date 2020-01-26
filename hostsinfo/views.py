@@ -6,6 +6,8 @@ from .forms import HostInfoForm
 import re
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger #分页
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin  #用户登录验证，用户权限验证
+from django.http import JsonResponse,HttpResponse
+from taskdo.utils import savelog
 
 # Create your views here.
 class HostInfoView(View):
@@ -375,9 +377,6 @@ class DelGroupView(UserPassesTestMixin,View):
 
 
 class HostUsersView(UserPassesTestMixin,View):
-    """
-        主机可使用的用户组
-        """
 
     def test_func(self):
         """
@@ -392,17 +391,14 @@ class HostUsersView(UserPassesTestMixin,View):
 
         return render(request, "host-users.html", {'users':users,'host':host})
 
-
+"""
 class DelhostusersView(UserPassesTestMixin,View):
-    """
-        删除用户
-        """
 
     def test_func(self):
-        """
+        
         重载父类方法，实现系统管理员、运维人员角色的用户才能访问
         :return:
-        """
+        
         return self.request.user.role != 2
 
     def get(self,request,user_id):
@@ -412,23 +408,19 @@ class DelhostusersView(UserPassesTestMixin,View):
 
         users = HostUsers.objects.filter(host__id=host.id)
         return render(request, "host-users.html", {'users': users,'host':host,'msg':"删除成功！"})
-
+"""
+"""
 class AddhostusersView(UserPassesTestMixin,View):
-    """
-        主机可使用的用户组
-        """
+
 
     def test_func(self):
-        """
-        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
-        :return:
-        """
+        
         return self.request.user.role != 2
 
     def get(self,request):
 
         return render(request, '500.html')
-"""
+
     def post(self, request):
 
         username = request.POST.get('username',"")
@@ -509,15 +501,12 @@ class AddgroupusersView(UserPassesTestMixin,View):
         """
         return self.request.user.role != 2
 
-    def get(self, request):
-        return render(request, '500.html')
-
     def post(self, request):
         #获取主机组中的全部主机，为每个主机添加登陆用户
-        username = request.POST.get('username', "")
-        usergroup = request.POST.get('usergroup', "")
-        password = request.POST.get('password', "")
-        group_id = request.POST.get('groupid', "")
+        username = request.POST.get('add_username', "")
+        usergroup = request.POST.get('add_usergroup', "")
+        password = request.POST.get('add_password', "")
+        group_id = request.POST.get('add_groupid', "")
 
         group = HostGroup.objects.get(id=group_id)
         hosts = group.hostsinfo_set.all()
@@ -537,3 +526,31 @@ class AddgroupusersView(UserPassesTestMixin,View):
         users = HostUsers.objects.filter(host__id=hosts.first().id)
 
         return render(request, "group-users.html", {'users': users, 'group': group})
+
+def updategroupusers(request):
+    """
+        修改主机组的登陆用户
+        :param request:
+        :return:
+        """
+    if request.method == "POST":
+        password = request.POST.get("password","")
+        username = request.POST.get("username","")
+        group = request.POST.get("group","")
+        group_id = request.POST.get("id","")
+
+        prp = prpcrypt()
+        password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
+
+        groups = HostGroup.objects.get(id=group_id)
+        hosts = groups.hostsinfo_set.all()
+
+        for host in hosts:
+            user = HostUsers.objects.filter(host__id=host.id).get(username=username)
+            user.usergroup = group
+            user.passwd = password
+            user.save()
+
+        data = {"status":"修改成功！"}
+
+    return JsonResponse(data, safe=False)
