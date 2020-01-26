@@ -125,7 +125,7 @@
         type: 'GET',
         dataType: 'json',
         success: function (data, textStatus) {
-            var content='<select id="users" name="users" class="form-control">';
+            var content='<select id="users" name="users" class="form-control"><option name="users" value="root">root</option>';
             $.each(data, function(i, item){
                   content+='<option name="users" value="'+ item.username +'">'+item.username+'</option>';
              });
@@ -153,6 +153,7 @@
             processData: false,
             contentType: false,
             success: function (data, textStatus) {
+            $("#command").text(data.command);
             $("#success_num").text(data.success_num+'台');
             $("#success_list").text('主机：'+data.success_list);
             $("#failed_num").text(data.failed_num+'台');

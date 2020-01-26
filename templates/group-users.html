@@ -18,25 +18,44 @@
                                     <table class="table table-striped">
                                         <thead>
                                         <tr>
-                                            <th>用户名</th>
-                                            <th>用户组</th>
-                                            <th>用户登陆密码</th>
-                                            <th>操作</th>
+                                            <th width="25%">用户名</th>
+                                            <th width="25%">用户组</th>
+                                            <th width="25%">用户登陆密码</th>
+                                            <th width="25%">操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         {% for user in users %}
                                         <tr>
-                                            <td id="username">{{user.username}}</td>
-                                            <td class="text-nowrap">{{user.usergroup}}</td>
-                                            <td></td>
+                                            <td>
+                                                <span class="username" id="username">{{user.username}}</span>
+                                                <input class="form-control" name="username" type="text" value="{{user.username}}">
+                                            </td>
+                                            <td class="text-nowrap">
+                                                <span class="group">{{user.usergroup}}</span>
+                                                <input class="form-control" name="group" type="text" value="{{user.usergroup}}">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="password" name="password" value="">
+                                            </td>
 
                                              <td>
                                                   {% ifnotequal request.user.role 2%}
 
-                                                 <a href="/hostsinfo/addhost_users/" onclick=change_text("{{user.id}}") >
+                                                 <span name="nomal" class="nomal">
+                                                 <a rel="edit" href="javascript:void(0)" >
                                                      <i class="icon icon-pencil"></i> 修改
                                                  </a>
+                                                 </span>
+                                                  <span name="edit" class="edit">
+                                                 <a rel="update" href="javascript:void(0)">
+                                                     <i class="icon icon-lock"></i> 保存
+                                                 </a>
+                                                       <a rel="cancel" href="javascript:void(0)" >
+                                                     <i class="icon icon-logout"></i> 取消
+                                                 </a>
+
+                                                 </span>
                                                  <a href="/hostsinfo/del_groupusers/{{user.username}}/{{group.id}}" onclick="return sumbit_sure()">
                                                      <i class="icon icon-magnifier-remove"></i> 删除
                                                  </a>
@@ -45,9 +64,9 @@
                                         </tr>
                                         {% endfor %}
                                         <tr>
-                                            <td> <input class="form-control" name="username" value=""></td>
-                                            <td class="text-nowrap"><input class="form-control" name="usergroup" value=""></td>
-                                            <td><input class="form-control" type="password" name="password" value=""></td>
+                                            <td> <input class="form-control" name="add_username" value=""></td>
+                                            <td class="text-nowrap"><input class="form-control" name="add_usergroup" value=""></td>
+                                            <td><input class="form-control" type="password" name="add_password" value=""></td>
 
                                              <td>
                                                  <input name="groupid" type="hidden" value="{{group.id}}">
@@ -83,13 +102,60 @@ return false;
 }
 }
 
-function change_text(user_id){
-    var user_id = user_id;
-    alert(user_id);
-    return false;
-}
 
+$(document).ready(function(){
+            $("input[name='username']").hide();
+            $("input[name='group']").hide();
+            $("input[name='password']").hide();
+            $("span[class='edit']").hide();
+        });
 
+//点击编辑显示输入框
+$(function(){
+            $("a[rel='edit']").click(function () {
+                $(this).parent().parent().parent().find("input[name='username']").show();
+                $(this).parent().parent().parent().find("input[name='group']").show();
+                $(this).parent().parent().parent().find("input[name='password']").show();
+                $(this).parent().parent().parent().find("span[class='username']").hide();
+                $(this).parent().parent().parent().find("span[class='group']").hide();
+                $(this).hide();
+                $(this).parent().parent().find("span[class='edit']").show();
+            })})
+ //点击取消隐藏输入框
+ $(function () {
+            $("a[rel='cancel']").click(function () {
+                $(this).parent().parent().parent().find("input[name='username']").hide();
+                $(this).parent().parent().parent().find("input[name='group']").hide();
+                $(this).parent().parent().parent().find("input[name='password']").hide();
+                $(this).parent().parent().parent().find("span[class='username']").show();
+                $(this).parent().parent().parent().find("span[class='group']").show();
+                $(this).parent().parent().find("span[class='edit']").hide();
+                $(this).parent().parent().find("a[rel='edit']").show();
+            })
+        });
+
+//保存修改
+        $(function () {
+            $("a[rel='update']").click(function () {
+                var username = $(this).parent().parent().parent().find("input[name='username']").val();
+                var group = $(this).parent().parent().parent().find("input[name='group']").val();
+                var password = $(this).parent().parent().parent().find("input[name='password']").val();
+                var id = $(this).parent().parent().parent().find("input[name='id']").val();
+//                var $this = $(this);
+                $.ajax({
+                    type: "post",
+                    url: "/hostsinfo/update_hostuser/",
+                    data: { id: id,password:password},
+                }).done(function (data) {
+                    if (data == "1") {
+                        alert("保存成功！");
+                        window.location.reload();
+                    }
+                    else
+                        alert("保存失败！");
+                });
+            })
+        });
 
 </script>
 

@@ -137,6 +137,7 @@ class GetHostInfo(object):
         host_list = []
         pc = prpcrypt()
         for host in hosts:
+            new_host = inventory.get_host(hostname=host.ip)
             if remoteuser == "root":
                 password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
                 variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
@@ -144,7 +145,6 @@ class GetHostInfo(object):
                 user = HostUsers.objects.filter(host__id=host.id).get(username=remoteuser)
                 password = pc.decrypt(user.passwd).decode(encoding='UTF-8', errors='strict')
 
-            new_host = inventory.get_host(hostname=host.ip)
             variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_user', value=remoteuser)
             variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
 
