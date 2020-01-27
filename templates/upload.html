@@ -8,7 +8,7 @@
                                 <div class="card-header bg-light">
                                         上传文件
                                     </div>
-                                   <form action="/upload/" method="post" autocomplete="off" enctype="multipart/form-data">
+                                   <form action="/taskdo/upload/" method="post" autocomplete="off" enctype="multipart/form-data">
                                     <div class="col-md-8">
 
                                          <label>主机组</label>
@@ -24,7 +24,7 @@
                                                 <select id="users" name="users" class="form-control"></select>
                                             </div>
                                         <br>
-                                        <label>上传路径</label>
+                                        <label>上传路径</label><label>默认上传到用户主目录下。其他目录填写绝对路径如：/home</label>
                                          <input  class="form-control" name="uploaddir" id="uploaddir" value=" "><br>
 
                                          <input type="file" name="filename" id="filename" multiple><br><br>
@@ -120,7 +120,7 @@
     $("#group").change(function() {
       var groupname = $(this).val();
       $.ajax({
-        url: '/getusers/',
+        url: '/taskdo/getusers/',
         data:{"sendgroupname":groupname},
         type: 'GET',
         dataType: 'json',
@@ -146,7 +146,7 @@
         $.ajaxSetup({
             data: {csrfmiddlewaretoken:'{{ csrf_token }}'},});
         $.ajax({
-            url:'/getajaxupload/',
+            url:'/taskdo/getajaxupload/',
             data:fd,
             type: 'POST',
             dataType: 'json',

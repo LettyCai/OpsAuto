@@ -6,7 +6,7 @@
 
 
                     <div class="col-md-10">
-                         <form id="userform" action="/usersettings/" method="post" autocomplete="off">
+                         <form id="userform" action="/users/usersettings{{user.id}}/" method="post" autocomplete="off">
                         <div class="card">
                             <div class="card-header bg-light">
                                 用户个人信息修改
@@ -27,15 +27,15 @@
                                                 <div class="form-group">
 
                                                     <label class="form-control-label">用户名</label>
-                                                    <input class="form-control" name="username" value="{{request.user.username}}">
-                                                    <input name="user_id" value="{{request.user.id}}" type="hidden">
+                                                    <input class="form-control" name="username" value="{{user.username}}">
+                                                    <input name="user_id" value="{{user.id}}" type="hidden">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label">岗位</label>
-                                                    <input class="form-control" value="{{request.user.get_role_display}}" readonly>
+                                                    <input class="form-control" value="{{user.get_role_display}}" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -44,7 +44,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label">邮箱</label>
-                                                    <input class="form-control" name="email" value="{{request.user.email}}">
+                                                    <input class="form-control" name="email" value="{{user.email}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -53,7 +53,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label">手机号</label>
-                                                    <input class="form-control" name="mobile" value="{{request.user.mobile}}">
+                                                    <input class="form-control" name="mobile" value="{{user.mobile}}">
                                                 </div>
                                             </div>
                                         </div>

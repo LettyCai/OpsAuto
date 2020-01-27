@@ -554,3 +554,24 @@ def updategroupusers(request):
         data = {"status":"修改成功！"}
 
     return JsonResponse(data, safe=False)
+
+def updatehostuser(request):
+    """
+        修改主机组登陆用户密码
+        :param request:
+        :return:
+        """
+    if request.method == "POST":
+        password = request.POST.get("password","")
+        userid = request.POST.get("userid","")
+
+        prp = prpcrypt()
+        password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
+
+        user = HostUsers.objects.get(id=userid)
+        user.passwd = password
+        user.save()
+
+        data = {"status":"修改成功！"}
+
+    return JsonResponse(data, safe=False)

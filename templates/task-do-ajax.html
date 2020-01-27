@@ -114,7 +114,7 @@
     $("#group").change(function() {
       var groupname = $(this).val();
       $.ajax({
-        url: '/getusers/',
+        url: '/taskdo/getusers/',
         data:{"sendgroupname":groupname},
         type: 'GET',
         dataType: 'json',
@@ -132,7 +132,7 @@
     $("#group").change(function() {
       var groupname = $(this).val();
       $.ajax({
-        url: '/gethost/',
+        url: '/taskdo/gethost/',
         data:{"sendgroupname":$(this).val()},
         type: 'GET',
         dataType: 'json',
@@ -155,7 +155,7 @@
         $.ajaxSetup({
             data: {csrfmiddlewaretoken:'{{ csrf_token }}'},});
         $.ajax({
-            url:'/ajaxtask/',
+            url:'/taskdo/ajaxtask/',
             data:{"sendgroupname":$("#group").val(),"ip":hostip,"model":$("#model").val(),"task":$("#task").val(),"user":$("#users").val()},
             type: 'POST',
             dataType: 'json',

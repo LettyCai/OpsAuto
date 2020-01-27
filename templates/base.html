@@ -36,11 +36,11 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-header">Account</div>
 
-                    <a href="/usersettings/" class="dropdown-item">
+                    <a href="/users/usersettings{{request.user.id}}" class="dropdown-item">
                         <i class="fa fa-wrench"></i> Settings
                     </a>
 
-                    <a href="/logout/" class="dropdown-item">
+                    <a href="/users/logout/" class="dropdown-item">
                         <i class="fa fa-lock"></i> Logout
                     </a>
 
@@ -48,7 +48,7 @@
             </li>
 
                     {% else %}
-                        <a style="color:black" class="fr loginbtn" href="/login/">用户登录</a>
+                        <a style="color:black" class="fr loginbtn" href="/users/login/">用户登录</a>
                     {% endif %}
         </ul>
     </nav>
@@ -73,14 +73,14 @@
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="/hostinfo/" class="nav-link {% block hostinfo %}{% endblock %}" >
+                                <a href="/hostsinfo/hostinfo/" class="nav-link {% block hostinfo %}{% endblock %}" >
                                      <i class="icon icon-arrow-right"></i> 主机信息
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="/grouplist/" class="nav-link {% block grouplist %}{% endblock %}" >
+                                <a href="/hostsinfo/grouplist/" class="nav-link {% block grouplist %}{% endblock %}" >
                                     <i class="icon icon-arrow-right"></i> 分组信息
                                 </a>
                             </li>
@@ -96,7 +96,7 @@
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="/killttyp/" class="nav-link {% block killttyp %}{% endblock %}">
+                                <a href="/taskdo/killttyp/" class="nav-link {% block killttyp %}{% endblock %}">
                                     <i class="icon  icon-arrow-right"></i> 清理终端号
                                 </a>
                             </li>
@@ -104,7 +104,7 @@
                     {% ifnotequal request.user.role 2%}
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="/upload/" class="nav-link {% block upload %}{% endblock %}">
+                                <a href="/taskdo/upload/" class="nav-link {% block upload %}{% endblock %}">
                                     <i class="icon  icon-arrow-right"></i> 文件上传
                                 </a>
                             </li>
@@ -113,7 +113,7 @@
 
                          <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="/taskdo/" class="nav-link {% block taskdo %}{% endblock %}" >
+                                <a href="/taskdo/taskdo/" class="nav-link {% block taskdo %}{% endblock %}" >
                                     <i class="icon  icon-arrow-right"></i> 任务执行
                                 </a>
                             </li>
@@ -139,14 +139,14 @@
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="/userlist/" class="nav-link {% block userlist %}{% endblock %}" >
+                                <a href="/users/userlist/" class="nav-link {% block userlist %}{% endblock %}" >
                                     <i class="icon icon-arrow-right"></i> 用户列表
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="/register/" class="nav-link {% block register %}{% endblock %}">
+                                <a href="/users/register/" class="nav-link {% block register %}{% endblock %}">
                                     <i class="icon icon-arrow-right"></i> 新增用户
                                 </a>
                             </li>
@@ -165,7 +165,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="/findlog/" class="nav-link">
+                        <a href="/taskdo/findlog/" class="nav-link">
                             <i class="icon icon-docs"></i> 日志管理
                         </a>
                     </li>

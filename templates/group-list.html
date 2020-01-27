@@ -7,7 +7,7 @@
                         <div class="card">
                            <div class="card-header bg-light">分组列表&nbsp; &nbsp;&nbsp;
                              {% ifnotequal request.user.role 2%}
-                               <button type="submit" class="btn btn-success " onclick="window.location.href='/addgroup/'"><i class="fa fa-align-center"></i> &nbsp;添加主机组</button><br>
+                               <button type="submit" class="btn btn-success " onclick="window.location.href='/hostsinfo/addgroup/'"><i class="fa fa-align-center"></i> &nbsp;添加主机组</button><br>
                              {% endifnotequal %}
                            </div>
     
@@ -33,13 +33,13 @@
                                              <td>
                                                   {% ifnotequal request.user.role 2%}
 
-                                                 <a href=/modifygroup{{group.id}}/ >
+                                                 <a href=/hostsinfo/modifygroup{{group.id}}/ >
                                                      <i class="icon icon-pencil"></i> 修改
                                                  </a>
-                                                  <a href="/hostsinfo/group_users{{ group.id }}/" >
+                                                  <a href="/hostsinfo/hostsinfo/group_users{{ group.id }}/" >
                                                                 <i class="icon icon-layers"></i> 用户
                                                         </a>
-                                                 <a href="/delgroup{{group.id}}/" onclick="return sumbit_sure()" >
+                                                 <a href="/hostsinfo/delgroup{{group.id}}/" onclick="return sumbit_sure()" >
                                                      <i class="icon icon-magnifier-remove"></i> 删除
                                                  </a>
                                                   {% endifnotequal %}

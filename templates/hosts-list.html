@@ -10,7 +10,7 @@
                                     </div>
                                     
                                     <div class="col-md-12">
-                                        <form id="searchform" action="/hostinfo/" method="post" autocomplete="off" >
+                                        <form id="searchform" action="/hostsinfo/hostinfo/" method="post" autocomplete="off" >
 
                                                 <label>主机组</label>
                                                    <select name="host_group" >
@@ -24,7 +24,7 @@
                                                <input name="host_ip" value=" ">
                                                     <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> 查询</button>
                                             {% ifnotequal request.user.role 2%}
-                                                    <button type="button" class="btn btn-success " onclick="window.location.href='/addhost/' "><i class="fa fa-align-center"></i> 添加</button>
+                                                    <button type="button" class="btn btn-success " onclick="window.location.href='/hostsinfo/addhost/' "><i class="fa fa-align-center"></i> 添加</button>
                                              {% endifnotequal %}
                                          {% csrf_token %}
                                         </form>
@@ -65,17 +65,17 @@
                                             <td width="250">{{ host.system_ver }}</td>
 
                                             <td>
-                                                    <a href="/hostdetail{{ host.id }}/" >
+                                                    <a href="/hostsinfo/hostdetail{{ host.id }}/" >
                                                             <i class="icon icon-eye"></i> 查看
                                                         </a>
                                                 {% ifnotequal request.user.role 2%}
-                                                 <a href="/hostusers{{ host.id }}/" >
+                                                 <a href="/hostsinfo/hostusers{{ host.id }}/" >
                                                                 <i class="icon icon-layers"></i> 用户
                                                         </a>
-                                                        <a href="/modifyhost{{ host.id }}/" >
+                                                        <a href="/hostsinfo/modifyhost{{ host.id }}/" >
                                                                 <i class="icon icon-pencil"></i> 修改
                                                         </a>
-                                                         <a href="/hostdel{{ host.id }}/"  onclick="return sumbit_sure()">
+                                                         <a href="/hostsinfo/hostdel{{ host.id }}/"  onclick="return sumbit_sure()">
                                                                     <i class="icon icon-magnifier-remove"></i> 删除
                                                          </a>
                                                {% endifnotequal %}
