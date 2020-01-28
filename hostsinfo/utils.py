@@ -166,6 +166,23 @@ class NMAPCollection():
                 v_data = ""
         return v_data
 
+    def testconnect(self,ip,password):
+        # 实例化paramiko类
+        jssh = paramiko.SSHClient()
+        # 默认添加至knowhosts文件
+        jssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        result = {}
+        # 配置连接
+        try:
+            jssh.connect(hostname=ip, port=22, username='root', password=password, timeout=5)
+            result['status'] = 'success'
+        except Exception as e:
+            result["status"] = "failed"
+            result["res"] = str(e)
+
+        return result
+
+
 class ListGenerate():
     def generate_hostslist(self):
         """

@@ -11,7 +11,7 @@
 
                                     <div class="col-md-12">
                                          <table class="table table-striped">
-                                         <form id="collectform" action="/hostsinfo/modifyhost/" method="post" autocomplete="off">
+                                         <form id="collectform" action="/hostsinfo/modifyhost{{host.id}}/" method="post" autocomplete="off">
                                         <tr>
                                             <td>IP地址</td>
                                             <td>
@@ -19,22 +19,60 @@
                                             </td>
                                         </tr>
                                          <tr>
-                                            <td>密码</td>
+                                            <td>root密码</td>
                                             <td>
                                                 <input type="password" class="form-control"  name="password" >
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>主机描述</td>
+                                              <tr>
+                                            <td>所属系统</td>
                                             <td class="text-nowrap">
-                                                <input class="form-control"  name="host_detail" >
+                                                <input type="text" name="mathine_type" class="form-control" value="{{host.mathine_type}}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>主机类型</td>
+                                            <td class="text-nowrap">
+                                                <input type="text" class="form-control" name="host_type" value="{{host.host_type}}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>操作系统版本号</td>
+                                            <td class="text-nowrap">
+                                                <input type="text" class="form-control" name="system_ver" value="{{host.system_ver}}">
                                             </td>
 
                                         </tr>
+                                        <tr>
+                                            <td>主机名</td>
+                                            <td class="text-nowrap">
+                                                <input type="text" class="form-control" name="hostname" value="{{host.hostname}}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>mac地址</td>
+                                            <td class="text-nowrap">
+                                            <input type="text" class="form-control" name="mac_address" value="{{host.mac_address}}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>序列号</td>
+                                            <td class="text-nowrap">
+                                            <input type="text" class="form-control" name="sn_key" value="{{host.sn_key}}">
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>所属主机组</td>
+                                            <td class="text-nowrap">
+                                             {% for group in groups%}
+                                               <input type="checkbox" name="group" value="{{group.group_name}}"{% for host_group in host.host_group.all %} {%ifequal group.group_name host_group.group_name %}checked{% endifequal %}{% endfor %}>{{group.group_name}}</input>
+                                                {%  if group.id|divisibleby:"3" %}<br>{% endif %}
+                                             {% endfor %}
+                                            </td>
+                                        </tr>
+
                                              <tr>
                                                  <td></td>
                                                  <td>
-                                                   <button type="button" class="btn btn-primary" ><i class="fa fa-search"></i> 测试连通性 </button>
                                                  <button type="submit" class="btn btn-success" ><i class="icon icon-notebook"></i> &nbsp;保存修改&nbsp; </button>
                                                  <button type="button"  class="btn btn-primary" onclick="javascript :history.back(-1);"><i class="icon icon-arrow-left-circle"></i> 返回 </button>
                                                  </td>

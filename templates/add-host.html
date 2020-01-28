@@ -42,36 +42,36 @@
                                         <tr>
                                             <td>所属系统</td>
                                             <td class="text-nowrap">
-                                                <input type="text" class="form-control"></td>
+                                                <input type="text" class="form-control" name="mathine_type"></td>
                                         </tr>
                                         <tr>
                                             <td>主机类型</td>
                                             <td class="text-nowrap">
-                                                <input type="text" class="form-control" name="host_type" value="{{res.product_name}}" readonly></td>
+                                                <input type="text" class="form-control" name="host_type" value="{{res.product_name}}"></td>
                                         </tr>
                                         <tr>
                                             <td>操作系统版本号</td>
                                             <td class="text-nowrap">
-                                                <input type="text" class="form-control" name="system_ver" value="{{res.sys_version}}" readonly>
+                                                <input type="text" class="form-control" name="system_ver" value="{{res.sys_version}}">
                                             </td>
 
                                         </tr>
                                         <tr>
                                             <td>主机名</td>
                                             <td class="text-nowrap">
-                                                <input type="text" class="form-control" name="hostname" value="{{res.host_name}}" readonly>
+                                                <input type="text" class="form-control" name="hostname" value="{{res.host_name}}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>mac地址</td>
                                             <td class="text-nowrap">
-                                            <input type="text" class="form-control" name="mac_address" value="{{res.host_mac}}" readonly>
+                                            <input type="text" class="form-control" name="mac_address" value="{{res.host_mac}}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>序列号</td>
                                             <td class="text-nowrap">
-                                            <input type="text" class="form-control" name="sn_key" value="{{res.serial_number}}" readonly>
+                                            <input type="text" class="form-control" name="sn_key" value="{{res.serial_number}}">
                                             </td>
                                         </tr>
 
@@ -88,8 +88,9 @@
                                         <tr>
                                             <td></td>
                                             <td>
+                                                <button type="submit" class="btn btn-success" onclick="return add_sure()" ><i class="fa fa-align-center"></i>&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp; </button>
                                                 <button type="button" class="btn btn-primary" onclick="javascript :history.back(-1);"><i class="icon icon-arrow-left-circle"></i>&nbsp;&nbsp;返回&nbsp;&nbsp;</button>
-                                                <button type="submit" class="btn btn-success" onclick="return add_sure()" ><i class="fa fa-align-center"></i>&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp; </button></td>
+                                            </td>
                                         </tr>
                                      {% csrf_token %}
                                 </form>

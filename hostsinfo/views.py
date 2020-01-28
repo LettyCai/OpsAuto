@@ -76,6 +76,7 @@ class AddHostView(UserPassesTestMixin,View):
 
         host.ip = request.POST.get('ip',"")
         host.ssh_passwd =request.POST.get('ssh_passwd',"")
+        host.mathine_type = request.POST.get('mathine_type', "")
         host.host_type = request.POST.get('host_type',"")
         host.system_ver = request.POST.get('system_ver',"")
         host.hostname = request.POST.get('hostname',"")
@@ -225,7 +226,6 @@ class DelHostView(UserPassesTestMixin,View):
         #删除主机数据
         HostsInfo.objects.filter(id=host_id).delete()
 
-
         # 获取所有主机
         hosts = HostsInfo.objects.all()
         # 获取所有主机组
@@ -248,44 +248,57 @@ class ModifyHostView(UserPassesTestMixin,View):
 
     def get(self,request,host_id):
         host = HostsInfo.objects.get(id=int(host_id))
-        return render(request,"modifyhost.html",{"host":host})
+        groups = HostGroup.objects.all()
+        return render(request,"modifyhost.html",{"host":host,"groups":groups})
 
     def post(self,request,host_id):
         host_ip = request.POST.get('ip', "")
         host_password = request.POST.get('password', "")
 
-        nm = NMAPCollection()
-        result = nm.collection(host_ip, host_password)
+        host = HostsInfo.objects.get(id=host_id)
+        groups = HostGroup.objects.all()
 
-        if result['status'] == 'success':
-            # 对登陆密码进行加密
-            prp = prpcrypt()
-            host_pass = prp.encrypt(host_password).decode(encoding='UTF-8', errors='strict')
-
-            #更新主机密码
-            host= HostsInfo.objects.get(ip=host_ip)
-            host.ssh_passwd = host_pass
-            host.save()
-
-            # 返回主机列表页面
-            hosts = HostsInfo.objects.all()
-            groups = HostGroup.objects.all()
-
-            # 分页
-            try:
-                page = request.GET.get('page', 1)
-            except PageNotAnInteger:
-                page = 1
-
-            # Provide Paginator with the request object for complete querystring generation
-            p = Paginator(hosts, 10, request=request)
-            hosts = p.page(page)
-
-            return render(request, "hosts-list.html", {'msg': "修改成功!",'hosts': hosts, 'groups': groups})
-
+        if host_password == "":
+            return render(request,"modifyhost.html", {"msg": "密码不能为空！",'host': host,"groups":groups})
         else:
-            groups = HostGroup.objects.all()
-            return render(request, "add-host.html", {"msg": "主机信息获取失败", 'res': result['res'], 'groups': groups})
+            nm = NMAPCollection()
+            result = nm.testconnect(host_ip, host_password)
+
+            if result['status'] == 'success':
+                # 对登陆密码进行加密
+                prp = prpcrypt()
+                host_pass = prp.encrypt(host_password).decode(encoding='UTF-8', errors='strict')
+
+                # 更新主机密码
+                host = HostsInfo.objects.get(ip=host_ip)
+                host.ssh_passwd = host_pass
+
+                host.mathine_type = request.POST.get('mathine_type', "")
+                host.host_type = request.POST.get('host_type', "")
+                host.system_ver = request.POST.get('system_ver', "")
+                host.hostname = request.POST.get('hostname', "")
+                host.mac_address = request.POST.get('mac_address', "")
+                host.sn_key = request.POST.get('sn_key', "")
+                host.save()
+
+                new_groups = request.POST.getlist("group")
+                host.host_group.clear()
+
+                # 添加主机所属主机组信息
+                for group in new_groups:
+                    host = HostsInfo.objects.get(ip=host.ip)
+                    group = HostGroup.objects.get(group_name=str(group))
+                    host.host_group.add(group)
+                    # group.host_num += 1
+
+                # 重新生成hostslist文件
+                ge = ListGenerate()
+                ge.generate_hostslist()
+
+                return render(request, "modifyhost.html", {'msg': "修改成功!",'host':host,'groups': groups})
+
+            else:
+                return render(request, "modifyhost.html", {"msg": "主机连接失败", 'res': result['res'], 'host': host,"groups":groups})
 
 
 class GroupListView(View):
