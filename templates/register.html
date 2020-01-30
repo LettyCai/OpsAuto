@@ -56,7 +56,7 @@
                                          <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">手机号</label>
+                                                    <label class="form-control-label" >手机号</label>
                                                     <input class="form-control" name="mobile" value="">
                                                 </div>
                                             </div>
@@ -79,3 +79,63 @@
 {% endblock %}
 
 {% block register %}active{% endblock %}
+
+{% block custom_js %}
+
+<script language="javascript">
+
+$().ready(function() {
+    jQuery.validator.addMethod("isMobile", function(value, element) {
+                    var length = value.length;
+                    var mobile = /^1[0-9]{10}$/;
+                    // 或者 var mobile = /^1[3,4,5,7,8][0-9]{9}$/;
+                    return this.optional(element) || (length == 11 && mobile.test(value));
+                }, "请正确填写您的手机号码");
+// 在键盘按下并释放及提交后验证提交表单
+  $("#userform").validate({
+    submitHandler: function() {
+      alert("提交事件!");
+      form.submit();
+    },
+    rules: {
+      username: {
+        required: true,
+        minlength: 2,
+        maxlength: 12
+      },
+      password: {
+        required: true,
+        minlength: 6,
+        maxlength: 12
+      },
+      mobile: {
+        required: false,
+        isMobile: true
+      },
+    },
+    messages: {
+      username: {
+        required: "请输入用户名",
+        minlength: "用户名不能少于2个字母",
+        maxlength: "用户名不能多于12个字母"
+      },
+      password: {
+        required: "请输入密码",
+        minlength: "密码长度不能少于2个字母",
+        maxlength: "密码长度不能多于12个字母"
+      },
+     }
+
+    })
+});
+
+</script>
+
+{% endblock %}
+{% block custom_style %}
+<style>
+.error{
+	color:red;
+}
+</style>
+{% endblock %}

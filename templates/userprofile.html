@@ -77,14 +77,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label">密码</label>
-                                                    <input type="password" name="password1" class="form-control">
+                                                    <input type="password" id="password1" name="password1" class="form-control">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label">再次确认密码</label>
-                                                    <input type="password" name="password2" class="form-control">
+                                                    <input type="password" id="password2" name="password2" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -111,7 +111,75 @@
 
 <script language="javascript">
 
+$().ready(function() {
+    jQuery.validator.addMethod("isMobile", function(value, element) {
+                    var length = value.length;
+                    var mobile = /^1[0-9]{10}$/;
+                    // 或者 var mobile = /^1[3,4,5,7,8][0-9]{9}$/;
+                    return this.optional(element) || (length == 11 && mobile.test(value));
+                }, "请正确填写您的手机号码");
+// 在键盘按下并释放及提交后验证提交表单
+  $("#userform").validate({
+    submitHandler: function() {
+      alert("提交事件!");
+      form.submit();
+    },
+    rules: {
+      username: {
+        required: true,
+        minlength: 2,
+        maxlength: 12
+      },
+      password1: {
+        required: true,
+        minlength: 6,
+        maxlength: 12
+      },
+      password2: {
+        required: true,
+        minlength: 6,
+        maxlength: 12,
+        equalTo: "#password1"
+      },
+      mobile: {
+        required: false,
+        isMobile: true
+      },
+      email: {
+        email:true,
+        }
+    },
+    messages: {
+      username: {
+        required: "请输入用户名",
+        minlength: "用户名不能少于2个字母",
+        maxlength: "用户名不能多于12个字母"
+      },
+      password1: {
+        required: "请输入密码",
+        minlength: "密码长度不能少于2个字母",
+        maxlength: "密码长度不能多于12个字母"
+      },
+      password2: {
+        required: "请输入密码",
+        minlength: "密码长度不能少于6个字母",
+        maxlength: "密码长度不能多于12个字母",
+          equalTo: "两次输入密码不一致"
+      },
+         email: "请输入一个正确的邮箱",
+     }
+
+    })
+});
 
 </script>
 
+{% endblock %}
+
+{% block custom_style %}
+<style>
+.error{
+	color:red;
+}
+</style>
 {% endblock %}
