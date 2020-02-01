@@ -190,3 +190,16 @@ class RegisterView(UserPassesTestMixin,View):
 
         users = UserProfile.objects.all()
         return render(request,"users-list.html",{"msg": "添加成功！",'users':users})
+
+class DelUserView(UserPassesTestMixin,View):
+    def test_func(self):
+        """
+        重载父类方法，系统管理员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role == 0
+
+    def get(self,request,user_id):
+        UserProfile.objects.get(id=user_id).delete()
+        users = UserProfile.objects.all()
+        return render(request, 'users-list.html', {'users': users})

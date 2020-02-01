@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+    {% extends "base.html" %}
 {% block content %}
 
             <div class="container-fluid" >
@@ -15,8 +15,8 @@
                                     <i class="fa fa-pencil-alt"></i>
                                 </a>
 
-                                <a href="#" class="btn">
-                                    <i class="fa fa-cog"></i>
+                                <a href="/users/deluser{{user.id}}/" class="btn" onclick="return sumbit_sure()">
+                                    <i class="fa fa-cut"></i>
                                 </a>
                             </div>
                         </div>
@@ -48,3 +48,21 @@
 {% endblock %}
 
 {% block userlist %}active{% endblock %}
+
+
+{% block custom_js %}
+
+<script language="javascript">
+function sumbit_sure(){
+var gnl=confirm("确定删除用户?");
+if (gnl==true){
+return true;
+}else{
+return false;
+}
+}
+
+</script>
+
+
+{% endblock %}

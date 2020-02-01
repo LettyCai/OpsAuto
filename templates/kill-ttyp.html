@@ -8,11 +8,10 @@
                                 <div class="card-header bg-light">
                                         目标主机
                                     </div>
-                                   <form action="/taskdo/killttyp/" method="post" autocomplete="off">
+                                   <form action="/taskdo/killttyp/" method="post" autocomplete="off" name="killttypform" id="killttypform">
                                     <div class="col-md-8">
 
-                                                <label>业务系统</label>
-
+                                        <label>业务系统</label>
                                         <select name="type" class="form-control" id="type">
                                           <option value="储蓄">储蓄</option>
                                           <option value="汇兑">汇兑</option>
@@ -21,7 +20,7 @@
                                         <br>
                                                <label>ttyp号</label>
                                                <input  class="form-control" name="ttyp" id="ttyp" value=" "><br>
-                                               <button type="submit" class="btn btn-success" onclick="return add_sure()"><i class="fa fa-align-center"></i>&nbsp;&nbsp;确定&nbsp;</button>
+                                               <button type="submit" class="btn btn-success" ><i class="fa fa-align-center"></i>&nbsp;&nbsp;确定&nbsp;</button>
 
                                         </div>
                                        {% csrf_token %}
@@ -94,6 +93,35 @@ return true;
 return false;
 }
 }
+
+$().ready(function() {
+// 在键盘按下并释放及提交后验证提交表单
+  $("#killttypform").validate({
+    submitHandler: function() {
+       var ttyp = document.getElementById("ttyp").value;
+    var type = document.getElementById("type").value;
+    var gnl=confirm("确定清理"+type+"系统终端号"+ttyp+"?");
+       if (gnl==true){
+            form.submit();
+       }else{
+           return;
+       }
+    },
+    rules: {
+      ttyp: {
+        required: true,
+        maxlength: 4
+      }
+    },
+    messages: {
+        ttyp: {
+            required: "ttyp号不能为空",
+            maxlength: "请输入正确的ttyp号"
+        },
+    }
+
+    })
+});
 
 </script>
 

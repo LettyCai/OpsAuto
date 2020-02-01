@@ -10,7 +10,7 @@
                                         <label>IP地址</label>
                                         <input name="ip" value="192.168.56.102">
                                         <label>密码</label>
-                                        <input type="password" name="password" value="123456">
+                                        <input type="password" name="password" value="123456" >
                                         <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> &nbsp;&nbsp;连接&nbsp;&nbsp; </button>
                                      {% csrf_token %}
                                     </form>
@@ -119,6 +119,33 @@ return false;
 }
 }
 
+
+$().ready(function() {
+// 在键盘按下并释放及提交后验证提交表单
+  $("#searchform").validate({
+    submitHandler: function() {
+      alert("提交事件!");
+      form.submit();
+    },
+    rules: {
+      ip: {
+        required: true
+      },
+      password: {
+        required: true
+      },
+    },
+    messages: {
+      ip: {
+        required: "请输入ip地址"
+      },
+      password: {
+        required: "请输入用户密码"
+      },
+     }
+
+    })
+});
 
 
 </script>
