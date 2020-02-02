@@ -69,9 +69,10 @@
                                                             <i class="icon icon-eye"></i> 查看
                                                         </a>
                                                 {% ifnotequal request.user.role 2%}
+                                                <!--
                                                  <a href="/hostsinfo/hostusers{{ host.id }}/" >
                                                                 <i class="icon icon-layers"></i> 用户
-                                                        </a>
+                                                        </a>-->
                                                         <a href="/hostsinfo/modifyhost{{ host.id }}/" >
                                                                 <i class="icon icon-pencil"></i> 修改
                                                         </a>

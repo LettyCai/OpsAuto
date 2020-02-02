@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views import View
-from .models import HostsInfo,HostGroup,HostUsers
+from .models import HostsInfo,HostGroup,GroupUsers
 from .utils import prpcrypt,NMAPCollection,ListGenerate
 from .forms import HostInfoForm
 import re
@@ -388,14 +388,11 @@ class DelGroupView(UserPassesTestMixin,View):
         return render(request, "group-list.html", {'groups': groups, 'msg': "删除成功!"})
 
 
-
+"""
 class HostUsersView(UserPassesTestMixin,View):
 
     def test_func(self):
-        """
-        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
-        :return:
-        """
+
         return self.request.user.role != 2
 
     def get(self, request, host_id):
@@ -403,6 +400,7 @@ class HostUsersView(UserPassesTestMixin,View):
         host = HostsInfo.objects.get(id=host_id)
 
         return render(request, "host-users.html", {'users':users,'host':host})
+"""
 
 """
 class DelhostusersView(UserPassesTestMixin,View):
@@ -472,10 +470,10 @@ class GroupUsersView(UserPassesTestMixin,View):
 
     def get(self, request, group_id):
         group = HostGroup.objects.get(id=group_id)
-        hosts = group.hostsinfo_set.all()
-        users = HostUsers.objects.filter(host__id=hosts.first().id)
-
+        users = GroupUsers.objects.filter(hostgroup__id=group_id)
         return render(request, "group-users.html", {'users': users, 'group': group})
+
+
 
 class DelgroupusersView(UserPassesTestMixin,View):
     """
@@ -494,13 +492,12 @@ class DelgroupusersView(UserPassesTestMixin,View):
         #需要传递两个参数，主机组名称及要删除的用户名称
         group = HostGroup.objects.get(id=group_id)
 
-        hosts = group.hostsinfo_set.all()
-        for host in hosts:
-            user = HostUsers.objects.filter(host__id=host.id).filter(username=str(user_name))
-            user.delete()
-            users = HostUsers.objects.filter(host__id=host.id)
+        user = GroupUsers.objects.filter(hostgroup__id=group_id).get(username=str(user_name))
+        user.delete()
+        users = GroupUsers.objects.filter(hostgroup__id=group_id)
 
         return render(request, "group-users.html", {'users': users, 'group': group,'msg':"删除成功！"})
+
 
 class AddgroupusersView(UserPassesTestMixin,View):
     """
@@ -515,28 +512,26 @@ class AddgroupusersView(UserPassesTestMixin,View):
         return self.request.user.role != 2
 
     def post(self, request):
-        #获取主机组中的全部主机，为每个主机添加登陆用户
+        #为主机组添加登陆用户
         username = request.POST.get('add_username', "")
         usergroup = request.POST.get('add_usergroup', "")
         password = request.POST.get('add_password', "")
         group_id = request.POST.get('add_groupid', "")
-
         group = HostGroup.objects.get(id=group_id)
-        hosts = group.hostsinfo_set.all()
 
         # 密码加密
         prp = prpcrypt()
         password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
 
-        for host in hosts:
-            user = HostUsers()
-            user.username = username
-            user.passwd = password
-            user.usergroup = usergroup
-            user.host = HostsInfo.objects.get(id=host.id)
-            user.save()
+        user = GroupUsers()
+        user.username = username
+        user.passwd = password
+        user.usergroup = usergroup
+        user.hostgroup = group
+        user.save()
 
-        users = HostUsers.objects.filter(host__id=hosts.first().id)
+        users = GroupUsers.objects.filter(hostgroup__id=group_id)
+
 
         return render(request, "group-users.html", {'users': users, 'group': group})
 
@@ -555,25 +550,18 @@ def updategroupusers(request):
         prp = prpcrypt()
         password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
 
-        groups = HostGroup.objects.get(id=group_id)
-        hosts = groups.hostsinfo_set.all()
-
-        for host in hosts:
-            user = HostUsers.objects.filter(host__id=host.id).get(username=username)
-            user.usergroup = group
-            user.passwd = password
-            user.save()
+        user = GroupUsers.objects.filter(hostgroup__id=group_id).get(username=username)
+        user.usergroup = group
+        user.passwd = password
+        user.save()
 
         data = {"status":"修改成功！"}
 
     return JsonResponse(data, safe=False)
 
+
+"""
 def updatehostuser(request):
-    """
-        修改主机组登陆用户密码
-        :param request:
-        :return:
-        """
     if request.method == "POST":
         password = request.POST.get("password","")
         userid = request.POST.get("userid","")
@@ -588,3 +576,5 @@ def updatehostuser(request):
         data = {"status":"修改成功！"}
 
     return JsonResponse(data, safe=False)
+
+"""

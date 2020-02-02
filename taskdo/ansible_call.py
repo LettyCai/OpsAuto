@@ -14,7 +14,7 @@ from ansible.inventory.host import Host,Group
 #from admin.settings.settings import BASE_DIR
 from collections import namedtuple
 from hostsinfo.utils import prpcrypt
-from hostsinfo.models import HostsInfo,HostGroup,HostUsers
+from hostsinfo.models import HostsInfo,HostGroup,GroupUsers
 from .utils import savelog
 
 
@@ -142,7 +142,7 @@ class GetHostInfo(object):
                 password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
                 variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
             else:
-                user = HostUsers.objects.filter(host__id=host.id).get(username=remoteuser)
+                user = GroupUsers.objects.filter(hostgroup__id=host.id).get(username=remoteuser)
                 password = pc.decrypt(user.passwd).decode(encoding='UTF-8', errors='strict')
 
             variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_user', value=remoteuser)

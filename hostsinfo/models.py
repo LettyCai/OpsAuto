@@ -5,7 +5,7 @@ class HostGroup(models.Model):
     group_name = models.CharField(max_length=200,verbose_name=u"主机组名",null=True)
     group_detail = models.CharField(max_length=200,verbose_name=u"分组描述",null=True)
     network = models.CharField(max_length=200,verbose_name=u"网络",null=True)
-    #hosts_num = models.CharField(max_length=200,verbose_name=u"主机数",null=True)
+    hosts_num = models.CharField(max_length=200,verbose_name=u"主机数",null=True)
 
     class Meta:
         verbose_name = u'主机组'
@@ -35,7 +35,7 @@ class HostsInfo(models.Model):
         verbose_name_plural = verbose_name
         db_table = "hostinfo"
 
-
+"""
 class HostUsers(models.Model):
     username = models.CharField(max_length=32, null=True, verbose_name=u"用户")
     passwd = models.CharField(max_length=64, null=True, verbose_name=u"密码")
@@ -46,3 +46,15 @@ class HostUsers(models.Model):
         verbose_name = u'主机登陆用户表'
         verbose_name_plural = verbose_name
         db_table = "hostusers"
+        """
+
+class GroupUsers(models.Model):
+    username = models.CharField(max_length=32, null=True, verbose_name=u"用户名")
+    passwd = models.CharField(max_length=64, null=True, verbose_name=u"登陆密码")
+    usergroup = models.CharField(max_length=32, null=True, verbose_name=u"用户组")
+    hostgroup = models.ForeignKey(HostGroup,on_delete=models.SET_NULL,null=True,verbose_name=u"所属主机组")
+
+    class Meta:
+        verbose_name = u'主机组登陆用户表'
+        verbose_name_plural = verbose_name
+        db_table = "groupusers"

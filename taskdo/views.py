@@ -4,7 +4,7 @@ from taskdo.ansible_call import AnsibleRunner,GetHostInfo
 from taskdo import killttyp
 import os
 from django.conf import settings
-from hostsinfo.models import HostsInfo,HostGroup,HostUsers
+from hostsinfo.models import HostsInfo,HostGroup,GroupUsers
 from ansible.parsing.dataloader import DataLoader
 from ansible.inventory.manager import InventoryManager
 from ansible.vars.manager import VariableManager
@@ -294,19 +294,14 @@ def gethost(request):
 
 def getusers(request):
     """
-        获取主机的所有用户
+        获取主机组的所有用户
         :param request:
         :return:
         """
     if request.method == "GET":
         sendgroupname = request.GET.get("sendgroupname")
         if sendgroupname:
-            groups = HostGroup.objects.get(group_name=str(sendgroupname))
-            hosts = groups.hostsinfo_set.all()
-
-            for host in hosts:
-                users = HostUsers.objects.filter(host__id=host.id).values("username")
-
+            users = GroupUsers.objects.filter(hostgroup__id=host.id).values("username")
             data = list(users)
             return JsonResponse(data, safe=False)
 
@@ -386,7 +381,7 @@ def getajaxupload(request):
         updir = request.POST.get("uploaddir", "").strip()
         DIR = os.path.join(settings.BASE_DIR + "/tmp/", myfile.name)
 
-        user = HostUsers.objects.filter(username=username).first()
+        user = GroupUsers.objects.get(username=username)
 
         # 将用户上传的文件保存到服务器
         if myfile:
