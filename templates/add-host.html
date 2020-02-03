@@ -89,7 +89,7 @@
                                             <td></td>
                                             <td>
                                                 <button type="submit" class="btn btn-success" onclick="return add_sure()" ><i class="fa fa-align-center"></i>&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp; </button>
-                                                <button type="button" class="btn btn-primary" onclick="javascript :history.back(-1);"><i class="icon icon-arrow-left-circle"></i>&nbsp;&nbsp;返回&nbsp;&nbsp;</button>
+                                                <button type="button" class="btn btn-primary" onclick="javascript:window.location='/hostsinfo/hostinfo/'"><i class="icon icon-arrow-left-circle"></i>&nbsp;&nbsp;返回&nbsp;&nbsp;</button>
                                             </td>
                                         </tr>
                                      {% csrf_token %}
@@ -124,7 +124,6 @@ $().ready(function() {
 // 在键盘按下并释放及提交后验证提交表单
   $("#searchform").validate({
     submitHandler: function() {
-      alert("提交事件!");
       form.submit();
     },
     rules: {

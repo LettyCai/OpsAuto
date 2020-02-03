@@ -519,21 +519,29 @@ class AddgroupusersView(UserPassesTestMixin,View):
         group_id = request.POST.get('add_groupid', "")
         group = HostGroup.objects.get(id=group_id)
 
-        # 密码加密
-        prp = prpcrypt()
-        password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
+        has_user = GroupUsers.objects.filter(username=username)
 
-        user = GroupUsers()
-        user.username = username
-        user.passwd = password
-        user.usergroup = usergroup
-        user.hostgroup = group
-        user.save()
+        if has_user :
+            users = GroupUsers.objects.filter(hostgroup__id=group_id)
+            return render(request, "group-users.html", {'users': users, 'group': group, 'status': "添加失败！用户名已存在"})
 
-        users = GroupUsers.objects.filter(hostgroup__id=group_id)
+        else:
+            # 密码加密
+            prp = prpcrypt()
+            password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
+
+            user = GroupUsers()
+            user.username = username
+            user.passwd = password
+            user.usergroup = usergroup
+            user.hostgroup = group
+            user.save()
+
+            users = GroupUsers.objects.filter(hostgroup__id=group_id)
+
+            return render(request, "group-users.html", {'users': users, 'group': group,'status':"添加成功！"})
 
 
-        return render(request, "group-users.html", {'users': users, 'group': group})
 
 def updategroupusers(request):
     """
@@ -547,6 +555,7 @@ def updategroupusers(request):
         group = request.POST.get("group","")
         group_id = request.POST.get("id","")
 
+
         prp = prpcrypt()
         password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
 
@@ -557,24 +566,6 @@ def updategroupusers(request):
 
         data = {"status":"修改成功！"}
 
-    return JsonResponse(data, safe=False)
 
+        return JsonResponse(data, safe=False)
 
-"""
-def updatehostuser(request):
-    if request.method == "POST":
-        password = request.POST.get("password","")
-        userid = request.POST.get("userid","")
-
-        prp = prpcrypt()
-        password = prp.encrypt(password).decode(encoding='UTF-8', errors='strict')
-
-        user = HostUsers.objects.get(id=userid)
-        user.passwd = password
-        user.save()
-
-        data = {"status":"修改成功！"}
-
-    return JsonResponse(data, safe=False)
-
-"""

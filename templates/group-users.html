@@ -7,7 +7,7 @@
 
 
                     <div class="col-md-12">
-                         <form id="userform" action="/hostsinfo/add_groupusers/" method="post" autocomplete="off">
+
                         <div class="card">
                             <div class="card-header bg-light">
                                 主机组：{{group.group_name}}&nbsp;用户列表
@@ -25,6 +25,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <form id="userform" action="" method="post" autocomplete="off">
                                         {% for user in users %}
                                         <tr>
                                             <td>
@@ -64,32 +65,31 @@
                                             </td>
                                         </tr>
                                         {% endfor %}
+                                        </form>
+                                        <form id="adduserform" action="/hostsinfo/add_groupusers/" method="post" autocomplete="off">
                                         <tr>
-                                            <td> <input class="form-control" name="add_username" value=""></td>
-                                            <td class="text-nowrap"><input class="form-control" name="add_usergroup" value=""></td>
-                                            <td><input class="form-control" type="password" name="add_password" value=""></td>
+                                            <td> <input class="form-control" name="add_username"></td>
+                                            <td class="text-nowrap"><input class="form-control" name="add_usergroup"></td>
+                                            <td><input class="form-control" type="password" name="add_password"></td>
 
                                              <td>
                                                  <input name="add_groupid" type="hidden" value="{{group.id}}">
                                                  <button type="submit" class="btn btn-success"><i class="fa fa-align-center"></i> 新增 </button>
-                                                 <button type="button"  class="btn btn-primary" onclick="javascript :history.back(-1);"><i class="icon icon-arrow-left-circle"></i> 返回 </button>
+                                                 <button type="button"  class="btn btn-primary" onclick="javascript:window.location='/hostsinfo/grouplist/'"><i class="icon icon-arrow-left-circle"></i> 返回 </button>
                                             </td>
                                         </tr>
+                                            {% csrf_token %}
+                                        </form>
 
                                         </tbody>
-                                              </tbody>
                                         </table>
-
-
                                 </div>
-
-
+                        </div>
 
                         </div>
-                                {% csrf_token %}
-                        </div></form>
                     </div>
                 </div>
+    {% if status %}<script>alert("{{ status }} "+"{{ res }}");</script>{% endif %}
             </div>
 {% endblock %}
 
@@ -152,7 +152,6 @@ $(function () {
             url: "/hostsinfo/updategroupusers/",
             data: {id:id,password:password,username:username,group:group},
         }).done(function (data) {
-
             alert(data.status);
             window.location.reload();
 

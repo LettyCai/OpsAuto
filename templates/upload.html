@@ -43,43 +43,7 @@
                                     <div class="card-header bg-light">
                                             执行结果
                                         </div>
-<!--
-                                        <div class="col-md-12">
-                                            <lable>执行命令：{{ command }}</lable><br>
-                                            <br>
-                                            执行成功：{{  success_num }}台 &nbsp;执行失败：{{failed_num }} 台 &nbsp; 主机无法连接：{{ unreachable_num }}台<br>
 
-                                            执行成功主机：{{ success_list  }}<br>
-                                            执行失败主机：{{ failed_list  }}<br>
-                                            无法连接主机：{{ unreachable_list}}<br><br>
-
-                                            远程主机返回结果：<br>
-                                            <div style="background-color: black ">
-                                            {% for key,value in stdout_success.items %}
-
-                                                <font color="red">{{key}}:</font><br>
-                                            <pre>
-                                                <font color="white">
-                                            {{value}}</font>
-                                             </pre>
-
-                                            {% endfor %}
-
-                                            {% for key,value in stdout_failed.items %}
-
-
-                                                <font color="red">{{key}}:</font><br>
-                                            <pre>
-                                                <font color="white">
-                                            {{value}}</font>
-                                             </pre>
-                                            {% endfor %}
-                                             </div>
-
-                                            <br>
-
-                                            </div>
--->
                                  <div class="col-md-12">
                                             <lable>执行命令：{{ command }}</lable>
                                            <label id="command"></label><br>
@@ -119,12 +83,14 @@
 <script language="JavaScript">
     $("#group").change(function() {
       var groupname = $(this).val();
+      alert(groupname);
       $.ajax({
         url: '/taskdo/getusers/',
         data:{"sendgroupname":groupname},
         type: 'GET',
         dataType: 'json',
         success: function (data, textStatus) {
+
             var content='<select id="users" name="users" class="form-control"><option name="users" value="root">root</option>';
             $.each(data, function(i, item){
                   content+='<option name="users" value="'+ item.username +'">'+item.username+'</option>';

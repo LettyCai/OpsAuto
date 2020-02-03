@@ -301,7 +301,8 @@ def getusers(request):
     if request.method == "GET":
         sendgroupname = request.GET.get("sendgroupname")
         if sendgroupname:
-            users = GroupUsers.objects.filter(hostgroup__id=host.id).values("username")
+            group = HostGroup.objects.get(group_name=sendgroupname)
+            users = GroupUsers.objects.filter(hostgroup__id=group.id).values("username")
             data = list(users)
             return JsonResponse(data, safe=False)
 
