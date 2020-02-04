@@ -19,6 +19,7 @@ from users.views import IndexView
 from hostsinfo import urls as hostsinfo_url
 from taskdo import urls as taskdo_url
 from users import urls as users_url
+from monitor import urls as monitor_url
 
 urlpatterns = [
     path('index/',IndexView.as_view(),name="index"),
@@ -26,4 +27,5 @@ urlpatterns = [
     re_path(r'^hostsinfo/',include(hostsinfo_url,'hostsinfo')),
     re_path(r'^taskdo/',include(taskdo_url,'taskdo')),
     re_path(r'^users/', include(users_url, 'users')),
+    re_path(r'^monitor/', include(monitor_url, 'monitor')),
 ]

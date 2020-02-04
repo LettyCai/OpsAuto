@@ -147,6 +147,7 @@
 
 
     $("#submit-task-btn").click(function () {
+        $('#stdout_success').html('<font color="red">命令执行中........</font>');
         var host_list = new Array();
         $('input[name="ip"]:checked').each(function(){
          host_list.push($(this).val());//向数组中添加元素

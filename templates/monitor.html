@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block content %}
+        <div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                                <div class="card-header bg-light">
+                                        查询条件
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <form id="searchform" action="/hostsinfo/hostinfo/" method="post" autocomplete="off" >
+
+                                                <label>主机组</label>
+                                                   <select id="group" name="sendgroupname">
+                                              <option selected="selected" disabled="disabled" value="">请选择</option>
+                                                       {% for group in groups %}
+                                              <option value="{{group.group_name}}"> {{group.group_name}} </option>
+                                                       {% endfor %}
+                                              </select>
+                                               <label>ip地址</label>
+                                               <span id="hostip">
+                                                   <select id="ip" name="hostip">
+                                                       <option selected="selected" disabled="disabled" value="">请选择</option>
+                                                   </select>
+                                               </span>
+                                               <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> 查询</button>
+                                         {% csrf_token %}
+                                        </form><br>
+
+                                                   <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            pie-chart
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="pie-chart-cpu" width="100%" height="50"></canvas>
+                            <canvas id="pie-chart-mem" width="100%" height="50"></canvas>
+                            <canvas id="pie-chart-disk" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+                                    </div>
+                                       <br>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            {% if msg %}<script>alert("{{ msg }} "+"{{ res }}");</script>{% endif %}
+            </div>
+
+{% endblock %}
+
+{% block custom_js %}
+
+<script language="javascript">
+function sumbit_sure(){
+var gnl=confirm("确定删除主机?");
+if (gnl==true){
+return true;
+}else{
+return false;
+}
+}
+
+$("#group").change(function() {
+     $.ajax({
+       url: '/taskdo/gethost/',
+    data:{"sendgroupname":$(this).val()},
+       type: 'GET',
+       dataType: 'json',
+       success: function (data, textStatus) {
+             var content='<select id="ip" name="ip">';
+            $.each(data, function(i, item){
+                  content+='<option name="ip" value="'+ item.ip +'">'+item.ip+'</option>';
+             });
+            content+='</select>';
+        $('#hostip').html(content)
+    },
+  });
+});
+
+$(document).ready(function () {
+    var pieChart = $('#pie-chart-cpu');
+    if (pieChart.length > 0) {
+        new Chart(pieChart, {
+            type: 'pie',
+            data: {
+                labels: ["空闲","已使用"],
+                datasets: [{
+                    label: 'cpu使用情况',
+                    data: [80,20],
+                    backgroundColor: [
+                        'rgba(33, 150, 243, 0.5)',
+                        'rgba(253, 178, 68, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(33, 150, 243, 0.5)',
+                        'rgba(253, 178, 68, 0.5)'
+                    ],
+                    borderWidth: 1
+                }]
+            }
+        });
+    }
+
+    var pieChart = $('#pie-chart-mem');
+    if (pieChart.length > 0) {
+        new Chart(pieChart, {
+            type: 'pie',
+            data: {
+                labels: ["空闲","已使用"],
+                datasets: [{
+                    label: 'cpu使用情况',
+                    data: [80,20],
+                    backgroundColor: [
+                        'rgba(33, 150, 243, 0.5)',
+                        'rgba(253, 178, 68, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(33, 150, 243, 0.5)',
+                        'rgba(253, 178, 68, 0.5)'
+                    ],
+                    borderWidth: 1
+                }]
+            }
+        });
+    }
+})
+
+
+</script>
+
+
+{% endblock %}
+
+{% block monitor %}
+active
+{% endblock %}

@@ -108,7 +108,7 @@ $(document).ready(function () {
 
     /**
      * Pie Chart
-     */
+*/
     var pieChart = $('#pie-chart');
 
     if (pieChart.length > 0) {

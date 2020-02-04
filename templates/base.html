@@ -159,9 +159,16 @@
 
 
                     <li class="nav-item">
-                        <a href="tables.html" class="nav-link">
+                        <a href="/monitor/monitor/" class="nav-link">
                             <i class="icon icon-camera"></i> 监控管理
                         </a>
+                           <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/monitor/monitor/" class="nav-link {% block monitor %}{% endblock %}" >
+                                    <i class="icon icon-arrow-right"></i> 监控
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="nav-item">
@@ -189,7 +196,7 @@
 <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="/static/vendor/chart.js/chart.min.js"></script>
 <script src="/static/js/carbon.js"></script>
-<script src="/static/js/demo.js"></script>
+
 
 {% block custom_js %}{% endblock %}
 {% block custom_style %}
