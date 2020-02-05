@@ -10,7 +10,7 @@
                                     </div>
 
                                     <div class="col-md-12">
-                                        <form id="searchform" action="/hostsinfo/hostinfo/" method="post" autocomplete="off" >
+                                        <form id="searchform" action="/monitor/monitor/" method="post" autocomplete="off" >
 
                                                 <label>主机组</label>
                                                    <select id="group" name="sendgroupname">
@@ -22,33 +22,54 @@
                                                <label>ip地址</label>
                                                <span id="hostip">
                                                    <select id="ip" name="hostip">
-                                                       <option selected="selected" disabled="disabled" value="">请选择</option>
+                                                       <option selected="selected" name="host" disabled="disabled" value="">请选择</option>
                                                    </select>
                                                </span>
-                                               <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> 查询</button>
+                                            <input value="192.168.56.102" name="hostip">
+                                               <button type="submit" class="btn btn-primary" ><i class="fa fa-search" ></i> 查询</button>
                                          {% csrf_token %}
                                         </form><br>
-
-                                                   <div class="row">
-                <div class="col-md-6">
+                                        <div class="row">
+               <div class="row mt-0">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-header bg-light">
-                            pie-chart
+                            CPU使用率：{{result.cpu}}{{result.msg}}{{result.msg2}}
                         </div>
 
                         <div class="card-body">
-                            <canvas id="pie-chart-cpu" width="100%" height="50"></canvas>
-                            <canvas id="pie-chart-mem" width="100%" height="50"></canvas>
-                            <canvas id="pie-chart-disk" width="100%" height="50"></canvas>
+                            <canvas id="pie-chart-cpu" width="100%" height="100"></canvas>
                         </div>
                     </div>
                 </div>
 
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            内存使用率：
+                        </div>
 
+                        <div class="card-body">
+                            <canvas id="pie-chart-mem" width="100%" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            硬盘使用率：
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="pie-chart-disk" width="100%" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-                                    </div>
-                                       <br>
+            </div>
+            </div>
+                       <br>
                         </div>
                     </div>
                 </div>
@@ -80,9 +101,9 @@ $("#group").change(function() {
        type: 'GET',
        dataType: 'json',
        success: function (data, textStatus) {
-             var content='<select id="ip" name="ip">';
+             var content='<select id="ip" name="hostip">';
             $.each(data, function(i, item){
-                  content+='<option name="ip" value="'+ item.ip +'">'+item.ip+'</option>';
+                  content+='<option name="hostip" value="'+ item.ip +'">'+item.ip+'</option>';
              });
             content+='</select>';
         $('#hostip').html(content)
@@ -136,7 +157,55 @@ $(document).ready(function () {
             }
         });
     }
+
+
+    var pieChart = $('#pie-chart-disk');
+    if (pieChart.length > 0) {
+        new Chart(pieChart, {
+            type: 'pie',
+            data: {
+                labels: ["空闲","已使用"],
+                datasets: [{
+                    label: 'cpu使用情况',
+                    data: [80,20],
+                    backgroundColor: [
+                        'rgba(33, 150, 243, 0.5)',
+                        'rgba(253, 178, 68, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(33, 150, 243, 0.5)',
+                        'rgba(253, 178, 68, 0.5)'
+                    ],
+                    borderWidth: 1
+                }]
+            }
+        });
+    }
+
+
 })
+
+$("#getstatus").click(function() {
+     $.ajaxSetup({
+            data: {csrfmiddlewaretoken:'{{ csrf_token }}'},});
+     $.ajax({
+       url: '/monitor/monitor/',
+       data:{"hostip":$("#ip").val()},
+       type: 'POST',
+       dataType: 'json',
+       success: function (data, textStatus) {
+         alert(data.result);
+         var content='<select id="ip" name="ip">';
+           $.each(data, function(i, item){
+                 content+='<option name="ip" value="'+ item.ip +'">'+item.result+'</option>';
+         });
+        content+='</select>';
+    $('#hostip').html(content)
+},
+});
+
+
+});
 
 
 </script>
@@ -146,4 +215,20 @@ $(document).ready(function () {
 
 {% block monitor %}
 active
+{% endblock %}
+
+{% block custom_style %}
+<style>
+.col-md-4{
+    margin: 0;
+    padding-right:0;
+    width: 300px;
+}
+.card-body{
+}
+    #pie-chart-cpu{
+        width: 200px;
+        height: 200px;
+    }
+</style>
 {% endblock %}
