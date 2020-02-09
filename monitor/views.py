@@ -44,12 +44,11 @@ class MonitorView(View):
             a1 = "top -b -n 1 | grep Cpu | awk -F\"[ ]\"  '{print $3}' "
             s = ssh(ip=hostip,password=password, cmd=a1)
             cpu_use = s['data']
-            #cpu_use_data = int(int(cpu_use)*100)
-            cpu_use_data = cpu_use
-            print(cpu_use_data)
-            result.append({"cpu_use":cpu_use_data})
+            cpu_use_data = int(float(cpu_use))
+            result.append({"cpu_use_data":cpu_use_data})
         except Exception as e:
             result.append({"msg2": e})
+            cpu_use_data = e
 
         try:
             a3 = "free | grep Mem | awk '{print $2}' "
@@ -59,15 +58,26 @@ class MonitorView(View):
             s = ssh(ip=hostip, password=password, cmd=a4)
             mem_use = s['data']
             mem_use_data = int(int(mem_use)/int(mem_total)*100)
-            result.append({"mem_use": mem_use_data})
+            result.append({"mem_use_data": mem_use_data})
 
 
         except Exception as e:
             result.append({"msg2": e})
+            mem_use_data = e
 
-        return render(request, "monitor.html", {"result": result})
+        try:
+            a4 = "df -P | grep /$ | awk '{print $5}' | sed 's/%//g'"
+            s = ssh(ip=hostip, password=password, cmd=a4)
+            disk_use = int(s['data'])
+        except Exception as e:
+            result.append({"msg3": e})
+            disk_use = e
 
-        #return JsonResponse(result, safe=False)
+        #return render(request, "monitor.html",{"mem_use_data": mem_use_data,"cpu_use_data":cpu_use_data,"disk_use_data":disk_use})
+
+        data = {"mem_use_data": mem_use_data,"cpu_use_data":cpu_use_data,"disk_use_data":disk_use}
+
+        return JsonResponse(data, safe=False)
 
 
 
