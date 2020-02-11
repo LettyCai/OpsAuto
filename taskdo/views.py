@@ -319,6 +319,7 @@ def getajaxtask(request):
         model = request.POST.get("model", "")
         task = request.POST.get("task", "")
         remoteuser = request.POST.get("user","")
+        chdir = request.POST.get("chdir","")
 
         gethost = GetHostInfo()
         inventory, variablemanager, host_list,loader = gethost.get_hosts(group_name=group,remoteuser=remoteuser)

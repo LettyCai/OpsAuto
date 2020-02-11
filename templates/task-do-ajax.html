@@ -40,19 +40,16 @@
                                                   <select id="model" name="model" class="form-control">
                                                         <option>shell</option>
                                                         <option>service</option>
-                                                        <option>file</option>
-                                                        <option>ping</option>
-                                                        <option>synchronize</option>
-                                                      <option>blockinfile</option>
-                                                      <option>lineinfile</option>
-                                                      <option>find</option>
-                                                      <option>replace</option>
                                                       <option>command</option>
                                                       <option>cron</option>
                                                       <option>user</option>
                                                       <option>group</option>
                                                     </select>
                                                 </div>
+                                            <div class="form-group">
+                                                    <label for="task" class="form-control-label" >路径</label>
+                                                    <input id="chdir" class="form-control" name="chdir" value="$home">
+                                            </div>
 
                                             <div class="form-group">
                                                     <label for="task" class="form-control-label">命令</label>
@@ -157,7 +154,7 @@
             data: {csrfmiddlewaretoken:'{{ csrf_token }}'},});
         $.ajax({
             url:'/taskdo/ajaxtask/',
-            data:{"sendgroupname":$("#group").val(),"ip":hostip,"model":$("#model").val(),"task":$("#task").val(),"user":$("#users").val()},
+            data:{"sendgroupname":$("#group").val(),"ip":hostip,"model":$("#model").val(),"task":$("#task").val(),"user":$("#users").val(),"chdir":$("#chdir").val()},
             type: 'POST',
             dataType: 'json',
             success: function (data, textStatus) {

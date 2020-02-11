@@ -122,7 +122,7 @@ $("#getstatus").click(function() {
        success: function (data, textStatus) {
          alert(data.mem_use_data);
          //cpu使用率
-         var cpu_use = data.mem_use_data;
+         var cpu_use = data.cpu_use_data;
          var cpu_idle = 100-cpu_use;
          var pieChart = $('#pie-chart-cpu');
          if (pieChart.length > 0) {
