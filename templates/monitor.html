@@ -120,7 +120,6 @@ $("#getstatus").click(function() {
        type: 'POST',
        dataType: 'json',
        success: function (data, textStatus) {
-         alert(data.mem_use_data);
          //cpu使用率
          var cpu_use = data.cpu_use_data;
          var cpu_idle = 100-cpu_use;
@@ -156,7 +155,7 @@ $("#getstatus").click(function() {
                 data: {
                     labels: ["空闲","已使用"],
                     datasets: [{
-                        label: 'cpu使用情况',
+                        label: '内存使用情况',
                         data: [mem_idle,mem_use],
                         backgroundColor: [
                             'rgba(33, 150, 243, 0.5)',
@@ -181,7 +180,7 @@ $("#getstatus").click(function() {
                 data: {
                     labels: ["空闲","已使用"],
                     datasets: [{
-                        label: 'cpu使用情况',
+                        label: '硬盘使用情况',
                         data: [disk_idle,disk_use],
                         backgroundColor: [
                             'rgba(33, 150, 243, 0.5)',
@@ -201,6 +200,9 @@ $("#getstatus").click(function() {
 
 
 },
+       error : function(e){
+                alert("获取失败！");
+            }
 });
 
 

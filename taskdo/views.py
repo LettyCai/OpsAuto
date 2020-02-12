@@ -169,83 +169,6 @@ class TaskDoView(UserPassesTestMixin,View):
         #return render(request,"task-do.html",{'groups':groups})
         return render(request, "task-do-ajax.html", {'groups': groups})
 
-"""
-    def post(self,request):
-        group = request.POST.get("sendgroupname","")
-        hosts = request.POST.getlist("ip","")
-        model = request.POST.get("model","")
-        task = request.POST.get("task","")
-
-        user = request.user.username
-
-        gethost = GetHostInfo()
-        inventory, variablemanager, host_list, loader = gethost.get_hosts(group_name=group)
-
-        host_list=[]
-        for host in hosts:
-            host_list.append(host)
-
-        print('**'*20)
-        print(host_list)
-
-        # 调用ansible模块执行命令
-        ans = AnsibleRunner()
-        result, success_list, failed_list, unreachable_list, command = ans.run_modle(inventory=inventory, loader=loader,
-                                                                                     host_list=host_list,
-                                                                                     variable_manager=variablemanager,
-                                                                                     module_name=model,
-                                                                                     module_args=task)
-
-        # 执行成功主机数
-        success_num = len(success_list)
-        # 成功主机返回结果
-        stdout_success = {}
-        for host in success_list:
-            # 保存操作日志
-            opslog = OpsLog()
-            opslog.user = request.user
-            opslog.cmd = command
-            opslog.host = host
-            opslog.result = 'success'
-            opslog.details = result['success'][host]
-            opslog.save()
-
-            stdout_success[host] = result['success'][host]['stdout']
-
-        # 执行成功主机数
-        failed_num = len(failed_list)
-        # 失败主机返回结果
-        stdout_failed = {}
-        for host in failed_list:
-            # 保存操作日志
-            opslog = OpsLog()
-            opslog.user = user
-            opslog.cmd = command
-            opslog.host = host
-            opslog.result = 'failed'
-            opslog.details = result['failed'][host]
-            opslog.save()
-
-            stdout_failed[host] = result['failed'][host]['msg']
-
-        # 无法连接主机数
-        unreachable_num = len(unreachable_list)
-
-        #返回
-        groups = HostGroup.objects.all()
-
-        return render(request, "task-do.html", {'groups': groups,
-                                                'result':result,
-                                                'success_list':success_list,
-                                                'success_num':success_num,
-                                                'command':command,
-                                                'stdout_success':stdout_success,
-                                                'failed_list':failed_list,
-                                                'failed_num':failed_num,
-                                                'stdout_failed':stdout_failed,
-                                                'unreachable_num':unreachable_num,
-                                                'unreachable_list':unreachable_list})
-"""
 
 class FindLogView(LoginRequiredMixin,View):
     """
@@ -272,8 +195,6 @@ class LogDetailsView(LoginRequiredMixin,View):
     查看日志详细信息
     """
     def get(self,request,log_id):
-        print(log_id)
-        print(type(log_id))
         log = OpsLog.objects.get(id=int(log_id)).details
 
         return render(request,"logdetails.html",{'log':log})
@@ -321,6 +242,11 @@ def getajaxtask(request):
         remoteuser = request.POST.get("user","")
         chdir = request.POST.get("chdir","")
 
+        if chdir != "":
+            args = "chdir="+chdir+" "+task
+        else :
+            args = task
+
         gethost = GetHostInfo()
         inventory, variablemanager, host_list,loader = gethost.get_hosts(group_name=group,remoteuser=remoteuser)
 
@@ -334,7 +260,7 @@ def getajaxtask(request):
                                                                                      host_list=host_list,
                                                                                      variable_manager=variablemanager,
                                                                                      module_name=model,
-                                                                                     module_args=task)
+                                                                                     module_args=args)
 
         # 执行成功主机数
         success_num = len(success_list)
@@ -444,3 +370,36 @@ def getajaxupload(request):
                    'stdout_failed': stdout_failed}
 
     return JsonResponse(data, safe=False)
+
+
+class AddscriptsView(UserPassesTestMixin,View):
+    """
+    新建脚本
+    """
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+    def get(self,request):
+
+        return render(request,"add-scripts.html")
+
+
+class PlaybookdoView(UserPassesTestMixin,View):
+    """
+    新建脚本
+    """
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+    def get(self,request):
+        groups = HostGroup.objects.all()
+
+        return render(request,"playbook-do.html",{"groups":groups})

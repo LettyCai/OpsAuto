@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row">
+
+                    <div class="col-md-8">
+                        <div class="card">
+                                <div class="card-header bg-light">
+                                        新建playbook任务
+                                    </div>
+                                   <form action="/taskdo/killttyp/" method="post" autocomplete="off" name="killttypform" id="killttypform">
+                                    <div class="col-md-8">
+
+                                        <label>任务名称</label>
+                                        <input  class="form-control" name="name" id="name" value=" "><br>
+                                        <label>脚本</label>
+                                        <textarea class="form-control" name="ttyp" id="ttyp" placeholder="请输入脚本内容" style="width: 400px; height: 200px"></textarea><br>
+
+                                        <button type="submit" class="btn btn-success" ><i class="fa fa-align-center"></i>&nbsp;&nbsp;确定&nbsp;</button>
+
+                                        </div>
+                                       {% csrf_token %}
+                                   </form>
+                                        <br>
+
+                        </div>
+                    </div>
+
+                    <div class=col-md-4>
+
+                            <div class="card">
+                                    <div class="card-header bg-light">
+                                            已保存的脚本
+                                        </div>
+
+                                        <div >
+
+
+                                            </div>
+
+                            </div>
+                    </div>
+                </div>
+
+
+
+{% endblock %}
+{% block custom_js %}
+
+
+<script language="javascript">
+
+
+</script>
+
+
+{% endblock %}

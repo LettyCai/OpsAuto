@@ -39,9 +39,6 @@ def kill_ttyp(type="",ttyp=""):
         new_host = inventory.get_host(hostname=host.ip)
         variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
 
-        #variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_user',value='cpai')
-        #variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value='1245')
-
         host_list.append(host.ip)
 
 

@@ -28,35 +28,16 @@
                                             </div>
 
                                           <div class="form-group">
-                                                  <label>用户</label>
+                                                  <label>任务</label> &nbsp;<button type="button" class="btn btn-success">新建</button>
                                             <div id="show_user">
                                                 <select id="users" name="users" class="form-control"></select>
                                             </div>
                                             </div>
 
-                                              <div class="form-group">
-                                                 <label for="model" class="form-control-label">模块</label>
 
-                                                  <select id="model" name="model" class="form-control">
-                                                        <option>shell</option>
-                                                        <option>service</option>
-                                                      <option>command</option>
-                                                      <option>cron</option>
-                                                      <option>user</option>
-                                                      <option>group</option>
-                                                    </select>
-                                                </div>
-                                            <div class="form-group">
-                                                    <label for="task" class="form-control-label" >路径（默认执行路径$HOME）</label>
-                                                    <input id="chdir" class="form-control" name="chdir">
-                                            </div>
-
-                                            <div class="form-group">
-                                                    <label for="task" class="form-control-label">命令</label>
-                                                    <input id="task" class="form-control" name="task">
-                                            </div>
 
                                             <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success" id=""><i class="fa fa-align-center"></i> 测试</button>
                                                 <button type="button" class="btn btn-success" id="submit-task-btn"><i class="fa fa-align-center"></i> 执行</button>
                                             </span>
 
@@ -196,4 +177,5 @@ function check_all(obj, cName) {
 </script>
 {% endblock %}
 
-{% block taskdo %}active{% endblock %}
+
+{% block playbook %}active{% endblock %}

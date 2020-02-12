@@ -131,8 +131,8 @@ class GetHostInfo(object):
         inventory = InventoryManager(loader=loader, sources=['/root/OpsAuto/conf/hostslist'])
         variablemanager = VariableManager(loader=loader, inventory=inventory)
 
-        groups = HostGroup.objects.get(group_name=group_name)
-        hosts = groups.hostsinfo_set.all()
+        group = HostGroup.objects.get(group_name=group_name)
+        hosts = group.hostsinfo_set.all()
 
         host_list = []
         pc = prpcrypt()
@@ -142,7 +142,7 @@ class GetHostInfo(object):
                 password = pc.decrypt(host.ssh_passwd).decode(encoding='UTF-8', errors='strict')
                 variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_pass', value=password)
             else:
-                user = GroupUsers.objects.filter(hostgroup__id=host.id).get(username=remoteuser)
+                user = GroupUsers.objects.filter(hostgroup__id=group.id).get(username=remoteuser)
                 password = pc.decrypt(user.passwd).decode(encoding='UTF-8', errors='strict')
 
             variablemanager.set_host_variable(host=new_host, varname='ansible_ssh_user', value=remoteuser)

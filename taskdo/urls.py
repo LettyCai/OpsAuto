@@ -1,5 +1,5 @@
 from django.urls import path,re_path
-from taskdo.views import KillTtypView,UploadView,TaskDoView,FindLogView,LogDetailsView,gethost,getajaxtask,getusers,getajaxupload
+from taskdo.views import KillTtypView,UploadView,TaskDoView,FindLogView,LogDetailsView,gethost,getajaxtask,getusers,getajaxupload,AddscriptsView,PlaybookdoView
 app_name = 'taskdo'
 urlpatterns = [
     path('killttyp/',KillTtypView.as_view(),name="killttyp"),
@@ -11,4 +11,6 @@ urlpatterns = [
     path(r'ajaxtask/',getajaxtask,name='ajaxtask'),
     path(r'getajaxupload/',getajaxupload,name='getajaxupload'),
     path('taskdo/', TaskDoView.as_view(), name="taskdo"),
+    path('addscripts/', AddscriptsView.as_view(), name="addscripts"),
+    path('playbookdo/',PlaybookdoView.as_view(), name="playbookdo"),
 ]
