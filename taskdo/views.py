@@ -16,6 +16,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin  #
 from django.http import JsonResponse,HttpResponse
 #from django.core import serializers
 from .utils import savelog
+from OpsAuto.settings import BASE_DIR
 
 
 # Create your views here.
@@ -386,6 +387,19 @@ class AddscriptsView(UserPassesTestMixin,View):
     def get(self,request):
 
         return render(request,"add-scripts.html")
+
+    def post(self,request):
+        name = request.POST.get("name","")
+        text = request.POST.get("text","")
+
+        path = BASE_DIR + "/scripts/"+ name + ".yaml"
+
+        with open(path,'w') as f:
+            f.write(text)
+
+        return render(request,"add-scripts.html")
+
+
 
 
 class PlaybookdoView(UserPassesTestMixin,View):

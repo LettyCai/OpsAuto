@@ -106,6 +106,25 @@ class AnsibleRunner(object):
     #      if tqm is not None:
     #   tqm.cleanup()
 
+    def run_playbook(self, playbook_path, extra_vars=None):
+        """
+        run ansible palybook
+        """
+        try:
+            # if self.redisKey:self.callback = PlayBookResultsCollectorToSave(self.redisKey,self.logId)
+            self.callback = PlayBookResultsCollector()
+            if extra_vars: self.variable_manager.extra_vars = extra_vars
+            executor = PlaybookExecutor(
+                playbooks=[playbook_path], inventory=self.inventory, variable_manager=self.variable_manager,
+                loader=self.loader,
+                options=self.options, passwords=self.passwords,
+            )
+            executor._tqm._stdout_callback = self.callback
+            constants.HOST_KEY_CHECKING = False  # 关闭第一次使用ansible连接客户端是输入命令
+            executor.run()
+        except Exception as err:
+            return False
+
 
 
 class ModelResultsCollector(CallbackBase):
@@ -124,6 +143,40 @@ class ModelResultsCollector(CallbackBase):
 
     def v2_runner_on_failed(self, result,  *args, **kwargs):
         self.host_failed[result._host.get_name()] = result
+
+class PlayBookResultsCollector(CallbackBase):
+    CALLBACK_VERSION = 2.0
+    def __init__(self, *args, **kwargs):
+        super(PlayBookResultsCollector, self).__init__(*args, **kwargs)
+        self.task_ok = {}
+        self.task_skipped = {}
+        self.task_failed = {}
+        self.task_status = {}
+        self.task_unreachable = {}
+
+    def v2_runner_on_ok(self, result, *args, **kwargs):
+        self.task_ok[result._host.get_name()]  = result
+
+    def v2_runner_on_failed(self, result, *args, **kwargs):
+        self.task_failed[result._host.get_name()] = result
+
+    def v2_runner_on_unreachable(self, result):
+        self.task_unreachable[result._host.get_name()] = result
+
+    def v2_runner_on_skipped(self, result):
+        self.task_ok[result._host.get_name()]  = result
+
+    def v2_playbook_on_stats(self, stats):
+        hosts = sorted(stats.processed.keys())
+        for h in hosts:
+            t = stats.summarize(h)
+            self.task_status[h] = {
+                                       "ok":t['ok'],
+                                       "changed" : t['changed'],
+                                       "unreachable":t['unreachable'],
+                                       "skipped":t['skipped'],
+                                       "failed":t['failures']
+                                   }
 
 class GetHostInfo(object):
     def get_hosts(self,group_name="",remoteuser="root"):

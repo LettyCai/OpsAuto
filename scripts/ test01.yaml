@@ -1,0 +1,24 @@
+---                       #固定格式
+- hosts: 192.168.1.31     #定义需要执行主机
+  remote_user: root       #远程用户
+  vars:                   #定义变量
+    http_port: 8088       #变量
+
+  tasks:                             #定义一个任务的开始
+    - name: create new file          #定义任务的名称
+      file: name=/tmp/playtest.txt state=touch   #调用模块，具体要做的事情
+    - name: create new user
+      user: name=test02 system=yes shell=/sbin/nologin
+    - name: install package
+      yum: name=httpd
+    - name: config httpd
+      template: src=./httpd.conf dest=/etc/httpd/conf/httpd.conf
+      notify:                 #定义执行一个动作(action)让handlers来引用执行，与handlers配合使用
+        - restart apache      #notify要执行的动作，这里必须与handlers中的name定义内容一致
+    - name: copy index.html
+      copy: src=/var/www/html/index.html dest=/var/www/html/index.html
+    - name: start httpd
+      service: name=httpd state=started
+  handlers:                                    #处理器：更加tasks中notify定义的action触发执行相应的处理动作
+    - name: restart apache                     #要与notify定义的内容相同
+      service: name=httpd state=restarted      #触发要执行的动作
