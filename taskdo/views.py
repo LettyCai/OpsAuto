@@ -430,3 +430,60 @@ class PlaybookdoView(UserPassesTestMixin,View):
 
 
 
+def getplaybooktask(request):
+    """
+        AJAX执行playbook命令
+        :param request:
+        :return:
+        """
+    if request.method == "POST":
+        group = request.POST.get("sendgroupname", "")
+        hosts = request.POST.getlist("ip", "")
+        scriptname = request.POST.get("scriptname", "")
+
+        gethost = GetHostInfo()
+        inventory, variablemanager, host_list, loader = gethost.get_hosts(group_name=group, remoteuser="root")
+
+        host_list = []
+        for host in hosts:
+            host_list.append(host)
+
+        script = Scripts.objects.get(name=scriptname)
+        playbook_path = script.url
+
+        # 调用ansible模块执行命令
+        ans = AnsibleRunner()
+
+        result, success_list, failed_list, unreachable_list = ans.run_playbook(playbook_path=playbook_path)
+
+        # 执行成功主机数
+        success_num = len(success_list)
+        # 成功主机返回结果
+        stdout_success = {}
+        for host in success_list:
+            savelog(request.user, command, host, 'success', result['success'][host])
+            stdout_success[host] = result['success'][host]['stdout']
+
+        # 执行成功主机数
+        failed_num = len(failed_list)
+        # 失败主机返回结果
+        stdout_failed = {}
+        for host in failed_list:
+            # 保存操作日志
+            savelog(request.user, command, host, 'failed', result['failed'][host])
+            stdout_failed[host] = result['failed'][host]['msg']
+
+        # 无法连接主机数
+        unreachable_num = len(unreachable_list)
+
+        data = {'success_list': success_list,
+                'success_num': success_num,
+                'script':script.name,
+                'stdout_success': stdout_success,
+                'failed_list': failed_list,
+                'failed_num': failed_num,
+                'stdout_failed': stdout_failed,
+                'unreachable_num': unreachable_num,
+                'unreachable_list': unreachable_list}
+
+        return JsonResponse(data, safe=False)

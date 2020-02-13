@@ -122,6 +122,23 @@ class AnsibleRunner(object):
             executor._tqm._stdout_callback = self.callback
             constants.HOST_KEY_CHECKING = False  # 关闭第一次使用ansible连接客户端是输入命令
             executor.run()
+
+            result_raw = {'success': {}, 'failed': {}, 'unreachable': {}}
+            result_success_list = []
+            result_failed_list = []
+            result_unreachable_list = []
+
+            for host, result in callback.host_ok.items():
+                result_raw['success'][host] = result._result
+                result_success_list.append(host)
+            for host, result in callback.host_failed.items():
+                result_raw['failed'][host] = result._result
+                result_failed_list.append(host)
+            for host, result in callback.host_unreachable.items():
+                result_unreachable_list.append(host)
+                result_raw['unreachable'][host] = result._result
+
+            return result_raw, result_success_list, result_failed_list, result_unreachable_list
         except Exception as err:
             return False
 
