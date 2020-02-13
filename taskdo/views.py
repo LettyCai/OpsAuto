@@ -10,7 +10,7 @@ from ansible.inventory.manager import InventoryManager
 from ansible.vars.manager import VariableManager
 from hostsinfo.utils import prpcrypt
 import json
-from .models import OpsLog
+from .models import OpsLog,Scripts
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin  #用户登录验证，用户权限验证
 from django.http import JsonResponse,HttpResponse
@@ -385,17 +385,26 @@ class AddscriptsView(UserPassesTestMixin,View):
         return self.request.user.role != 2
 
     def get(self,request):
+        scripts = Scripts.objects.all()
 
-        return render(request,"add-scripts.html")
+        return render(request,"add-scripts.html",{"scripts":scripts})
 
     def post(self,request):
         name = request.POST.get("name","")
         text = request.POST.get("text","")
+        details = request.POST.get("details","")
 
         path = BASE_DIR + "/scripts/"+ name + ".yaml"
 
         with open(path,'w') as f:
             f.write(text)
+
+        script = Scripts()
+        script.name = name
+        script.author = request.user.username
+        script.url = path
+        script.details = details
+        script.save()
 
         return render(request,"add-scripts.html")
 
@@ -415,5 +424,9 @@ class PlaybookdoView(UserPassesTestMixin,View):
 
     def get(self,request):
         groups = HostGroup.objects.all()
+        scripts = Scripts.objects.all()
 
-        return render(request,"playbook-do.html",{"groups":groups})
+        return render(request,"playbook-do.html",{"groups":groups,"scripts":scripts})
+
+
+

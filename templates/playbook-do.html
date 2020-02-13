@@ -28,9 +28,21 @@
                                             </div>
 
                                           <div class="form-group">
-                                                  <label>playbook脚本</label> &nbsp;<button type="button" class="btn btn-success" onclick="window.location.href='/taskdo/addscripts/' ">新建</button><br><br>
+                                                  <label>playbook脚本</label>
+                                              <button type="button" id="check-script-btn" class="btn btn-success">选择</button> &nbsp;
+                                              <button type="button" class="btn btn-success" onclick="window.location.href='/taskdo/addscripts/' ">新建</button><br><br>
+                                              <div id="select-script">
+                                                  <div class="sign">
+                                                  <input name="search-name" class="form-control"><button type="button">搜索</button><button id="cancel-script-btn" type="button">确定</button><br>
+                                                      {% for script in scripts %}
+                                                      <label class="bui-radios-label">
+                                                      <input type="radio" name="scriptname" value="{{script.name}}"><i class="bui-radios"></i>{{script.name}}
+                                                      </label><br>
+                                                      {% endfor %}
+                                                  </div>
+                                              </div>
                                             <div id="show_user">
-                                                <select id="users" name="users" class="form-control"></select>
+                                                <input id="script" name="script" class="form-control">
                                             </div>
                                             </div>
 
@@ -89,22 +101,13 @@
 
 {% block custom_js %}
 <script language="JavaScript">
-    $("#group").change(function() {
-      var groupname = $(this).val();
-      $.ajax({
-        url: '/taskdo/getusers/',
-        data:{"sendgroupname":groupname},
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus) {
-            var content='<select id="users" name="users" class="form-control"><option name="users" value="root">root</option>';
-            $.each(data, function(i, item){
-                  content+='<option name="users" value="'+ item.username +'">'+item.username+'</option>';
-             });
-            content+='</select>';
-            $('#show_user').html(content);
-        },
-      });
+    $("#check-script-btn").click(function() {
+      $("#select-script").toggle();
+    });
+
+    $("#cancel-script-btn").click(function() {
+      $("#select-script").toggle();
+      $("#script").val($("input[name='scriptname']:checked").val());
     });
 
     $("#group").change(function() {
@@ -179,3 +182,74 @@ function check_all(obj, cName) {
 
 
 {% block playbook %}active{% endblock %}
+
+{% block custom_style %}
+
+<style>
+#select-script{
+        display: none;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        height: 80%;
+        width: 80%;
+        background: rgba(0,0,0,0.2);
+}
+.sign {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: #fff;
+}
+
+            /*隐藏input*/
+        label.bui-radios-label input[type="radio"]{
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+        }
+        /*自定义radio*/
+        label.bui-radios-label .bui-radios{
+            display: inline-block;
+            position: relative;
+            width: 13px;
+            height: 13px;
+            background-color: #fff;
+            border: 1px solid #979797;
+            border-radius: 50%;
+            vertical-align: -2px;
+            margin-right: 5px;
+        }
+        /*单选框选中后，自定义radio的样式*/
+        label.bui-radios-label input[type="radio"]:checked + .bui-radios:after{
+            position: absolute;
+            content: "";
+            width: 7px;
+            height: 7px;
+            background-color: #fff;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+        }
+        label.bui-radios-label input[type="radio"]:checked + .bui-radios{
+            background-color: #00B066;
+            border:1px solid #00B066;
+        }
+        label.bui-radios-label input[type="radio"]:disabled + .bui-radios{
+            background-color: #e8e8e8;
+            border:1px solid #979797;
+        }
+        label.bui-radios-label input[type="radio"]:disabled:checked + .bui-radios:after{
+            background-color: #c1c1c1;
+        }
+        /*自定义radio的过渡效果*/
+        label.bui-radios-label.bui-radios-anim .bui-radios{
+            -webkit-transition:background-color ease-out .5s;
+            transition:background-color ease-out .5s;
+        }
+
+</style>
+{% endblock %}
