@@ -394,7 +394,7 @@ class AddscriptsView(UserPassesTestMixin,View):
         text = request.POST.get("text","")
         details = request.POST.get("details","")
 
-        path = BASE_DIR + "/scripts/"+ name + ".yaml"
+        path = BASE_DIR + "/scripts/"+ name +".yaml"
 
         with open(path,'w') as f:
             f.write(text)
@@ -441,6 +441,7 @@ def getplaybooktask(request):
         hosts = request.POST.getlist("ip", "")
         scriptname = request.POST.get("scriptname", "")
 
+
         gethost = GetHostInfo()
         inventory, variablemanager, host_list, loader = gethost.get_hosts(group_name=group, remoteuser="root")
 
@@ -448,21 +449,26 @@ def getplaybooktask(request):
         for host in hosts:
             host_list.append(host)
 
+
         script = Scripts.objects.get(name=scriptname)
         playbook_path = script.url
 
         # 调用ansible模块执行命令
         ans = AnsibleRunner()
 
-        result, success_list, failed_list, unreachable_list = ans.run_playbook(playbook_path=playbook_path)
+        result, success_list, failed_list, unreachable_list = ans.run_playbook(playbook_path=playbook_path,inventory=inventory, loader=loader,
+                                                                                     host_list=host_list,
+                                                                                     variable_manager=variablemanager,)
+
 
         # 执行成功主机数
         success_num = len(success_list)
         # 成功主机返回结果
         stdout_success = {}
+
         for host in success_list:
-            savelog(request.user, command, host, 'success', result['success'][host])
-            stdout_success[host] = result['success'][host]['stdout']
+            savelog(request.user,playbook_path, host, 'success', result['success'][host])
+            stdout_success[host] = result['success'][host]['msg']
 
         # 执行成功主机数
         failed_num = len(failed_list)
@@ -470,7 +476,7 @@ def getplaybooktask(request):
         stdout_failed = {}
         for host in failed_list:
             # 保存操作日志
-            savelog(request.user, command, host, 'failed', result['failed'][host])
+            savelog(request.user,playbook_path, host, 'failed', result['failed'][host])
             stdout_failed[host] = result['failed'][host]['msg']
 
         # 无法连接主机数

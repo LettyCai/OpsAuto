@@ -17,6 +17,57 @@ from hostsinfo.utils import prpcrypt
 from hostsinfo.models import HostsInfo,HostGroup,GroupUsers
 from .utils import savelog
 
+class ModelResultsCollector(CallbackBase):
+    # 改写返回方法
+    def __init__(self, *args, **kwargs):
+        super(ModelResultsCollector, self).__init__(*args, **kwargs)
+        self.host_ok = {}
+        self.host_unreachable = {}
+        self.host_failed = {}
+
+    def v2_runner_on_unreachable(self, result):
+        self.host_unreachable[result._host.get_name()] = result
+
+    def v2_runner_on_ok(self, result,  *args, **kwargs):
+        self.host_ok[result._host.get_name()] = result
+
+    def v2_runner_on_failed(self, result,  *args, **kwargs):
+        self.host_failed[result._host.get_name()] = result
+
+class PlayBookResultsCollector(CallbackBase):
+    CALLBACK_VERSION = 2.0
+    def __init__(self, *args, **kwargs):
+        super(PlayBookResultsCollector, self).__init__(*args, **kwargs)
+        self.task_ok = {}
+        self.task_skipped = {}
+        self.task_failed = {}
+        self.task_status = {}
+        self.task_unreachable = {}
+
+    def v2_runner_on_ok(self, result, *args, **kwargs):
+        self.task_ok[result._host.get_name()]  = result
+
+    def v2_runner_on_failed(self, result, *args, **kwargs):
+        self.task_failed[result._host.get_name()] = result
+
+    def v2_runner_on_unreachable(self, result):
+        self.task_unreachable[result._host.get_name()] = result
+
+    def v2_runner_on_skipped(self, result):
+        self.task_ok[result._host.get_name()]  = result
+
+    def v2_playbook_on_stats(self, stats):
+        hosts = sorted(stats.processed.keys())
+        for h in hosts:
+            t = stats.summarize(h)
+            self.task_status[h] = {
+                                       "ok":t['ok'],
+                                       "changed" : t['changed'],
+                                       "unreachable":t['unreachable'],
+                                       "skipped":t['skipped'],
+                                       "failed":t['failures']
+                                   }
+
 
 class AnsibleRunner(object):
     """
@@ -68,6 +119,7 @@ class AnsibleRunner(object):
         # if self.redisKey:self.callback = ModelResultsCollectorToSave(self.redisKey,self.logId)
         # else:self.callback = ModelResultsCollector()
         callback = ModelResultsCollector()
+
         import traceback
         # try:
         tqm = TaskQueueManager(
@@ -106,21 +158,24 @@ class AnsibleRunner(object):
     #      if tqm is not None:
     #   tqm.cleanup()
 
-    def run_playbook(self, playbook_path, extra_vars=None):
+    def run_playbook(self, inventory, variable_manager, loader, host_list, playbook_path, extra_vars=None):
         """
         run ansible palybook
         """
+
         try:
             # if self.redisKey:self.callback = PlayBookResultsCollectorToSave(self.redisKey,self.logId)
-            self.callback = PlayBookResultsCollector()
+            callback = PlayBookResultsCollector()
+
             if extra_vars: self.variable_manager.extra_vars = extra_vars
             executor = PlaybookExecutor(
-                playbooks=[playbook_path], inventory=self.inventory, variable_manager=self.variable_manager,
-                loader=self.loader,
+                playbooks=[playbook_path], inventory=inventory, variable_manager=variable_manager,
+                loader=loader,
                 options=self.options, passwords=self.passwords,
             )
-            executor._tqm._stdout_callback = self.callback
-            constants.HOST_KEY_CHECKING = False  # 关闭第一次使用ansible连接客户端是输入命令
+
+            executor._tqm._stdout_callback = callback
+            #constants.HOST_KEY_CHECKING = False  # 关闭第一次使用ansible连接客户端是输入命令
             executor.run()
 
             result_raw = {'success': {}, 'failed': {}, 'unreachable': {}}
@@ -128,72 +183,27 @@ class AnsibleRunner(object):
             result_failed_list = []
             result_unreachable_list = []
 
-            for host, result in callback.host_ok.items():
+            for host, result in callback.task_ok.items():
                 result_raw['success'][host] = result._result
                 result_success_list.append(host)
-            for host, result in callback.host_failed.items():
+            for host, result in callback.task_failed.items():
                 result_raw['failed'][host] = result._result
                 result_failed_list.append(host)
-            for host, result in callback.host_unreachable.items():
+            for host, result in callback.task_unreachable.items():
                 result_unreachable_list.append(host)
                 result_raw['unreachable'][host] = result._result
 
             return result_raw, result_success_list, result_failed_list, result_unreachable_list
+
         except Exception as err:
+            print(err)
             return False
 
 
 
-class ModelResultsCollector(CallbackBase):
-    # 改写返回方法
-    def __init__(self, *args, **kwargs):
-        super(ModelResultsCollector, self).__init__(*args, **kwargs)
-        self.host_ok = {}
-        self.host_unreachable = {}
-        self.host_failed = {}
 
-    def v2_runner_on_unreachable(self, result):
-        self.host_unreachable[result._host.get_name()] = result
 
-    def v2_runner_on_ok(self, result,  *args, **kwargs):
-        self.host_ok[result._host.get_name()] = result
 
-    def v2_runner_on_failed(self, result,  *args, **kwargs):
-        self.host_failed[result._host.get_name()] = result
-
-class PlayBookResultsCollector(CallbackBase):
-    CALLBACK_VERSION = 2.0
-    def __init__(self, *args, **kwargs):
-        super(PlayBookResultsCollector, self).__init__(*args, **kwargs)
-        self.task_ok = {}
-        self.task_skipped = {}
-        self.task_failed = {}
-        self.task_status = {}
-        self.task_unreachable = {}
-
-    def v2_runner_on_ok(self, result, *args, **kwargs):
-        self.task_ok[result._host.get_name()]  = result
-
-    def v2_runner_on_failed(self, result, *args, **kwargs):
-        self.task_failed[result._host.get_name()] = result
-
-    def v2_runner_on_unreachable(self, result):
-        self.task_unreachable[result._host.get_name()] = result
-
-    def v2_runner_on_skipped(self, result):
-        self.task_ok[result._host.get_name()]  = result
-
-    def v2_playbook_on_stats(self, stats):
-        hosts = sorted(stats.processed.keys())
-        for h in hosts:
-            t = stats.summarize(h)
-            self.task_status[h] = {
-                                       "ok":t['ok'],
-                                       "changed" : t['changed'],
-                                       "unreachable":t['unreachable'],
-                                       "skipped":t['skipped'],
-                                       "failed":t['failures']
-                                   }
 
 class GetHostInfo(object):
     def get_hosts(self,group_name="",remoteuser="root"):
