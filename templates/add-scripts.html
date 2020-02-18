@@ -19,7 +19,7 @@
                                         <textarea class="form-control" name="text" id="text" placeholder="请输入脚本内容" style="width: 400px; height: 200px"></textarea><br>
 
                                         <button type="submit" class="btn btn-success" ><i class="fa fa-align-center"></i>&nbsp;&nbsp;确定&nbsp;</button>
-
+                                        <button type="button" class="btn btn-primary" onclick="javascript :history.back(-1);" ><i class="icon icon-arrow-left-circle"></i>&nbsp;&nbsp;返回 &nbsp;</button>
                                         </div>
                                        {% csrf_token %}
                                    </form>
@@ -35,9 +35,14 @@
                                             已保存的脚本
                                         </div>
 
-                                        <div >
+                                        <div style="font-size: 14px;">
                                             {% for script in scripts %}
-                                            {{script.name}}<br>
+                                              <span style="float:right;">
+                                                         <a href="/taskdo/updatescript{{ script.id }}/" >修改</a>
+                                                         <a href="/taskdo/delscript{{ script.id }}/"  onclick="return sumbit_sure()">删除</a></span>
+                                            {{script.name}}
+
+                                            <br>
                                             {% endfor %}
 
                                             </div>
@@ -53,6 +58,14 @@
 
 
 <script language="javascript">
+function sumbit_sure(){
+var gnl=confirm("确定删除脚本?");
+if (gnl==true){
+return true;
+}else{
+return false;
+}
+}
 
 
 </script>

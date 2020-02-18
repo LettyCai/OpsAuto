@@ -108,47 +108,52 @@ class AnsibleRunner(object):
             module_name: ansible module_name
             module_args: ansible module args
         """
+        try:
 
-        play_source = dict(name="Ansible Play",
-                           hosts=host_list,
-                           gather_facts='no',
-                           tasks=[dict(action=dict(module=module_name, args=module_args))])
+            play_source = dict(name="Ansible Play",
+                               hosts=host_list,
+                               gather_facts='no',
+                               tasks=[dict(action=dict(module=module_name, args=module_args))])
 
-        play = Play().load(play_source, variable_manager=variable_manager, loader=loader)
-        # tqm = None
-        # if self.redisKey:self.callback = ModelResultsCollectorToSave(self.redisKey,self.logId)
-        # else:self.callback = ModelResultsCollector()
-        callback = ModelResultsCollector()
+            play = Play().load(play_source, variable_manager=variable_manager, loader=loader)
+            # tqm = None
+            # if self.redisKey:self.callback = ModelResultsCollectorToSave(self.redisKey,self.logId)
+            # else:self.callback = ModelResultsCollector()
+            callback = ModelResultsCollector()
 
-        import traceback
-        # try:
-        tqm = TaskQueueManager(
-            inventory=inventory,
-            variable_manager=variable_manager,
-            loader=loader,
-            options=self.options,
-            passwords=self.passwords,
-            stdout_callback=callback,
-        )
-        # constants.HOST_KEY_CHECKING = False  # 关闭第一次使用ansible连接客户端时输入命令
-        result = tqm.run(play)
+            import traceback
+            # try:
+            tqm = TaskQueueManager(
+                inventory=inventory,
+                variable_manager=variable_manager,
+                loader=loader,
+                options=self.options,
+                passwords=self.passwords,
+                stdout_callback=callback,
+            )
+            # constants.HOST_KEY_CHECKING = False  # 关闭第一次使用ansible连接客户端时输入命令
+            result = tqm.run(play)
 
-        result_raw = {'success': {}, 'failed': {}, 'unreachable': {}}
-        result_success_list = []
-        result_failed_list = []
-        result_unreachable_list = []
+            result_raw = {'success': {}, 'failed': {}, 'unreachable': {}}
+            result_success_list = []
+            result_failed_list = []
+            result_unreachable_list = []
 
-        for host, result in callback.host_ok.items():
-            result_raw['success'][host] = result._result
-            result_success_list.append(host)
-        for host, result in callback.host_failed.items():
-            result_raw['failed'][host] = result._result
-            result_failed_list.append(host)
-        for host, result in callback.host_unreachable.items():
-            result_unreachable_list.append(host)
-            result_raw['unreachable'][host] = result._result
+            for host, result in callback.host_ok.items():
+                result_raw['success'][host] = result._result
+                result_success_list.append(host)
+            for host, result in callback.host_failed.items():
+                result_raw['failed'][host] = result._result
+                result_failed_list.append(host)
+            for host, result in callback.host_unreachable.items():
+                result_unreachable_list.append(host)
+                result_raw['unreachable'][host] = result._result
 
-        return result_raw,result_success_list,result_failed_list,result_unreachable_list,module_args
+            return result_raw,result_success_list,result_failed_list,result_unreachable_list,module_args
+
+        except Exception as err:
+            print(err)
+            return False
 
     #  except Exception as err:
     #      print(traceback.print_exc())
@@ -158,7 +163,7 @@ class AnsibleRunner(object):
     #      if tqm is not None:
     #   tqm.cleanup()
 
-    def run_playbook(self, inventory, variable_manager, loader, host_list, playbook_path, extra_vars=None):
+    def run_playbook(self, inventory, variable_manager, loader, playbook_path, extra_vars=None):
         """
         run ansible palybook
         """
@@ -198,10 +203,6 @@ class AnsibleRunner(object):
         except Exception as err:
             print(err)
             return False
-
-
-
-
 
 
 

@@ -370,6 +370,8 @@ def getajaxupload(request):
                    'unreachable_list': unreachable_list,
                    'stdout_failed': stdout_failed}
 
+        os.remove(DIR)  #删除服务器上的临时文件
+
     return JsonResponse(data, safe=False)
 
 
@@ -409,6 +411,47 @@ class AddscriptsView(UserPassesTestMixin,View):
         return render(request,"add-scripts.html")
 
 
+class DelscriptsView(UserPassesTestMixin,View):
+    """
+        删除脚本
+            """
+
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+
+    def get(self, request,script_id):
+        script = Scripts.objects.get(id=script_id)
+        path = script.url
+        os.remove(path)
+        script.delete()
+
+        scripts = Scripts.objects.all()
+        return render(request, "add-scripts.html", {"scripts": scripts})
+
+class UpdatescriptsView(UserPassesTestMixin,View):
+    """
+        删除脚本
+            """
+
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+
+    def get(self, request,script_id):
+        script = Scripts.objects.get(id=script_id)
+
+        return render(request, "script-detail.html", {"script": script})
+
+
 
 
 class PlaybookdoView(UserPassesTestMixin,View):
@@ -441,7 +484,6 @@ def getplaybooktask(request):
         hosts = request.POST.getlist("ip", "")
         scriptname = request.POST.get("scriptname", "")
 
-
         gethost = GetHostInfo()
         inventory, variablemanager, host_list, loader = gethost.get_hosts(group_name=group, remoteuser="root")
 
@@ -449,7 +491,7 @@ def getplaybooktask(request):
         for host in hosts:
             host_list.append(host)
 
-
+        inventory.subset(host_list)     #限制指定主机执行
         script = Scripts.objects.get(name=scriptname)
         playbook_path = script.url
 
@@ -457,8 +499,7 @@ def getplaybooktask(request):
         ans = AnsibleRunner()
 
         result, success_list, failed_list, unreachable_list = ans.run_playbook(playbook_path=playbook_path,inventory=inventory, loader=loader,
-                                                                                     host_list=host_list,
-                                                                                     variable_manager=variablemanager,)
+                                                                                     variable_manager=variablemanager)
 
 
         # 执行成功主机数
