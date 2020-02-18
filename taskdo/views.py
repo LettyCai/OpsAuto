@@ -448,8 +448,32 @@ class UpdatescriptsView(UserPassesTestMixin,View):
 
     def get(self, request,script_id):
         script = Scripts.objects.get(id=script_id)
+        path = script.url
 
-        return render(request, "script-detail.html", {"script": script})
+        with open(path,'r') as f:
+            text = f.read()
+
+        return render(request, "script-detail.html", {"script": script,"text":text})
+
+    def post(self,request,script_id):
+        script = Scripts.objects.get(id=script_id)
+
+        name = request.POST.get("name","")
+        details = request.POST.get("details","")
+        text = request.POST.get("text","")
+
+        script.name = name
+        script.details = details
+
+        with open(script.url, 'w') as f:
+            f.write(text)
+
+        script.save()
+
+        groups = HostGroup.objects.all()
+        scripts = Scripts.objects.all()
+
+        return render(request,"playbook-do.html",{"groups":groups,"scripts":scripts})
 
 
 
