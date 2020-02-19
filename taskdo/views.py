@@ -139,8 +139,6 @@ class UploadView(UserPassesTestMixin,View):
         # 无法连接主机数
         unreachable_num = len(unreachable_list)
 
-        print(stdout_failed)
-
         return render(request, "upload.html",{'result':result,
                                               'groups':groups,
                                               'success_list':success_list,
@@ -197,6 +195,10 @@ class LogDetailsView(LoginRequiredMixin,View):
     """
     def get(self,request,log_id):
         log = OpsLog.objects.get(id=int(log_id)).details
+
+        log = json.dumps(log)
+
+        print(log)
 
         return render(request,"logdetails.html",{'log':log})
 
@@ -268,7 +270,7 @@ def getajaxtask(request):
         # 成功主机返回结果
         stdout_success = {}
         for host in success_list:
-            savelog(request.user, command, host, 'success', result['success'][host])
+            savelog(request.user, command, host, 'success',result['success'][host])
             stdout_success[host] = result['success'][host]['stdout']
 
         # 执行成功主机数

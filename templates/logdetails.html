@@ -1,2 +1,102 @@
-操作日志：<br>
-{{log}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>json数据格式化</title>
+    <style>
+        /* 方法1：设置textarea合适的宽高 */
+        #jsonTextarea {
+            float: left;
+            margin-right: 20px;
+            width: 40%;
+            height: 70vh;
+            outline: none;
+            padding: 5px;
+        }
+
+        /* 方法2：自定义高亮样式 */
+        #jsonPre {
+            float: left;
+            width: 40%;
+            height: 70vh;
+            outline: 1px solid #ccc;
+            padding: 5px;
+            overflow: scroll;
+        }
+
+        .string {
+            color: green;
+        }
+
+        .number {
+            color: darkorange;
+        }
+
+        .boolean {
+            color: blue;
+        }
+
+        .null {
+            color: magenta;
+        }
+
+        .key {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<p >操作日志：<br>
+<p id="show_p">{{log}}<br>
+<textarea id="jsonTextarea" readonly></textarea>
+<pre id="jsonPre"></pre>
+
+</body>
+
+
+<script src="/static/vendor/jquery/jquery.min.js"></script>
+<script>
+    var data = $("#show_p").html();
+
+    // 方法1：textarea + JSON.stringify
+    function parse1(str) {
+        return JSON.stringify(JSON.parse(str), null, "\t");
+    }
+    $('#jsonTextarea').text(parse1(data));
+    alert(parse1(data));
+
+
+    // 方法2：pre + JSON.stringify
+    function parse2(str) {
+        // 设置缩进为2个空格
+        str = JSON.stringify(JSON.parse(str), null, 2);
+        str = str
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+        return str.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+            var cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    cls = 'string';
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
+    $('#jsonPre').html(parse2(data));
+</script>
+
+</html>
