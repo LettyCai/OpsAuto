@@ -410,7 +410,9 @@ class AddscriptsView(UserPassesTestMixin,View):
         script.details = details
         script.save()
 
-        return render(request,"add-scripts.html")
+        groups = HostGroup.objects.all()
+
+        return render(request,"playbook-do.html",{"msg":"保存成功！","groups":groups})
 
 
 class DelscriptsView(UserPassesTestMixin,View):
@@ -435,6 +437,25 @@ class DelscriptsView(UserPassesTestMixin,View):
         scripts = Scripts.objects.all()
         return render(request, "add-scripts.html", {"scripts": scripts})
 
+
+class ScriptdetailView(UserPassesTestMixin,View):
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
+
+
+    def get(self, request,script_id):
+        script = Scripts.objects.get(id=script_id)
+        path = script.url
+
+        with open(path) as f:
+            text = f.read()
+
+        return render(request, "script-detail.html", {"script": script,"text":text})
+
 class UpdatescriptsView(UserPassesTestMixin,View):
     """
         删除脚本
@@ -455,7 +476,7 @@ class UpdatescriptsView(UserPassesTestMixin,View):
         with open(path,'r') as f:
             text = f.read()
 
-        return render(request, "script-detail.html", {"script": script,"text":text})
+        return render(request, "script-update.html", {"script": script,"text":text})
 
     def post(self,request,script_id):
         script = Scripts.objects.get(id=script_id)
@@ -475,8 +496,7 @@ class UpdatescriptsView(UserPassesTestMixin,View):
         groups = HostGroup.objects.all()
         scripts = Scripts.objects.all()
 
-        return render(request,"playbook-do.html",{"groups":groups,"scripts":scripts})
-
+        return render(request,"playbook-do.html",{"groups":groups,"scripts":scripts,"msg":"保存成功！"})
 
 
 
@@ -510,6 +530,9 @@ def getplaybooktask(request):
         hosts = request.POST.getlist("ip", "")
         scriptname = request.POST.get("scriptname", "")
 
+        type = request.POST.get("type","")
+        print(type)
+
         gethost = GetHostInfo()
         inventory, variablemanager, host_list, loader = gethost.get_hosts(group_name=group, remoteuser="root")
 
@@ -523,6 +546,11 @@ def getplaybooktask(request):
 
         # 调用ansible模块执行命令
         ans = AnsibleRunner()
+
+        if type == "test":
+            ans.options = ans.options._replace(check=True)
+
+        print(ans.options)
 
         result, success_list, failed_list, unreachable_list = ans.run_playbook(playbook_path=playbook_path,inventory=inventory, loader=loader,
                                                                                      variable_manager=variablemanager)

@@ -6,19 +6,20 @@
                     <div class="col-md-8">
                         <div class="card">
                                 <div class="card-header bg-light">
-                                        查看playbook任务
+                                        编辑playbook任务
                                     </div>
-                                   <form action="" method="post" autocomplete="off">
+                                   <form action="/taskdo/updatescript{{script.id}}/" method="post" autocomplete="off">
                                     <div class="col-md-8">
 
                                         <label>任务名称</label>
-                                        <input  class="form-control" name="name" id="name" value="{{script.name}}" disabled><br>
+                                        <input  class="form-control" name="name" id="name" value="{{script.name}}"><br>
 
                                         <label>任务描述</label>
-                                        <input  class="form-control" name="details" id="details" value="{{script.details}}" disabled><br>
+                                        <input  class="form-control" name="details" id="details" value="{{script.details}}"><br>
                                         <label>脚本</label>
-                                        <textarea class="form-control" name="text" id="text"  style="width: 400px; height: 200px"  disabled>{{text}}</textarea><br>
+                                        <textarea class="form-control" name="text" id="text"  style="width: 400px; height: 200px" >{{text}}</textarea><br>
 
+                                        <button type="submit" class="btn btn-success" ><i class="fa fa-align-center"></i>&nbsp;&nbsp;保存&nbsp;</button>
                                         <button type="button" class="btn btn-primary" onclick="javascript :history.back(-1);" ><i class="icon icon-arrow-left-circle"></i>&nbsp;&nbsp;返回 &nbsp;</button>
                                         </div>
                                        {% csrf_token %}

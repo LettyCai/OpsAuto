@@ -1,5 +1,5 @@
 from django.urls import path,re_path
-from taskdo.views import KillTtypView,UploadView,TaskDoView,FindLogView,LogDetailsView,gethost,getajaxtask,getusers,getajaxupload,AddscriptsView,PlaybookdoView,getplaybooktask,DelscriptsView,UpdatescriptsView
+from taskdo.views import KillTtypView,UploadView,TaskDoView,FindLogView,LogDetailsView,gethost,getajaxtask,getusers,getajaxupload,AddscriptsView,PlaybookdoView,getplaybooktask,DelscriptsView,UpdatescriptsView,ScriptdetailView
 app_name = 'taskdo'
 
 urlpatterns = [
@@ -17,4 +17,5 @@ urlpatterns = [
     path(r'ajaxplaybook/', getplaybooktask, name='ajaxplaybook'),
     re_path(r'delscript(?P<script_id>.*)/$', DelscriptsView.as_view(), name="delscript"),
     re_path(r'updatescript(?P<script_id>.*)/$', UpdatescriptsView.as_view(), name="updatescript"),
+    re_path(r'scriptdetail(?P<script_id>.*)/$', ScriptdetailView.as_view(), name="scriptdetail"),
 ]

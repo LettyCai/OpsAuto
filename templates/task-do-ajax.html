@@ -123,6 +123,9 @@
             content+='</select>';
             $('#show_user').html(content);
         },
+           error : function(e){
+                alert("获取登陆用户列表失败！"+e);
+            }
       });
     });
 
@@ -139,6 +142,9 @@
                   content+='<input type="checkbox" class="custom-checkbox" name="ip" checked="checked" value='+item.ip+'>'+item.ip+'<br>'});
             $('#hostip').html(content)
         },
+           error : function(e){
+                alert("获取主机列表失败！"+e);
+            }
       });
     });
 
@@ -179,8 +185,8 @@
             $('#stdout_failed').html(content);
             $('#task').val("");     //执行完成后清除命令框防止重复执行
         },
-            error : function(e){
-                alert("执行失败！");
+             error : function(e){
+                alert("执行失败！"+e);
             }
         });
     });

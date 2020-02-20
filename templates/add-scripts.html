@@ -18,7 +18,7 @@
                                         <label>脚本</label>
                                         <textarea class="form-control" name="text" id="text" placeholder="请输入脚本内容" style="width: 400px; height: 200px"></textarea><br>
 
-                                        <button type="submit" class="btn btn-success" ><i class="fa fa-align-center"></i>&nbsp;&nbsp;确定&nbsp;</button>
+                                        <button type="submit" class="btn btn-success" ><i class="fa fa-align-center"></i>&nbsp;&nbsp;保存&nbsp;</button>
                                         <button type="button" class="btn btn-primary" onclick="javascript :history.back(-1);" ><i class="icon icon-arrow-left-circle"></i>&nbsp;&nbsp;返回 &nbsp;</button>
                                         </div>
                                        {% csrf_token %}
@@ -32,12 +32,13 @@
 
                             <div class="card">
                                     <div class="card-header bg-light">
-                                            已保存的脚本
+                                        已保存的任务
                                         </div>
 
                                         <div style="font-size: 14px;">
                                             {% for script in scripts %}
                                               <span style="float:right;">
+                                                         <a href="/taskdo/scriptdetail{{ script.id }}/" >查看</a>
                                                          <a href="/taskdo/updatescript{{ script.id }}/" >编辑</a>
                                                          <a href="/taskdo/delscript{{ script.id }}/"  onclick="return sumbit_sure()">删除</a></span>
                                             {{script.name}}

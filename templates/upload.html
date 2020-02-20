@@ -83,7 +83,6 @@
 <script language="JavaScript">
     $("#group").change(function() {
       var groupname = $(this).val();
-      alert(groupname);
       $.ajax({
         url: '/taskdo/getusers/',
         data:{"sendgroupname":groupname},
@@ -98,6 +97,9 @@
             content+='</select>';
             $('#show_user').html(content);
         },
+         error : function(e){
+                alert("获取登陆用户列表失败！"+e);
+            }
       });
     });
 
@@ -142,6 +144,9 @@
             })
             $('#stdout_failed').html(content);
         },
+             error : function(e){
+                alert("上传失败！"+e);
+            }
         });
     });
 
