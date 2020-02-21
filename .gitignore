@@ -8,5 +8,6 @@ uwsgi.pid
 /hostinfo/migrations/
 /taskdo/migrations/
 /users/migrations/
+/scripts/
 
 
