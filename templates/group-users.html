@@ -68,9 +68,9 @@
                                         </form>
                                         <form id="adduserform" action="/hostsinfo/add_groupusers/" method="post" autocomplete="off">
                                         <tr>
-                                            <td> <input class="form-control" name="add_username"></td>
-                                            <td class="text-nowrap"><input class="form-control" name="add_usergroup"></td>
-                                            <td><input class="form-control" type="password" name="add_password"></td>
+                                            <td> <input class="form-control" id="add_username" name="add_username"></td>
+                                            <td class="text-nowrap"><input class="form-control" id="add_usergroup" name="add_usergroup"></td>
+                                            <td><input class="form-control" type="password" id="add_password" name="add_password"></td>
 
                                              <td>
                                                  <input name="add_groupid" type="hidden" value="{{group.id}}">
@@ -156,6 +156,39 @@ $(function () {
             window.location.reload();
 
         });
+    })
+});
+
+$().ready(function() {
+// 在键盘按下并释放及提交后验证提交表单
+  $("#adduserform").validate({
+    submitHandler: function() {
+      alert("提交事件!");
+      form.submit();
+    },
+    rules: {
+      add_username: {
+        required: true
+      },
+      add_password: {
+        required: true
+      },
+      add_usergroup: {
+        required: true
+      },
+    },
+    messages: {
+      add_username: {
+        required: "请输入用户名"
+      },
+      add_password: {
+        required: "请输入密码"
+      },
+        add_usergroup: {
+        required: "请输入用户组"
+      },
+     }
+
     })
 });
 
