@@ -10,12 +10,12 @@
                                     </div>
 
                                     <div class="col-md-12">
-                                        <form id="searchform" action="/hostinfo/" method="post" autocomplete="off" >
+                                        <form id="searchform" action="/taskdo/findlog/" method="post" autocomplete="off" >
 
                                                 <label>日期</label>
-                                            <input type="date" id="date_info" value="" min="2019-05-01" max="2099-09-26">
+                                            <input type="date" name="date" id="date_info" value="" min="2019-05-01" max="2099-09-26">
                                                <label>ip地址</label>
-                                               <input name="host_ip" value=" ">
+                                               <input name="host_ip" value="">
                                                     <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i> &nbsp;查询 &nbsp;</button>
 
                                          {% csrf_token %}

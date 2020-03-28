@@ -189,16 +189,40 @@ class FindLogView(LoginRequiredMixin,View):
 
         return render(request,"logs.html",{'logs':logs})
 
+    def post(self,request):
+        date = request.POST.get("date","")
+        ip = request.POST.get("host_ip","")
+
+        if date == "":
+            if ip == "":
+                logs = OpsLog.objects.all().order_by('-date')
+            else:
+                logs = OpsLog.objects.filter(host=ip).order_by('-date')
+        else:
+            if ip == "":
+                logs = OpsLog.objects.filter(date=date).order_by('-date')
+            else:
+                logs = OpsLog.objects.filter(date=date).filter(host=ip).order_by('-date')
+
+        # 分页
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        # Provide Paginator with the request object for complete querystring generation
+        p = Paginator(logs, 10, request=request)
+        logs = p.page(page)
+
+        return render(request, "logs.html", {'logs': logs})
+
 class LogDetailsView(LoginRequiredMixin,View):
     """
     查看日志详细信息
     """
     def get(self,request,log_id):
         log = OpsLog.objects.get(id=int(log_id)).details
-
         log = json.dumps(log)
-
-        print(log)
 
         return render(request,"logdetails.html",{'log':log})
 
