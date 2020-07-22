@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'taskdo',
     'users',
     'pure_pagination',
+    'monitor',
 ]
 
 PAGINATION_SETTINGS = {

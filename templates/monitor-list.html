@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+
+
+                            <div class="card-header bg-light">
+                                主机监控信息列表
+                            </div>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>IP地址</th>
+                                            <th>所属系统</th>
+                                            <th>cpu使用率</th>
+                                            <th>内存使用率</th>
+                                            <th>硬盘使用率</th>
+                                            <th>运行状态</th>
+                                            <th>操作</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                          {% for host in host_status %}
+                                        <tr>
+                                            <td>{{ host.ip }}</td>
+                                            <td>{{ host.sys }}</td>
+                                            <td class="text-nowrap">{{ host.cpu_usage }}%</td>
+                                            <td >{{ host.mem_usage }}%</td>
+                                            <td >{{ host.disk_usage }}%</td>
+                                            <td >{{ host.status }}</td>
+
+                                            <td>
+                                                    <a href="/monitor/monitor{{host.ip}}/" >
+                                                            <i class="icon icon-eye"></i> 查看
+                                                        </a>
+
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+{% endblock %}

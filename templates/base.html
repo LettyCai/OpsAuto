@@ -158,14 +158,22 @@
 
 
 
-                    <li class="nav-item">
-                        <a href="/monitor/monitor/" class="nav-link">
-                            <i class="icon icon-camera"></i> 监控管理
+                    <li class="nav-item nav-dropdown">
+                        <a  href="#" class="nav-link nav-dropdown-toggle">
+                            <i class="icon icon-camera"></i> 监控管理 <i class="fa fa-caret-left"></i>
                         </a>
-                           <ul class="nav-dropdown-items">
+
+                        <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a href="/monitor/monitor/" class="nav-link {% block monitor %}{% endblock %}" >
-                                    <i class="icon icon-arrow-right"></i> 监控
+                                    <i class="icon icon-arrow-right"></i> 监控配置
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/monitor/monitorlist/" class="nav-link {% block monitorlist %}{% endblock %}">
+                                    <i class="icon icon-arrow-right"></i> 主机状态列表
                                 </a>
                             </li>
                         </ul>

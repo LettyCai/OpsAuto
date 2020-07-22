@@ -6,6 +6,8 @@ from django.http import JsonResponse,HttpResponse
 from hostsinfo.models import HostsInfo,HostGroup
 import  paramiko
 from hostsinfo.utils import prpcrypt
+from monitor.utils import ssh,getmsg
+from monitor.models import HostStatus
 # Create your views here.
 
 class MonitorView(View):
@@ -16,87 +18,47 @@ class MonitorView(View):
         """
         return self.request.user.role != 2
 
-    def get(self,request):
-        groups = HostGroup.objects.all()
-        return render(request,"monitor.html",{"groups":groups})
+    def get(self,request,host_ip):
+        hoststatus = HostStatus.objects.get(ip=host_ip)
+        data = {"mem_use_data": hoststatus.mem_usage, "cpu_use_data": hoststatus.cpu_usage, "disk_use_data": hoststatus.disk_usage}
+        data = getmsg(host_ip)
+        return render(request,"monitor.html",{"data":data})
 
     def post(self,request):
         hostip = request.POST.get("hostip","")
         host = HostsInfo.objects.get(ip=hostip)
-        password = host.ssh_passwd
-        pc = prpcrypt()
-        password = pc.decrypt(password).decode(encoding='UTF-8', errors='strict')
-        result = []
+        has_host = HostStatus.objects.filter(ip=hostip)
 
+        if has_host:
+            hoststatus = HostStatus.objects.get(ip=hostip)
+        else:
+            hoststatus = HostStatus()
 
-        try:
-            a2 = "parted -l  | grep   \"Disk \/dev\/[a-z]d\"  | awk -F\"[ ]\"  '{print $3}' | awk  -F\"GB\"  '{print $1}'"
-            s = ssh(ip=hostip,password=password, cmd=a2)
-            disk1 = s['data']
-            disk2 = disk1.rstrip().split("\n")
-            disk = "+".join(map(str, disk2)) #+ "   共计:{} GB".format(round(sum(map(float, disk2))))
-            result.append({"total_disk": disk})
-        except Exception  as  e:
-            result.append({"msg":e})
+        data = getmsg(hostip)
 
+        hoststatus.ip = hostip
+        hoststatus.sys = host.mathine_type
+        hoststatus.mem_usage = data["mem_use_data"]
+        hoststatus.cpu_usage = data["cpu_use_data"]
+        hoststatus.disk_usage = data["disk_use_data"]
+        hoststatus.status = "正常"
 
-        try:
-            a1 = "top -b -n 1 | grep Cpu | awk -F\"[ ]\"  '{print $3}' "
-            s = ssh(ip=hostip,password=password, cmd=a1)
-            cpu_use = s['data']
-            cpu_use_data = int(float(cpu_use))
-            result.append({"cpu_use_data":cpu_use_data})
-        except Exception as e:
-            result.append({"msg2": e})
-            cpu_use_data = e
-
-        try:
-            a3 = "free | grep Mem | awk '{print $2}' "
-            s = ssh(ip=hostip, password=password, cmd=a3)
-            mem_total = s['data']
-            a4 = "free | grep Mem | awk '{print $3}' "
-            s = ssh(ip=hostip, password=password, cmd=a4)
-            mem_use = s['data']
-            mem_use_data = int(int(mem_use)/int(mem_total)*100)
-            result.append({"mem_use_data": mem_use_data})
-
-
-        except Exception as e:
-            result.append({"msg2": e})
-            mem_use_data = e
-
-        try:
-            a4 = "df -P | grep /$ | awk '{print $5}' | sed 's/%//g'"
-            s = ssh(ip=hostip, password=password, cmd=a4)
-            disk_use = int(s['data'])
-        except Exception as e:
-            result.append({"msg3": e})
-            disk_use = e
-
-        #return render(request, "monitor.html",{"mem_use_data": mem_use_data,"cpu_use_data":cpu_use_data,"disk_use_data":disk_use})
-
-        data = {"mem_use_data": mem_use_data,"cpu_use_data":cpu_use_data,"disk_use_data":disk_use}
+        hoststatus.save()
 
         return JsonResponse(data, safe=False)
 
 
+class MonitorListView(View):
+    def test_func(self):
+        """
+        重载父类方法，实现系统管理员、运维人员角色的用户才能访问
+        :return:
+        """
+        return self.request.user.role != 2
 
-def ssh(ip, password, cmd):
-    try:
-        ssh = paramiko.SSHClient()  # 创建ssh对象
-        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(hostname=ip, port=22, username="root", password=password, )
-        stdin, stdout, stderr = ssh.exec_command(cmd, timeout=10)
+    def get(self,request):
 
-        result = stdout.read()
-        result1 = result.decode()
-        error = stderr.read().decode('utf-8')
+        host_status = HostStatus.objects.all()
+        return render(request,"monitor-list.html",{"host_status":host_status})
 
-        if not error:
-            ret = {"ip": ip, "data": result1}
-            ssh.close()
-            return ret
-    except Exception as e:
-        error = "账号或密码错误,{}".format(e)
-        ret = {"ip": ip, "data": error}
-        return ret
+
